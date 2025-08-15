@@ -1,201 +1,191 @@
-# 2. INTERFACES AND CABLES
+# 2. GIAO DIỆN VÀ CÁP MẠNG
 
-SWITCHES provide many PORTS for connectivity (usually 24)
+SWITCH cung cấp nhiều CỔNG để kết nối (thường là 24 cổng)
 
-These PORTS tend to be RJ-45 (Registered Jack) ports.
+Những CỔNG này thường là cổng RJ-45 (Registered Jack).
 
 ---
 
-WHAT IS ETHERNET?
+ETHERNET LÀ GÌ?
 
-- Ethernet is a collection of network protocols/standards.
+- Ethernet là một tập hợp các giao thức/tiêu chuẩn mạng.
 
-Why do we need network protocols and standards?
+Tại sao chúng ta cần các giao thức và tiêu chuẩn mạng?
 
-- provide common communication standards over networks.
-- provide common hardware standards to allow connectivity between devices.
+- cung cấp các tiêu chuẩn giao tiếp chung qua mạng.
+- cung cấp các tiêu chuẩn phần cứng chung để cho phép kết nối giữa các thiết bị.
 
+Kết nối giữa các thiết bị hoạt động ở một tốc độ đã đặt.
 
+Những tốc độ này được đo bằng "bit trên giây" (bps)
 
-Connections between devices operates at a set speed.
+Một bit là giá trị "0" hoặc "1".
+Một byte là 8 bit (0 và 1)
 
-These speeds are measured in "bits per second" (bps)
-
-A bit is a value of "0" or "1".
-A byte is 8 bits (0s and 1s)
-
-| Size | # of Bits |
+| Kích Thước | Số Bit |
 | --- | --- |
 | 1 kilobit (Kb) |  1,000 |
 | 1 megabit (Mb) | 1,000,000 |
 | 1 gigabit (Gb) | 1,000,000,000 |
 | 1 terabit (Tb) | 1,000,000,000,000  |
 
-Ethernet standards are:
+Các tiêu chuẩn Ethernet:
 
-- Defined in the IEEE 802.3 standard in 1983
-- IEEE = Institute of Electrical and Electronics Engineers
+- Được định nghĩa trong tiêu chuẩn IEEE 802.3 năm 1983
+- IEEE = Viện Kỹ sư Điện và Điện tử
 
-ETHERNET STANDARDS (COPPER)
+TIÊU CHUẨN ETHERNET (ĐỒNG)
 
-| Speed | Common Name | Standard | Cable Type | Max Transmission Distance |
+| Tốc Độ | Tên Thông Dụng | Tiêu Chuẩn | Loại Cáp | Khoảng Cách Truyền Tối Đa |
 | --- | --- | --- | --- | --- |
-| 10 Mbps | Ethernet | 802.3i | 10BASE-T | 100m Max |
-| 100 Mbps | Fast Ethernet | 802.3u | 100BASE-T | 100m Max |
-| 1 Gbps | Gigabit Ethernet | 802.3ab | 1000BASE-T | 100m Max |
-| 10 Gbps | 10 Gigabit Ethernet | 802.3an | 10GBASE-T | 100m Max |
+| 10 Mbps | Ethernet | 802.3i | 10BASE-T | Tối đa 100m |
+| 100 Mbps | Fast Ethernet | 802.3u | 100BASE-T | Tối đa 100m |
+| 1 Gbps | Gigabit Ethernet | 802.3ab | 1000BASE-T | Tối đa 100m |
+| 10 Gbps | 10 Gigabit Ethernet | 802.3an | 10GBASE-T | Tối đa 100m |
 
-BASE = refers to Baseband Signaling
+BASE = đề cập đến Tín hiệu Băng tần Cơ sở
 
-T = Twisted Pair 
+T = Cặp Xoắn (Twisted Pair)
 
-Most Ethernet uses copper cables.
+Hầu hết Ethernet sử dụng cáp đồng.
 
-UTP or Unshielded Twisted Pair
-(no metallic shield)
-Twist protects against EMI (Electromagnetic Interference)
+UTP hoặc Cặp Xoắn Không Che Chắn
+(không có lá chắn kim loại)
+Xoắn bảo vệ chống nhiễu điện từ EMI (Electromagnetic Interference)
 
-Most use 8 wires (4 pairs) however ...
+Hầu hết sử dụng 8 dây (4 cặp) tuy nhiên ...
 
-10/100BASE-T = 2 pairs (4 wires)
+10/100BASE-T = 2 cặp (4 dây)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/00b27997-a78a-4e81-a878-7f8ab7e3279e)
 
-
 ---
 
-How do devices communicate via their connections?
+Các thiết bị giao tiếp qua kết nối của chúng như thế nào?
 
-Each ethernet cable has a RJ-45 plug with 8 pins on the ends.
+Mỗi cáp ethernet có đầu cắm RJ-45 với 8 chân ở các đầu.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/323930c9-3387-4bf9-aae1-f61db0fd9c04)
 
+- PC Truyền(TX) dữ liệu trên Chân #1-2
+- Switch Nhận(RX) dữ liệu trên Chân #1-2
+- PC Nhận(RX) dữ liệu trên Chân #3,6
+- Switch Truyền(TX) dữ liệu trên Chân #3,6
 
-- PCs Transmit(TX) data on Pins #1-2
-- Switches Receive(RX) data on Pins #1-2
-- PCs Receive(RC) data on Pins #3,6
-- Switches Transmit(TX) data on Pins #3,6
-
-This allows Full-Duplex transmission of data.
+Điều này cho phép truyền dữ liệu Song công Toàn phần (Full-Duplex).
 
 ---
 
-What if a Router / Switch connect?
+Điều gì xảy ra nếu Router / Switch kết nối?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/907259d9-1837-4d53-8f45-a42934fb66f2)
 
+- Router Truyền(TX) dữ liệu trên Chân #1-2
+- Router Nhận(RX) dữ liệu trên Chân #3,6
+- Switch Truyền(TX) dữ liệu trên Chân #3,6
+- Switch Nhận(RX) dữ liệu trên Chân #1-2
 
-- Routers Transmit(TX) data on Pins #1-2
-- Routers Receive(RX) data on Pins #3,6
-- Switches Transmit(TX) data on Pins #3,6
-- Switches Receive(RX) data on Pins #1-2
+Router và PC kết nối với Switch theo cùng một cách.
 
-Routers and PCs connect the same way with Switches.
-
-The cable used to connect is called a "Straight-Through" cable.
+Cáp được sử dụng để kết nối được gọi là cáp "Thẳng" (Straight-Through).
 
 ---
 
-What if we want to connect similar devices to each other?
+Điều gì xảy ra nếu chúng ta muốn kết nối các thiết bị tương tự với nhau?
 
-We CANNOT use a "Straight-Through" cable.
-We MUST use a "Crossover" cable.
+Chúng ta KHÔNG THỂ sử dụng cáp "Thẳng".
+Chúng ta PHẢI sử dụng cáp "Chéo" (Crossover).
 
-This cable swaps the pins on one end to allow connection to work.
+Cáp này hoán đổi các chân ở một đầu để cho phép kết nối hoạt động.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d98646ad-366f-4e96-8c6f-f6b5f32f9bdc)
 
+CHÂN#1 -----> CHÂN#3
+CHÂN#2 -----> CHÂN#6
 
-PIN#1 -----> PIN#3
-PIN#2 -----> PIN#6
-
-PIN#3 -----> PIN#1
-PIN#6 -----> PIN#2
+CHÂN#3 -----> CHÂN#1
+CHÂN#6 -----> CHÂN#2
 
 ---
 
-| DEVICE TYPE | TRANSMIT (TX) PINS | RECEIVE (RX) PINS |
+| LOẠI THIẾT BỊ | CHÂN TRUYỀN (TX) | CHÂN NHẬN (RX) |
 | --- | --- | --- |
-| ROUTER | 1 and 2 | 3 and 6 |
-| FIREWALL | 1 and 2 | 3 and 6 |
-| PC | 1 and 2 | 3 and 6 |
-| SWITCH | 3 and 6 | 1 and 2 |
+| ROUTER | 1 và 2 | 3 và 6 |
+| FIREWALL | 1 và 2 | 3 và 6 |
+| PC | 1 và 2 | 3 và 6 |
+| SWITCH | 3 và 6 | 1 và 2 |
 
 ---
 
-Most modern equipment now has AUTO MDI-X which **automatically detects** which pins their neighbour is transmitting on and adjust the pins they receive data on.
+Hầu hết thiết bị hiện đại hiện có AUTO MDI-X **tự động phát hiện** chân nào mà thiết bị láng giềng đang truyền và điều chỉnh các chân mà chúng nhận dữ liệu.
 
-1000BASE-T/10GBASE-T = 4 pairs (8 wires)
+1000BASE-T/10GBASE-T = 4 cặp (8 dây)
 
-Each wire pair is **bidirectional** so can transmit/receive much faster than 10/100BASE-T.
+Mỗi cặp dây là **hai chiều** nên có thể truyền/nhận nhanh hơn nhiều so với 10/100BASE-T.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/763c841a-d7b5-4e87-8500-b54d623af620)
 
-
 ---
 
-Fiber-Optic Connections:
+Kết nối Cáp Quang:
 
-- Defined in the IEEE 802.3ae standard
+- Được định nghĩa trong tiêu chuẩn IEEE 802.3ae
 
-SFP Transceiver (Small Form-Factor Pluggable) allows fiber-optic cables to connect to switches/routers.
+Bộ Thu Phát SFP (Small Form-Factor Pluggable) cho phép cáp quang kết nối với switch/router.
 
-- Have separate cables to transmit / receive.
+- Có các cáp riêng biệt để truyền / nhận.
 
-4 parts to a fiber-optic cable.
+4 phần của cáp quang.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/70b81cde-265f-413b-815b-3e7184ea0586)
 
+Có HAI loại cáp quang.
 
-There are TWO types of fiberoptic cable.
-
-Single-Mode:
+Đơn Mode (Single-Mode):
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d9a4b633-44c2-491d-92e4-329dd3b9074b)
 
+- Hẹp hơn đa mode
+- Ánh sáng đi vào ở một góc duy nhất (mode) từ bộ truyền dựa trên laser.
+- Cho phép cáp dài hơn cả UTP và cáp quang đa mode.
+- Đắt hơn cáp quang đa mode (do bộ truyền SFP dựa trên laser đắt hơn)
 
-- Narrower than multimode
-- Lighter enters at a single angle (mode) from a laser-based transmitter.
-- Allows longer cables than both UTP and multimode fiber.
-- More expensive than multimode fiber (due to more expensive laser-based SFP transmitters)
-
-Multimode:
+Đa Mode (Multimode):
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e73ec4d0-9aa1-4a75-848c-3af70e770dce)
 
-
-- Core is wider than Single-mode
-- Allows multiple angles (modes) of light waves to enter core
-- Allows longer cables than UTP but shorter than single-mode
-- Cheaper than single-mode fiber (due to cheaper LED-based SFP transmitter)
+- Lõi rộng hơn Đơn mode
+- Cho phép nhiều góc (mode) của sóng ánh sáng đi vào lõi
+- Cho phép cáp dài hơn UTP nhưng ngắn hơn đơn mode
+- Rẻ hơn cáp quang đơn mode (do bộ truyền SFP dựa trên LED rẻ hơn)
 
 ---
 
-Fiber Optic Standards:
+Tiêu Chuẩn Cáp Quang:
 
-| Speed | Standard | Connection Speed | Mode Support | Max Transmission Distance |
+| Tốc Độ | Tiêu Chuẩn | Tốc Độ Kết Nối | Hỗ Trợ Mode | Khoảng Cách Truyền Tối Đa |
 | --- | --- | --- | --- | --- |
-| 1000BASE-LX | 802.3z | 1 Gbps | Multimode / Single | 550 meters (Multi)  / 5km (Single) |
-| 10GBASE-SR | 802.3ae | 10 Gbps | Multimode | 400 meters |
-| 10GBASE-LR | 802.3ae | 10 Gbps | Single | 10 kilometers |
-| 10GBASE-ER | 802.3ae | 10 Gbps | Single | 30 kilometers |
+| 1000BASE-LX | 802.3z | 1 Gbps | Đa mode / Đơn mode | 550 mét (Đa) / 5km (Đơn) |
+| 10GBASE-SR | 802.3ae | 10 Gbps | Đa mode | 400 mét |
+| 10GBASE-LR | 802.3ae | 10 Gbps | Đơn mode | 10 kilômét |
+| 10GBASE-ER | 802.3ae | 10 Gbps | Đơn mode | 30 kilômét |
 
 ---
 
-UTP vs Fiber-Optic Cabling:
+So Sánh Cáp UTP vs Cáp Quang:
 
-UTP are:
+UTP:
 
-- Lower cost than fiber-optic.
-- Shorter maximum distance than fiber-optic (~100m).
-- Can be vulnerable to EMI (Electromagnetic Interference).
-- RJ45 ports used with UTP are cheaper than SFP ports.
-- Emit (leak) a faint signal outside of cable, which can be copied (security risk).
+- Chi phí thấp hơn cáp quang.
+- Khoảng cách tối đa ngắn hơn cáp quang (~100m).
+- Có thể dễ bị nhiễu EMI (Nhiễu Điện từ).
+- Cổng RJ45 sử dụng với UTP rẻ hơn cổng SFP.
+- Phát ra (rò rỉ) tín hiệu yếu bên ngoài cáp, có thể bị sao chép (rủi ro bảo mật).
 
-Fiber-Optic:
+Cáp Quang:
 
-- Higher cost than UTP.
-- Longer maximum distance than UTP.
-- No vulnerability to EMI.
-- SFP ports are more expensive than RJ45 ports (single-mode is more expensive than multimode).
-- Does not emit any signal outside of the cable (no security risk).
+- Chi phí cao hơn UTP.
+- Khoảng cách tối đa dài hơn UTP.
+- Không dễ bị nhiễu EMI.
+- Cổng SFP đắt hơn cổng RJ45 (đơn mode đắt hơn đa mode).
+- Không phát ra tín hiệu nào bên ngoài cáp (không có rủi ro bảo mật).

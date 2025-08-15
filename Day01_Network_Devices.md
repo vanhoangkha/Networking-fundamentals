@@ -1,31 +1,31 @@
-# 1. NETWORKING DEVICES
+# 1. THIẾT BỊ MẠNG
 
-## What is a network?
+## Mạng là gì?
 
-A computer network is a digital telecommunications network allows NODES to share RESOURCES.
+Mạng máy tính là một mạng viễn thông số cho phép các NÚT (NODES) chia sẻ TÀI NGUYÊN (RESOURCES).
 
-A CLIENT is a device that accesses a service made available by a SERVER.
+KHÁCH HÀNG (CLIENT) là thiết bị truy cập dịch vụ được cung cấp bởi MÁY CHỦ (SERVER).
 
-A SERVER is a device that provides functions or services for CLIENTS.
+MÁY CHỦ (SERVER) là thiết bị cung cấp chức năng hoặc dịch vụ cho KHÁCH HÀNG (CLIENTS).
 
-- Note : The same device can be a CLIENT in some situations and a SERVER in other situations. Ex: A Peer-to-Peer network.
+- Lưu ý: Cùng một thiết bị có thể là KHÁCH HÀNG trong một số tình huống và là MÁY CHỦ trong các tình huống khác. Ví dụ: Mạng ngang hàng (Peer-to-Peer network).
 
-SWITCHES (Level 2):
+SWITCH (Tầng 2):
 
-- provide connectivity to hosts within the same LAN (Local Area Network)
-- Have many network interfaces/ports for End Hosts to connect to.
-- DO NOT provide connectivity between LANs/over the Internet.
+- cung cấp kết nối cho các host trong cùng một LAN (Mạng Cục Bộ)
+- Có nhiều giao diện mạng/cổng để các End Host kết nối.
+- KHÔNG cung cấp kết nối giữa các LAN/qua Internet.
 
-ROUTERS (Level 3):
+ROUTER (Tầng 3):
 
-- have fewer network interfaces than switches.
-- are used to provide connectivity BETWEEN LANs.
-- are used to send data over the Internet.
+- có ít giao diện mạng hơn switch.
+- được sử dụng để cung cấp kết nối GIỮA các LAN.
+- được sử dụng để gửi dữ liệu qua Internet.
 
-FIREWALL (Can be Level 3,4, and 7):
+TƯỜNG LỬA (FIREWALL) (Có thể là Tầng 3, 4, và 7):
 
-- Firewalls are specialty hardware network security devices that control network traffic entering/exiting your network.
-- Can be places "inside" or "outside" the network.
-- Monitor and control network traffic based on configured rules.
-- Are known as "Next-Generation Firewalls" when they include more modern and advanced filtering capabilities.
-- Host-based firewalls are software applications that filter traffic entering and exiting a host machine, like a PC.
+- Tường lửa là các thiết bị bảo mật mạng phần cứng chuyên dụng kiểm soát lưu lượng mạng vào/ra khỏi mạng của bạn.
+- Có thể được đặt "bên trong" hoặc "bên ngoài" mạng.
+- Giám sát và kiểm soát lưu lượng mạng dựa trên các quy tắc đã cấu hình.
+- Được gọi là "Tường lửa Thế hệ Mới" khi chúng bao gồm các khả năng lọc hiện đại và tiên tiến hơn.
+- Tường lửa dựa trên host là các ứng dụng phần mềm lọc lưu lượng vào và ra khỏi máy host, như PC.
