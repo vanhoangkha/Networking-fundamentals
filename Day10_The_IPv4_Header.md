@@ -1,4 +1,4 @@
-# 10. THE IPv4 Header
+# 10. THE IPV4 HEADER
 
 Internet Giao thức version 4 Header or IPv4 Header
 
@@ -72,8 +72,8 @@ DSCP (Differentiated Services Code Point):
 ECN (Explicit Congestion Notification):
 
 - LENGTH is 2 bits.
-- Provides end-to-end (between two endpoints) notification of Mạng congestion WITHOUT dropping packets.
-- Optional feature that requires both endpoints, as well as the underlying Mạng Hạ tầng to support it.
+- Provides end-to-end (between two endpoints) notification of Network congestion WITHOUT dropping packets.
+- Optional feature that requires both endpoints, as well as the underlying Network Hạ tầng to support it.
 
 ---
 
@@ -123,7 +123,7 @@ TIME TO LIVE (TTL):
 - Used to prevent infinite loops
 - Originally designed to indicated a packets maximum lifetime in seconds.
 - In practice, indicates a 'hop count': each time the Gói tin arrives at a Router, the Router decreases the TTL by 1.
-- Recommended Mặc định TTL is 64.
+- Recommended Default TTL is 64.
 
 ---
 

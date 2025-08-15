@@ -3,8 +3,8 @@
 SYSLOG OVERVIEW
 
 - SYSLOG is an INDUSTRY-STANDARD Giao thức for message logging
-- On Mạng DEVICES, SYSLOG can be used to LOG EVENTS
-    - Changes in Giao diện status (UP / DOWN)
+- On Network DEVICES, SYSLOG can be used to LOG EVENTS
+    - Changes in Interface status (UP / DOWN)
     - Changes in OSFP NEIGHBOUR STATUS (UP / DOWN)
     - System Restarts
     - etc…
@@ -22,7 +22,7 @@ SYSLOG MESSAGE FORMAT
 `seq: time stamp: %facility-severity-MNEMONIC:description`
 
 <aside>
-💡 These TWO FIELDS may or may not be displayed, depending on the DEVICE’S Cấu hình
+💡 These TWO FIELDS may or may not be displayed, depending on the DEVICE’S Configuration
 
 </aside>
 
@@ -58,20 +58,20 @@ Official RFC for SYSLOG severity levels
 SYSLOG LOGGING LOCATIONS
 
 - **CONSOLE LINE**
-    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via the CONSOLE Cổng. By Mặc định, all messages (Level 0-7) are displayed
+    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via the CONSOLE Port. By Default, all messages (Level 0-7) are displayed
 - **BUFFER**
-    - Syslog messages will be saved to RAM. By Mặc định, ALL messages (Level 0-7) are displayed
+    - Syslog messages will be saved to RAM. By Default, ALL messages (Level 0-7) are displayed
 - **VTY LINES**
-    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via Telnet/SSH (coming in a later video). Disabled by Mặc định.
+    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via Telnet/SSH (coming in a later video). Disabled by Default.
 
 - **EXTERNAL SERVER**
     - You can configure the DEVICE to send SYSLOG messages to an external server
 
-** SYSLOG SERVERS will listen for messages on UDP Cổng 514 **
+** SYSLOG SERVERS will listen for messages on UDP Port 514 **
 
 ---
 
-SYSLOG Cấu hình
+SYSLOG Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a5321bcf-d149-4a3d-82a2-197426cf484a)
 
@@ -81,14 +81,14 @@ SYSLOG Cấu hình
 
 TERMINAL MONITOR
 
-- Even if `logging monitor level` is enabled, by Mặc định SYSLOG messages will not be displayed when connected via Telnet or SSH
+- Even if `logging monitor level` is enabled, by Default SYSLOG messages will not be displayed when connected via Telnet or SSH
 - For the messages to be displayed, you must use the following Lệnh:
     - `R1# terminal monitor`
 - The Lệnh must be used **every time you connect to the DEVICE via Telnet or SSH**
 
 LOGGING SYNCHRONOUS
 
-- By Mặc định, logging messages displayed in the CLI while you are in the middle of typing a Lệnh will result in something like this:
+- By Default, logging messages displayed in the CLI while you are in the middle of typing a Lệnh will result in something like this:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bf0ed51a-c8b4-4c96-806a-ba90f829edd0)
 
@@ -113,13 +113,13 @@ SYSLOG versus SNMP
 - SYSLOG
     - Used for MESSAGE LOGGING
     - Events that occur within the system are categorized based on FACILITY / SEVERITY and LOGGED
-    - Used for SYSTEM Quản lý, ANALYSIS, and Khắc phục sự cố
+    - Used for SYSTEM Management, ANALYSIS, and Khắc phục sự cố
     - Messages are sent from the DEVICES to the SERVER.
         - The SERVER can’t actively pull information from the DEVICES (like SNMP ‘get’) or modify variables (like SNMP ‘set’)
 - SNMP
     - Used to retrieve and organize information about the SNMP managed DEVICES
         - IP ADDRESSES
-        - Current Giao diện status
+        - Current Interface status
         - Temperature
         - CPU Usage
         - etc…

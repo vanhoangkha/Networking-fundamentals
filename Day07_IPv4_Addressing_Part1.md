@@ -1,6 +1,6 @@
-# 7. IPv4 ADDRESSING : PART 1
+# 7. IPV4 ADDRESSING : PART 1
 
-OSI MODEL - Mạng LAYER (Layer 3)
+OSI MODEL - Network LAYER (Layer 3)
 
 - Provides connectivity between end hosts on DIFFERENT networks (ie: outside of the LAN)
 - Provides logical addressing (IP addresses)
@@ -11,7 +11,7 @@ OSI MODEL - Mạng LAYER (Layer 3)
 
 SWITCHES (Layer 2 Devices) do no separate different networks. They connect and EXPAND networks within the same LAN.
 
-By adding a Router, however, between two SWITCHES, you create a SPLIT in the Mạng; each with it's own Mạng Địa chỉ IP.
+By adding a Router, however, between two SWITCHES, you create a SPLIT in the Network; each with it's own Network Địa chỉ IP.
 
 Example:
 192.168.1.0/24 (255.255.255.0)
@@ -20,20 +20,20 @@ Example:
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3d414956-cb53-46f6-b386-3fc9bba11802)
 
 
-ROUTERS have unique IP Addresses for EACH of their Giao diện connections, depending on their location.
+ROUTERS have unique IP Addresses for EACH of their Interface connections, depending on their location.
 
-The Địa chỉ IP for the Router's G0/0 Giao diện is:
+The Địa chỉ IP for the Router's G0/0 Interface is:
 192.168.1.254/24
 
-The Địa chỉ IP for the Router's G0/1 Giao diện is:
+The Địa chỉ IP for the Router's G0/1 Interface is:
 192.168.2.254/24
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6e593774-4113-4493-89bb-4d394cb29e1d)
 
 
-The Địa chỉ IP depends on Mạng address of the LAN it is connects to.
+The Địa chỉ IP depends on Network address of the LAN it is connects to.
 
-The Mạng portion of given Địa chỉ IP will be the same for all HOSTS on a given LAN.
+The Network portion of given Địa chỉ IP will be the same for all HOSTS on a given LAN.
 
 Example:
 
@@ -41,7 +41,7 @@ Example:
 192.168.1.105
 192.168.1.205
 
-All of these addresses are on the SAME Mạng because the Mạng PORTION of their Địa chỉ IP is the same (192.168.1) while the HOST part (100,105,205) is UNIQUE!
+All of these addresses are on the SAME Network because the Network PORTION of their Địa chỉ IP is the same (192.168.1) while the HOST part (100,105,205) is UNIQUE!
 
 When a Broadcast message hits a Router, it does NOT continue onward. It stays within the LOCAL LAN (Switch/Hosts).
 
@@ -215,9 +215,9 @@ But what does the /24 stand for?
 ![image](https://github.com/psaumur/CCNA/assets/106411237/808fa7fa-0239-42fa-9706-79db87ea167e)
 
 
-It means the FIRST 24 BITS of this address represent the Mạng portion of the address.
+It means the FIRST 24 BITS of this address represent the Network portion of the address.
 
-192.168.1 is the Mạng PORTION (the first 3 OCTETS)
+192.168.1 is the Network PORTION (the first 3 OCTETS)
 
 .254 is the HOST PORTION (the last OCTET)
 
@@ -241,7 +241,7 @@ Octets:
 
 The IPv4 address is: 154.78.111.32/16
 
-154.78 is the Mạng PORTION
+154.78 is the Network PORTION
 111.32 is the HOST PORTION
 
 Another Example:
@@ -259,7 +259,7 @@ Octets:
 
 The IPv4 address is: 12.128.251.23/8
 
-12 is the Mạng PORTION
+12 is the Network PORTION
 128.251.23 is the HOST PORTION
 
 ---
@@ -294,16 +294,16 @@ A CLASS USUALLY have a range of 1-126? WHY?
 
 Because 127 is usually reserved for 'loopback addresses'
 
-127.0.0.0 to 127.255.255.255 are used to test the Mạng.
+127.0.0.0 to 127.255.255.255 are used to test the Network.
 
-- Used to test the 'Mạng stack' (OSI & TCP/IP model) on the local device.
+- Used to test the 'Network stack' (OSI & TCP/IP model) on the local device.
 
 ---
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/25f7db1a-f934-4c73-9926-66bb207fd292)
 
 
-The PREFIX LENGTH is the LENGTH of the Mạng PORTION of the Address.
+The PREFIX LENGTH is the LENGTH of the Network PORTION of the Address.
 
 From the examples above:
 
@@ -311,9 +311,9 @@ From the examples above:
 154.78.111.32/16 is a CLASS B Address
 192.168.1.254/24 is a CLASS C Address
 
-Because the Mạng portion of CLASS A is so short, it means there are a LOT more potential Hosts.
+Because the Network portion of CLASS A is so short, it means there are a LOT more potential Hosts.
 
-Because the Mạng portion of CLASS C is so long, it means fewer potential Hosts.
+Because the Network portion of CLASS C is so long, it means fewer potential Hosts.
 
 ---
 
@@ -332,22 +332,22 @@ CLASS C: /24 = 255.255.255.0
 
 ---
 
-Mạng ADDRESSES
+Network ADDRESSES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/12178b46-2604-468b-a11c-2a94087b023d)
 
 
-If the HOST PORTION of an Địa chỉ IP is ALL 0's, it means it is the Mạng ADDRESS = the identifier of the Mạng itself.
+If the HOST PORTION of an Địa chỉ IP is ALL 0's, it means it is the Network ADDRESS = the identifier of the Network itself.
 
-Example: 192.168.1.0/24 = THIS is a Mạng ADDRESS.
+Example: 192.168.1.0/24 = THIS is a Network ADDRESS.
 
-A Mạng ADDRESS cannot be assigned to a HOST.
-A Mạng ADDRESS is the FIRST ADDRESS.
+A Network ADDRESS cannot be assigned to a HOST.
+A Network ADDRESS is the FIRST ADDRESS.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/53eafb43-2a6f-422c-af19-866946d78efa)
 
 
-If the HOST PORTION of an Địa chỉ IP is ALL 1's, it means it is the Broadcast ADDRESS for the Mạng.
+If the HOST PORTION of an Địa chỉ IP is ALL 1's, it means it is the Broadcast ADDRESS for the Network.
 
 A Broadcast ADDRESS cannot be assigned to a HOST.
 

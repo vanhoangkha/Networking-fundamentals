@@ -1,14 +1,14 @@
-# 47. QoS (Chất lượng dịch vụ) : PART 2
+# 47. QOS (CHẤT LƯỢNG DỊCH VỤ) : PART 2
 
 Phân loại / Đánh dấu
 
-- Mục đích của QoS is to give certain kinds of Mạng TRAFFIC priority over other during congestion
-- Phân loại organizes Mạng TRAFFIC (PACKETS) into TRAFFIC CLASSES (CATEGORIES)
+- Mục đích của QoS is to give certain kinds of Network TRAFFIC priority over other during congestion
+- Phân loại organizes Network TRAFFIC (PACKETS) into TRAFFIC CLASSES (CATEGORIES)
 - Phân loại is fundamental to QoS.
     - To give PRIORITY to certain types of TRAFFIC, you have to IDENTIFY which types of TRAFFIC to give PRIORITY to.
 - There are MANY methods of CLASSIFYING TRAFFIC
     - An ACL : TRAFFIC which is permitted by the ACL will be given certain TREATMENT, other TRAFFIC will not
-    - NBAR (Mạng Based Application Recognition) performs a *DEEP Gói tin INSPECTION,* looking beyond the LAYER 3 and LAYER 4 information up to LAYER 7 to identify the specific kinds of TRAFFIC
+    - NBAR (Network Based Application Recognition) performs a *DEEP Gói tin INSPECTION,* looking beyond the LAYER 3 and LAYER 4 information up to LAYER 7 to identify the specific kinds of TRAFFIC
     - In the LAYER 2 and LAYER 3 HEADERS there are specific FIELDS used for this purpose
 - The PCP (PRIORITY CODE POINT) FIELD of the 802.1Q Tag (in the Ethernet Header) can be used to identify HIGH / LOW PRIORITY TRAFFIC
     - ** ONLY when there is a dot1q tag!
@@ -58,7 +58,7 @@ IP PRECEDENCE (OLD)
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1b0ca3ca-fc8d-4225-9368-64c8ff9587da)
 
 - Standard IPP markings are similar to PCP:
-    - 6 and 7 are reserved to ‘Mạng control traffic’ (ie: OSPF Messages between ROUTERS)
+    - 6 and 7 are reserved to ‘Network control traffic’ (ie: OSPF Messages between ROUTERS)
     - 5 = VOICE
     - 4 = VIDEO
     - 3 = VOICE SIGNALLING
@@ -80,7 +80,7 @@ DSCP (CURRENT)
         - etc.
 
 - You should be AWARE of the FOLLOWING STANDARD MARKINGS:
-    - Mặc định FORWARDING (DF) - Best Effort TRAFFIC
+    - Default FORWARDING (DF) - Best Effort TRAFFIC
     - EXPEDITED FORWARDING (EF) - Low Loss / Latency / Jitter TRAFFIC (usually voice)
     - ASSURED FORWARDING (AF) - A set of 12 STANDARD VALUES
     - CLASS SELECTOR (CS) - A set of 8 STANDARD VALUES, provides backward compatibility with IPP
@@ -89,7 +89,7 @@ DSCP (CURRENT)
 
 DF / EF
 
-Mặc định FORWARDING (DF)
+Default FORWARDING (DF)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/26f6bc76-6b33-40f0-9327-022b4816d280)
 
@@ -160,7 +160,7 @@ RFC 4954
 
 TRUST BOUNDARIES
 
-- The TRUST BOUNDARY of a Mạng defines where the DEVICE TRUST / DON’T TRUST the QoS MARKINGS of received messages
+- The TRUST BOUNDARY of a Network defines where the DEVICE TRUST / DON’T TRUST the QoS MARKINGS of received messages
 - If the MARKINGS are TRUSTED:
     - DEVICE will forward the message without changing the MARKINGS
 - If the MARKINGS are NOT TRUSTED:
@@ -168,17 +168,17 @@ TRUST BOUNDARIES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cdcdc302-9dbe-4dd8-9184-72d1f501bc1a)
 
-- If an IP PHONE is connected to the Switch Cổng, it is RECOMMENDED to move the TRUST BOUNDARY to the IP PHONES
-- This is done via Cấu hình on the Switch Cổng connected to the IP PHONE
+- If an IP PHONE is connected to the Switch Port, it is RECOMMENDED to move the TRUST BOUNDARY to the IP PHONES
+- This is done via Configuration on the Switch Port connected to the IP PHONE
 - If a user MARKS their PC’s TRAFFIC with a HIGH PRIORITY, the Đánh dấu will be CHANGED (not trusted)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/606ad681-fad4-4f23-96bf-bd7dde91eaf4)
 
 ---
 
-QUEUING / CONGESTION Quản lý
+QUEUING / CONGESTION Management
 
-- When a Mạng DEVICE receives TRAFFIC at a FASTER PACE than it can FORWARD out of the appropriate INTERACE, PACKETS are placed in that Giao diện’S QUEUE as they wait to be FORWARDED
+- When a Network DEVICE receives TRAFFIC at a FASTER PACE than it can FORWARD out of the appropriate INTERACE, PACKETS are placed in that Interface’S QUEUE as they wait to be FORWARDED
 - When a QUEUE becomes FULL, PACKETS that don’t FIT in the QUEUE are dropped (Tail Drop)
 - RED and WRED DROP PACKETS early to avoid TAIL DROP
 
@@ -188,7 +188,7 @@ QUEUING / CONGESTION Quản lý
     - This is where Phân loại plays a role.
     - DEVICE can match TRAFFIC based on various factors (like DSCP MARKINGS in the IP Header) and then place it in the appropriate QUEUE
 
-- HOWEVER, the DEVICE is only able to forward one Khung out of an Giao diện at once SO a *SCHEDULER*, is used to decide which QUEUE TRAFFIC is FORWARDED from the next
+- HOWEVER, the DEVICE is only able to forward one Khung out of an Interface at once SO a *SCHEDULER*, is used to decide which QUEUE TRAFFIC is FORWARDED from the next
     - *PRIORITZATION* allows the SCHEDULER to give certain QUEUES more PRIORITY than others
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/56bfe184-5bdf-4b8f-8851-756766456bf9)
@@ -203,7 +203,7 @@ QUEUING / CONGESTION Quản lý
 
 - CBWFQ (CLASS BASED WEIGHED FAIR QUEUING)
     - Popular method of SCHEDULING
-    - Uses WEIGHTED ROUND-ROBIN SCHEDULER while guaranteeing each QUEUE a certain PERCENTAGE of the Giao diện’S bandwidth during CONGESTION
+    - Uses WEIGHTED ROUND-ROBIN SCHEDULER while guaranteeing each QUEUE a certain PERCENTAGE of the Interface’S bandwidth during CONGESTION
     
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/eee24cef-c67a-42de-9fa0-9351cab56354)

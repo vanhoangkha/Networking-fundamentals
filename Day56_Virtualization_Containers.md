@@ -12,7 +12,7 @@ REVIEW OF VIRTUAL MACHINES (TYPE 1 and TYPE2 HYPERVISORS)
     - TYPE 2 HYPERVISORS (aka HOSTED) run on top of a HOST OS (ie: WINDOWS)
 - TYPE 1 HYPERVISORS are widely used in DATA CENTER ENVIRONMENTS
 - TYPE 2 HYPERVISORS are commonly used on personal DEVICES
-    - Running a virtual Mạng lab on your PC using Cisco Modeling Labs (CML)
+    - Running a virtual Network lab on your PC using Cisco Modeling Labs (CML)
 
 - The OS in each VM can be the same or different (Windows, Linux, MacOS, etc)
 - *Bins / Libs* are the SOFTWARE libraries / services needed by the Apps running in each VM
@@ -33,7 +33,7 @@ CONTAINERS
 - CONTAINERS run on a CONTAINER ENGINE (ie: DOCKER ENGINE)
     - The CONTAINER ENGINE is run on a HOST OS (usually LINUX)
 - CONTAINERS are lightweight (small in size) and include only the dependencies required to run the specific APP
-- A CONTAINER ORCHESTRATOR is a software platform for automating the DEPLOYMENT, Quản lý, SCALING, etc of CONTAINERS
+- A CONTAINER ORCHESTRATOR is a software platform for automating the DEPLOYMENT, Management, SCALING, etc of CONTAINERS
     - KUBERNETES (originally design by Google) is the most popular CONTAINER ORCHESTRATOR
     - DOCKER SWARM is DOCKER’S CONTAINER ORCHESTRATION tool
 - In small numbers, MANUAL operation is possible, but large-scale systems (ie: with Microservices) can require THOUSANDS of CONTAINERS

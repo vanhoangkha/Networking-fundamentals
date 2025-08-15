@@ -3,8 +3,8 @@
 ## Thứ tự các file đã được sắp xếp theo chuẩn khóa học CCNA
 
 ### TUẦN 1-2: CƠ SỞ MẠNG VÀ THIẾT BỊ
-- **Day01**: [Network_Devices.md](Day01_Network_Devices.md) - Thiết bị mạng
-- **Day02**: [Interfaces_and_Cables.md](Day02_Interfaces_and_Cables.md) - Giao diện và cáp kết nối
+- **Day01**: [Network_Devices.md](Day01_Network_Devices.md) - Device mạng
+- **Day02**: [Interfaces_and_Cables.md](Day02_Interfaces_and_Cables.md) - Interface và cáp kết nối
 - **Day03**: [OSI_Model_TCPSuite.md](Day03_OSI_Model_TCPSuite.md) - Mô hình OSI và TCP/IP
 - **Day04**: [Intro_to_CLI.md](Day04_Intro_to_CLI.md) - Giới thiệu CLI
 - **Day05**: [Ethernet_LAN_Switching_Part1.md](Day05_Ethernet_LAN_Switching_Part1.md) - Ethernet LAN Switching - Phần 1

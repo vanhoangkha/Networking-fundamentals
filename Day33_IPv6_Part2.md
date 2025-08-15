@@ -1,10 +1,10 @@
-# 32. IPv6 : PART 2
+# 32. IPV6 : PART 2
 
-IPv6 ADDRESS Cấu hình (EUI-64)
+IPv6 ADDRESS Configuration (EUI-64)
 
 - EUI stands for Extended Unique Identifier
-- (Modified) EUI-64 is a method of converting a Địa chỉ MAC (48-bits) into a 64-bit Giao diện identifier
-- This Giao diện identifier can then become the “HOST portion” of a /64 IPv6 ADDRESS
+- (Modified) EUI-64 is a method of converting a Địa chỉ MAC (48-bits) into a 64-bit Interface identifier
+- This Interface identifier can then become the “HOST portion” of a /64 IPv6 ADDRESS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bee8f7bf-3877-4307-9ca7-863af19aae6c)
 
@@ -40,13 +40,13 @@ WHY INVERT THE 7th BIT ?
     - UAA (Universally Administered Address)
         - Uniquely assigned to the device of the manufacturer
     - LAA (Locally Administered Address)
-        - Manually assigned by an Admin (with the mac-address Lệnh on the Giao diện) or Giao thức. Doesn’t have to be globally unique.
+        - Manually assigned by an Admin (with the mac-address Lệnh on the Interface) or Giao thức. Doesn’t have to be globally unique.
 - You can INDENTIFY a UAA or LAA by the 7th bit of the Địa chỉ MAC, called the U/L bit (Universal/Local bit)
     - U/L bit set to 0 = UAA
     - U/L bit set to 1 = LAA
 - In the context of IPv6 addresses/EUI-64, the meaning of the U/L bit is reversed:
-    - U/L bit set to 0 = The Địa chỉ MAC the EUI-64 Giao diện ID was made from was an LAA
-    - U/L bit set to 1 = The Địa chỉ MAC the EUI-64 Giao diện ID was made from was a UAA
+    - U/L bit set to 0 = The Địa chỉ MAC the EUI-64 Interface ID was made from was an LAA
+    - U/L bit set to 1 = The Địa chỉ MAC the EUI-64 Interface ID was made from was a UAA
 
 ---
 
@@ -94,7 +94,7 @@ Remember THESE THREE PARTS of a GLOBAL Unicast ADDRESS
 3) LINK-LOCAL ADDRESSES
 
 - **Link-Local** IPv6 ADDRESSES are AUTOMATICALLY generated on IPv6-enabled INTERFACES
-- Use Lệnh `R1(config-if)# ipv6 enable` on an Giao diện to Kích hoạt IPv6 on an Giao diện
+- Use Lệnh `R1(config-if)# ipv6 enable` on an Interface to Kích hoạt IPv6 on an Interface
 
 <aside>
 💡 Uses the ADDRESS block FE80::/10
@@ -103,15 +103,15 @@ Remember THESE THREE PARTS of a GLOBAL Unicast ADDRESS
 </aside>
 
 - The STANDARD states that the 54-bits AFTER FE80/10 should be ALL 0’s so you won’t see Link-Local ADDRESSES beginning with FE9, FEA, or FEB - ONLY FE8(!)
-- The Giao diện ID is generated using EUI-64 rules
-- Link-Local means that these addresses are used for communication within a single link (Mạng con)
+- The Interface ID is generated using EUI-64 rules
+- Link-Local means that these addresses are used for communication within a single link (Network con)
     - Router will not Tuyến đường PACKETS with a Link-Local DESTINATION IPv6 ADDRESS
 - Common uses of Link-Local Addresses:
     - Định tuyến Giao thức Peerings (OSPFv3 uses Link-Local Addresses for Neighbour Adjacencies)
     - NEXT-HOP ADDRESS for STATIC ROUTES
     - Neighbor Discovery Giao thức (NDP, IPv6’s replacement for ARP) uses Link-Local ADDRESSES to function
     
-    Mạng using Link-Local Addresses for “next-hop” Định tuyến
+    Network using Link-Local Addresses for “next-hop” Định tuyến
     
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7d74c4fb-ef52-4436-8285-77ab571f2964)
     
@@ -123,7 +123,7 @@ Remember THESE THREE PARTS of a GLOBAL Unicast ADDRESS
 - **Unicast Addresses** are one-to-one
     - ONE SOURCE to ONE DESTINATION
 - ***Broadcast*** Addresses are one-to-all
-    - ONE SOURCE to ALL DESTINATIONS (within the Mạng con)
+    - ONE SOURCE to ALL DESTINATIONS (within the Network con)
 - **Multicast** Addresses are one-to-many
     - ONE SOURCE to MULTIPLE DESTINATIONS (that have joined the specific ***Multicast*** group)
 
@@ -144,16 +144,16 @@ Lưu ý rằng the IPv6 and IPv4 Addresses share the same last digit
 Multicast ADDRESS SCOPES
 
 - IPv6 defines multiple Multicast ‘scopes’ which indicate how far the Gói tin should be forwarded
-- The ADDRESS in the previous slide all use the ‘link-local’ scope (FF02), which stays in the LOCAL Mạng con
+- The ADDRESS in the previous slide all use the ‘link-local’ scope (FF02), which stays in the LOCAL Network con
 
 **IPv6 Multicast Scope Types:**
 
-- **Giao diện-Local (FF01)**
+- **Interface-Local (FF01)**
     - The Gói tin doesn’t leave the LOCAL device
     - Can be used to SEND traffic to a SERVICE within the LOCAL device
     
 - **Link-Local (FF02)**
-    - The Gói tin remains in the LOCAL Mạng con
+    - The Gói tin remains in the LOCAL Network con
     - ROUTERS will not Tuyến đường the Gói tin between SUBNETS
 
 - **Site-Local  (FF05)**
@@ -184,7 +184,7 @@ Multicast ADDRESS SCOPES
 
 - The :: Address = The *unspecified* IPv6 ADDRESS
     - Can be used when a DEVICE doesn’t yet know its IPv6 ADDRESS
-    - IPv6 Mặc định ROUTES are configured to ::/0
+    - IPv6 Default ROUTES are configured to ::/0
     - IPv4 equivalent: 0.0.0.0
 - The ::1 Address = The Loopback Address
     - Used to test the Giao thức STACK on the LOCAL DEVICE

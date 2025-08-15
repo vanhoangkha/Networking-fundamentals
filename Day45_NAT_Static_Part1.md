@@ -24,7 +24,7 @@ PRIVATE IPv4 ADDRESSES (RFC 1918)
 
 INTRO TO NAT
 
-- Mạng ADDRESS TRANSLATION (NAT) is used to modify the SOURCE and / or DESTINATION IP ADDRESSES of packets
+- Network ADDRESS TRANSLATION (NAT) is used to modify the SOURCE and / or DESTINATION IP ADDRESSES of packets
 - There are various reasons to use NAT, but the MOST common reason is to ALLOW HOSTS with PRIVATE IP ADDRESSES to communicate with other HOSTS over the Internet
 - For the CCNA you have to understand SOURCE NAT and Cách configure it on CISCO ROUTERS
 

@@ -5,7 +5,7 @@ Mục đích của FHRPS
  
 ![image](https://github.com/psaumur/CCNA/assets/106411237/32c286ce-e042-4cda-9067-c232a210ec81)
 
-What happens when the configured Mặc định Gateway for Mạng HOSTS goes down ?
+What happens when the configured Default Gateway for Network HOSTS goes down ?
 
 What happens to the routed traffic?
 
@@ -18,7 +18,7 @@ This is what the FIRST HOP REDUNDANCY Giao thức is designed to fix
 FIRST HOP REDUNDANCY Giao thức (FHRP)
 
 - Computer networking Giao thức
-- Designed to PROTECT the Mặc định Gateway used on a Mạng con by allowing TWO or MORE ROUTERS to provide BACKUP for that ADDRESS
+- Designed to PROTECT the Default Gateway used on a Network con by allowing TWO or MORE ROUTERS to provide BACKUP for that ADDRESS
 - In the event of a FAILURE of the ACTIVE Router, the BACKUP Router will take over the ADDRESS (usually within seconds)
 
 ---
@@ -29,10 +29,10 @@ HOW DOES FHRP WORK?
 - THIS VIP is used by HOSTS as the DEFAULY Gateway IP
 - The ROUTERS communicate with each other by sending “Hello” messages
 - One Router becomes the ACTIVE Router, the other(s) STANDBY
-- When a HOST sends traffic to an ADDRESS outside of the Mạng, it sends an ARP REQUEST (Broadcast Flood) to the VIP to find out it’s Địa chỉ MAC
+- When a HOST sends traffic to an ADDRESS outside of the Network, it sends an ARP REQUEST (Broadcast Flood) to the VIP to find out it’s Địa chỉ MAC
     - Spanning Tree prevents Broadcast STORM due to Broadcast Flood
 - The ACTIVE Router sends the ARP REPLY back (it’s VIRTUAL Địa chỉ MAC) to the HOST
-- The HOST now sends traffic OUTSIDE of the Mạng with:
+- The HOST now sends traffic OUTSIDE of the Network with:
     - Source IP (HOST IP)
     - Destination IP (External Địa chỉ IP)
     - Source MAC (HOST Địa chỉ MAC)
@@ -86,7 +86,7 @@ HSRP (HOT STANDBY Router Giao thức)
     - **v1** : 0000.0c07.acXX (XX = HSRP GROUP NUMBER)
     - **v2** : 0000.0c9f.fXXX (XXX = HSRP GROUP NUMBER)
 
-- In a situation with MULTIPLE SUBNETS / VLANS, you can configure a DIFFERENT ACTIVE Router in EACH Mạng con / VLAN to LOAD BALANCE
+- In a situation with MULTIPLE SUBNETS / VLANS, you can configure a DIFFERENT ACTIVE Router in EACH Network con / VLAN to LOAD BALANCE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a5795fa0-d57b-4037-8945-a39da7fb2d15)
 
@@ -105,7 +105,7 @@ VRRP (VIRTUAL Router REDUNDANCY Giao thức)
         - for GROUP NUMBERS > 99, you need to convert the number to HEX
         - Example: 200 = “c8” in Hex so the MAC would be 0000.5e00.01c8
 
-- In a situation with MULTIPLE SUBNETS / VLANS, you can configure a DIFFERENT MASTER Router in EACH Mạng con / VLAN to LOAD BALANCE
+- In a situation with MULTIPLE SUBNETS / VLANS, you can configure a DIFFERENT MASTER Router in EACH Network con / VLAN to LOAD BALANCE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4bd45dbc-fc51-4c45-818e-5274530accde)
 
@@ -114,10 +114,10 @@ VRRP (VIRTUAL Router REDUNDANCY Giao thức)
 GLBP (Gateway LOAD BALANCING Giao thức)
 
 - Cisco Proprietary
-- LOAD BALANCES among MULTIPLE ROUTERS within a SINGLE Mạng con
+- LOAD BALANCES among MULTIPLE ROUTERS within a SINGLE Network con
 - An AVG (Active Virtual Gateway) is elected
 - Up to FOUR AVFs (Active Virtual Forwarders) are assigned BY the AVG (the AVG can be an AVF, too)
-- Each AVF acts as the Mặc định Gateway for a portion of the HOSTS in the Mạng con
+- Each AVF acts as the Default Gateway for a portion of the HOSTS in the Network con
 
 - Multicast IPv4 ADDRESSES :
     - 224.0.0.102
@@ -133,17 +133,17 @@ MEMORIZE THIS CHART and the differences between the FHRPs
 
 ---
 
-BASIC HSRP Cấu hình
+BASIC HSRP Configuration
 
-R1s Cấu hình
+R1s Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/028b13d4-b258-4551-96ae-068adb931356)
 
-NOTE : group number has to match ALL ROUTERS being configured in a given Mạng con
+NOTE : group number has to match ALL ROUTERS being configured in a given Network con
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d2e5eb5f-d105-4788-a869-d9e65f53eca7)
 
-R2’s Cấu hình
+R2’s Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/65b999f6-eed8-45c3-89fe-bff749f40f11)
 

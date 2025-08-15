@@ -1,4 +1,4 @@
-# 36. CDP and LLDP (Layer 2 Discovery Giao thức)
+# 36. CDP AND LLDP (LAYER 2 DISCOVERY GIAO THỨC)
 
 INTRO TO LAYER 2 DISCOVERY PROTOCOLS
 
@@ -13,7 +13,7 @@ INTRO TO LAYER 2 DISCOVERY PROTOCOLS
 - **CDP** is a Cisco Proprietary Giao thức
 - **LLDP** is an Industry Standard Giao thức (IEEE 802.1AB)
 
-- Because they SHARE INFORMATION about the DEVICES in the Mạng, they can be considered a Bảo mật risk and are often NOT used. It is up to the Mạng ENGINEER / ADMIN to decide if they want to use them in the Mạng or not.
+- Because they SHARE INFORMATION about the DEVICES in the Network, they can be considered a Security risk and are often NOT used. It is up to the Network ENGINEER / ADMIN to decide if they want to use them in the Network or not.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/65f39e9f-ae1a-42c6-8afb-5e79f939fe5d)
 
@@ -22,7 +22,7 @@ INTRO TO LAYER 2 DISCOVERY PROTOCOLS
 CISCO DISCOVERY Giao thức (CDP)
 
 - CDP is a Cisco proprietary Giao thức
-- It is enabled on Cisco devices (routers, switches, firewalls, IP Phones, etc) by Mặc định
+- It is enabled on Cisco devices (routers, switches, firewalls, IP Phones, etc) by Default
 
 <aside>
 💡 CDP Messages are periodically sent to Multicast Địa chỉ MAC `0100.0CCC.CCCC`
@@ -31,9 +31,9 @@ CISCO DISCOVERY Giao thức (CDP)
 
 
 - When a DEVICE receives a CDP message, it PROCESSES and DISCARDS the message. It does NOT forward it to other devices.
-- By Mặc định, CDP Messages are sent once every **60 seconds**
-- By Mặc định, the CDP hold-time is **180 seconds.** If a message isn’t received from a neighbor for 180 seconds, the neighbor is REMOVED from the CDP Neighbor Table
-- CDPv2 messages are sent by Mặc định
+- By Default, CDP Messages are sent once every **60 seconds**
+- By Default, the CDP hold-time is **180 seconds.** If a message isn’t received from a neighbor for 180 seconds, the neighbor is REMOVED from the CDP Neighbor Table
+- CDPv2 messages are sent by Default
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8a0552be-dbc7-4c7b-b011-e32dff75a57e)
 
@@ -47,7 +47,7 @@ CDP NEIGHBOR TABLES
 
 “Device ID” = What devices were DISCOVERED by CDP
 
-“Local Intrface” = What LOCAL device Giao diện the neighbors are connected to
+“Local Intrface” = What LOCAL device Interface the neighbors are connected to
 
 “Holdtime” = Hold-time countdown in seconds (0 = device removed from table)
 
@@ -55,7 +55,7 @@ CDP NEIGHBOR TABLES
 
 “Platform” = Displays the MODEL of the Neighbor Device
 
-“Cổng ID” = Neighbor ports that LOCAL device is connected to
+“Port ID” = Neighbor ports that LOCAL device is connected to
 
 ---
 
@@ -73,12 +73,12 @@ SHOW SPECIFIC CDP NEIGHBOR ENTRY
 
 ---
 
-CDP Cấu hình COMMANDS
+CDP Configuration COMMANDS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/393b2680-2304-4c8e-9180-88cc5fefbfd8)
 
-- CDP is GLOBALLY ENABLED, by Mặc định
-- CDP is also ENABLED on each Giao diện, by Mặc định
+- CDP is GLOBALLY ENABLED, by Default
+- CDP is also ENABLED on each Interface, by Default
 - To Kích hoạt / Vô hiệu hóa CDP globally: `R1(config)# [no] cdp run`
 - To Kích hoạt / Vô hiệu hóa CDP on specific interfaces : `R1(config-if)# [no] cdp enable`
 - Configure the CDP timer: `R1(config)# cdp time *seconds*`
@@ -92,7 +92,7 @@ CDP Cấu hình COMMANDS
 LINK LAYER DISCOVERY Giao thức (LLDP)
 
 - LLDP is an INDUSTRY STANDARD Giao thức (IEEE 802.1AB)
-- It is usually DISABLED on Cisco devices, by Mặc định, so it must be manually ENABLED
+- It is usually DISABLED on Cisco devices, by Default, so it must be manually ENABLED
 - A device can run CDP and LLDP at the same time
 
 <aside>
@@ -101,17 +101,17 @@ LINK LAYER DISCOVERY Giao thức (LLDP)
 </aside>
 
 - When a DEVICE receives an LLDP message, it PROCESSES and DISCARDS the message. It does NOT forward it to OTHER DEVICES
-- By Mặc định, LLDP Messages are sent once every **30 seconds**
-- By Mặc định, LLDP Holdtime is **120 seconds**
+- By Default, LLDP Messages are sent once every **30 seconds**
+- By Default, LLDP Holdtime is **120 seconds**
 - LLDP has an additional timer called the ‘reinitialization delay’
-    - If LLDP is ENABLED (Globally or on an Giao diện), this TIMER will DELAY the actual initialization of LLDP (**2 seconds,** by Mặc định)
+    - If LLDP is ENABLED (Globally or on an Interface), this TIMER will DELAY the actual initialization of LLDP (**2 seconds,** by Default)
 
 ---
 
-LLDP Cấu hình COMMANDS
+LLDP Configuration COMMANDS
 
-- LLDP is usually GLOBALLY DISABLED by Mặc định
-- LLDP is also DISABLED on each Giao diện, by Mặc định
+- LLDP is usually GLOBALLY DISABLED by Default
+- LLDP is also DISABLED on each Interface, by Default
 
 - To Kích hoạt LLDP GLOBALLY : `R1(config)# lldp run`
 

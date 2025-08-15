@@ -1,4 +1,4 @@
-# 56. Không dây ARCHITECTURES
+# 56. KHÔNG DÂY ARCHITECTURES
 
 802.11 MESSAGE / Khung FORMAT
 
@@ -10,7 +10,7 @@
     - Ví dụ: Not ALL messages use all 4 ADDRESS FIELDS
 - Khung CONTROL
     - Provides information such as MESSAGE TYPE and SUBTYPE
-    - Indicates if the Khung is a Quản lý Khung
+    - Indicates if the Khung is a Management Khung
 - DURATION / ID
     - Depending on the MESSAGE TYPE, this field can indicate:
         - The TIME (in microseconds) the CHANNEL will be dedicated to transmission of the Khung
@@ -57,11 +57,11 @@
 802.11 MESSAGE TYPES
 
 - There are THREE 802.11 MESSAGE TYPES
-    - Quản lý
+    - Management
     - CONTROL
     - DATA
 
-- Quản lý
+- Management
     - Used to manage the BSS
         - BEACON
         - PROBE REQUEST / PROBE RESPONSE
@@ -70,7 +70,7 @@
 
 - CONTROL
     - Used to control Access to the medium (RADIO FREQUENCY)
-    - Assists with delivery of Quản lý and DATA FRAMES
+    - Assists with delivery of Management and DATA FRAMES
         - RTS (REQUEST TO SEND)
         - CTS (CLEAR TO SEND)
         - ACK
@@ -86,23 +86,23 @@ AUTONOMOUS APs
 
 - AUTONOMOUS APs are self-contained SYSTEMS that do NOT RELY on a WLC
 - AUTONOMOUS APs are configured individually
-    - Can be configured by CONSOLE Cáp (CLI)
+    - Can be configured by CONSOLE Cable (CLI)
     - Can be configured by Telnet (CLI)
     - Can be configured by HTTP / HTTPS Web connection (GUI)
-    - An Địa chỉ IP for REMOTE Quản lý should be configured
+    - An Địa chỉ IP for REMOTE Management should be configured
     - The RF PARAMETERS must be manually configured (Transmit Power, Channel, etc)
-    - Bảo mật POLICIES are handled individually by each AP
+    - Security POLICIES are handled individually by each AP
     - QoS RULES etc. are configured individually by each AP
 
  
 
-- There is NO CENTRAL Giám sát or Quản lý of APs
+- There is NO CENTRAL Giám sát or Management of APs
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/57faecbb-36a6-424d-b019-52994a5740db)
 
-- AUTONOMOUS APs connect to the WIRED Mạng with a Trunk link
-- DATA traffic from Không dây CLIENTS have a very direct PATH to the WIRED Mạng or to other Không dây CLIENTS associated with the same AP
-- Each VLAN has to STRETCH across the entire Mạng. This is considered BAD practice
+- AUTONOMOUS APs connect to the WIRED Network with a Trunk link
+- DATA traffic from Không dây CLIENTS have a very direct PATH to the WIRED Network or to other Không dây CLIENTS associated with the same AP
+- Each VLAN has to STRETCH across the entire Network. This is considered BAD practice
     - Large Broadcast Domains
     - Spanning Tree will Vô hiệu hóa links
     - Adding / Deleting VLANs is VERY labor-intensive
@@ -128,17 +128,17 @@ LIGHTWEIGHT APs
     - Gói tin PRIORITIZATION
     - Etc…
 - WLC Functions (not time dependent)
-    - RF Quản lý
-    - Bảo mật / QoS Quản lý
+    - RF Management
+    - Security / QoS Management
     - CLIENT AUTHENTICATION
-    - CLIENT ASSOCIATION / ROAMING Quản lý
+    - CLIENT ASSOCIATION / ROAMING Management
     - RESOURCE ALLOCATION
     - Etc…
     
 - The WLC is also used to centrally configured the lightweight APs
-- The WLC can be located in the same Mạng con / VLAN as the lightweight APs it manages OR in a different Mạng con / VLAN
+- The WLC can be located in the same Network con / VLAN as the lightweight APs it manages OR in a different Network con / VLAN
 - The WLC and the lightweight APs AUTHENTICATE each other using DIGITAL CERTIFICATES installed on each DEVICE ( X.509 STANDARD CERTIFICATES )
-    - This ensures that only AUTHORIZED APs can join the Mạng
+    - This ensures that only AUTHORIZED APs can join the Network
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c154bcad-ae81-4fb8-9acf-56913dffaf04)
 
@@ -146,14 +146,14 @@ LIGHTWEIGHT APs
     - Based on an older Giao thức called LWAPP (LIGHTWEIGHT Điểm truy cập Giao thức)
 
 - TWO TUNNELS are created between each AP and the WLC :
-    - CONTROL TUNNEL (UDP Cổng 5246)
+    - CONTROL TUNNEL (UDP Port 5246)
         - This TUNNEL is used to configure the APs and control and manage operations
-        - All traffic in this TUNNEL is ENCRYPTED, by Mặc định
-    - DATA TUNNEL (UDP Cổng 5247)
+        - All traffic in this TUNNEL is ENCRYPTED, by Default
+    - DATA TUNNEL (UDP Port 5247)
         - All traffic from Không dây CLIENTS is sent through this TUNNEL to the WLC
-        - IT DOES NOT GO DIRECTLY TO THE WIRED Mạng !
+        - IT DOES NOT GO DIRECTLY TO THE WIRED Network !
 
-- Traffic in this TUNNEL is not ENCRYPTED by Mặc định but you can configure it to be ENCRYPTED with DTLS (DATAGRAM TRANSPORT LAYER Bảo mật)
+- Traffic in this TUNNEL is not ENCRYPTED by Default but you can configure it to be ENCRYPTED with DTLS (DATAGRAM TRANSPORT LAYER Security)
 
 - Because ALL traffic from WIRELSS CLIENTS is TUNNELED to the WLC with CAPWAP, APs connect to the Switch Access PORTS - NOT Trunk PORTS
 
@@ -166,7 +166,7 @@ LIGHTWEIGHT APs
 There are some KEY BENEFITS to SPLIT-MAC Kiến trúc
 
 - SCALABILITY
-    - With a WLC (or multiple) it’s SIMPLER to build and support a Mạng with thousands of APs
+    - With a WLC (or multiple) it’s SIMPLER to build and support a Network with thousands of APs
 - DYNAMIC CHANNEL ASSIGNMENT
     - The WLC can automatically select which channel each AP should use
 - TRANSMIT POWER OPTIMIZATION
@@ -177,14 +177,14 @@ There are some KEY BENEFITS to SPLIT-MAC Kiến trúc
     - CLIENTS can roam between APs with no noticeable delay
 - CLIENT LOAD BALANCING
     - If a CLIENT is in range of TWO APs, the WLC can associate the CLIENT with the least-used AP, to balance the load among APs
-- Bảo mật / QoS Quản lý
-    - Central Quản lý of Bảo mật and QoS policies ensures consistency across the Mạng
+- Security / QoS Management
+    - Central Management of Security and QoS policies ensures consistency across the Network
 
 ---
 
 - LIGHTWEIGHT APs can be configured to operate in VARIOUS MODES:
     - LOCAL
-        - This is the Mặc định mode where the AP offers a BSS (more multiple BSSs) for CLIENTS to associate with
+        - This is the Default mode where the AP offers a BSS (more multiple BSSs) for CLIENTS to associate with
         
     - FLEXCONNECT
         - Like a LIGHTWEIGHT AP in LOCAL mode, it offers ONE or MORE BSSs for CLIENTS to associate with
@@ -204,8 +204,8 @@ There are some KEY BENEFITS to SPLIT-MAC Kiến trúc
 
 - ROGUE DETECTOR
     - The AP does not even USE its RADIO
-    - It LISTENS to traffic on the WIRED Mạng only, but it receives a list of SUSPECTED ROGUE CLIENTS and AP MAC ADDRESSES from the WLC
-    - By LISTENING to ARP MESSAGES on the WIRED Mạng and correlating it with the information it receives from the WLC, it can DETECT ROGUE DEVICES
+    - It LISTENS to traffic on the WIRED Network only, but it receives a list of SUSPECTED ROGUE CLIENTS and AP MAC ADDRESSES from the WLC
+    - By LISTENING to ARP MESSAGES on the WIRED Network and correlating it with the information it receives from the WLC, it can DETECT ROGUE DEVICES
 
 - SE-CONNECT (SPECTRUM EXPERT CONNECT)
     - The AP does NOT OFFER a BSS for CLIENTS
@@ -230,10 +230,10 @@ CLOUD-BASED APs
 - CLOUD-BASED AP Kiến trúc is between AUTONOMOUS AP and SPLIT-MAC Kiến trúc
     - AUTONOMOUS APs that are centrally managed in the CLOUD
 - CISCO MERAKI is a popular CLOUD-BASED WI-FI solution
-- The MERAKI dashboard can be used to configure APs, monitor the Mạng, generate performance reports, etc.
+- The MERAKI dashboard can be used to configure APs, monitor the Network, generate performance reports, etc.
     - MERAKI also tells each AP which CHANNEL to use, what transmit power, etc.
-- However, DATA TRAFFIC is not sent to the CLOUD. It is sent directly to the WIRED Mạng like when using AUTONOMOUS APs
-    - Only Quản lý / control traffic is sent to the CLOUD
+- However, DATA TRAFFIC is not sent to the CLOUD. It is sent directly to the WIRED Network like when using AUTONOMOUS APs
+    - Only Management / control traffic is sent to the CLOUD
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8bd00a94-f965-4257-af46-82be67850feb)
 
@@ -245,7 +245,7 @@ Không dây LAN CONTROLLER (WLC) DEPLOYMENTS
 
 - In a SPLIT-MAC Kiến trúc, there FOUR MAIN WLC DEPLOYMENT MODES:
     - UNIFIED
-        - THE WLC is a HARDWARE APPLICANCE in a central location of the Mạng
+        - THE WLC is a HARDWARE APPLICANCE in a central location of the Network
     - CLOUD-BASED
         - The WLC is a VM running on a SERVER, usually in a PRIVATE CLOUD in a DATA CENTER
         - This is NOT the same as the CLOUD-BASED AP Kiến trúc discussed previously
@@ -258,9 +258,9 @@ Không dây LAN CONTROLLER (WLC) DEPLOYMENTS
 
 UNIFIED WLC
 
-- THE WLC is a HARDWARE APPLICANCE in a central location of the Mạng
+- THE WLC is a HARDWARE APPLICANCE in a central location of the Network
 - A UNIFIED WLC can support up to about 6000 APs
-- If more than 6000 APs are needed, additional WLCs can be added to the Mạng
+- If more than 6000 APs are needed, additional WLCs can be added to the Network
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/922eac1f-6c62-4926-89bb-a447f8be2edd)
 

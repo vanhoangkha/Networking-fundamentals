@@ -5,24 +5,24 @@ Basic VLAN Cấu trúc mạng from PART 1
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f6df37e0-d494-4e46-b6e8-6d2ba0cd0ff6)
 
 
-What about THIS Mạng Cấu trúc mạng ?
+What about THIS Network Cấu trúc mạng ?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e6aff877-3792-469f-8955-0f3e17c6f1ed)
 
 
-Notice this one has TWO Switches (SW1 and SW2) and ENGINEERING (VLAN 10) has two separate locations on the Mạng.
+Notice this one has TWO Switches (SW1 and SW2) and ENGINEERING (VLAN 10) has two separate locations on the Network.
 
 ---
 
 Trunk PORTS
 
-- In a small Mạng with few VLANS, it’s possible to use a separate Giao diện for EACH VLAN when connecting SWITCHES to SWITCHES, and SWITCHES to ROUTERS
+- In a small Network with few VLANS, it’s possible to use a separate Interface for EACH VLAN when connecting SWITCHES to SWITCHES, and SWITCHES to ROUTERS
 
 - HOWEVER, when the number of VLANS increases, this is not viable. It will result in wasted interfaces, and often ROUTERS won’t have enough INTERFACES for each VLAN
 
-- You can use Trunk PORTS to carry traffic from multiple VLANS over a single Giao diện
+- You can use Trunk PORTS to carry traffic from multiple VLANS over a single Interface
 
-A Trunk Cổng carrying multiple VLAN connections over single Giao diện
+A Trunk Port carrying multiple VLAN connections over single Interface
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5cb7c933-689a-499b-9f30-51fe63d8b059)
 
@@ -30,15 +30,15 @@ A Trunk Cổng carrying multiple VLAN connections over single Giao diện
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8ea9a799-cf0d-4b1d-9706-db002772fe6d)
 
 
-How does a Gói tin know WHICH VLAN to send traffic to over the Trunk Cổng ?
+How does a Gói tin know WHICH VLAN to send traffic to over the Trunk Port ?
 
 VLAN TAGS !
 
 SWITCHES will “tag” all frames that they send over a Trunk LINK. This allows the receiving Switch to know which VLAN the Khung belongs to.
 
-Trunk Cổng = “Tagged” ports
+Trunk Port = “Tagged” ports
 
-Access Cổng = “Untagged” ports
+Access Port = “Untagged” ports
 
 ---
 
@@ -86,7 +86,7 @@ TCI / PCP (Priority Code Point) :
 TCI / DEI (Drop Eligible Indicator) :
 
 - 1 bit in length
-- Used to indicated frames that can be dropped if the Mạng is congested
+- Used to indicated frames that can be dropped if the Network is congested
 
 TCI / VID (VLAN ID) :
 
@@ -119,7 +119,7 @@ VLAN gốc
 
 ---
 
-Trunk Cấu hình
+Trunk Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d73b8f0b-2154-4e7f-8057-7c5b3f5078cc)
 
@@ -128,17 +128,17 @@ Trunk Cấu hình
 
 Many modern switches do not support Cisco’s ISL at all. They only support 802.1Q (dot1q)
 
-However, SWITCHES that do support both (like the one I am using in this example) have a Trunk Đóng gói of “AUTO” by Mặc định
+However, SWITCHES that do support both (like the one I am using in this example) have a Trunk Đóng gói of “AUTO” by Default
 
-To MANUALLY configure the Giao diện as a Trunk Cổng, you must first set the Đóng gói to “802.1Q” or “ISL”. On SWITCHES that only support 802.1Q, this is not necessary
+To MANUALLY configure the Interface as a Trunk Port, you must first set the Đóng gói to “802.1Q” or “ISL”. On SWITCHES that only support 802.1Q, this is not necessary
 
-After you set the Đóng gói type, you can then configure the Giao diện as a Trunk
+After you set the Đóng gói type, you can then configure the Interface as a Trunk
 
-1) Select the Giao diện to configure
+1) Select the Interface to configure
 
 2) Use “#switchport Trunk Đóng gói dot1q” to set the Đóng gói mode to 802.1Q
 
-3) Use “#switchport mode Trunk” to manually configure the Giao diện to Trunk
+3) Use “#switchport mode Trunk” to manually configure the Interface to Trunk
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6b897fb0-14a3-4e6a-b4e8-e278a6aec08e)
 
@@ -166,16 +166,16 @@ Lệnh to change the VLAN gốc
 
 ---
 
-Setting up our TRUNKS for this Mạng
+Setting up our TRUNKS for this Network
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/892b5322-807b-4d76-91cb-a039766794c5)
 
 
 We will need to configure :
 
-SW1 : g0/0 Giao diện (already configure above this section)
+SW1 : g0/0 Interface (already configure above this section)
 
-SW2: g0/0, and g0/1 Giao diện
+SW2: g0/0, and g0/1 Interface
 
 SW2 g0/0
 
@@ -202,11 +202,11 @@ Router ON A STICK (ROAS)
 ![image](https://github.com/psaumur/CCNA/assets/106411237/112a2089-5a9e-4b13-945c-6be7f188d6a8)
 
 
-NOTE the Sub-Giao diện names (like the Mạng diagram) of 0.10, 0.20 and 0.30
+NOTE the Sub-Interface names (like the Network diagram) of 0.10, 0.20 and 0.30
 
-You assign them IP addresses identically like you would a regular Giao diện (using the last usable Địa chỉ IP of a given VLAN Mạng con)
+You assign them IP addresses identically like you would a regular Interface (using the last usable Địa chỉ IP of a given VLAN Network con)
 
-Sub-interfaces will appear with the “show ip Giao diện brief” Lệnh
+Sub-interfaces will appear with the “show ip Interface brief” Lệnh
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9b7ecbd1-c5f4-4ed0-9988-8fd17e16c9ae)
 
@@ -216,12 +216,12 @@ They also appear in the “show ip Tuyến đường” Lệnh (Tuyến đườn
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1e9bb3fa-5aca-4883-8aff-52a554dcfba6)
 
 
-ROAS is used to Tuyến đường between multiple VLANs using a SINGLE Giao diện on a Router and Switch
+ROAS is used to Tuyến đường between multiple VLANs using a SINGLE Interface on a Router and Switch
 
-The Switch Giao diện is configured as a regular Trunk
+The Switch Interface is configured as a regular Trunk
 
-The Router Giao diện is configured using SUB-INTERFACES. You configure the VLAN tag and Địa chỉ IP on EACH SUB-Giao diện
+The Router Interface is configured using SUB-INTERFACES. You configure the VLAN tag and Địa chỉ IP on EACH SUB-Interface
 
-The Router will behave as if frames arriving with a certain VLAN tag have arrived on the SUB-Giao diện configured with that VLAN tag
+The Router will behave as if frames arriving with a certain VLAN tag have arrived on the SUB-Interface configured with that VLAN tag
 
-The Router will TAG frames sent out of EACH SUB-Giao diện with the VLAN TAG configured on the SUB-Giao diện
+The Router will TAG frames sent out of EACH SUB-Interface with the VLAN TAG configured on the SUB-Interface

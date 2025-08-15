@@ -1,6 +1,6 @@
 # 37. NTP
 
-WHY IS TIME IMPORTANT FOR Mạng DEVICES?
+WHY IS TIME IMPORTANT FOR Network DEVICES?
 
 - All DEVICES have an INTERNAL CLOCK (ROUTERS, SWITCHES, PCs, etc)
 - In CISCO IOS, you can view the time with the `show clock` Lệnh
@@ -26,17 +26,17 @@ Note : R3’s time stamp is completely different than R2’s !!!
 
 ---
 
-MANUAL TIME Cấu hình
+MANUAL TIME Configuration
 
 - You can manually configure the TIME on the DEVICE with the `clock set` Lệnh
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fa5d40c2-bccb-48e2-9f6b-c85ad721f37f)
 
-- Although the HARDWARE CALENDAR (built-in clock) is the Mặc định time-source, the HARDWARE CLOCK and SOFTWARE CLOCK are separate and can be configured separately.
+- Although the HARDWARE CALENDAR (built-in clock) is the Default time-source, the HARDWARE CLOCK and SOFTWARE CLOCK are separate and can be configured separately.
 
 ---
 
-HARDWARE CLOCK (CALENDAR) Cấu hình
+HARDWARE CLOCK (CALENDAR) Configuration
 
 - You can MANUALLY configure the HARDWARE CLOCK with the `calendar set` Lệnh
 
@@ -81,14 +81,14 @@ NTP BASICS
 
 - Manually configuring the time on DEVICES is NOT Scalable
 - The manually configured clocks will “drift”, resulting in inaccurate time
-- NTP (Mạng Time Giao thức) allows AUTOMATIC synchronization of TIME over a Mạng
+- NTP (Network Time Giao thức) allows AUTOMATIC synchronization of TIME over a Network
 - NTP CLIENTS request the TIME from NTP SERVERS
 - A DEVICE can be an NTP SERVER and an NTP CLIENT at the same time
 - NTP allows accuracy of TIME with ~1 millisecond if the NTP SERVER is in the same LAN - OR within ~50 milliseconds if connecting to the NTP SERVER over a WAN / the Internet
 - Some NTP SERVERS are ‘better’ than others. The ‘distance’ of an NTP SERVER from the original **reference clock** is called **stratum**
 
 <aside>
-💡 NTP uses UDP Cổng 123 to communicate
+💡 NTP uses UDP Port 123 to communicate
 
 </aside>
 
@@ -110,7 +110,7 @@ REFERENCE CLOCK
 
 ---
 
-NTP Cấu hình
+NTP Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6ee32d55-a33d-419c-9286-d1683f250d37)
 
@@ -120,7 +120,7 @@ NTP Cấu hình
 
 Using key argument “prefer” makes a given server the PREFERRED SERVER
 
-(To show Cấu hình servers)
+(To show Configuration servers)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/aabee138-5cb3-4316-8411-8da38d6dd2d5)
 
@@ -148,7 +148,7 @@ When the SYSTEM is restarted, the HARDWARE CLOCK is used to INITIALIZE the SOFTW
 
 ---
 
-CONFIGURE A LOOPBACK Giao diện FOR AN NTP SERVER
+CONFIGURE A LOOPBACK Interface FOR AN NTP SERVER
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/21cac8d8-7c7f-41e1-8f0a-bfb6418c6085)
 
@@ -158,7 +158,7 @@ If one of R1’s Router INTERFACES goes down, it will still be accessible via R3
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9ead84f6-8645-489c-a30d-0b3c7ebf6ba1)
 
-SET NTP SERVER for R2 using the LOOPBACK Giao diện on R1
+SET NTP SERVER for R2 using the LOOPBACK Interface on R1
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8a05e16e-cab9-429c-836e-e74a1007cbcb)
 

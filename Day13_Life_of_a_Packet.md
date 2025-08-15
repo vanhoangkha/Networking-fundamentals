@@ -1,9 +1,9 @@
-# 12. LIFE OF A Gói tin
+# 12. LIFE OF A GÓI TIN
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ec16b9fd-4d90-4b73-b930-cd825ff13b00)
 
 
-EACH Mạng device's interfaces have a UNIQUE MAC Addresses.
+EACH Network device's interfaces have a UNIQUE MAC Addresses.
 
 In a TCP Header
 

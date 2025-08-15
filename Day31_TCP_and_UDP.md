@@ -1,4 +1,4 @@
-# 30. TCP and UDP (LAYER 4 PROTOCOLS)
+# 30. TCP AND UDP (LAYER 4 PROTOCOLS)
 
 BASICS OF LAYER 4
 
@@ -11,7 +11,7 @@ BASICS OF LAYER 4
     - Error Recovery
     - Data Sequencing
     - Flow Control
-- Provides LAYER 4 ADDRESSING (Cổng numbers) - NOT the physical interfaces / ports on Mạng devices
+- Provides LAYER 4 ADDRESSING (Port numbers) - NOT the physical interfaces / ports on Network devices
     - IDENTIFY the APPLICATION LAYER Giao thức
     - Provides SESSION multiplexing
 
@@ -25,9 +25,9 @@ là gì A SESSION ?
 
 The FOLLOWING ranges have been designated by IANA (Internet Assigned Numbers Authority) 
 
-- **Well-Known** Cổng Numbers : 0 - 1023
-- **Registered** Cổng Numbers : 1024 - 49151
-- **Ephemeral** / Private / Dynamic Cổng numbers : 49152 - 65535
+- **Well-Known** Port Numbers : 0 - 1023
+- **Registered** Port Numbers : 1024 - 49151
+- **Ephemeral** / Private / Dynamic Port numbers : 49152 - 65535
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/02d56940-33b6-40a8-8431-0a39c19bc66a)
 
@@ -108,6 +108,6 @@ Number of Fields in their Headers
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fcbef599-9277-4b06-8d59-2349ca70817a)
 
-IMPORTANT Cổng NUMBERS
+IMPORTANT Port NUMBERS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9e1f0422-d027-4a06-a359-d47c5c39dba1)

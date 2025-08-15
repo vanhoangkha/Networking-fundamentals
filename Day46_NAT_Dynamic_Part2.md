@@ -3,7 +3,7 @@
 MORE ABOUT NAT tĩnh
 
 - NAT tĩnh involves statically configuring one-to-one mappings of PRIVATE IP ADDRESSES to PUBLIC IP ADDRESSES
-- When traffic from the INTERNAL HOST is sent to the OUTSIDE Mạng, the Router will translate the SOURCE ADDRESS
+- When traffic from the INTERNAL HOST is sent to the OUTSIDE Network, the Router will translate the SOURCE ADDRESS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/60ba15dd-ee70-4bd9-b9a7-febf3ebbcd10)
 
@@ -45,7 +45,7 @@ NAT POOL EXHAUSTION
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/59e68f3b-8acc-4d7e-8d8e-f930dec3be5f)
 
-NAT động Cấu hình
+NAT động Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6694689a-4880-497c-a1f6-838003810f0c)
 
@@ -61,14 +61,14 @@ NAT động Cấu hình
 
 DYNAMIC PAT (NAT OVERLOAD)
 
-- PAT (NAT OVERLOAD) translates BOTH the Địa chỉ IP and the Cổng NUMBER (if necessary)
-- By using a unique Cổng NUMBER for each communication flow, a single PUBLIC Địa chỉ IP can be used by many different INTERNAL HOSTS
-    - Cổng NUMBERS are 16 bits = over 65,000 available Cổng numbers
-- The Router will keep track of which INSIDE LOCAL ADDRESS is using which INSIDE GLOBAL ADDRESS and Cổng
+- PAT (NAT OVERLOAD) translates BOTH the Địa chỉ IP and the Port NUMBER (if necessary)
+- By using a unique Port NUMBER for each communication flow, a single PUBLIC Địa chỉ IP can be used by many different INTERNAL HOSTS
+    - Port NUMBERS are 16 bits = over 65,000 available Port numbers
+- The Router will keep track of which INSIDE LOCAL ADDRESS is using which INSIDE GLOBAL ADDRESS and Port
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8f720b58-9700-4908-bd8d-a1846191854b)
 
-PAT Cấu hình (POOL)
+PAT Configuration (POOL)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2a1acc30-658c-4479-9984-9c620b5e6ce3)
 
@@ -76,7 +76,7 @@ PAT Cấu hình (POOL)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/088db6f4-a695-4765-b435-2f20a5e16c9e)
 
-PAT Cấu hình (Giao diện)
+PAT Configuration (Interface)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8a3990ff-c58e-44a9-928d-e534f0cff690)
 

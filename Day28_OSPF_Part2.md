@@ -3,13 +3,13 @@
 OSPF Metric (Cost)
 
 - OSPFs Metric is called **COST**
-- It is automatically calculated based on the bandwidth (SPEED) of the Giao diện
-- It is calculated by DIVIDING a REFERENCE BANDWIDTH value by the Giao diện bandwidth
-- The Mặc định REFERENCE BANDWIDTH is 100 mbps
-    - REFERENCE: 100 mbps / Giao diện: 10 mbps = COST (10)
-    - REFERENCE: 100 mbps / Giao diện: 100 mbps = COST (1)
-    - REFERENCE: 100 mbps / Giao diện: 1000 mbps = COST (1)
-    - REFERENCE: 100 mbps / Giao diện: 10000 mbps = COST (1)
+- It is automatically calculated based on the bandwidth (SPEED) of the Interface
+- It is calculated by DIVIDING a REFERENCE BANDWIDTH value by the Interface bandwidth
+- The Default REFERENCE BANDWIDTH is 100 mbps
+    - REFERENCE: 100 mbps / Interface: 10 mbps = COST (10)
+    - REFERENCE: 100 mbps / Interface: 100 mbps = COST (1)
+    - REFERENCE: 100 mbps / Interface: 1000 mbps = COST (1)
+    - REFERENCE: 100 mbps / Interface: 10000 mbps = COST (1)
 - ALL COST values less than 1 will be CONVERTED to 1
 - Therefore FastEthernet (100 mbps), Gigabit Ethernet (1000 mbps), 10 Gig Ethernet, etc. are EQUAL and all have a COST of 1
 
@@ -25,16 +25,16 @@ You can (and SHOULD) change the REFERENCE BANDWIDTH with this Lệnh:
 
 💡 R1(config-Router)# **auto-cost reference-bandwidth** *megabits-per-second*
 
-The Lệnh is entered in “megabits per second” (Mặc định is “100”)
+The Lệnh is entered in “megabits per second” (Default is “100”)
 
 Example: using a value of “100000”
 
 - 100000 / 100 = COST of 1000 for FastEthernet
 - 100000 / 1000 = COST of 100 for Gig Ethernet
 
-You should configure a reference bandwidth GREATER than the FASTEST links in your Mạng (to allow for future upgrades)
+You should configure a reference bandwidth GREATER than the FASTEST links in your Network (to allow for future upgrades)
 
-Changing the REFERENCE BANDWIDTH needs to be done on ALL OSPF ROUTERS in the Mạng
+Changing the REFERENCE BANDWIDTH needs to be done on ALL OSPF ROUTERS in the Network
 
 ---
 
@@ -44,7 +44,7 @@ LOOPBACK INTERFACES have a COST of 1
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ef8de0f8-c22d-4259-bf4c-6fc9894bae29)
 
-To CHANGE the OSPF COST of an Giao diện, you use the Lệnh :
+To CHANGE the OSPF COST of an Interface, you use the Lệnh :
 
 <aside>
 💡 R1(config-if)# ip OSPF cost <cost>
@@ -52,19 +52,19 @@ To CHANGE the OSPF COST of an Giao diện, you use the Lệnh :
 
 MANUAL COSTS take precedent over AUTOMATIC CALCULATED COST
 
-One more option to change the OSPF COST of an Giao diện is to change the BANDWIDTH of the Giao diện with the **“bandwidth”** Lệnh
+One more option to change the OSPF COST of an Interface is to change the BANDWIDTH of the Interface with the **“bandwidth”** Lệnh
 
 The FORMULA to CALCULATE OSPF COST is :
 
 <aside>
-💡 **reference bandwidth / Giao diện bandwidth**
+💡 **reference bandwidth / Interface bandwidth**
 
 </aside>
 
-- Although the BANDWIDTH matches the Giao diện SPEED (by Mặc định), changing the Giao diện BANDWIDTH **doesn’t actually change the speed at which the Giao diện operates**
+- Although the BANDWIDTH matches the Interface SPEED (by Default), changing the Interface BANDWIDTH **doesn’t actually change the speed at which the Interface operates**
 - The BANDWIDTH is just a VALUE that is used to calculate OSPF COST, EIGRP Metric, etcetera…
-- To CHANGE the SPEED at which the Giao diện operates, use the **“speed”** Lệnh
-- Because the BANDWIDTH VALUE is used in other calculations, it is NOT recommended to change this VALUE to alter the Giao diện’s OSPF COST
+- To CHANGE the SPEED at which the Interface operates, use the **“speed”** Lệnh
+- Because the BANDWIDTH VALUE is used in other calculations, it is NOT recommended to change this VALUE to alter the Interface’s OSPF COST
 
 It is RECOMMENDED that you CHANGE the REFERENCE BANDWIDTH
 
@@ -84,13 +84,13 @@ THREE WAYS to modify the OSPF COST:
 💡 R1(config-Router)# **auto-cost reference-bandwidth** *megabits-per-second*
 </aside>
 
-2) Manual Cấu hình:
+2) Manual Configuration:
 
 <aside>
 💡 R1(config-Router)# ip OSPF cost <cost>
 </aside>
 
-3) Change the ***Giao diện bandwidth***
+3) Change the ***Interface bandwidth***
 
 <aside>
 💡 R1(config-Router)# **bandwidth <***kilobits-per-second>*
@@ -103,15 +103,15 @@ THREE WAYS to modify the OSPF COST:
 BECOMING OSPF NEIGHBORS
 
 - Making sure that ROUTERS successfully become OSPF NEIGHBORS is the MAIN task in configuring and Khắc phục sự cố OSPF.
-- Once ROUTERS become NEIGHBORS, they AUTOMATICALLY do the work of sharing Mạng information, calculating routes, etc.
-- When OSPF is activated on an Giao diện, the Router starts sending OSPF **“hello”** messages out of the Giao diện at regular intervals (determined by the **“hello timer”).** These are used to introduce the Router to potential OSPF NEIGHBORS
-- The Mặc định “**hello timer**” is **10 SECONDS** on an Ethernet connection
+- Once ROUTERS become NEIGHBORS, they AUTOMATICALLY do the work of sharing Network information, calculating routes, etc.
+- When OSPF is activated on an Interface, the Router starts sending OSPF **“hello”** messages out of the Interface at regular intervals (determined by the **“hello timer”).** These are used to introduce the Router to potential OSPF NEIGHBORS
+- The Default “**hello timer**” is **10 SECONDS** on an Ethernet connection
 - **Hello** messages are Multicast to **224.0.0.5** (Multicast address for ALL OSPF ROUTERS)
 - OSPF messages are ENCAPSULATED in an IP Header, with a **value of “89”** in the Giao thức field.
 
 DOWN STATE
 
-- OSPF is activated on R1s G0/0 Giao diện
+- OSPF is activated on R1s G0/0 Interface
 - It sends an OSPF “hello” message to 224.0.0.5
 - It doesn’t know about any OSPF neighbors yet, so the current neighbor state is DOWN
 
@@ -137,7 +137,7 @@ INIT STATE
 - The 2-WAY state means the Router has received a “hello” Gói tin with its own RID in it
 - If both ROUTERS reach the 2-WAY state, it means that ALL of the conditions have been met for them to become OSPF neighbors.
 - They are now READY to SHARE LSAs to build a common LSDB.
-- In SOME Mạng types, a DR (Designated Router) and BDR (Backup Designated Router) will be elected at this point (OSPF Mạng Types and DR/DBR elections will be discussed in Day 28)
+- In SOME Network types, a DR (Designated Router) and BDR (Backup Designated Router) will be elected at this point (OSPF Network Types and DR/DBR elections will be discussed in Day 28)
 
 EXSTART STATE
 
@@ -169,10 +169,10 @@ LOADING STATE
 FULL STATE
 
 - In the FULL state, the ROUTERS have a FULL OSPF adjacency and identical LSDBs
-- They continue to SEND and LISTEN for “hello” packets (every 10 seconds by Mặc định) to maintain the neighbor adjacency
-- Every time a “hello” Gói tin is received, the “DEAD” timer (40 seconds by Mặc định) is reset
+- They continue to SEND and LISTEN for “hello” packets (every 10 seconds by Default) to maintain the neighbor adjacency
+- Every time a “hello” Gói tin is received, the “DEAD” timer (40 seconds by Default) is reset
 - If the DEAD timer counts down to 0 and no “hello” message is received, the neighbor is REMOVED
-- The ROUTERS will continue to share LSAs as the Mạng changes to make sure each Router has a COMPLETE and ACCURATE map of the Mạng (LSDB)
+- The ROUTERS will continue to share LSAs as the Network changes to make sure each Router has a COMPLETE and ACCURATE map of the Network (LSDB)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/daaa3a7b-ddd0-4ad0-ace7-056cbf2fbe32)
 
@@ -205,7 +205,7 @@ SUMMARY OF OSPF MESSAGE TYPES
 
 MORE OSPF CONFIGURATIONS
 
-Activate OSPF DIRECTLY on an Giao diện with this Lệnh:
+Activate OSPF DIRECTLY on an Interface with this Lệnh:
 
 <aside>
 💡 R1(config-if)# ip OSPF *process-id* area *area*
@@ -217,7 +217,7 @@ Activate OSPF DIRECTLY on an Giao diện with this Lệnh:
 Configure ALL INTERFACES as OSPF Passive Interfaces
 
 <aside>
-💡 R1(config-Router) #passive-Giao diện Mặc định
+💡 R1(config-Router) #passive-Interface Default
 
 </aside>
 
@@ -226,7 +226,7 @@ Configure ALL INTERFACES as OSPF Passive Interfaces
 Can then REMOVE specific INTERFACES from being passive using:
 
 <aside>
-💡 R1(config-Router) #no passive-Giao diện *Giao diện-id*
+💡 R1(config-Router) #no passive-Interface *Interface-id*
 
 </aside>
 

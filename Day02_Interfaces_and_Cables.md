@@ -15,7 +15,7 @@ Tại sao chúng ta cần các giao thức và tiêu chuẩn mạng?
 - cung cấp các tiêu chuẩn giao tiếp chung qua mạng.
 - cung cấp các tiêu chuẩn phần cứng chung để cho phép kết nối giữa các thiết bị.
 
-Kết nối giữa các thiết bị hoạt động ở một tốc độ đã đặt.
+Connection giữa các thiết bị hoạt động ở một tốc độ đã đặt.
 
 Những tốc độ này được đo bằng "bit trên giây" (bps)
 
@@ -36,7 +36,7 @@ Các tiêu chuẩn Ethernet:
 
 TIÊU CHUẨN ETHERNET (ĐỒNG)
 
-| Tốc Độ | Tên Thông Dụng | Tiêu Chuẩn | Loại Cáp | Khoảng Cách Truyền Tối Đa |
+| Tốc Độ | Tên Thông Dụng | Tiêu Chuẩn | Loại Cable | Khoảng Cách Truyền Tối Đa |
 | --- | --- | --- | --- | --- |
 | 10 Mbps | Ethernet | 802.3i | 10BASE-T | Tối đa 100m |
 | 100 Mbps | Fast Ethernet | 802.3u | 100BASE-T | Tối đa 100m |
@@ -87,7 +87,7 @@ Mỗi cáp ethernet có đầu cắm RJ-45 với 8 chân ở các đầu.
 
 Router và PC kết nối với Switch theo cùng một cách.
 
-Cáp được sử dụng để kết nối được gọi là cáp "Thẳng" (Straight-Through).
+Cable được sử dụng để kết nối được gọi là cáp "Thẳng" (Straight-Through).
 
 ---
 
@@ -96,7 +96,7 @@ Cáp được sử dụng để kết nối được gọi là cáp "Thẳng" (S
 Chúng ta KHÔNG THỂ sử dụng cáp "Thẳng".
 Chúng ta PHẢI sử dụng cáp "Chéo" (Crossover).
 
-Cáp này hoán đổi các chân ở một đầu để cho phép kết nối hoạt động.
+Cable này hoán đổi các chân ở một đầu để cho phép kết nối hoạt động.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d98646ad-366f-4e96-8c6f-f6b5f32f9bdc)
 
@@ -127,7 +127,7 @@ Mỗi cặp dây là **hai chiều** nên có thể truyền/nhận nhanh hơn n
 
 ---
 
-Kết nối Cáp Quang:
+Connection Cable Quang:
 
 - Được định nghĩa trong tiêu chuẩn IEEE 802.3ae
 
@@ -161,7 +161,7 @@ Có HAI loại cáp quang.
 
 ---
 
-Tiêu Chuẩn Cáp Quang:
+Tiêu Chuẩn Cable Quang:
 
 | Tốc Độ | Tiêu Chuẩn | Tốc Độ Kết Nối | Hỗ Trợ Mode | Khoảng Cách Truyền Tối Đa |
 | --- | --- | --- | --- | --- |
@@ -172,20 +172,20 @@ Tiêu Chuẩn Cáp Quang:
 
 ---
 
-So Sánh Cáp UTP vs Cáp Quang:
+So Sánh Cable UTP vs Cable Quang:
 
 UTP:
 
 - Chi phí thấp hơn cáp quang.
 - Khoảng cách tối đa ngắn hơn cáp quang (~100m).
 - Có thể dễ bị nhiễu EMI (Nhiễu Điện từ).
-- Cổng RJ45 sử dụng với UTP rẻ hơn cổng SFP.
+- Port RJ45 sử dụng với UTP rẻ hơn cổng SFP.
 - Phát ra (rò rỉ) tín hiệu yếu bên ngoài cáp, có thể bị sao chép (rủi ro bảo mật).
 
-Cáp Quang:
+Cable Quang:
 
 - Chi phí cao hơn UTP.
 - Khoảng cách tối đa dài hơn UTP.
 - Không dễ bị nhiễu EMI.
-- Cổng SFP đắt hơn cổng RJ45 (đơn mode đắt hơn đa mode).
+- Port SFP đắt hơn cổng RJ45 (đơn mode đắt hơn đa mode).
 - Không phát ra tín hiệu nào bên ngoài cáp (không có rủi ro bảo mật).

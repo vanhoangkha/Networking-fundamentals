@@ -2,8 +2,8 @@
 
 INTRODUCTION TO WANS
 
-- WAN stands for WIDE AREA Mạng
-- A WAN is a Mạng that extends over a large geographic area
+- WAN stands for WIDE AREA Network
+- A WAN is a Network that extends over a large geographic area
 - WANs are used to connect geographically separate LANs
 - Although the Internet can be considered a WAN, the term “WAN” is typically used to refer to an Doanh nghiệp’s private connections that connect their offices, data centers, and other sites together
 - Over public/shared networks like the Internet, VPNs (Virtual Private Networks) can be used to create private WAN connections
@@ -52,7 +52,7 @@ MPLS VPNs
 ![image](https://github.com/psaumur/CCNA/assets/106411237/166bff5b-d977-48dc-9a74-b9a523b91e1b)
 
 - When the PE ROUTERS receive FRAMES from the CE ROUTERS, they add a LABEL to the Khung
-- These LABELS are used to make forwarding decisions within the SERVICE PROVIDER Mạng - NOT the DESTINATION IP
+- These LABELS are used to make forwarding decisions within the SERVICE PROVIDER Network - NOT the DESTINATION IP
 - The CE ROUTERS do NOT USE MPLS, it is only used by the PE/P ROUTERS
 - When using a LAYER 3 MPLS VPN, the CE and PE ROUTERS peer using OSPF, Ví dụ, to share Định tuyến information
 
@@ -69,9 +69,9 @@ OFFICE B’s CE will learn about OFFICE A’s ROUTES as well
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2b3d8d6e-3501-4d54-a6f8-5a05c9140d24)
 
 - When using a LAYER 2 MPLS VPN, the CE and PE ROUTERS do NOT form PEERINGS
-- The SERVICE PROVIDER Mạng is entirely *transparent* to the CE ROUTERS
+- The SERVICE PROVIDER Network is entirely *transparent* to the CE ROUTERS
 - In effect, it is like the TWO CE ROUTERS are directly connected.
-    - Their WAN INTERFACES will be in the SAME Mạng con
+    - Their WAN INTERFACES will be in the SAME Network con
 - If a Định tuyến Giao thức is used, the TWO CE ROUTERS will peer directly with each other
 
 CE ROUTERS connected via LAYER 2 MPLS VPN
@@ -84,7 +84,7 @@ CE ROUTERS connected via LAYER 2 MPLS VPN
 
 MPLS 
 
-- Many different technologies can be used to connect to a SERVICE PROVIDER’s MPLS Mạng for WAN Service
+- Many different technologies can be used to connect to a SERVICE PROVIDER’s MPLS Network for WAN Service
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c6e6e60d-2a96-415e-82a2-a090c38a68a3)
 
@@ -95,7 +95,7 @@ Internet CONNECTIVITY
 - In addition, technologies such as CATV and DSL commonly used by consumers (Home Internet Access) can also be used by an Doanh nghiệp
 - These days for both Doanh nghiệp and consumer Internet Access, FIBER OPTIC Ethernet connections are growing in popularity due to high speeds they provide over long distances
 - Let’s briefly look at TWO Internet Access technologies mentioned above:
-    - Cáp (CATV)
+    - Cable (CATV)
     - DSL
 
 ---
@@ -108,10 +108,10 @@ DIGITAL SUBSCRIBER LINE (DSL)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a708b6b4-6de5-4a72-8c77-13f569f4c2d5)
 
-Cáp Internet
+Cable Internet
 
-- Cáp Internet provides Internet Access via the same CATV (Cáp Television) lines used for TV service
-- Like DLS, a Cáp MODEM is required to convert DATA into a format suitable to be sent over the CATV CABLES.
+- Cable Internet provides Internet Access via the same CATV (Cable Television) lines used for TV service
+- Like DLS, a Cable MODEM is required to convert DATA into a format suitable to be sent over the CATV CABLES.
     - Like a DSL MODEM, this can be a separate device or built into the HOME Router
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a33bb999-83bc-49a8-ad37-e7ca91fcb954)
@@ -126,8 +126,8 @@ REDUNDANT Internet CONNECTIONS
 
 Internet VPNs
 
-- PRIVATE WAN SERVICES such as LEASED LINES and MPLS provide Bảo mật because each customer’s TRAFFIC is separated by using dedicated physical connections (LEASED LINE) or by MPLS TAGS
-- When using the Internet as a WAN to connect SITES together, there is no built-in Bảo mật by Mặc định
+- PRIVATE WAN SERVICES such as LEASED LINES and MPLS provide Security because each customer’s TRAFFIC is separated by using dedicated physical connections (LEASED LINE) or by MPLS TAGS
+- When using the Internet as a WAN to connect SITES together, there is no built-in Security by Default
 - To provide secure communications over the Internet, VPNs (Virtual Private Networks) are used
 - We will cover two kinds of Internet VPNs:
     - SITE-TO-SITE VPNS using IPSec
@@ -175,7 +175,7 @@ GRE over IPSec
 
 - GRE (GENERIC Định tuyến Đóng gói) creates TUNNELS like IPSec, however it does not ENCRYPT the original Gói tin, so it is NOT SECURE
 - However, it has the advantage of being able to encapsulate a WIDE variety of a LAYER 3 PROTOCOLS as well as Broadcast and Multicast messages
-- To get the FLEXIBILITY of GRE with the Bảo mật of IPSec, “GRE over IPSec” can be used
+- To get the FLEXIBILITY of GRE with the Security of IPSec, “GRE over IPSec” can be used
 - The original Gói tin will be ENCAPSULATED by a GRE Header and a new IP Header, and then the GRE Gói tin will be ENCRYPTED and ENCAPSULATED within an IPSec VPN Header and a NEW IP Header
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/09c7da0c-debe-453e-822c-b97c0b8658ef)
@@ -198,19 +198,19 @@ DMVPN
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7a621160-10d4-4e14-868b-3c23f6bb0a64)
 
-DMVPN provides the Cấu hình simplicity of Hub-AND-SPOKE (each SPOKE Router only needs one TUNNEL configured) and the EFFICIENCY of DIRECT SPOKE-TO-SPOKE communication (SPOKE ROUTERS can communicate directly without TRAFFIC passing through the Hub)
+DMVPN provides the Configuration simplicity of Hub-AND-SPOKE (each SPOKE Router only needs one TUNNEL configured) and the EFFICIENCY of DIRECT SPOKE-TO-SPOKE communication (SPOKE ROUTERS can communicate directly without TRAFFIC passing through the Hub)
 
 ---
 
 REMOTE-Access VPNs
 
 - Whereas SITE-TO-SITE VPNs are used to make a POINT-TO-POINT connection between TWO SITES over the Internet, REMOTE-Access VPNs are used to allow END DEVICES (PCs, Mobile Phone) to Access the company’s internal resources securely over the Internet
-- REMOTE-Access VPNs typically use TLS (TRANSPORT LAYER Bảo mật)
-    - TLS is also what provides Bảo mật for HTTPS (HTTP SECURE)
+- REMOTE-Access VPNs typically use TLS (TRANSPORT LAYER Security)
+    - TLS is also what provides Security for HTTPS (HTTP SECURE)
     - TLS was formerly known as SSL (Secure Socket Layer) and developed by Netscape, but it was renamed to TLS when it was standardized by the IETF
 - VPN client software  (Ví dụ Cisco AnyConnect) is installed on END DEVICES (Ví dụ company-provided laptops that employees use to work from home)
 - These END DEVICES then form SECURE TUNNELS to one of the company’s ROUTERS / FIREWALLS acting as a TLS SERVER
-- This allows the END USERS to securely Access RESOURCES on the company’s INTERNAL Mạng without being directly connected to the company Mạng
+- This allows the END USERS to securely Access RESOURCES on the company’s INTERNAL Network without being directly connected to the company Network
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f4a77cb7-9d42-4daa-9a25-630c0fb260cf)
 
@@ -224,43 +224,43 @@ SITE-TO-SITE versus REMOTE-Access VPN
 - REMOTE-Access VPNs provide SERVICE to the ONE END DEVICE the VPN CLIENT SOFTWARE is installed on
 
 - SITE-TO-SITE VPNs are typically used to permanently connect TWO SITES over the Internet
-- REMOTE-Access VPNs are typically used to provide ON-DEMAND Access for END DEVICES that want to securely Access company resources while connected to a Mạng which is not SECURE
+- REMOTE-Access VPNs are typically used to provide ON-DEMAND Access for END DEVICES that want to securely Access company resources while connected to a Network which is not SECURE
 
 ---
 
 LAB COMMANDS
 
-Create the Tunnel Giao diện
+Create the Tunnel Interface
 
 `R1(config)#int tunnel <tunnel number>`
 
-This changes the mode to the Tunnel Giao diện
+This changes the mode to the Tunnel Interface
 
-The exit Giao diện for the tunnel
+The exit Interface for the tunnel
 
 `tunnel source <interface>` 
 
-IP of the Tunnel Destination Giao diện
+IP of the Tunnel Destination Interface
 
 `tunnel destination <destination ip address>`
 
-Set the IP of the Source Tunnel Giao diện (from step 1)
+Set the IP of the Source Tunnel Interface (from step 1)
 
 `ip address <tunnel IP> <netmask>`
 
-Configure a Mặc định Tuyến đường to the Service Provider Mạng
+Configure a Default Tuyến đường to the Service Provider Network
 
 `R1(config)#ip route 0.0.0.0 0.0.0.0 <next hop interface>`
 
-This will now bring the Tunnel Giao diện Administratively Up / Up
+This will now bring the Tunnel Interface Administratively Up / Up
 
 ================================================
 
-Now you need to set up the TUNNEL ROUTERS as OSPF Neighbors for the Service Provider Mạng so they can share routes
+Now you need to set up the TUNNEL ROUTERS as OSPF Neighbors for the Service Provider Network so they can share routes
 
 `R1(config)router ospf <ospf process ID>`
 
-This switches to the OSPF Router Cấu hình mode
+This switches to the OSPF Router Configuration mode
 
 `network <tunnel interface IP> <wildcard mask> area <area #>`
 

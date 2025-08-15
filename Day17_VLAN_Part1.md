@@ -15,7 +15,7 @@ Image of LAN with FOUR Broadcast DOMAINS (192.168.1.0 / 24)
 
 Performance :
 
-Lots of unnecessary Broadcast traffic can reduce Mạng performance.
+Lots of unnecessary Broadcast traffic can reduce Network performance.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a807fdc5-27b9-4735-8b8d-51bdc0c91a8c)
 
@@ -25,9 +25,9 @@ Broadcast Khung flooding all our subnets with unnecessary traffic.
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fcd03904-a193-4423-8940-09be1df1bd2c)
 
 
-Bảo mật :
+Security :
 
-Even within the same office, you want to limit who has Access to what. You can apply Bảo mật policies on a Router / Tường lửa. Because this is one LAN, PC’s can reach each other directly, without traffic passing through the Router. So, even if you configure Bảo mật policies, they won’t have any effect.
+Even within the same office, you want to limit who has Access to what. You can apply Security policies on a Router / Tường lửa. Because this is one LAN, PC’s can reach each other directly, without traffic passing through the Router. So, even if you configure Security policies, they won’t have any effect.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7bd562fc-7dff-4692-81d7-c026b007df8f)
 
@@ -38,20 +38,20 @@ là gì A VLAN ?
 VLANS:
 
 - logically separate end-hosts at LAYER 2
-- are configured on Layer 2 SWITCHES on a per-Giao diện basis.
-- any END HOST connected to that Giao diện is part of that VLAN
+- are configured on Layer 2 SWITCHES on a per-Interface basis.
+- any END HOST connected to that Interface is part of that VLAN
 
 ---
 
 PURPOSE OF VLANs:
 
-Mạng Performance :
+Network Performance :
 
-- Reduce unnecessary Broadcast traffic, which helps prevent Mạng congestion, and improve Mạng performance
+- Reduce unnecessary Broadcast traffic, which helps prevent Network congestion, and improve Network performance
 
-Mạng Bảo mật :
+Network Security :
 
-- Limiting Broadcast and unknown Unicast traffic, also improves Mạng Bảo mật, since messages won’t be received by devices outside of the VLAN
+- Limiting Broadcast and unknown Unicast traffic, also improves Network Security, since messages won’t be received by devices outside of the VLAN
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fae2f1ed-ffc3-4d91-adf7-16a67c2dc5aa)
 
@@ -82,7 +82,7 @@ Cách CONFIGURE VLANS ON CISCO SWITCHES
 
 Shows which VLANS that exist on the Switch and what INTERFACES are in each VLAN
 
-VLANs 1 (Mặc định), 1002-1005 exist by Mặc định and **cannot be deleted (5 VLANs)**
+VLANs 1 (Default), 1002-1005 exist by Default and **cannot be deleted (5 VLANs)**
 
 ---
 
@@ -91,28 +91,28 @@ Cách ASSIGN INTERFACES TO A VLAN
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ed31145d-7949-4c68-b88a-97716beaf074)
 
 
-1) Use the “Giao diện range” Lệnh to select all the interfaces at once
+1) Use the “Interface range” Lệnh to select all the interfaces at once
 
-2) Use the “switchport mode Access” Lệnh to set the Giao diện as an Access Cổng
+2) Use the “switchport mode Access” Lệnh to set the Interface as an Access Port
 
 ---
 
-là gì AN Access Cổng?
+là gì AN Access Port?
 
-- An Access Cổng is a SWITCHPORT which belongs to a single VLAN, and usually connects to end hosts like PCs.
+- An Access Port is a SWITCHPORT which belongs to a single VLAN, and usually connects to end hosts like PCs.
 
 SWITCHPORTS which carry multiple VLANs are called “Trunk PORTS” (more info on Trunk in next chapter)
 
-3) Use the “switchport Access” Lệnh to assign a VLAN to a Cổng
+3) Use the “switchport Access” Lệnh to assign a VLAN to a Port
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/b1bdb937-3707-496f-bc49-445df354d16b)
 
 
-Use “#VLAN <#>” to enter **Cấu hình Mode** for a given VLAN (this can also create a VLAN)
+Use “#VLAN <#>” to enter **Configuration Mode** for a given VLAN (this can also create a VLAN)
 
 Use “#name <name>” to configure a NAME for your VLAN
 
-To check your VLAN Cấu hình, use “#show VLAN brief”
+To check your VLAN Configuration, use “#show VLAN brief”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2f7d26d8-9b2a-43a3-b213-fec4f984a309)
 

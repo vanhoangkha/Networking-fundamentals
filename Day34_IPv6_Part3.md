@@ -1,4 +1,4 @@
-# 33. IPv6 : PART 3
+# 33. IPV6 : PART 3
 
 CORRECTION TO PRIOR LECTURES:
 
@@ -71,7 +71,7 @@ Cách generate a SOLICITED-NODE Multicast Address
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/eef6815b-405b-485d-884d-ff08bbbf16d3)
 
-Note the automatically joined group addresses for this IPv6 Giao diện
+Note the automatically joined group addresses for this IPv6 Interface
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4f981645-7488-4f0c-8ec5-d7c1b878acba)
 
@@ -98,7 +98,7 @@ IPv6 NEIGHBOR TABLE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/085bb9df-8015-4c2f-bfc8-2d6336436fe2)
 
-- Another function of NDP allows HOSTS to automatically discover ROUTERS on the LOCAL Mạng
+- Another function of NDP allows HOSTS to automatically discover ROUTERS on the LOCAL Network
 
 - TWO MESSAGES are used for this process:
   
@@ -106,7 +106,7 @@ IPv6 NEIGHBOR TABLE
         - ICMPv6 Type 133
         - Sent to Multicast Address `FF02::2` (All Routers)
         - Asks ALL ROUTERS on the Local Link to identify themselves
-        - Sent when an Giao diện is enabled / HOST is connected to the Mạng
+        - Sent when an Interface is enabled / HOST is connected to the Network
         
     - Router ADVERTISEMENT (RA)
         - ICMPv6 Type 134
@@ -123,11 +123,11 @@ IPv6 NEIGHBOR TABLE
 
 SLAAC
 
-- Stands for **STATELESS ADDRESS AUTO-Cấu hình**
+- Stands for **STATELESS ADDRESS AUTO-Configuration**
 - HOSTS use the RS / RA messages to learn the IPv6 Prefix of the LOCAL LINK (ie: 2000:db8:: /64) and then automatically generate an IPv6 Address
 - Using the `ipv6 address prefix / prefix-length eui-64` Lệnh, you need to manually enter the prefix
 - Using the `ipv6 address autoconfig` Lệnh, you DON’T need to enter the prefix. The device uses NDP to learn the prefix used on the local link
-- The device will use EUI-64 to generate the Giao diện ID or it will be randomly generated (depending on the device / maker)
+- The device will use EUI-64 to generate the Interface ID or it will be randomly generated (depending on the device / maker)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e1cc9b26-1a81-48fb-8538-77f97d456eff)
 
@@ -137,11 +137,11 @@ DUPLICATE ADDRESS DETECTION (DAD)
 
 - One final point about NDP!
 - Duplicate Address Detection (DAD) allows HOSTS to check if other devices on the Local Link are using the same IPv6 Address
-- Any time an IPv6-enabled Giao diện initializes (`no shutdown` Lệnh) or an IPv6 ADDRESS is configured on an Giao diện (by any method: manual, SLAAC, etc.) it performs DAD
+- Any time an IPv6-enabled Interface initializes (`no shutdown` Lệnh) or an IPv6 ADDRESS is configured on an Interface (by any method: manual, SLAAC, etc.) it performs DAD
 - DAD uses TWO MESSAGES you learned earlier : NS and NA
 - The HOST will send an NS to its own IPv6 ADDRESS.
     - If it doesn’t get a reply, it KNOWS the ADDRESS is unique
-    - If it DOES get a reply, it means ANOTHER HOST on the Mạng is already using that ADDRESS
+    - If it DOES get a reply, it means ANOTHER HOST on the Network is already using that ADDRESS
 
 ---
 
@@ -149,8 +149,8 @@ IPv6 STATIC Định tuyến
 
 - IPv6 Định tuyến works the same as IPv4 Định tuyến
 - However, the TWO processes are separate on the Router, and the TWO Định tuyến tables are separate, as well.
-- IPv4 Định tuyến is enabled BY Mặc định
-- IPv6 Định tuyến is disabled BY Mặc định
+- IPv4 Định tuyến is enabled BY Default
+- IPv6 Định tuyến is disabled BY Default
     - MUST BE ENABLED with the `ipv6 unicast-routing` Lệnh
 - If IPv6 Định tuyến is disabled, the Router will be able to SEND and RECEIVE IPv6 traffic, but will not *Tuyến đường* IPv6 traffic (ie: will NOT FORWARD it between NETWORKS)
 
@@ -158,7 +158,7 @@ IPv6 STATIC Định tuyến
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/90acb6ca-2703-47d1-907f-1878490c78f6)
 
-- A CONNECTED Mạng Tuyến đường is automatically added for EACH CONNECTED Mạng
+- A CONNECTED Network Tuyến đường is automatically added for EACH CONNECTED Network
 - A LOCAL HOST Tuyến đường is automatically added for each ADDRESS configured on the Router
 - Routes for Link-Local ADDRESSES are not added to the Định tuyến TABLE
 
@@ -170,12 +170,12 @@ Everything is configured similar to normal static routes in IPv4
 
 DIRECTLY ATTACHED Static Tuyến đường:
 
-- Only the EXIT Giao diện is specified
+- Only the EXIT Interface is specified
 - `ipv6 route destination / prefix-length exit-interface`
 - Example : `~~R1(config)# ipv6 route 2001:db8:0:3:: /64 g0/0~~`
 
 <aside>
-💡 In IPv6, you CANNOT use DIRECTLY ATTACHED Static Routes if the Giao diện is an Ethernet Giao diện
+💡 In IPv6, you CANNOT use DIRECTLY ATTACHED Static Routes if the Interface is an Ethernet Interface
 
 </aside>
 
@@ -187,7 +187,7 @@ RECURSIVE Static Tuyến đường:
 
 FULLY SPECIFIED Static Tuyến đường:
 
-- Both the Exit Giao diện and Next Hop are specified
+- Both the Exit Interface and Next Hop are specified
 - `ipv6 route destination / prefix-length exit-interface next-hop`
 - Example: `R1(config)# ipv6 route 2001:db8:0:3::/64 g0/0 2001:db8:0:12::2`
 
@@ -195,11 +195,11 @@ FULLY SPECIFIED Static Tuyến đường:
 
 (Lưu ý rằng THESE ROUTES ARE ALL RECURSIVE : They specify the Next-Hop)
 
-Mạng Tuyến đường:
+Network Tuyến đường:
 
 `R1(config)# ipv6 route 2001:db8:0::/64 2001:db8:0:12::2`
 
-This is a Tuyến đường to R3/PC2 Mạng via R2’s G0/0 Giao diện
+This is a Tuyến đường to R3/PC2 Network via R2’s G0/0 Interface
 
 (We did this in Day 32’s Lab)
 
@@ -213,7 +213,7 @@ This is a Tuyến đường from R2 to PC1 and PC2 using the “next hop” ADDR
 
 Note the /128 prefix. This is how SPECIFIC IPv6 ADDRESSES are written
 
-Mặc định Tuyến đường:
+Default Tuyến đường:
 
 `R3(config)# ipv6 route ::/0 2001:db8:0:23::1`
 
@@ -221,12 +221,12 @@ Mặc định Tuyến đường:
 
 FLOATING STATIC ROUTES:
 
-- Require you to increase the [AD] number HIGHER than the currently used Mạng IGP AD value
+- Require you to increase the [AD] number HIGHER than the currently used Network IGP AD value
 
 LINK-LOCAL NEXT HOPS:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/52cf09e2-2b37-4319-a2b9-15213524530c)
 
-You HAVE to specify the Giao diện name when using Link-Local Next-Hops
+You HAVE to specify the Interface name when using Link-Local Next-Hops
 
 This is EXACTLY like a FULLY-SPECIFIED STATIC Tuyến đường

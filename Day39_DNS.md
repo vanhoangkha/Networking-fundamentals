@@ -1,11 +1,11 @@
-# 38. DNS (Domain Name System)
+# 38. DNS (DOMAIN NAME SYSTEM)
 
 Mục đích của DNS
 
 - DNS is used to *resolve* human-readable names (google.com) to IP ADDRESSES
 - Machines such as PCs don’t use names, they use ADDRESSES (ie: IPv4/IPv6)
 - Names are much easier for us to use and remember than IP ADDRESSES
-    - là gì the Địa chỉ IP of [youtube.com](HTTP://youtube.com) ?
+    - là gì Địa chỉ IP of [youtube.com](HTTP://youtube.com) ?
 - When you type ‘youtube.com` into a web browser, your device will ask a DNS SERVER for the IP ADDRESS of [youtube.com](http://youtube.com)
 - The DNS SERVER(S) your DEVICE uses can be manually configured or learned via DHCP
 

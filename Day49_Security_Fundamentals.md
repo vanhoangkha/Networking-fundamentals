@@ -1,12 +1,12 @@
-# 48. Bảo mật FUNDAMENTALS
+# 48. SECURITY FUNDAMENTALS
 
-KEY Bảo mật CONCEPTS
+KEY Security CONCEPTS
 
-WHY Bảo mật?
+WHY Security?
 
-là gì the purpose / goal of Bảo mật in an Doanh nghiệp ?
+là gì purpose / goal of Security in an Doanh nghiệp ?
 
-- The principles of the CIA TRIAD form the FOUNDATION of Bảo mật:
+- The principles of the CIA TRIAD form the FOUNDATION of Security:
     - CONFIDENTIALITY
         - Only AUTHORIZED USERS should be able to Access DATA
         - Some INFORMATION / DATA is PUBLIC and can be accessed by ANYONE
@@ -15,7 +15,7 @@ là gì the purpose / goal of Bảo mật in an Doanh nghiệp ?
         - DATA should not be tampered with (modified) by unauthorized USERS
         - DATA should be CORRECT and AUTHENTIC
     - AVAILABILITY
-        - The Mạng / Bảo mật should be OPERATIONAL and ACCESSIBLE to AUTHORIZED USERS
+        - The Network / Security should be OPERATIONAL and ACCESSIBLE to AUTHORIZED USERS
 
 ATTACKERS can threaten the CONFIDENTIALITY, INTEGRITY, and AVAILBILITY of an Doanh nghiệp’s SYSTEMS and INFORMATION
 
@@ -141,7 +141,7 @@ MALWARE
 - MALWARE (MALICIOUS SOFTWARE) refers to a variety of harmful programs that can infect a computer
 - VIRUSES infect other software (a ‘host program’)
     - The VIRUS spreads as the software is shared by USERS. Typically, they CORRUPT or MODIFY files on the TARGET computer
-- WORMS do not require a host program. They are standalone malware and they are able to spread on their own, without user interaction. They spread of WORMS can congest the Mạng but the ‘payload’ of a WORM can cause additional harm to TARGET DEVICES
+- WORMS do not require a host program. They are standalone malware and they are able to spread on their own, without user interaction. They spread of WORMS can congest the Network but the ‘payload’ of a WORM can cause additional harm to TARGET DEVICES
 
 - TROJAN HORSES are harmful software that is disguised as LEGITIMATE software. They are spread through user interaction such as opening email attachments, downloading a file from the Internet.
 
@@ -171,7 +171,7 @@ SOCIAL ENGINEERING ATTACKS
 PASSWORD-RELATED ATTACKS
 
 - Most systems use a USERNAME / PASSWORD combination to AUTHENTICATE users
-- The USERNAME is often simple / easy to guess (Ví dụ the user’s email address) and the strength and secrecy of the password is relied on to provide the necessary Bảo mật
+- The USERNAME is often simple / easy to guess (Ví dụ the user’s email address) and the strength and secrecy of the password is relied on to provide the necessary Security
 - ATTACKERS can learn a user’s passwords via multiple methods:
     - Guessing
     - DICTIONARY ATTACK :
@@ -201,7 +201,7 @@ PASSWORDS / MULTI-FACTOR AUTHENTICATION (MFA)
     - SOMETHING YOU ARE
         - Biometrics such as a face scan, palm scan, fingerprint scan, retina scan, etc.
 
-- Requiring multiple factors of AUTHENTICATION greatly increases the Bảo mật. Even if the ATTACKER learns the TARGET’S PASSWORD (SOMETHING YOU KNOW), they won’t be able to login to the TARGET’S account
+- Requiring multiple factors of AUTHENTICATION greatly increases the Security. Even if the ATTACKER learns the TARGET’S PASSWORD (SOMETHING YOU KNOW), they won’t be able to login to the TARGET’S account
 
 ---
 
@@ -216,7 +216,7 @@ DIGITAL CERTIFICATES
 CONTROLLING AND Giám sát USERS WITH AAA
 
 - AAA (Triple-A) stands for AUTHENTICATION, AUTHORIZATION, and ACCOUNTING
-- It is a framework for controlling and monitor users of a computer system (ie: a Mạng)
+- It is a framework for controlling and monitor users of a computer system (ie: a Network)
 
 - AUTHENTICATION
     - Process of verifying a user’s identity
@@ -237,7 +237,7 @@ CONTROLLING AND Giám sát USERS WITH AAA
         - Uses UDP PORTS 1812 and 1813
         
     - TACACS+ : Cisco Proprietary Giao thức
-        - Uses TCP Cổng 49
+        - Uses TCP Port 49
 
 <aside>
 💡 FOR THE CCNA, KNOW THE DIFFERENCES BETWEEN AUTHENTICATION, AUTHORIZATION, and ACCOUNTING
@@ -246,8 +246,8 @@ CONTROLLING AND Giám sát USERS WITH AAA
 
 ---
 
-Bảo mật PROGRAM ELEMENTS
+Security PROGRAM ELEMENTS
 
-- USER AWARENESS PROGRAMS are designed to make employees aware of potential Bảo mật threats and risks
+- USER AWARENESS PROGRAMS are designed to make employees aware of potential Security threats and risks
 - USER TRAINING PROGRAMS are formal than USER AWARENESS PROGRAMS
-- PHYSICAL Access CONTROL protect equipment and data from potential attackers by only allowing authorized users into the protected areas such as Mạng CLOSETS or DATA CENTER FLOORS
+- PHYSICAL Access CONTROL protect equipment and data from potential attackers by only allowing authorized users into the protected areas such as Network CLOSETS or DATA CENTER FLOORS

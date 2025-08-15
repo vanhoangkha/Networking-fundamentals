@@ -1,10 +1,10 @@
-# 57. Không dây Bảo mật
+# 57. KHÔNG DÂY SECURITY
 
-INTRO TO Không dây Mạng Bảo mật
+INTRO TO Không dây Network Security
 
-- Although Bảo mật is important in ALL NETWORKS, it is even more essential in Không dây NETWORKS
+- Although Security is important in ALL NETWORKS, it is even more essential in Không dây NETWORKS
 - Because Không dây SIGNALS are not contained within a WIRE, any DEVICE within range of the signal can receive traffic
-- In WIRED NETWORKS, traffic is often only ENCRYPTED when sent over an UNTRUSTED Mạng such as the Internet
+- In WIRED NETWORKS, traffic is often only ENCRYPTED when sent over an UNTRUSTED Network such as the Internet
 - In Không dây NETWORKS, it is VERY important to ENCRYPT traffic sent between the Không dây CLIENTS and the AP
 
 - We will cover THREE MAIN CONCEPTS:
@@ -17,8 +17,8 @@ INTRO TO Không dây Mạng Bảo mật
 AUTHENTICATION
 
 - All CLIENTS must be AUTHENTICATED before they can associate with an AP
-- In a corporate setting, only TRUSTED USERS / DEVICES should be given Access to the Mạng
-    - In corporate settings, a separate SSID which doesn’t have Access to the corporate Mạng can be provided for GUEST USERS
+- In a corporate setting, only TRUSTED USERS / DEVICES should be given Access to the Network
+    - In corporate settings, a separate SSID which doesn’t have Access to the corporate Network can be provided for GUEST USERS
 - Ideally, CLIENTS should also AUTHENTICATE the AP to avoid associating with a malicious AP
 - There are MULTIPLE WAYS to AUTHENTICATE:
     - PASSWORD
@@ -42,7 +42,7 @@ ENCRYPTION
 
 INTEGRITY
 
-- As explained in the “Bảo mật FUNDAMENTALS” video of the course, INTEGRITY ensures that the message is not modified by a third-party
+- As explained in the “Security FUNDAMENTALS” video of the course, INTEGRITY ensures that the message is not modified by a third-party
 - The message that is sent by the SOURCE HOST should be the same as the message that is received by the DESTINATION HOST
 - A MIC (Message Integrity Check) is added to the message to help protect their INTEGRITY.
 
@@ -57,7 +57,7 @@ The original 802.11 STANDARD included TWO OPTIONS for AUTHENTICATION:
 - OPEN AUTHENTICATION
     - The CLIENT sends an AUTHENTICATION REQUEST and the AP just accepts it
     - The is clearly NOT a SECURE AUTHENTICATION method
-    - After the CLIENT is AUTHENTICATED and associated with the AP, it’s possible to require the USER to AUTHENTICATE via other methods before Access to the Mạng is granted (ie: Starbucks WI-FI)
+    - After the CLIENT is AUTHENTICATED and associated with the AP, it’s possible to require the USER to AUTHENTICATE via other methods before Access to the Network is granted (ie: Starbucks WI-FI)
 - WEP (Wired Equivalent Privacy)
     - WEP is used to provide both AUTHENTICATION and ENCRYPTION of Không dây traffic
     - For ENCRYPTION, WEP uses the RC4 ALGORITHM
@@ -81,14 +81,14 @@ EAP (Extensible Authentication Giao thức)
     - EAP-FAST
     - PEAP
     - EAP-TLS
-- EAP is integrated with **802.1X** which provides *Cổng-BASED Mạng Access CONTROL*
+- EAP is integrated with **802.1X** which provides *Port-BASED Network Access CONTROL*
 
-**802.1X** is used to limit Mạng Access for CLIENTS connected to a LAN or WLAN until they AUTHENTICATE
+**802.1X** is used to limit Network Access for CLIENTS connected to a LAN or WLAN until they AUTHENTICATE
 
 There are **THREE MAIN ENTITIES** in 802.1X:
 
-- SUPPLICANT : The DEVICE that wants to connect to the Mạng
-- AUTHENTICATOR : The DEVICE that provides Access to the Mạng
+- SUPPLICANT : The DEVICE that wants to connect to the Network
+- AUTHENTICATOR : The DEVICE that provides Access to the Network
 - AUTHENTICATION SERVER (AS) : The DEVICE that receives CLIENT credentials and PERMITS / DENIES Access
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5565e646-696f-4245-b1e5-d728fe0e3380)
@@ -122,7 +122,7 @@ There are **THREE MAIN ENTITIES** in 802.1X:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/0f9babe7-d86f-49c8-b732-20f31ea26437)
 
-- EAP-TLS (EAP TRANSPORT LAYER Bảo mật)
+- EAP-TLS (EAP TRANSPORT LAYER Security)
     - Whereas PEAP only requires the AS to have a CERTIFICATE, EAP-TLS requires a CERTIFICATE on the AS and on every single CLIENT
     - EAP-TLS is the MOST SECURE Không dây AUTHENTICATION method, but it is more difficult to implement than PEAP because every CLIENT DEVICE needs a CERTIFICATE
     - Because the CLIENT and SERVER AUTHENTICATE each other with DIGITAL CERTIFICATES, there is no need to AUTHENTICATE the CLIENT within the TLS TUNNEL
@@ -137,7 +137,7 @@ ENCRYPTION / INTEGRITY METHODS
 - TKIP (Temporal Key Integrity Giao thức)
     - WEP was found to be vulnerable, but Không dây hardware at the time was built to use WEP
     - A temporary solution was needed until a new STANDARD was created and a new HARDWARE was built
-    - TKIP adds various Bảo mật FEATURES:
+    - TKIP adds various Security FEATURES:
         - A MIC (Message Integrity Check) is added to protect the integrity of messages
         - A KEY MIXING ALGORITHM is used to create a unique WEP key for every Khung
         - The INITIALIZATION VECTOR is doubled in length from 24 bits to 48 bits, making BRUTE-FORCE attacks much more difficult
@@ -184,7 +184,7 @@ WI-FI PROTECTED Access (WPA)
 - All of the above support TWO AUTHENTICATION MODES:
     - PERSONAL MODE :
         - A PRE-SHARED KEY (PSK) is used for AUTHENTICATOIN
-        - When you connect to a home WI-FI Mạng, enter the PASSWORD and are AUTHENTICATED, that is PERSONAL MODE
+        - When you connect to a home WI-FI Network, enter the PASSWORD and are AUTHENTICATED, that is PERSONAL MODE
         - This is common in small NETWORKS
         - The PSK itself is NOT sent over the air
         - A FOUR-WAY HANDSHAKE is used for AUTHENTICATION and the PSK is used to GENERATE ENCRYPTION KEYS
@@ -210,9 +210,9 @@ WI-FI PROTECTED Access (WPA)
         - GCMP provides ENCRYPTION / MIC
         - 802.1X AUTHENTICATION (Doanh nghiệp MODE) or PSK (PERSONAL MODE)
         
-        - WPA3 also provides several additional Bảo mật features:
-            - PMF (PROTECTED Quản lý FRAMES)
-                - Protecting 802.11 Quản lý FRAMES from eavesdropping / forging
+        - WPA3 also provides several additional Security features:
+            - PMF (PROTECTED Management FRAMES)
+                - Protecting 802.11 Management FRAMES from eavesdropping / forging
             - SAE (SIMULTANEOUS AUTHENTICATION OF EQUALS)
                 - Protects the four-way handshake when using PERSONAL MODE AUTHENTICATION
             - FORWARD SECRECY

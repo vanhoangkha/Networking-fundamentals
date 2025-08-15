@@ -56,7 +56,7 @@ WHY VIRTUALIZATION?
     - Divide system resources between VIRTUAL MACHINES
     
 - ISOLATION :
-    - Provide FAULT and Bảo mật ISOLATION at the hardware level
+    - Provide FAULT and Security ISOLATION at the hardware level
     - Preserve performance with advanced resource controls
 - Đóng gói :
     - Save the entire state of a virtual machine to files
@@ -73,9 +73,9 @@ VIRTUAL NETWORKS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7bf3f22c-a7b8-41bf-bc1e-8c128a41f20f)
 
-- VMs are connected to each other and the EXTERNAL Mạng via a VIRTUAL Switch running on the HYPERVISOR
+- VMs are connected to each other and the EXTERNAL Network via a VIRTUAL Switch running on the HYPERVISOR
 - Just like a regular PHYSICAL Switch, the vSWITCH’s INTERFACES can operate as Access PORTS or Trunk PORTS and use VLANs to separate the VMs at LAYER 2
-- INTERFACES on the vSWITCH connect to the PHYSICAL NIC (or NICs) of the SERVER to communicate with the EXTERNAL Mạng
+- INTERFACES on the vSWITCH connect to the PHYSICAL NIC (or NICs) of the SERVER to communicate with the EXTERNAL Network
 
 ---
 
@@ -83,14 +83,14 @@ INTRO TO CLOUD COMPUTING
 
 - Traditional IT Hạ tầng deployments were some combination of the following:
     - ON-PREMISES
-        - All SERVERS, Mạng DEVICES, and other Hạ tầng are located on company property
+        - All SERVERS, Network DEVICES, and other Hạ tầng are located on company property
         - All equipment is purchased and owned by the company using it
         - The company is responsible for the necessary space, power, and cooling
     
     - CO-LOCATION
-        - Data centers that rent out space for customers to put their Hạ tầng (SERVERS, Mạng DEVICES)
+        - Data centers that rent out space for customers to put their Hạ tầng (SERVERS, Network DEVICES)
         - The data center provides the space, electricity, and cooling
-        - The SERVERS, Mạng DEVICES, etc are still the responsibility of the end customer, although they are not located on the customer’s premises
+        - The SERVERS, Network DEVICES, etc are still the responsibility of the end customer, although they are not located on the customer’s premises
 - CLOUD SERVICE provide an alternative that is hugely popular and is continuing to grow
     - Most people associate “CLOUD” with PUBLIC CLOUD PROVIDERS such as AWS
         - Although this is the most common USE of CLOUD SERVICES, it’s not the only one
@@ -115,8 +115,8 @@ THE FIVE ESSENTIAL CHARACTERISTICS OF CLOUD
 - ON-DEMAND SELF-SERVICE
     - The CUSTOMER is able to use the SERVICE (or stop the SERVICE) freely (via a web portal) without direct communication to the SERVICE PROVIDER
 
-- BROAD Mạng Access
-    - The SERVICE is available through standard Mạng connections (ie: the Internet or PRIVATE WAN) and can be Access through many kinds of DEVICES
+- BROAD Network Access
+    - The SERVICE is available through standard Network connections (ie: the Internet or PRIVATE WAN) and can be Access through many kinds of DEVICES
 - RESOURCE POOLING
     - A POOL of RESOURCES is provided by the SERVICE PROVIDER and when a CUSTOMER requests a SERVICE (Ví dụ creates a new VM), the RESOURCES to fulfill that request are allocated from the shared POOL
 - RAPID ELASTICITY

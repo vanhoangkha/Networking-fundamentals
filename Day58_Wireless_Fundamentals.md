@@ -1,4 +1,4 @@
-# 55. Không dây FUNDAMENTALS
+# 55. KHÔNG DÂY FUNDAMENTALS
 
 - Although we will briefly look at other types of Không dây NETWORKS, Trong phần này of the course we will be focusing on Không dây LANs using WI-FI
 - The STANDARDS we use for Không dây LANs are defined in IEEE 802.11
@@ -157,7 +157,7 @@ WI-FI STANDARDS (802.11)
 
 SERVICE SETS
 
-- 802.11 defines different kinds of SERVICE SETS which are groups of Không dây Mạng DEVICES
+- 802.11 defines different kinds of SERVICE SETS which are groups of Không dây Network DEVICES
 - There are THREE MAIN TYPES:
     - INDEPENDENT
     - Hạ tầng
@@ -168,8 +168,8 @@ SERVICE SETS
 
 SERVICE SETS : IBSS
 
-- An IBSS (INDEPENDENT BASIC SERVICE SET) is a Không dây Mạng in which TWO or MORE Không dây DEVICES connect directly without using an AP (Điểm truy cập)
-- Also called an AD HOC Mạng
+- An IBSS (INDEPENDENT BASIC SERVICE SET) is a Không dây Network in which TWO or MORE Không dây DEVICES connect directly without using an AP (Điểm truy cập)
+- Also called an AD HOC Network
 - Can be used for FILE TRANSFER (ie: AirDrop)
 - Not scalable beyond a few DEVICES
 
@@ -190,7 +190,7 @@ SERVICE SETS : BSS
 SERVICE SETS: ESS
 
 - To create LARGER Không dây LANS beyond the range of a SINGLE AP, we use an ESS (EXTENDED SERVICE SET)
-- APs with their own BSSs are connected by a WIRED Mạng
+- APs with their own BSSs are connected by a WIRED Network
     - Each BSS uses the SAME SSID
     - Each BSS has a UNIQUE BSSID
     - Each BSS uses a DIFFERENT channel to avoid INTERFERENCE
@@ -205,8 +205,8 @@ SERVICE SETS: MBSS
 - An MBSS (MESH BASIC SERVICE SET) can be used in situations where it’s difficult to run an Ethernet connection to every AP
 - MESH APs use TWO RADIOS:
     - ONE provides BSS to Không dây CLIENTS
-    - ONE forms a “BACKHAUL Mạng” which is used to Bridge traffic from AP to AP
-- At least ONE AP is connected to the WIRED Mạng and it is called the RAP (ROOT Điểm truy cập)
+    - ONE forms a “BACKHAUL Network” which is used to Bridge traffic from AP to AP
+- At least ONE AP is connected to the WIRED Network and it is called the RAP (ROOT Điểm truy cập)
 - The OTHER APs are called MAPs (MESH Access POINTS)
 - A Giao thức is used to determine the BEST PATH through the MESH (similar to how DYNAMIC Định tuyến PROTOCOLS are used to determine the BEST PATH to a DESTINATION)
 
@@ -217,14 +217,14 @@ SERVICE SETS: MBSS
 DISTRIBUTION SYSTEM
 
 - Most Không dây NETWORKS are not STANDALONE NETWORKS
-    - Rather, they are a way for Không dây CLIENTS to connect to the WIRED Mạng Hạ tầng
-- In 802.11, the UPSTREAM WIRED Mạng is called the DS (DISTRIBUTION SYSTEM)
-- Each Không dây BSS or ESS is mapped to a VLAN in the WIRED Mạng
+    - Rather, they are a way for Không dây CLIENTS to connect to the WIRED Network Hạ tầng
+- In 802.11, the UPSTREAM WIRED Network is called the DS (DISTRIBUTION SYSTEM)
+- Each Không dây BSS or ESS is mapped to a VLAN in the WIRED Network
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/adf9deae-693c-4f1b-8d6d-c4fbfc356418)
 
 - It is possible for an AP to provide MULTIPLE Không dây LANs, each with a unique SSID
-- Each WLAN is mapped to a separate VLAN and connected to the WIRED Mạng via a Trunk
+- Each WLAN is mapped to a separate VLAN and connected to the WIRED Network via a Trunk
 - Each WLAN uses a UNIQUE BSSID, usually by INCREMENTING the LAST digit of the BBSID by one
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5667abba-dc3f-4571-a11a-43b3e8cf4304)
@@ -243,13 +243,13 @@ ADDITIONAL AP OPERATIONAL MODES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7973107f-7f2a-47de-9272-186040b038b5)
 
-- A WORKGROUP Bridge (WGB) operates as a Không dây CLIENT of another AP and can be used to CONNECT WIRED DEVICES to the Không dây Mạng
+- A WORKGROUP Bridge (WGB) operates as a Không dây CLIENT of another AP and can be used to CONNECT WIRED DEVICES to the Không dây Network
 - In the example below, PC1 does NOT have Không dây CAPABILITIES, and also DOES NOT have Access to WIRED CONNECTIONS to SW1
 - PC1 has a WIRED CONNECTION to the WGB, which has a Không dây CONNECTION to the AP
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/85cffc3f-3e76-4a55-9810-254135162a82)
 
-- AN OUTDOOR Bridge can be used to connect NETWORKS over LONG DISTANCES without a PHYSICAL Cáp connecting them
+- AN OUTDOOR Bridge can be used to connect NETWORKS over LONG DISTANCES without a PHYSICAL Cable connecting them
 - The APs will use SPECIALIZED ANTENNAS that focus most of the SIGNAL POWER in one direction, which allows the Không dây CONNECTION to be made over LONGER DISTANCES than normally possible
 - The CONNECTION can be POINT-TO-POINT as in the diagram below, or POINT-TO-MULTIPOINT in which MULTIPLE SITES connect to on CENTRAL SITE
 

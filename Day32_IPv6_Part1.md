@@ -1,4 +1,4 @@
-# 31. IPv6 : PART 1
+# 31. IPV6 : PART 1
 
 HEXIDECIMAL (Review)
 
@@ -95,7 +95,7 @@ This allows the Router to perform IPv6 Định tuyến
 
 </aside>
 
-Configuring an Giao diện with an IPv6 Address
+Configuring an Interface with an IPv6 Address
 
 <aside>
 💡 R1(config) #int g0/0
@@ -110,4 +110,4 @@ You can also type out the full address (if necessary)
 
 NOTE ABBREVIATED IPv6 ADDRESSES SHOWN
 
-LINK-LOCAL ADDRESSES are automatically added when creating an IPv6 Giao diện (Covered in IPv6 - PART 2 Lecture)
+LINK-LOCAL ADDRESSES are automatically added when creating an IPv6 Interface (Covered in IPv6 - PART 2 Lecture)

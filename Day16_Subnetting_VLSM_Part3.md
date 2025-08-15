@@ -1,10 +1,10 @@
-# 15. Chia mạng con (VLSM) : PART 3
+# 15. CHIA MẠNG CON (VLSM) : PART 3
 
 The process of Chia mạng con Class A, Class B, and Class C is identical.
 
 Chia mạng con CLASS A NETWORKS
 
-Given a 10.0.0.0/8 Mạng, you must create 2000 subnets which will distributed to various enterprises. What prefix length must you use?
+Given a 10.0.0.0/8 Network, you must create 2000 subnets which will distributed to various enterprises. What prefix length must you use?
 
 2^10 = 1024 so 2^11 = 2048. We have to "borrow" 11 bits (Left to Right) to get enough subnets
 
@@ -15,21 +15,21 @@ Given a 10.0.0.0/8 Mạng, you must create 2000 subnets which will distributed t
 0000 1010 . 0000 0000 . 000 | 00000 . 0000 0000
 1111 1111 . 1111 1111 . 111 | 00000 . 0000 0000
 
-255.255.224.0 is the Mạng con mask
+255.255.224.0 is the Network con mask
 
 The answer is /19 (/8 + /11 = /19)
 
-How many hosts per Mạng con? There are 13 host bits remaining so:
+How many hosts per Network con? There are 13 host bits remaining so:
 
-2^13 - 2 = 8190 hosts per Mạng con
+2^13 - 2 = 8190 hosts per Network con
 
 ---
 
-VARIABLE-LENGTH Mạng con MASKS (VLSM)
+VARIABLE-LENGTH Network con MASKS (VLSM)
 
-- Until now, we have practiced Chia mạng con using FLSM (Fixed-Length Mạng con Masks).
-- This means that all of the subnets use the same prefix length (ie: Chia mạng con a Class C Mạng into 4 subnets using /26)
-- VLSM (Variable-Length Mạng con Masks) is the process of creating subnets of different sizes, to make your use of Mạng addresses more efficient.
+- Until now, we have practiced Chia mạng con using FLSM (Fixed-Length Network con Masks).
+- This means that all of the subnets use the same prefix length (ie: Chia mạng con a Class C Network into 4 subnets using /26)
+- VLSM (Variable-Length Network con Masks) is the process of creating subnets of different sizes, to make your use of Network addresses more efficient.
 - VLSM is more complicated than FLSM, BUT it's easy if you follow the steps correctly.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/30a08f93-796a-4fe9-854e-58af0bcbd69b)

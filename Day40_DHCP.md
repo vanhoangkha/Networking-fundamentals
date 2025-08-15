@@ -1,10 +1,10 @@
-# 39. DHCP (Dynamic Host Cấu hình Giao thức)
+# 39. DHCP (DYNAMIC HOST CONFIGURATION GIAO THỨC)
 
 Mục đích của DHCP
 
-- DHCP is used to allow HOSTS to automatically / dynamically learn various aspects of their Mạng Cấu hình; without MANUAL / STATIC Cấu hình
+- DHCP is used to allow HOSTS to automatically / dynamically learn various aspects of their Network Configuration; without MANUAL / STATIC Configuration
 - It is an ESSENTIAL part of modern NETWORKS
-    - When you connect a phone / laptop to WiFi, do you ask your Mạng admin which Địa chỉ IP, Mạng con MASK, Mặc định Gateway, etc the phone / laptop should use ?
+    - When you connect a phone / laptop to WiFi, do you ask your Network admin which Địa chỉ IP, Network con MASK, Default Gateway, etc the phone / laptop should use ?
 - Typically used for CLIENT devices (workstations, phones, etc)
 - DEVICES (such as ROUTERS, SERVERS, etc) are usually MANUALLY configured
 - In small NETWORKS (such as Home NETWORKS), the Router typically acts as the DHCP SERVER for HOSTS in the LAN
@@ -50,7 +50,7 @@ Renewing Process has FOUR messages:
 
 1) DHCP DISCOVER
 
-- Are there any DHCP Servers in this Mạng? I need an Địa chỉ IP ?
+- Are there any DHCP Servers in this Network? I need an Địa chỉ IP ?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/70f7fc01-3222-4fec-8bd3-8b96cfbc086f)
 
@@ -63,7 +63,7 @@ NOTE the use of DHCP Reserved Ports 67 and 68
 ![image](https://github.com/psaumur/CCNA/assets/106411237/0f6e38bc-5eb0-4538-b0d1-e5795ee3af3a)
 
 - The DHCP OFFER message can be either Broadcast or Unicast
-- NOTE OPTIONS at the bottom : Message Type, Server ID, Lease Time, Mạng con, etc.
+- NOTE OPTIONS at the bottom : Message Type, Server ID, Lease Time, Network con, etc.
 
 3) DHCP REQUEST
 
@@ -86,7 +86,7 @@ DHCP RENEW PROCESS SUMMARY
 
 DHCP RELAY
 
-- Some Mạng engineers might choose to configure each Router to act as the DHCP SERVER for its connected LANS
+- Some Network engineers might choose to configure each Router to act as the DHCP SERVER for its connected LANS
 - However, large enterprises often choose to use a CENTRALIZED DHCP SERVER
 - If the SERVER is centralized, it won’t receive the DHCP CLIENTS’ Broadcast DHCP messages
 - To FIX this, you can configure a Router to act as a DHCP RELAY AGENT
@@ -112,7 +112,7 @@ Lệnh `show ip dhcp binding`
 
 ---
 
-DHCP RELAY AGENT Cấu hình IN IOS
+DHCP RELAY AGENT Configuration IN IOS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d1e1df72-85ef-4323-87f4-26cf14132bda)
 
@@ -120,7 +120,7 @@ RELAY AGENT MUST HAVE CONNECTIVITY WITH DHCP SERVER
 
 ---
 
-DHCP CLIENT Cấu hình IN IOS
+DHCP CLIENT Configuration IN IOS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/353e553c-b4a5-4f18-818f-3d7a395491b3)
 

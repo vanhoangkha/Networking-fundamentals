@@ -1,6 +1,6 @@
 # 3. MÔ HÌNH OSI & BỘ GIAO THỨC TCP/IP
 
-## Mô hình mạng là gì?
+## Mô hình mạng là gì??
 
 Các mô hình mạng phân loại và cung cấp cấu trúc cho các giao thức và tiêu chuẩn mạng.
 
@@ -45,7 +45,7 @@ Chức năng của Tầng 7 bao gồm:
 
 ### 6 - TRÌNH BÀY (PRESENTATION)
 
-- Dịch dữ liệu sang định dạng thích hợp (giữa định dạng Ứng dụng và Mạng) để gửi qua mạng.
+- Dịch dữ liệu sang định dạng thích hợp (giữa định dạng Ứng dụng và Network) để gửi qua mạng.
 
 ---
 
@@ -82,7 +82,7 @@ Khi Dữ liệu từ Tầng 7-5 đến, nó nhận được Header Tầng 4 tron
 - Cung cấp lựa chọn đường đi giữa nguồn và đích
 - **ROUTER** hoạt động ở Tầng 3.
 
-Khi Dữ liệu và Header Tầng 4 đến trong Tầng Mạng, nó nhận được Header Tầng 3.
+Khi Dữ liệu và Header Tầng 4 đến trong Tầng Network, nó nhận được Header Tầng 3.
 
 << DỮ LIỆU + Header L4 + Header L3 >>
 

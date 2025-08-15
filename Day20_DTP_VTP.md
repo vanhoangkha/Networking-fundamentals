@@ -1,12 +1,12 @@
-# 19. DTP / VTP (Not in Syllabus)
+# 19. DTP / VTP (NOT IN SYLLABUS)
 
 DTP (Dynamic Trunking Giao thức)
 
-- Giao thức that allows SWITCHES to negotiate the status of their SWITCHPORTS, without manual Cấu hình, to be:
+- Giao thức that allows SWITCHES to negotiate the status of their SWITCHPORTS, without manual Configuration, to be:
     - Access PORTS
     - Trunk PORTS
 
-- DTP is ENABLED by Mặc định on all Cisco Switch interfaces
+- DTP is ENABLED by Default on all Cisco Switch interfaces
 
 We’ve been manually configuring SWITCHPORTS using :
 
@@ -16,7 +16,7 @@ We’ve been manually configuring SWITCHPORTS using :
 ```
 💡 'show interfaces <interface-id> switchport' will show you a switchport’s settings.
 ```
-For Bảo mật purposes, **manual Cấu hình** is recommended. DTP should be disabled on ALL SWITCHPORTS
+For Security purposes, **manual Configuration** is recommended. DTP should be disabled on ALL SWITCHPORTS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d)
 
@@ -30,7 +30,7 @@ DYNAMIC DESIRABLE:
     - “switchport mode dynamic auto”
     
 
-HOWEVER … if the other Giao diện is set to “static Access” (Access mode), it will NOT form a Trunk, it will be an Access Cổng
+HOWEVER … if the other Interface is set to “static Access” (Access mode), it will NOT form a Trunk, it will be an Access Port
 
 DYNAMIC AUTO:
 
@@ -42,7 +42,7 @@ DYNAMIC AUTO:
 
 Trunk to Access connection will operate in a **Mismatched Mode**.
 
-This Cấu hình does NOT work and SHOULD result in an error. Traffic will NOT work.
+This Configuration does NOT work and SHOULD result in an error. Traffic will NOT work.
 
 TABLE SHOWING THE DIFFERENT MODES AND COMPATIBILITY IN FORMING A Trunk
 
@@ -62,18 +62,18 @@ The SWITCHPORT will be in Access Mode only!
 
 OLD SWITCHES:
 
-- “switchport mode dynamic desirable”  = Mặc định Quản trị mode.
+- “switchport mode dynamic desirable”  = Default Quản trị mode.
 
 NEWER SWITCHES:
 
-- “switchport mode dynamic auto” = Mặc định Quản trị mode.
+- “switchport mode dynamic auto” = Default Quản trị mode.
 
-Cách Vô hiệu hóa DTP NEGOTIATION ON AN Giao diện:
+Cách Vô hiệu hóa DTP NEGOTIATION ON AN Interface:
 
 - “switchport nonegotiate”
 - “switchport mode Access”
 
-It is a Bảo mật recommendation to Vô hiệu hóa DTP on all SWITCHPORTS and manually configure them as Access or Trunk ports.
+It is a Security recommendation to Vô hiệu hóa DTP on all SWITCHPORTS and manually configure them as Access or Trunk ports.
 
 ---
 
@@ -86,7 +86,7 @@ SWITCHES that support both:
 
 Trunk Đóng gói can use DTP to negotiate the Đóng gói they will use.
 
-- Negotiation is Enabled by Mặc định
+- Negotiation is Enabled by Default
 
 ```
 💡 'switchport trunk encapsulation negotiate'
@@ -96,7 +96,7 @@ Trunk Đóng gói can use DTP to negotiate the Đóng gói they will use.
     - If BOTH SWITCHES support ISL, ISL will be selected.
 - DTP frames are sent in:
     - VLAN1 when using ISL
-    - VLAN gốc when using 802.1Q (the Mặc định VLAN gốc is VLAN1, however)
+    - VLAN gốc when using 802.1Q (the Default VLAN gốc is VLAN1, however)
 
 ---
 
@@ -111,7 +111,7 @@ In Privileged EXEC mode:
 - Giao thức for configuring VLANs on a Central Switch
     - A SERVER that other SWITCHES synch. to (auto configuring by connection)
 - Other switches (VTP CLIENTS) will synchronize their VLAN database to the SERVER
-- Designed for large networks with many VLANs (reduces manual Cấu hình)
+- Designed for large networks with many VLANs (reduces manual Configuration)
 - RARELY used. Recommended you DO NOT USE it
 - There are THREE VTP Versions :
 
@@ -129,7 +129,7 @@ In Privileged EXEC mode:
     - CLIENT
     - TRANSPARENT
 
-- Cisco SWITCHES operate in VTP SERVER mode, by Mặc định
+- Cisco SWITCHES operate in VTP SERVER mode, by Default
 
 ---
 
@@ -149,7 +149,7 @@ VTP SERVERS:
 
 <aside>
 🚨 One danger of VTP:
-Connecting an old Switch with higher Revision Number to Mạng (and if the VTP Domain Name matches), all SWITCHES in Domain will synchronize their VLAN dBase to Switch
+Connecting an old Switch with higher Revision Number to Network (and if the VTP Domain Name matches), all SWITCHES in Domain will synchronize their VLAN dBase to Switch
 
 </aside>
 

@@ -1,4 +1,4 @@
-# 35. EXTENDED Access CONTROL LISTS (EACL)
+# 35. EXTENDED ACCESS CONTROL LISTS (EACL)
 
 ANOTHER WAY TO CONFIGURE NUMBERED ACLs
 
@@ -52,7 +52,7 @@ EXTENDED NUMBERS AND NAMED ACLs
 - Processed from TOP to BOTTOM, just like STANDARD ACLs
 - However, they can match traffic based on MORE PARAMETERS, so they are more PRECISE (and more complex) than STANDARD ACLs
 - We will focus on matching based on these main parameters:
-    - **LAYER 4 Giao thức / Cổng**
+    - **LAYER 4 Giao thức / Port**
     - **Source Address**
     - D**estination Address**
 
@@ -116,9 +116,9 @@ PRACTICE QUESTIONS:
 
 `R1(config-ext-nacl)# deny icmp host 172.16.1.1 192.168.0.0 0.0.0.255`
 
-MATCHING THE TCP /  UDP Cổng NUMBERS
+MATCHING THE TCP /  UDP Port NUMBERS
 
-- When matching TCP / UDP, you can optionally specify the SOURCE and/or DESTINATION Cổng NUMBERS to match
+- When matching TCP / UDP, you can optionally specify the SOURCE and/or DESTINATION Port NUMBERS to match
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c059d148-b685-49b2-81e0-518a6d66c25b)
 
@@ -132,7 +132,7 @@ neq = not equal to
 
 range = range of ports
 
-You can use either the Cổng NUMBER or the specific TYPE (that has a KNOWN Cổng NUMBER)
+You can use either the Port NUMBER or the specific TYPE (that has a KNOWN Port NUMBER)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/03dd80be-1f0f-41ac-ae1a-bdb851579bb4)
 
@@ -146,15 +146,15 @@ PRACTICE QUESTIONS 2:
 
 `R1(config-ext-nacl)# permit tcp 10.0.0.0 0.0.255.255 host 2.2.2.2 eq 443`
 
-2) PREVENT ALL HOSTS using SOURCE UDP Cổng Numbers from 20000 to 30000 from accessing the server at 3.3.3.3/32
+2) PREVENT ALL HOSTS using SOURCE UDP Port Numbers from 20000 to 30000 from accessing the server at 3.3.3.3/32
 
 `R1(config-ext-nacl)# deny udp any range 20000 30000 host 3.3.3.3`
 
-3) ALLOW HOSTS in 172.16.1.0/24 using a TCP SOURCE Cổng greater than 9999 to Access ALL TCP ports on server 4.4.4.4/32 EXCEPT Cổng 23
+3) ALLOW HOSTS in 172.16.1.0/24 using a TCP SOURCE Port greater than 9999 to Access ALL TCP ports on server 4.4.4.4/32 EXCEPT Port 23
 
 `R1(config-ext-nacl)# permit tcp 172.16.1.0 0.0.0.255 gt 9999 host 4.4.4.4 neq 23`
 
-EXAMPLE Mạng
+EXAMPLE Network
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ddb40c27-b195-49fe-a12a-49e078166e30)
 
@@ -166,7 +166,7 @@ REQUIREMENTS:
 - Hosts in 192.168.2.0/24 can’t Access 10.0.2.0/24
 - NONE of the hosts in 192.168.1.0/24 or 192.168.2.0/24 can ping 10.0.1.0/24 OR 10.0.2.0/24
 
-ACL mở rộng #1 (Applied at R1 G0/1 INBOUND Giao diện)
+ACL mở rộng #1 (Applied at R1 G0/1 INBOUND Interface)
 
 `R1(config)# ip access-list extended HTTP_SRV1`
 `R1(config-ext-nacl)# deny tcp 192.168.1.0 0.0.0.255 host 10.0.1.100 eq 443`
@@ -177,7 +177,7 @@ ACL mở rộng #1 (Applied at R1 G0/1 INBOUND Giao diện)
 
 `R1(config-if)# ip access-group HTTP_SRV1 in`
 
-ACL mở rộng #2 (APPLIED at R1 G0/2 INBOUND Giao diện)
+ACL mở rộng #2 (APPLIED at R1 G0/2 INBOUND Interface)
 
 `R1(config)# ip access-list extended BLOCK_10.0.2.0`
 
@@ -189,7 +189,7 @@ ACL mở rộng #2 (APPLIED at R1 G0/2 INBOUND Giao diện)
 
 `R1(config-if)# ip access-group BLOCK_10.0.2.0 in`
 
-ACL mở rộng #3 (APPLIED at R1 g0/0 OUTBOUND Giao diện)
+ACL mở rộng #3 (APPLIED at R1 g0/0 OUTBOUND Interface)
 
 `R1(config)# ip access-list extended BLOCK_ICMP`
 
@@ -209,6 +209,6 @@ What the EXTENDED ACLs look like
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cda064f2-b1ce-45ee-a660-04cdceb3514b)
 
-Cách SEE WHICH ACL mở rộng’s ARE APPLIED TO AN Giao diện
+Cách SEE WHICH ACL mở rộng’s ARE APPLIED TO AN Interface
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f596bca6-c06a-445e-84a3-8f8eb0c6baaf)

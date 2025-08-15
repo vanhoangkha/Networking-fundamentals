@@ -1,12 +1,12 @@
 # 52. LAN ARCHITECTURES
 
-- You have studied various Mạng technologies: Định tuyến, SWITCHING, STP, ETHERCHANNEL, OSPF, FHRPs, Switch Bảo mật FEATURES, etc.
-    - Now, let’s look at some BASIC Mạng DESIGN / Kiến trúc
-- There are standard “Thực hành tốt nhất” for Mạng DESIGN
+- You have studied various Network technologies: Định tuyến, SWITCHING, STP, ETHERCHANNEL, OSPF, FHRPs, Switch Security FEATURES, etc.
+    - Now, let’s look at some BASIC Network DESIGN / Kiến trúc
+- There are standard “Thực hành tốt nhất” for Network DESIGN
     - However there are a few UNIVERSAL “CORRECT ANSWERS”
-    - The answer to MOST general questions about Mạng DESIGN is “IT DEPENDS”
+    - The answer to MOST general questions about Network DESIGN is “IT DEPENDS”
 - In the early stages of your NETWORKING career, you probably won’t be asked to DESIGN NETWORKS yourself
-- However, to understand the NETWORKS you will be CONFIGURING and Khắc phục sự cố, it’s important to know some BASICS of Mạng DESIGN
+- However, to understand the NETWORKS you will be CONFIGURING and Khắc phục sự cố, it’s important to know some BASICS of Network DESIGN
 
 ---
 
@@ -39,7 +39,7 @@ COMMON TERMINOLOGIES
     - The LAYER that END HOSTS connect to (PCs, Printers, Cameras, etc)
     - Typically, Access LAYER SWITCHES have lots of PORTS for END HOSTS to connect to
     - QoS Đánh dấu is typically done here
-    - Bảo mật Services like Cổng Bảo mật, DAI, etc are typically performed here
+    - Security Services like Port Security, DAI, etc are typically performed here
     - SWITCHPORTS might be PoE-Enabled for Không dây APs, IP Phones, etc.
 - DISTRIBUTION LAYER
     - Aggregates connections from the Access LAYER SWITCHES
@@ -77,7 +77,7 @@ THREE-TIER Campus LAN DESIGN
 - CORE LAYER:
     - Connects DISTRIBUTION LAYERS together in large LAN NETWORKS
     - The focus is SPEED (”FAST TRANSPORT”)
-    - CPU-INTENSIVE OPERATIONS, such as Bảo mật, QoS Markings / Phân loại, etc. should be avoided at this LAYER
+    - CPU-INTENSIVE OPERATIONS, such as Security, QoS Markings / Phân loại, etc. should be avoided at this LAYER
     - Connections are all LAYER 3. NO SPANNING-TREE!
     - Should maintain connectivity throughout the LAN even if DEVICES FAIL
     
@@ -89,7 +89,7 @@ THREE-TIER Campus LAN DESIGN
 SPINE-LEAF Kiến trúc (DATA CENTER)
 
 - CISCO ACI Kiến trúc (Application Centric Hạ tầng) uses this Kiến trúc
-- DATA CENTERS are dedicated spaces / buildings used to STORE COMPUTER SYSTEMS such as SERVERS and Mạng DEVICES
+- DATA CENTERS are dedicated spaces / buildings used to STORE COMPUTER SYSTEMS such as SERVERS and Network DEVICES
 - Traditional DATA CENTER designs used a THREE-TIER Kiến trúc (Access-DISTRIBUTION-CORE) like we just covered
 - This worked well when most TRAFFIC in the DATA CENTER was NORTH-SOUTH
 
@@ -117,7 +117,7 @@ RULES FOR SPINE-LEAF Kiến trúc
 SOHO (SMALL OFFICE / HOME OFFICE)
 
 - SMALL OFFICE / HOME OFFICE (SOHO) refers to the office of a small company, or a small home office with few DEVICES
-    - Doesn’t have to be an actual home “office”; if your home has a Mạng connected to the Internet it is considered a SOHO Mạng
+    - Doesn’t have to be an actual home “office”; if your home has a Network connected to the Internet it is considered a SOHO Network
 
 - SOHO NETWORKS don’t have complex needs, so all NETWORKING functions are typically provided by a SINGLE DEVICE, often called a “HOME Router” or “Không dây Router”
 - The one DEVICE can serve as a:

@@ -1,12 +1,12 @@
-# 43. FTP and TFTP
+# 43. FTP AND TFTP
 
 Mục đích của FTP / TFTP
 
-- FTP (File Transfer Giao thức) and TFTP (Trivial File Transfer Giao thức) are INDUSTRY STANDARD PROTOCOLS used to TRANSFER FILES over a Mạng
+- FTP (File Transfer Giao thức) and TFTP (Trivial File Transfer Giao thức) are INDUSTRY STANDARD PROTOCOLS used to TRANSFER FILES over a Network
 - They BOTH use a CLIENT-SERVER model
     - CLIENTS can use FTP / TFTP to COPY files FROM a SERVER
     - CLIENTS can use FTP / TFTP to COPY files TO a SERVER
-- As a Mạng ENGINEER, the most common use for FTP / TFTP is in the process of UPGRADING the OPERATING SYSTEM of a Mạng DEVICE
+- As a Network ENGINEER, the most common use for FTP / TFTP is in the process of UPGRADING the OPERATING SYSTEM of a Network DEVICE
 - You can use FTP / TFTP to DOWNLOAD the newer version of IOS from a SERVER and then REBOOT the DEVICE with the new IOS image
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c3f8288f-cc21-476b-ab36-685fa843f947)
@@ -25,7 +25,7 @@ TFTP
 - NO AUTHENTICATION (Username / Password) so SERVERS will respond to ALL FTP REQUESTS
 - NO ENCRYPTION. All DATA is sent PLAIN TEXT
 - Best used in a CONTROLLED environment to transfer SMALL FILES quickly
-- TFTP SERVERS listen on UDP Cổng 69
+- TFTP SERVERS listen on UDP Port 69
 - UDP is CONNECTIONLESS and doesn’t provided RELIABILITY with RETRANSMISSIONS
 - However, TFTP has SIMILAR built-in FEATURES within the Giao thức itself
 
@@ -44,12 +44,12 @@ TFTP “CONNECTIONS”
 
 TFTP TID (Not in the CCNA exam)
 
-- When the CLIENT sends the FIRST message to the SERVER, the DESTINATION Cổng is UDP 69 and the SOURCE Cổng is a random EPHEMERAL Cổng
-- This “random Cổng” is called a “TRANSFER IDENTIFIER” (TID) and identifies the DATA TRANSFER
-- The SERVER then also selects a RANDOM TID to use as a SOURCE Cổng when it replies, NOT UDP 69
-- When the CLIENT sends the NEXT message, the DESTINATION Cổng will be the SERVER’S TID, NOT UDP 69
+- When the CLIENT sends the FIRST message to the SERVER, the DESTINATION Port is UDP 69 and the SOURCE Port is a random EPHEMERAL Port
+- This “random Port” is called a “TRANSFER IDENTIFIER” (TID) and identifies the DATA TRANSFER
+- The SERVER then also selects a RANDOM TID to use as a SOURCE Port when it replies, NOT UDP 69
+- When the CLIENT sends the NEXT message, the DESTINATION Port will be the SERVER’S TID, NOT UDP 69
 
-UDP Cổng 69 (TFTP) is only used at the initial request message
+UDP Port 69 (TFTP) is only used at the initial request message
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5976c631-4cba-4449-a2b4-912f90cb66e1)
 
@@ -60,8 +60,8 @@ FTP
 - FTP was first standardized in 1971
 - FTP uses TCP PORTS 20 and 21
 - USERNAMES and PASSWORDS are used for AUTHENTICATION, however there is NO ENCRYPTION
-- For GREATER Bảo mật, FTPS (FTP over SSL / TLS) can be used (Upgrade to FTP)
-- SSH File Transfer Giao thức (SFTP) can also be used for GREATER Bảo mật (New Giao thức)
+- For GREATER Security, FTPS (FTP over SSL / TLS) can be used (Upgrade to FTP)
+- SSH File Transfer Giao thức (SFTP) can also be used for GREATER Security (New Giao thức)
 - FTP is MORE complex than TFTP and ALLOWS not only FILE TRANSFERS but CLIENTS can also:
     - Navigate FILE DIRECTORIES
     - ADD / REMOVE FILES
@@ -79,7 +79,7 @@ FTP CONTROL CONNECTIONS
 
 ACTIVE MODE FTP DATA CONNECTIONS
 
-- The Mặc định method of establishing FTP DATA connections is ACTIVE MODE in which the SERVER initiates the TCP connection.
+- The Default method of establishing FTP DATA connections is ACTIVE MODE in which the SERVER initiates the TCP connection.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/49909dbc-1ed5-425b-8958-03fcaf5b9eab)
 

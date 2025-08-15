@@ -1,4 +1,4 @@
-# 24. DYNAMIC Định tuyến
+# 24. DYNAMIC ĐỊNH TUYẾN
 
 là gì DYNAMIC Định tuyến?
 
@@ -11,9 +11,9 @@ là gì DYNAMIC Định tuyến?
 ![image](https://github.com/psaumur/CCNA/assets/106411237/deb9abf6-6e21-4c94-a407-bfc501a1d739)
 
 
-💡 A Mạng Tuyến đường :  A Tuyến đường to a Mạng or Mạng con (Mask Length < /32)
+💡 A Network Tuyến đường :  A Tuyến đường to a Network or Network con (Mask Length < /32)
 
-Ex: **10.0.12.0/30** and **10.0.13.0/30** (above) are Mạng ROUTES
+Ex: **10.0.12.0/30** and **10.0.13.0/30** (above) are Network ROUTES
 
 💡 A HOST Tuyến đường : A Tuyến đường to a specific HOST (/32 Mask)
 
@@ -27,9 +27,9 @@ HOW DYNAMIC Định tuyến WORKS ?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9d2d7f88-a325-461f-99fd-0dc88ee23749)
 
-(R4 ADVERTISES to R2 who ADVERTISES to R1 who ADVERTISES to R3 - They add the Mạng Tuyến đường to R4 in their Tuyến đường TABLE)
+(R4 ADVERTISES to R2 who ADVERTISES to R1 who ADVERTISES to R3 - They add the Network Tuyến đường to R4 in their Tuyến đường TABLE)
 
-If the Mạng Tuyến đường breaks, the Tuyến đường is DYNAMICALLY REMOVED from the Tuyến đường TABLE
+If the Network Tuyến đường breaks, the Tuyến đường is DYNAMICALLY REMOVED from the Tuyến đường TABLE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a477d438-f6cb-4a09-b66d-e07826755bd1)
 
@@ -39,7 +39,7 @@ IN STATIC Định tuyến, a downed Router will still have traffic passed to it.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e689a88a-7275-489c-80b4-18894a7ce4c9)
 
-(R1 has a STATIC Tuyến đường to R4 and passes traffic destined to it’s Mạng regardless of status)
+(R1 has a STATIC Tuyến đường to R4 and passes traffic destined to it’s Network regardless of status)
 
 DYNAMIC Định tuyến is good but still requires REDUNDANCY so we add another connection between R3 and R4
 
@@ -47,7 +47,7 @@ DYNAMIC Định tuyến is good but still requires REDUNDANCY so we add another 
 
 (Secondary DYNAMIC Tuyến đường added to R4 from R1 via R3. Tuyến đường TABLE updated appropriately)
 
-A failure in the Tuyến đường, via R2 to R4’s G0/0 Giao diện, automatically reroutes traffic via R3
+A failure in the Tuyến đường, via R2 to R4’s G0/0 Interface, automatically reroutes traffic via R3
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d4509ce2-07f1-4fb0-8e31-cf58c049c355)
 
@@ -102,7 +102,7 @@ DISTANCE VECTOR Định tuyến PROTOCOLS
     - Their KNOWN DESTINATION networks
     - Their Metric to reach their KNOWN DESTINATION networks
 - This METHOD of sharing Tuyến đường information is often called ***‘Định tuyến by rumor’***
-    - ***‘Định tuyến by rumor’*** = because the Router doesn’t know about the Mạng beyond it’s NEIGHBOURS. It only knows the information that the NEIGHBOURS tell it.
+    - ***‘Định tuyến by rumor’*** = because the Router doesn’t know about the Network beyond it’s NEIGHBOURS. It only knows the information that the NEIGHBOURS tell it.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/773eb20d-7983-4da4-ae66-e97e421e83ba)
 
@@ -110,7 +110,7 @@ DISTANCE VECTOR Định tuyến PROTOCOLS
 
 DYNAMIC Định tuyến Giao thức METRICS
 
-- A Router’S Tuyến đường TABLE contains the BEST Tuyến đường to each DESTINATION Mạng it knows about
+- A Router’S Tuyến đường TABLE contains the BEST Tuyến đường to each DESTINATION Network it knows about
 
 If a Router using a DYNAMIC Định tuyến Giao thức learns TWO different routes to the same DESTINATION, how does it determine which is **‘best’** ?
 
@@ -132,7 +132,7 @@ BOTH ROUTES are added to the Tuyến đường TABLE
 
 So …
 
-💡 If a Router learns TWO (or more) ROUTES via the same ****Định tuyến Giao thức to the same DESTINATION (same Mạng address, same Mạng con mask) with the same Metric, both will be added to the Định tuyến table. Traffic will be LOAD-BALANCED over both ROUTES
+💡 If a Router learns TWO (or more) ROUTES via the same ****Định tuyến Giao thức to the same DESTINATION (same Network address, same Network con mask) with the same Metric, both will be added to the Định tuyến table. Traffic will be LOAD-BALANCED over both ROUTES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/79662f99-a847-457b-8080-76f77c25c5e6)
 
@@ -204,7 +204,7 @@ Therefore, the BEST Tuyến đường is :
 
 “next hop 192.168.3.1, learned via OSPF (lower AD than RIP), Metric 10”
 
-- You can CHANGE the AD of a Định tuyến Giao thức (This will be demonstrated in the lecture for OSPF Cấu hình)
+- You can CHANGE the AD of a Định tuyến Giao thức (This will be demonstrated in the lecture for OSPF Configuration)
 - You can also change the AD of a STATIC Tuyến đường:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ec167f95-e5d7-49c8-aff7-1957e51934b1)
@@ -218,14 +218,14 @@ FLOATING STATIC ROUTES
 - By CHANGING the AD of a STATIC Tuyến đường, you can make it less preferred than ROUTES learned by a DYNAMIC Định tuyến Giao thức to the same DESTINATION (make sure the AD is HIGHER than the Định tuyến Giao thức’s AD!)
 - This kind of Tuyến đường is called a ‘FLOATING STATIC Tuyến đường’
 - The Tuyến đường will be inactive (not in the Định tuyến TABLE) unless the Tuyến đường learned by the DYNAMIC Định tuyến Giao thức is removed.
-    - **Ex:** The remote Router stops ADVERTISING it for some reason, or an Giao diện failure causes an ADJACENCY with a NEIGHBOR to be lost.
+    - **Ex:** The remote Router stops ADVERTISING it for some reason, or an Interface failure causes an ADJACENCY with a NEIGHBOR to be lost.
 
 ---
 
 LINK STATE Định tuyến PROTOCOLS
 
-- When using a LINK STATE Định tuyến Giao thức, every Router creates a ‘connectivity map’ of the Mạng
-- To allow this, each Router ADVERTISES information about its INTERFACES (connected NETWORKS) to its NEIGHBOURS. These ADVERTISEMENTS are passed along to the other ROUTERS, until all ROUTERS in the Mạng develop the same map of the Mạng
+- When using a LINK STATE Định tuyến Giao thức, every Router creates a ‘connectivity map’ of the Network
+- To allow this, each Router ADVERTISES information about its INTERFACES (connected NETWORKS) to its NEIGHBOURS. These ADVERTISEMENTS are passed along to the other ROUTERS, until all ROUTERS in the Network develop the same map of the Network
 - Each Router independently uses this MAP to calculate the BEST ROUTES to each DESTINATION
 - LINK STATE PROTOCOLS use more resources (CPU) on the Router, because MORE information is shared.
-- However, LINK STATE PROTOCOLS tend to be FASTER in reacting to CHANGES in the Mạng than DISTANCES VECTOR PROTOCOLS
+- However, LINK STATE PROTOCOLS tend to be FASTER in reacting to CHANGES in the Network than DISTANCES VECTOR PROTOCOLS

@@ -1,25 +1,25 @@
 # 4. INTRO TO THE CLI
 
-### là gì a CLI?
+### Giới thiệu về CLI?
 
-- A "Lệnh-line Giao diện"
-- The Giao diện you use to configure Cisco devices
+- A "Command-line Interface"
+- The Interface you use to configure Cisco devices
 
-A GUI is a "Graphical User Giao diện"
+A GUI is a "Graphical User Interface"
 
 ### How do you connect to a Cisco Device?
 
-- Console Cổng : When you first configure a device, you have to connect via the Console Cổng.
+- Console Port : When you first configure a device, you have to connect via the Console Port.
 
-You can use a "Rollover Cáp" : DB9 serial connector to RJ45 OR a DB9 Serial to USB
+You can use a "Rollover Cable" : DB9 serial connector to RJ45 OR a DB9 Serial to USB
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/0527c007-d607-4bef-8ce1-7b18a177614d)
 
 ### How do you actually Access the CLI?
 
-- You need to use a TERMINAL EMULATOR (Example: PuTTy is a popular choice) and connect via "Serial" (Mặc định settings)
+- You need to use a TERMINAL EMULATOR (Example: PuTTy is a popular choice) and connect via "Serial" (Default settings)
 
-### Cisco Mặc định Settings are:
+### Cisco Default Settings are:
 
 Speed (baud) : 9600 bits/second
 Data bits: 8 data bits
@@ -29,14 +29,14 @@ Flow Control: None
 
 ---
 
-When you first enter the CLI you will Mặc định be in là gì called 'User EXEC' mode.
+When you first enter the CLI you will Default be in là gì called 'User EXEC' mode.
 
 USER EXEC MODE:
 
 (Hostname) >		// Prompt looks like THIS //
 
 - User EXEC mode is very limited.
-- User can look at some things but can't make ANY changes to the Cấu hình.
+- User can look at some things but can't make ANY changes to the Configuration.
 - AKA 'User Mode'
 
 Using the 'Kích hoạt' Lệnh, in User EXEC mode, switches you to 'Privileged EXEC' mode.
@@ -45,8 +45,8 @@ Using the 'Kích hoạt' Lệnh, in User EXEC mode, switches you to 'Privileged 
 
 PRIVILEGED EXEC MODE:
 
-- Provides complete Access to view the device's Cấu hình, restart the device, etc.
-- Cannot change the Cấu hình, but can change the time on the device, save the Cấu hình file, etc.
+- Provides complete Access to view the device's Configuration, restart the device, etc.
+- Cannot change the Configuration, but can change the time on the device, save the Configuration file, etc.
 
 (Hostname)#		// Prompt looks like THIS //
 
@@ -61,9 +61,9 @@ USE the TAB key to complete partially entered commands IF the Lệnh exists.
 
 ---
 
-### GLOBAL Cấu hình MODE:
+### GLOBAL Configuration MODE:
 
-To enter Global Cấu hình Mode, enter the Lệnh, within Privileged EXEC mode
+To enter Global Configuration Mode, enter the Lệnh, within Privileged EXEC mode
 
  'configure terminal' (or 'conf t')
 
@@ -108,17 +108,17 @@ Router(config)# Kích hoạt secret (password)
 
 ---
 
-There are TWO separate Cấu hình files kept on the device at once.
+There are TWO separate Configuration files kept on the device at once.
 
 Running-config :
 
-- The current, ACTIVE Cấu hình file on the device. As you enter commands in the CLI, you edit the active Cấu hình.
+- The current, ACTIVE Configuration file on the device. As you enter commands in the CLI, you edit the active Configuration.
 
 Startup-config :
 
-- The Cấu hình file that will be loaded upon RESTART of the device.
+- The Configuration file that will be loaded upon RESTART of the device.
 
-To see the Cấu hình files, inside 'Privileged EXEC' mode:
+To see the Configuration files, inside 'Privileged EXEC' mode:
 
 Router# show running-config // for running config //
 
@@ -128,21 +128,21 @@ Router# show startup-config // for startup config //
 
 ---
 
-To SAVE the Running Cấu hình file, you can:
+To SAVE the Running Configuration file, you can:
 
 Router# write
-Building Cấu hình...
+Building Configuration...
 [OK]
 
 Router# write memory
-Building Cấu hình...
+Building Configuration...
 [OK]
 
 Router# copy running-config startup-config
 
 Destination filename [startup-config]?
 
-Building Cấu hình...
+Building Configuration...
 [OK]
 
 ---

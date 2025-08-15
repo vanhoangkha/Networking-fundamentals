@@ -1,18 +1,18 @@
 # 1. THIẾT BỊ MẠNG
 
-## Mạng là gì?
+## Network là gì??
 
-Mạng máy tính là một mạng viễn thông số cho phép các NÚT (NODES) chia sẻ TÀI NGUYÊN (RESOURCES).
+Network máy tính là một mạng viễn thông số cho phép các NÚT (NODES) chia sẻ TÀI NGUYÊN (RESOURCES).
 
 KHÁCH HÀNG (CLIENT) là thiết bị truy cập dịch vụ được cung cấp bởi MÁY CHỦ (SERVER).
 
 MÁY CHỦ (SERVER) là thiết bị cung cấp chức năng hoặc dịch vụ cho KHÁCH HÀNG (CLIENTS).
 
-- Lưu ý: Cùng một thiết bị có thể là KHÁCH HÀNG trong một số tình huống và là MÁY CHỦ trong các tình huống khác. Ví dụ: Mạng ngang hàng (Peer-to-Peer network).
+- Lưu ý: Cùng một thiết bị có thể là KHÁCH HÀNG trong một số tình huống và là MÁY CHỦ trong các tình huống khác. Ví dụ: Network ngang hàng (Peer-to-Peer network).
 
 SWITCH (Tầng 2):
 
-- cung cấp kết nối cho các host trong cùng một LAN (Mạng Cục Bộ)
+- cung cấp kết nối cho các host trong cùng một LAN (Network Cục Bộ)
 - Có nhiều giao diện mạng/cổng để các End Host kết nối.
 - KHÔNG cung cấp kết nối giữa các LAN/qua Internet.
 

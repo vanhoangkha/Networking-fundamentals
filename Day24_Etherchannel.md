@@ -2,11 +2,11 @@
 
 là gì ETHERCHANNEL?
 
-ETHERCHANNEL allows you to GROUP multiple physical INTERFACES into a group which operates as a SINGLE LOGICAL Giao diện - so they BEHAVE as if they are a single Giao diện
+ETHERCHANNEL allows you to GROUP multiple physical INTERFACES into a group which operates as a SINGLE LOGICAL Interface - so they BEHAVE as if they are a single Interface
 
-A LAYER 2 ETHERCHANNEL is a group of Switch PORTS which operate as a SINGLE Giao diện
+A LAYER 2 ETHERCHANNEL is a group of Switch PORTS which operate as a SINGLE Interface
 
-A LAYER 3 ETHERCHANNEL is a group of ROUTED PORTS which operate as a SINGLE Giao diện which you assign an Địa chỉ IP to.
+A LAYER 3 ETHERCHANNEL is a group of ROUTED PORTS which operate as a SINGLE Interface which you assign an Địa chỉ IP to.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/86cecd4a-1554-4ece-8a88-6f97e24788f1)
 
@@ -23,12 +23,12 @@ WHY?
 - If ALL of ASW1s INTERFACES were FORWARDING, LAYER 2 LOOPS would form between ASW1 and DSW1, leading to a Broadcast STORM (Bad!)
 - Other links will be unused unless the active link fails. In that case, one of the inactive link will start forwarding.
 
-An ETHERCHANNEL (in Mạng Cấu trúc mạng diagrams) is represented like THIS (circle around multi-connections)
+An ETHERCHANNEL (in Network Cấu trúc mạng diagrams) is represented like THIS (circle around multi-connections)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4c2cfcf8-57f2-4907-8322-2f26cc7dc7e4)
 
-- ETHERCHANNEL groups multiple channels together to act as a SINGLE Giao diện
-- STP will treat this GROUP as a SINGLE Giao diện
+- ETHERCHANNEL groups multiple channels together to act as a SINGLE Interface
+- STP will treat this GROUP as a SINGLE Interface
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a48bed14-11b4-42ba-965a-9724598d3b69)
 
@@ -36,11 +36,11 @@ An ETHERCHANNEL (in Mạng Cấu trúc mạng diagrams) is represented like THIS
 
 TRAFFIC using ETHERCHANNEL will be load-balanced among the physical INTERFACES in the group.
 
-An algorithm is used to determine WHICH TRAFFIC will use WHICH physical Giao diện (more details later)
+An algorithm is used to determine WHICH TRAFFIC will use WHICH physical Interface (more details later)
 
 Some other names for an ETHERCHANNEL are:
 
-- Cổng CHANNEL
+- Port CHANNEL
 - LAG (Link Aggregation Group)
 
 ---
@@ -50,10 +50,10 @@ HOW DOES AN ETHERCHANNEL LOAD-BALANCE?
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bc257ff8-bf91-4744-a6cb-8f603ee9d294)
 
 - ETHERCHANNEL load-balances based on **“flows”**
-- A “flow” is a communication between TWO NODES in the Mạng
-- FRAMES in the same “flow” will be FORWARDED using the SAME physical Giao diện
+- A “flow” is a communication between TWO NODES in the Network
+- FRAMES in the same “flow” will be FORWARDED using the SAME physical Interface
 - If FRAMES in the same “flow” were FORWARDED using different physical INTERFACES, some FRAMES may arrive at the DESTINATION out of order/sequence, which can cause problems.
-- You can CHANGE the INPUTS used in the Giao diện SELECTION calculation (for “flows”)
+- You can CHANGE the INPUTS used in the Interface SELECTION calculation (for “flows”)
     - INPUTS that can be used:
         - SOURCE Địa chỉ MAC
         - DESTINATION Địa chỉ MAC
@@ -62,7 +62,7 @@ HOW DOES AN ETHERCHANNEL LOAD-BALANCE?
         - DESTINATION Địa chỉ IP
         - SOURCE and DESTINATION Địa chỉ IP
 
-Cách see the Cấu hình for LOAD-BALANCING method
+Cách see the Configuration for LOAD-BALANCING method
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/571623bf-b96b-4382-ada5-f14f93ec1a6a)
 
@@ -76,9 +76,9 @@ Cách CHANGE the LOAD-BALANCING method
 
 Cách CONFIGURE LAYER 2 / LAYER 3 ETHERCHANNELS
 
-There are THREE methods of ETHERCHANNEL Cấu hình on Cisco SWITCHES
+There are THREE methods of ETHERCHANNEL Configuration on Cisco SWITCHES
 
-**PAgP (Cổng Aggregation Giao thức)**
+**PAgP (Port Aggregation Giao thức)**
 
 - Cisco proprietary Giao thức
 - Dynamically negotiates the creation/maintenance of the ETHERCHANNEL (like DTP does for trunks)
@@ -93,12 +93,12 @@ There are THREE methods of ETHERCHANNEL Cấu hình on Cisco SWITCHES
 - A Giao thức isn’t used to determine if an EtherChannel should be formed
 - Interfaces are statically configured to form an EtherChannel
 
-Up to 8 INTERFACES can be formed into a single ETHERCHANNEL (LACP allows up to 16 but only 8 will be ACTIVE, the other 8 will in STANDBY mode, waiting for an active Giao diện to fail)
+Up to 8 INTERFACES can be formed into a single ETHERCHANNEL (LACP allows up to 16 but only 8 will be ACTIVE, the other 8 will in STANDBY mode, waiting for an active Interface to fail)
 
  
 ---
 
-PAgP Cấu hình
+PAgP Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d0c734e2-79ad-43ad-a50b-c17ced608021)
 
@@ -110,9 +110,9 @@ PAgP negotiations to form an ETHERCHANNEL
 
 
 💡 AWS1(config-if-range)# channel-group 1 mode desirable.
-Creating a Cổng-channel Giao diện Cổng-channel1
+Creating a Port-channel Interface Port-channel1
 
-Shows up in the Giao diện as “Cổng-channel1”
+Shows up in the Interface as “Port-channel1”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bc0c1190-9e39-4ea2-923c-b29e03e9d40a)
 
@@ -124,7 +124,7 @@ It DOESN’T have to MATCH the “channel-group” number on the OTHER Switch!
 
 ---
 
-LACP Cấu hình
+LACP Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ba4adcf6-dec5-456f-b8d7-ab4e6b722cbf)
 
@@ -142,7 +142,7 @@ It DOESN’T have to MATCH the “channel-group” number on the OTHER Switch!
 
 ---
 
-STATIC ETHERCHANNEL Cấu hình
+STATIC ETHERCHANNEL Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/92db26e7-21ae-40c6-89ee-abe0197ed8ad)
 
@@ -173,19 +173,19 @@ TWO OPTIONS:
 
 AFTER CONFIGURING THE ETHERCHANNEL MODE
 
-CONFIGURING THE Cổng Giao diện
+CONFIGURING THE Port Interface
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c485cdf1-f0ed-44b8-8c91-c0553bf6d82d)
 
-“show running-config” shows “Giao diện Cổng-channel1” in the Cấu hình
+“show running-config” shows “Interface Port-channel1” in the Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6adda3dd-6408-445f-bb3f-61847b3920b6)
 
-💡 NOTE the PHYSICAL INTERFACES (g0/0-g0/3) were auto-configured by the Cổng-channel1 Cấu hình!
+💡 NOTE the PHYSICAL INTERFACES (g0/0-g0/3) were auto-configured by the Port-channel1 Configuration!
 
 ---
 
-IMPORTANT NOTES ABOUT ETHERCHANNEL Cấu hình
+IMPORTANT NOTES ABOUT ETHERCHANNEL Configuration
 
 - Member INTERFACES must have matching CONFIGURATIONS
     - Same DUPLEX (Full / Half)
@@ -193,7 +193,7 @@ IMPORTANT NOTES ABOUT ETHERCHANNEL Cấu hình
     - Same SWITCHPORT mode (Access / Trunk)
     - Same allowed VLANs / VLAN gốc (for Trunk interfaces)
 
-- If an Giao diện’s configurations do NOT MATCH the others, it will be EXCLUDED from the ETHERCHANNEL
+- If an Interface’s configurations do NOT MATCH the others, it will be EXCLUDED from the ETHERCHANNEL
 
 ---
 
@@ -207,7 +207,7 @@ NOTE information at bottom. (”SU” means S - Layer2 + U - in use)
 
 Giao thức = What Giao thức the Etherchannel is using (in this case, LACP)
 
-“Ports” = the list of interfaces in the EtherChannel (P = bundled in Cổng-channel)
+“Ports” = the list of interfaces in the EtherChannel (P = bundled in Port-channel)
 
 OTHER FLAGS
 
@@ -221,11 +221,11 @@ Changing one of the Member interfaces using “switchport mode Access” has mad
 
 Another useful Lệnh
 
-💡 “show etherchannel Cổng-channel”
+💡 “show etherchannel Port-channel”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/61731b0c-1cc5-4a7e-b92c-d0afbea0ac2d)
 
-💡 “show spanning-tree” will show the single EtherChannel Cổng Giao diện
+💡 “show spanning-tree” will show the single EtherChannel Port Interface
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/df0b9cc8-0448-4bbd-aefa-62fadf2b6089)
 
@@ -235,7 +235,7 @@ LAYER 3 ETHERCHANNELS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c553ad64-1d8e-4a2a-a741-3102c89dc030)
 
-Cách CONFIGURE A LAYER 3 ETHERCHANNEL (from a clean Cấu hình)
+Cách CONFIGURE A LAYER 3 ETHERCHANNEL (from a clean Configuration)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c4520b2f-1e3b-49b8-85b1-458cdb6fc865)
 
@@ -243,9 +243,9 @@ Cách CONFIGURE A LAYER 3 ETHERCHANNEL (from a clean Cấu hình)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8638f32d-47c3-4c64-b68e-a9e2e0070ac9)
 
-NOTE : No SWITCHPORT and NO IP Giao diện.
+NOTE : No SWITCHPORT and NO IP Interface.
 
-Where do we configure the Địa chỉ IP?  Directly on the Cổng Giao diện !
+Where do we configure the Địa chỉ IP?  Directly on the Port Interface !
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3ec55a24-1de5-44a7-926c-f85500042115)
 
@@ -269,7 +269,7 @@ Displays information about the load-balancing settings
 ```
 SW(config-if)# channel-group *number* mode {desirable | auto | active | passive | on}
 ```
-Configures an Giao diện to be PART of an EtherChannel
+Configures an Interface to be PART of an EtherChannel
 ```
 SW# show etherchannel summary
 ```
@@ -277,6 +277,6 @@ Displays a summary of EtherChannels on a Switch
 ```
 SW# show etherchannel port-channel
 ```
-Displays information about the virtual Cổng-channel interfaces on a Switch
+Displays information about the virtual Port-channel interfaces on a Switch
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6cae87f0-0226-40cc-92ba-b839c7a5ff53)

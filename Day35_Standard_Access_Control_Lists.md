@@ -1,9 +1,9 @@
-# 34. STANDARD Access CONTROL LISTS (ACL)
+# 34. STANDARD ACCESS CONTROL LISTS (ACL)
 
 WHAT ARE ACLs
 
 - ACLs (Access Control Lists) have multiple uses
-- In DAY 34 and DAY 35, we will focus on ACL’s from a Bảo mật perspective
+- In DAY 34 and DAY 35, we will focus on ACL’s from a Security perspective
 - ACLs function as a “Gói tin filter” - instructing the Router to ALLOW or DENY specific traffic
 - ACLs can filter traffic based on:
     - SOURCE / DESTINATION IP ADDRESSES
@@ -19,8 +19,8 @@ HOW ACLs WORK
 <aside>
 💡 REQUIREMENTS:
 
-- Hosts in 192.168.1.0/24 should have Access to the 10.0.1.0/24 Mạng
-- Hosts in 192.168.2.0/24 should not have Access to the 10.0.10/24 Mạng
+- Hosts in 192.168.1.0/24 should have Access to the 10.0.1.0/24 Network
+- Hosts in 192.168.2.0/24 should not have Access to the 10.0.10/24 Network
 </aside>
 
 ACLs are configured GLOBALLY on the Router (Global Config Mode)
@@ -30,7 +30,7 @@ ACLs are configured GLOBALLY on the Router (Global Config Mode)
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2eb0c042-21d0-4a40-ade3-9715bd2b3bcb)
 
 - Configuring an ACL in Global Config Mode will not make the ACL take effect
-- The ACL must be applied to an Giao diện
+- The ACL must be applied to an Interface
     - ACLs are applied either INBOUND or OUTBOUND
 - ACLs are made up of one or more ACEs
 - When a Router checks a Gói tin against the ACL, it processes the ACEs in order, from top to bottom
@@ -93,7 +93,7 @@ STANDARD NUMBERED ACLs
 Order is important. Lower Numbers are processed FIRST
 
 ---
-TO APPLY AN ACL TO AN Giao diện
+TO APPLY AN ACL TO AN Interface
 
 `R1(config-if)# ip access-group *number* {in | out}`
 

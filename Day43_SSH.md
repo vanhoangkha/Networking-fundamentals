@@ -1,10 +1,10 @@
-# 42. SSH (Secure Shell)
+# 42. SSH (SECURE SHELL)
 
-CONSOLE Cổng Bảo mật
+CONSOLE Port Security
 
-- By Mặc định, no password us needed to Access the CLI of a CISCO IOS DEVICE via the CONSOLE Cổng
+- By Default, no password us needed to Access the CLI of a CISCO IOS DEVICE via the CONSOLE Port
 - You can CONFIGURE a PASSWORD on the *console line*
-    - A USER will have to enter a PASSWORD to Access the CLI via the CONSOLE Cổng
+    - A USER will have to enter a PASSWORD to Access the CLI via the CONSOLE Port
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9609b0af-0fb1-4563-89e4-82b58b29325e)
 
@@ -14,7 +14,7 @@ CONSOLE Cổng Bảo mật
 
 ---
 
-LAYER 2 Switch Quản lý IP
+LAYER 2 Switch Management IP
 
 - LAYER 2 SWITCHES do not perform Gói tin Định tuyến and build a Định tuyến TABLE. They are NOT IP Định tuyến aware
 - However, you CAN assign an Địa chỉ IP to an SVI to allow REMOTE CONNECTIONS to the CLI of the Switch (using Telnet or SSH)
@@ -25,13 +25,13 @@ LAYER 2 Switch Quản lý IP
 
 Telnet
 
-- Telnet (Teletype Mạng) is a Giao thức used to REMOTELY Access the CLI of a REMOTE HOST
+- Telnet (Teletype Network) is a Giao thức used to REMOTELY Access the CLI of a REMOTE HOST
 - Telnet was developed in 1969
 - Telnet has been largely REPLACE by SSH, which is MORE Secure
 - Telnet sends data in PLAIN TEXT. NO ENCRYPTION(!)
 
 <aside>
-💡 Telnet SERVERS listen for Telnet traffic on TCP Cổng 23
+💡 Telnet SERVERS listen for Telnet traffic on TCP Port 23
 
 </aside>
 
@@ -39,7 +39,7 @@ Telnet
 
 ---
 
-VERIFY Telnet Cấu hình
+VERIFY Telnet Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e077b5fd-3130-4fb0-9b17-d28bdef665df)
 
@@ -50,7 +50,7 @@ SSH
 - SSH (Secure Shell) was developed in 1995 to REPLACE LESS SECURE PROTOCOLS, like Telnet
 - SSHv2, a major revision of SSHv1, was released in 2006
 - If a DEVICE supports both v1 and v2, it is said to run ‘version 1.99’
-- Provides Bảo mật features; such as DATA ENCRYPTION and AUTHENTICATION
+- Provides Security features; such as DATA ENCRYPTION and AUTHENTICATION
 
 CHECK SSH SUPPORT
 

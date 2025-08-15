@@ -1,11 +1,11 @@
-# 50. DHCP Snooping (LAYER 2)
+# 50. DHCP SNOOPING (LAYER 2)
 
 là gì DHCP Snooping?
 
-- DHCP Snooping is a Bảo mật feature of SWITCHES that is used to filter DHCP messages received on UNTRUSTED PORTS
+- DHCP Snooping is a Security feature of SWITCHES that is used to filter DHCP messages received on UNTRUSTED PORTS
 - DHCP Snooping only filters DHCP MESSAGES.
     - Non-DHCP MESSAGES are not affected
-- All PORTS are UNTRUSTED, by Mặc định
+- All PORTS are UNTRUSTED, by Default
     - Usually UPLINK PORTS are configured as TRUSTED PORTS, and DOWNLINK PORTS remain UNTRUSTED
     
 
@@ -28,12 +28,12 @@ DHCP STARVATION
 DHCP POISONING (MAN-in-the-Middle)
 
 - Similar to ARP POISONING, DHCP POISONING can be used to perform a MAN-in-the-Middle ATTACK
-- A *spurious DHCP SERVER* replies to CLIENTS’ DHCP Discover messages and assigns them IP ADDRESSES but makes the CLIENTS use the *spurious SERVER’S IP* as a Mặc định Gateway
+- A *spurious DHCP SERVER* replies to CLIENTS’ DHCP Discover messages and assigns them IP ADDRESSES but makes the CLIENTS use the *spurious SERVER’S IP* as a Default Gateway
 
 ** CLIENTS usually accept the first DHCP OFFER message they receive
 
-- This will cause the CLIENT to send TRAFFIC to the ATTACKER instead of the legitimate Mặc định Gateway
-- The ATTACKER can then examine / modify the TRAFFIC before forwarding it to the legitimate Mặc định Gateway
+- This will cause the CLIENT to send TRAFFIC to the ATTACKER instead of the legitimate Default Gateway
+- The ATTACKER can then examine / modify the TRAFFIC before forwarding it to the legitimate Default Gateway
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d0cd7a5c-9ff4-4ab7-bec6-4edec4ea2646)
 
@@ -59,8 +59,8 @@ DHCP MESSAGES
 
 HOW DOES IT WORK?
 
-- If a DHCP MESSAGE is received on a TRUSTED Cổng, forward it as normal without inspection
-- If a DHCP MESSAGE is received on an UNTRUSTED Cổng, inspect it and act as follows:
+- If a DHCP MESSAGE is received on a TRUSTED Port, forward it as normal without inspection
+- If a DHCP MESSAGE is received on an UNTRUSTED Port, inspect it and act as follows:
     - If it is a DHCP SERVER message, discard it
     - If it as a DHCP CLIENT message, perform the following checks:
         - DISCOVER / REQUEST messages :
@@ -68,7 +68,7 @@ HOW DOES IT WORK?
                 - MATCH = FORWARD
                 - MISMATCH = DISCARD
         - RELEASE / DECLINE messages:
-            - Check if the Gói tin’S SOURCE Địa chỉ IP and the receiving Giao diện match the entry in the *DHCP Snooping BINDING TABLE*
+            - Check if the Gói tin’S SOURCE Địa chỉ IP and the receiving Interface match the entry in the *DHCP Snooping BINDING TABLE*
                 - MATCH = FORWARD
                 - MISMATCH = DISCARD
     
@@ -76,27 +76,27 @@ HOW DOES IT WORK?
 
 ---
 
-DHCP Snooping Cấu hình
+DHCP Snooping Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/729466dc-9432-47d2-8799-652fa064b058)
 
-Switch 2’s Cấu hình
+Switch 2’s Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8d6cacb8-ffd8-4cf0-bd96-fe9978377989)
 
-Switch 1’s Cấu hình
+Switch 1’s Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bb11e4fd-a340-4dd3-a6f5-3cd280fc5a13)
 
 DHCP Snooping RATE-LIMITING
 
-- DHCP Snooping can limit the RATE at which DHCP messages are allowed to enter an Giao diện
-- If the RATE of DHCP messages crosses the configured LIMIT, the Giao diện is `err-disabled`
-- Like with Cổng Bảo mật, the Giao diện can be manually re-enabled, or automatically re-enabled with `errdisable recovery`
+- DHCP Snooping can limit the RATE at which DHCP messages are allowed to enter an Interface
+- If the RATE of DHCP messages crosses the configured LIMIT, the Interface is `err-disabled`
+- Like with Port Security, the Interface can be manually re-enabled, or automatically re-enabled with `errdisable recovery`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6586df19-5a58-4ca3-a316-bd0aeb2ce67c)
 
-- You wouldn’t set the limit rate to 1 since it’s so low, it would shut the Cổng immediately but this shows how RATE-LIMITING works
+- You wouldn’t set the limit rate to 1 since it’s so low, it would shut the Port immediately but this shows how RATE-LIMITING works
 
 `errdisable recovery cause dhcp-rate-limit`
 
@@ -105,10 +105,10 @@ DHCP Snooping RATE-LIMITING
 DHCP OPTION 82 (INFORMATION OPTION)
 
 - OPTION 82, also known as a ‘DHCP RELAY AGENT INFOMRATION OPTION’ is one of MANY DHCP OPTIONS
-- It provides additional information about which DHCP RELAY AGENT received the CLIENT’S message, on which Giao diện, in which VLAN, etc.
+- It provides additional information about which DHCP RELAY AGENT received the CLIENT’S message, on which Interface, in which VLAN, etc.
 - DHCP RELAY AGENTS can add OPTION 82 to message they forward to the remote DHCP SERVER
-- With DHCP Snooping enabled, by Mặc định Cisco SWITCHES will add OPTION 82 to DHCP messages they receive from CLIENTS, even if the Switch isn’t acting as a DHCP RELAY AGENT
-- By Mặc định, Cisco SWITCHES will drop DHCP MESSAGES with OPTION 82 that are received on an UNTRUSTED Cổng
+- With DHCP Snooping enabled, by Default Cisco SWITCHES will add OPTION 82 to DHCP messages they receive from CLIENTS, even if the Switch isn’t acting as a DHCP RELAY AGENT
+- By Default, Cisco SWITCHES will drop DHCP MESSAGES with OPTION 82 that are received on an UNTRUSTED Port
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2efc6edd-21fd-4c1a-bb11-9c1f761e1d32)
 

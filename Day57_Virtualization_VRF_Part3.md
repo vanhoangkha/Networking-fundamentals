@@ -9,7 +9,7 @@ INTRO TO VRF
 - It does this by allowing a Router to build MULTIPLE SEPARATE Định tuyến TABLES
     - INTERFACES (LAYER 3 only) and ROUTERS are configured to be in a specific VRF (aka *VRF INSTANCE*)
     - Router INTERFACES, SVIs and ROUTED PORTS on MULTILAYER SWITCHES can be configured in a VRF
-- TRAFFIC in one VRF cannot be forwarded out of an Giao diện in another VRF
+- TRAFFIC in one VRF cannot be forwarded out of an Interface in another VRF
     - As an exception, VRF LEAKING can be configured to allow traffic to pass BETWEEN VRFs
 - VRF is commonly used to facilitate MPLS (Multiple Giao thức Label Switching)
     - The kind of VRF we are talking about is VRF-Lite (VRF without MPLS)
@@ -17,11 +17,11 @@ INTRO TO VRF
     - Each CUSTOMER’S TRAFFIC is isolated from the OUTSIDE
     - CUSTOMER IP ADDRESSES can overlap without issue
 
-VRF Cấu hình
+VRF Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fec7669b-8868-4529-81fa-6f52e07ff6e4)
 
-Creation and Cấu hình of VRFs
+Creation and Configuration of VRFs
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/624ebfc0-c7c0-498d-a00b-c19e2738585a)
 

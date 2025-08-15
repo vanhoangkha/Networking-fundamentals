@@ -2,9 +2,9 @@
 
 API REVIEW
 
-- An API (Application Programming Giao diện) is a software Giao diện that allows two applications to communicate with each other.
-- APIs are essential not just for Mạng Tự động hóa but for all kinds of applications
-- In SDN Kiến trúc, APIs are use to communicate between apps and the SDN controller (via the NBI) and between the SDN controller and the Mạng devices (via the SBI)
+- An API (Application Programming Interface) is a software Interface that allows two applications to communicate with each other.
+- APIs are essential not just for Network Tự động hóa but for all kinds of applications
+- In SDN Kiến trúc, APIs are use to communicate between apps and the SDN controller (via the NBI) and between the SDN controller and the Network devices (via the SBI)
 - The NBI typically uses REST APIs
 - NETCONF and RESTCONF are popular Southbound APIs
 
@@ -108,12 +108,12 @@ REST APIs
 - The SIX constraints of RESTful Kiến trúc are:
     - Stateless
     - Layered system
-    - Uniform Giao diện
+    - Uniform Interface
     - Client-Server
     - Cacheable or non-cacheable
     - Code-on-Demand (optional)
 
-- For applications to communicate over a Mạng, networking protocols must be used to facilitate those communications
+- For applications to communicate over a Network, networking protocols must be used to facilitate those communications
     - For REST APIs, HTTP(S) is the most common choice
 
 ---
@@ -123,7 +123,7 @@ REST: Client-Server
 - REST APIs use a client-server Kiến trúc
 - The client uses API calls (HTTP requests) to Access the resources on the server
 - The separation between the client and server means they can both change and evolve independently of each other
-    - When the client application changes or the server application changes, the Giao diện between them must not break
+    - When the client application changes or the server application changes, the Interface between them must not break
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e39d0588-8e4c-441b-97b9-c2345bf09342)
 

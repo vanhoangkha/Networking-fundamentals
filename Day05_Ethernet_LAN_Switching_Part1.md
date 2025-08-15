@@ -1,4 +1,4 @@
-# 5. Ethernet LAN SWITCHING : PART 1
+# 5. ETHERNET LAN SWITCHING : PART 1
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a40e81d9-c008-4fb4-8580-2eaf63003e63)
 
@@ -7,7 +7,7 @@
 
 LAN's
 
-- A LAN is a Mạng contained in a relatively small area.
+- A LAN is a Network contained in a relatively small area.
 - Routers are used to connect separate LAN's
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2a4de9d4-3408-49b9-9492-42b7eb56fe27)
@@ -99,7 +99,7 @@ HEXADECIMAL
 ![image](https://github.com/psaumur/CCNA/assets/106411237/65a5e84a-b8db-46f5-b288-518139e99453)
 
 
-Giao diện NAMES
+Interface NAMES
 
 F0/1, F0/2, F0/3... F stands for "Fast Ethernet" or 100 Mbps interfaces.
 

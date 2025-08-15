@@ -1,11 +1,11 @@
-# 51. DYNAMIC Kiểm tra ARP
+# 51. DYNAMIC KIỂM TRA ARP
 
 là gì DYNAMIC Kiểm tra ARP (DAI) ?
 
 ARP REVIEW
 
 - ARP is used to learn the Địa chỉ MAC of another DEVICE with a known Địa chỉ IP
-    - Ví dụ, a PC will use ARP to learn the Địa chỉ MAC of its Mặc định Gateway to communicate with external NETWORKS
+    - Ví dụ, a PC will use ARP to learn the Địa chỉ MAC of its Default Gateway to communicate with external NETWORKS
 - Typically, it is a TWO MESSAGE EXCHANGE :  ARP REQUEST and ARP REPLY
 
 GRATUITOUS ARP
@@ -13,14 +13,14 @@ GRATUITOUS ARP
 - A GRATUITOUS ARP MESSAGE is an ARP REPLY that is sent without receiving an ARP REQUEST
 - It is SENT to the Broadcast Địa chỉ MAC
 - It allows other DEVICES to learn the Địa chỉ MAC of the sending DEVICE without having to send ARP REQUESTS.
-- Some DEVICES automatically send GARP MESSAGES when an Giao diện is enabled, Địa chỉ IP is changed, Địa chỉ MAC is changed, etc.
+- Some DEVICES automatically send GARP MESSAGES when an Interface is enabled, Địa chỉ IP is changed, Địa chỉ MAC is changed, etc.
 
 DYNAMIC Kiểm tra ARP
 
-- DAI is a Bảo mật FEATURE of SWITCHES that is used to filter ARP MESSAGES received on  *UNTRUSTED PORTS*
+- DAI is a Security FEATURE of SWITCHES that is used to filter ARP MESSAGES received on  *UNTRUSTED PORTS*
 - DAI only filters ARP MESSAGES. Non-ARP MESSAGES are NOT affected
-- All PORTS are *UNTRUSTED*, by Mặc định
-    - Typically, all PORTS connected to other Mạng DEVICES (SWITCHES, ROUTERS) should be configured as TRUSTED, while INTERFACES connected to END HOSTS should remain UNTRUSTED
+- All PORTS are *UNTRUSTED*, by Default
+    - Typically, all PORTS connected to other Network DEVICES (SWITCHES, ROUTERS) should be configured as TRUSTED, while INTERFACES connected to END HOSTS should remain UNTRUSTED
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/02da32ef-654c-4755-abcd-ea8230df4029)
 
@@ -34,7 +34,7 @@ ARP POISONING (MAN IN THE MIDDLE)
 
 - Similar to DHCP POISONING, ARP POISONING involved an ATTACKER manipulating TARGET’S ARP TABLES so TRAFFIC is sent to the ATTACKER
 - To do this, the ATTACKER can send GRATUITOUS ARP MESSAGES using another DEVICE’S Địa chỉ IP
-- Other DEVICES in the Mạng will receive the GARP and update their ARP TABLES, causing them to send TRAFFIC to the ATTACKER instead of the legitimate DESTINATION
+- Other DEVICES in the Network will receive the GARP and update their ARP TABLES, causing them to send TRAFFIC to the ATTACKER instead of the legitimate DESTINATION
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/aae80c8f-2673-4c04-a206-9b646f5c1f08)
 
@@ -59,7 +59,7 @@ DYNAMIC Kiểm tra ARP OPERATIONS
 
 ---
 
-DYNAMIC Kiểm tra ARP Cấu hình
+DYNAMIC Kiểm tra ARP Configuration
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4a91bd7b-626a-4d64-b69a-308d65bbdda4)
 
@@ -93,7 +93,7 @@ AFTER APPLYING IT TO Switch 2, SRV1 is able to send ARP REQUEST to R1
 
 Lệnh: `show ip arp inspection`
 
-Shows a summary of the DAI Cấu hình and statistics
+Shows a summary of the DAI Configuration and statistics
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/684e694a-5b0a-4f85-b135-b288a8c4c6ec)
 
