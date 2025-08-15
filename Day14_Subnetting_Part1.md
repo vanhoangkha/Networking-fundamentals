@@ -1,1 +1,195 @@
-# 13. CHIA MẠNG CON : PART 1 ![image](https://github.com/psaumur/CCNA/assets/106411237/a475e909-59b8-4615-a0b9-8a3c1fbdc313) HOWEVER, only Class A, B, C Addresses có thể be assigned đến một Thiết bị as một Địa chỉ IP. CLASS PREFIX LENGTH A /8 B /16 C /24 ![image](https://github.com/psaumur/CCNA/assets/106411237/f0836136-c4a9-475b-b6c2-d1c550b8cfdd) The IANA (Internet Assigned Numbers Authority) assigns IPv4 addresses/networks đến companies based trên their size. The problem with 'CLASSFUL' assignment là that it led đến Địa chỉ IP wastefulness. Example: A company requiring 5000 Địa chỉ was assigned một CLASS B IP, leaving 60000+ addresses unused. --- The IETF (Internet Engineering Task Force) introduce CIDR trong 1993 đến replace the "classful" addressing system. CIDR (Classless Inter-Domain Định tuyến) removed the requirements của CLASS A, B, and C regarding size. - This allowed larger networks đến be split into smaller networks, allowing greater efficiency. - These smaller networks là called "SUB-NETWORKS" or "SUBNETS" --- HOW MANY USABLE ADDRESSES là THERE trong EACH Mạng? REMEMBER: 2^n - 2 = Usable Địa chỉ n = number của host bits CIDR PRACTICE! 203.0.113.0/25 /25 means the Subnetwork bit là 25 bits 203 . 0 . 113 . 0 là written trong binary as : 1100 1011 . 0000 0000 . 0111 0001 . 0 | 000 0000 (Mạng con prefix là the first 25 bits) Flipping all the bits đến 1’s, we get the Mạng con MASK for /25: 1111 1111 . 1111 1111 . 1111 1111 . 1 | 000 0000 which là equal to: 255.255.255.128 (because the last octet là 1000 0000 = 128 trong binary) SO - the based trên previous definition của USABLE ADDRESSES, the number của hosts for 203.0.113.0 /25 is: 2^(7 bits) or (128) - 2 = 126 hosts. --- What about /28 ? 203 . 0 . 113 . 0 là written trong binary as : 1100 1011 . 0000 0000 . 0111 0001 . 0000 | 0000 (Mạng con prefix là the first 28 bits) flipping all the bits đến 1’s, we get the Mạng con MASK for /28: 1111 1111 . 1111 1111 . 1111 1111 . 1111 | 0000 which là equal to: 255.255.255.240 (because the last octet là 1111 0000) = 128+64+32+16 = (128+32) + (64+16) = 160 + 80 = 240 The Mạng con MASK for /28 là 255.255.255.240 which has 16 hosts / group (2 * 4 bits = 16) - 2 Reserved IPs cho Mạng và Broadcast --- Chia mạng con CHEATSHEET: | Group Size | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Mạng con Mask | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255 | | CIDR | /25 | /26 | /27 | /28 | /29 | /30 | /31 | /32 | | 3rd Octet | /17 | /18 | /19 | /20 | /21 | /22 | /23 | /24 | | 2nd Octet | /9 | /10 | /11 | /12 | /13 | /14 | /15 | /16 | | 1st Octet | /1 | /2 | /3 | /4 | /5 | /6 | /7 | /8 | --- 1. Use một given CIDR/Mask đến find column trên Cheat Sheet a) CIDR/Mạng con Mask map đến each other b) Locate Group Size c) Increase bởi Group Size until you PASS the Target IP (not less hoặc equal !) d) If passing the Target IP reaches 256, increase the Octet BEFORE it bởi one và current Octet becomes 0 : IF NECESSARY Example: 10.2.2.256 → 10.2.3.0 1. Number BEFORE Target IP là Mạng ID 2. Number AFTER Target IP là NEXT Mạng 3. Địa chỉ IP BEFORE Next Mạng là Broadcast 4. Địa chỉ IP AFTER Mạng ID là First Host 5. Địa chỉ IP BEFORE Broadcast IP là Last Host 6. Group Size là total # of IP Addresses - Don’t forget đến subtract 2 cho USABLE # --- Solving CIDR/Mạng con cho 3rd Octet IPs : Every number LEFT của 3rd Octet là 255. Every number RIGHT của 3rd Octet là 0 Example: 10.4.77.188 / 19 → Mạng con : 255.255.224.0 You use the SAME process as above except when finding Target IPs, you use the 3rd Octet cho your Target. Example: 10.4.77.188 /19 → Mạng con : 255.255.224.0 256 - 224 = 32 so… Using 32, we step through the Địa chỉ blocks 0, 32,64, and 96. Since 77 là between 64 và 96, there’s our range. Mạng: 10.4.64.0 (Start / First Block) Next: 10.4.96.0 (Second Block) … Number của IP Addresses is : 2^(32-CIDR). In this example 2^13 = 8192 Solving cho 2nd và 1st Octet là the same as above, keeping trong mind the Octet column là USED đến check cho the Target number của một given Địa chỉ. --- Alternative method to "Cheat Sheet" ![image](https://github.com/user-attachments/assets/d1e103b8-142a-44cc-8ab4-f5337268c9de) 1. Find the "magic octet" where một given IP /Prefix lies, from the bit chart shown (boundary digits là inclusive của the octet preceding them) 2. Count the number của Mạng bits (left đến right) in that octet và count the same amount, using the red bit slot chart. This'll be your Địa chỉ group size. 3. Subtract that number từ 256 đến find your Mạng con Mask number used trong the "magic octet" (any octet LEFT của that "magic octet" will be 255, everything RIGHT của that octet sẽ be 0) 4. Divide whatever IP octet number là trong the "magic octet" by the Địa chỉ group size. - If there là một remainder, multiple the whole integer bởi the Địa chỉ group size - your Base Mạng Địa chỉ là that value, with every octet đến the right của that as all 0's - If there là NO remainder, the IP number trong the "magic octet" IS the Base Mạng Địa chỉ là that value, with every octet đến the right của that as all 0's 5. The Base Broadcast Number sẽ be Mạng Base Number + Group Size - 1 trong the "magic octet", every value đến the right của that octet sẽ be 255. 6. Number của subnets is (2 đến the power của the number của Mạng bits trong the "magic octet". ** 2^8 hoặc 256 là equal đến 0 **) 7. Total Useable Hosts size is (2 đến the power of (32 - Prefix Length) -2) --- Example 1: ``` 154 . 219 . 154 . 180 /20 Third Octet = Magic Address Group Size = 16 (L/R count of 4) 256 - 16 = 240 therefore Subnet Mask is 255.255.240.0 Divide 3rd digit / Address Group Size (16) 154 / 16 = 9 (with remainder) 9 * 16 = 144 (Base Network #) Network : 154 . 219 . 144 . 0 Broadcast Base # = 144 + 16 - 1 = 159 Broadcast : 154. 219 . 159 . 255 Subnets = 2^4 network bits = 16 Total Host Size = (2^(32 - 20))-2 = 4094 ``` --- Example 2: ``` 84 . 75 . 21 .6 /10 Second Octet = Magic Address Group Size = 64 256 - 64 = 192 Subnet = 255.192.0.0 75 / 64 = 1 + remainder 1 * 64 = 64 (Base Network #) Network : 84.64.0.0 Broadcast Base # = 64 + 64 -1 = 127 Broacast : 84.127.255.255 Subnets : 2^2 = 4 Subnets Total Host Size = (2^(32-10))-2 = 4194302 ``` 
+# 14. CHIA MẠNG CON: PHẦN 1
+
+## GIỚI THIỆU VỀ CHIA MẠNG CON
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/a475e909-59b8-4615-a0b9-8a3c1fbdc313)
+
+**Chỉ có địa chỉ Class A, B, C mới có thể được gán cho một Thiết bị như một Địa chỉ IP.**
+
+| CLASS | PREFIX LENGTH |
+|-------|---------------|
+| A     | /8            |
+| B     | /16           |
+| C     | /24           |
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/f0836136-c4a9-475b-b6c2-d1c550b8cfdd)
+
+## VẤN ĐỀ VỚI HỆ THỐNG CLASSFUL
+
+**IANA (Internet Assigned Numbers Authority)** gán địa chỉ IPv4/mạng cho các công ty dựa trên quy mô của họ.
+
+**Vấn đề với việc gán 'CLASSFUL'** là nó dẫn đến lãng phí địa chỉ IP.
+
+**Ví dụ:** Một công ty cần 5000 địa chỉ được gán một IP CLASS B, để lại 60000+ địa chỉ không sử dụng.
+
+---
+
+## GIẢI PHÁP: CIDR
+
+**IETF (Internet Engineering Task Force)** giới thiệu **CIDR** năm 1993 để thay thế hệ thống địa chỉ "classful".
+
+**CIDR (Classless Inter-Domain Routing)** loại bỏ yêu cầu về kích thước của CLASS A, B, và C.
+
+- Điều này cho phép các mạng lớn hơn được chia thành các mạng nhỏ hơn, cho phép hiệu quả cao hơn.
+- Những mạng nhỏ hơn này được gọi là **"SUB-NETWORKS"** hoặc **"SUBNETS"**
+
+---
+
+## TÍNH TOÁN SỐ ĐỊA CHỈ SỬ DỤNG ĐƯỢC
+
+**CÔNG THỨC:** `2^n - 2 = Địa chỉ sử dụng được`
+
+Trong đó: **n = số bit host**
+
+---
+
+## THỰC HÀNH CIDR
+
+### Ví dụ 1: 203.0.113.0/25
+
+**/25** có nghĩa là prefix mạng con là 25 bit
+
+**203.0.113.0** được viết dưới dạng nhị phân:
+```
+1100 1011 . 0000 0000 . 0111 0001 . 0|000 0000
+```
+(Prefix mạng con là 25 bit đầu tiên)
+
+Chuyển tất cả bit thành 1, ta được **Subnet Mask** cho /25:
+```
+1111 1111 . 1111 1111 . 1111 1111 . 1|000 0000
+```
+Bằng: **255.255.255.128** (vì octet cuối là 1000 0000 = 128 trong nhị phân)
+
+**Số host cho 203.0.113.0/25:**
+- 2^(7 bit) hoặc (128) - 2 = **126 host**
+
+---
+
+### Ví dụ 2: /28 là gì?
+
+**203.0.113.0** được viết dưới dạng nhị phân:
+```
+1100 1011 . 0000 0000 . 0111 0001 . 0000|0000
+```
+(Prefix mạng con là 28 bit đầu tiên)
+
+Chuyển tất cả bit thành 1, ta được **Subnet Mask** cho /28:
+```
+1111 1111 . 1111 1111 . 1111 1111 . 1111|0000
+```
+Bằng: **255.255.255.240**
+
+Tính toán octet cuối: 1111 0000 = 128+64+32+16 = 240
+
+**Subnet Mask cho /28** là 255.255.255.240 có 16 host/nhóm (2^4 bit = 16) - 2 IP dành riêng cho Mạng và Broadcast
+
+---
+
+## BẢNG THAM KHẢO CHIA MẠNG CON
+
+| Kích thước nhóm | 128 | 64  | 32  | 16  | 8   | 4   | 2   | 1   |
+|-----------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| Subnet Mask     | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255 |
+| CIDR            | /25 | /26 | /27 | /28 | /29 | /30 | /31 | /32 |
+| Octet thứ 3     | /17 | /18 | /19 | /20 | /21 | /22 | /23 | /24 |
+| Octet thứ 2     | /9  | /10 | /11 | /12 | /13 | /14 | /15 | /16 |
+| Octet thứ 1     | /1  | /2  | /3  | /4  | /5  | /6  | /7  | /8  |
+
+---
+
+## PHƯƠNG PHÁP GIẢI CHIA MẠNG CON
+
+### Các bước cơ bản:
+
+1. **Sử dụng CIDR/Mask để tìm cột trong Bảng tham khảo**
+   - CIDR/Subnet Mask tương ứng với nhau
+   - Xác định Kích thước nhóm
+   - Tăng theo Kích thước nhóm cho đến khi VƯỢT QUA IP mục tiêu
+
+2. **Nếu vượt qua IP mục tiêu đạt 256:**
+   - Tăng Octet TRƯỚC nó lên một
+   - Octet hiện tại trở thành 0
+   - **Ví dụ:** 10.2.2.256 → 10.2.3.0
+
+3. **Xác định các thông số:**
+   - Số TRƯỚC IP mục tiêu là **Network ID**
+   - Số SAU IP mục tiêu là **Next Network**
+   - Địa chỉ IP TRƯỚC Next Network là **Broadcast**
+   - Địa chỉ IP SAU Network ID là **First Host**
+   - Địa chỉ IP TRƯỚC Broadcast IP là **Last Host**
+   - Kích thước nhóm là tổng số địa chỉ IP (trừ 2 cho số sử dụng được)
+
+---
+
+## GIẢI CHIA MẠNG CON CHO OCTET THỨ 3
+
+**Quy tắc:**
+- Mọi số BÊN TRÁI octet thứ 3 là **255**
+- Mọi số BÊN PHẢI octet thứ 3 là **0**
+
+### Ví dụ: 10.4.77.188/19
+
+**Subnet Mask:** 255.255.224.0
+
+**Tính toán:**
+- 256 - 224 = 32
+- Sử dụng 32, ta đi qua các khối địa chỉ: 0, 32, 64, 96
+- Vì 77 nằm giữa 64 và 96, đây là phạm vi của chúng ta
+
+**Kết quả:**
+- **Network:** 10.4.64.0
+- **Next Network:** 10.4.96.0
+- **Số địa chỉ IP:** 2^(32-19) = 2^13 = 8192
+
+---
+
+## PHƯƠNG PHÁP THAY THẾ CHO BẢNG THAM KHẢO
+
+![image](https://github.com/user-attachments/assets/d1e103b8-142a-44cc-8ab4-f5337268c9de)
+
+### Các bước:
+
+1. **Tìm "magic octet"** nơi IP/Prefix nằm trong bảng bit
+2. **Đếm số bit mạng** (trái sang phải) trong octet đó
+3. **Trừ số đó từ 256** để tìm số Subnet Mask trong "magic octet"
+4. **Chia số IP octet** trong "magic octet" cho kích thước nhóm địa chỉ
+5. **Tính Base Network và Broadcast**
+6. **Số subnet:** 2^(số bit mạng trong magic octet)
+7. **Tổng số host sử dụng được:** 2^(32 - Prefix Length) - 2
+
+---
+
+## VÍ DỤ THỰC HÀNH
+
+### Ví dụ 1: 154.219.154.180/20
+
+```
+Octet thứ 3 = Magic Octet
+Kích thước nhóm địa chỉ = 16 (đếm 4 bit)
+256 - 16 = 240 → Subnet Mask: 255.255.240.0
+
+154 ÷ 16 = 9 (có dư)
+9 × 16 = 144 (Base Network)
+
+Network: 154.219.144.0
+Broadcast: 154.219.159.255
+Subnets: 2^4 = 16
+Tổng host: 2^(32-20) - 2 = 4094
+```
+
+### Ví dụ 2: 84.75.21.6/10
+
+```
+Octet thứ 2 = Magic Octet
+Kích thước nhóm địa chỉ = 64
+256 - 64 = 192 → Subnet: 255.192.0.0
+
+75 ÷ 64 = 1 (có dư)
+1 × 64 = 64 (Base Network)
+
+Network: 84.64.0.0
+Broadcast: 84.127.255.255
+Subnets: 2^2 = 4
+Tổng host: 2^(32-10) - 2 = 4,194,302
+```

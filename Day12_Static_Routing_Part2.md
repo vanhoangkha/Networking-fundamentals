@@ -1,1 +1,115 @@
-# 11. STATIC ĐỊNH TUYẾN : PART 2 REVIEW: SWITCHES forward traffic WITHIN LAN's ROUTERS forward traffic BETWEEN LAN's WAN (Wide Area Mạng) - Mạng spread over một large area ![image](https://github.com/psaumur/CCNA/assets/106411237/e44ac71c-91e3-4963-85da-ac07e475b248) ![image](https://github.com/psaumur/CCNA/assets/106411237/289212da-6c94-44fb-a1e3-1c066b56d79c) ![image](https://github.com/psaumur/CCNA/assets/106411237/f8f7d58b-89b7-412c-9cf6-c038338e105d) ![image](https://github.com/psaumur/CCNA/assets/106411237/63611407-719e-46d3-8331-a18533616285) --- STATIC ROUTES: ![image](https://github.com/psaumur/CCNA/assets/106411237/10135afa-ace6-47f1-aada-1b73f243589b) --- STATIC Tuyến đường Cấu hình: ![image](https://github.com/psaumur/CCNA/assets/106411237/d375a428-e171-4212-9698-2f2589878884) ![image](https://github.com/psaumur/CCNA/assets/106411237/012f4134-2667-421b-9b36-f449faebf423) ![image](https://github.com/psaumur/CCNA/assets/106411237/0a3ed6cb-c414-4365-aef4-754b4b82483e) ![image](https://github.com/psaumur/CCNA/assets/106411237/4379f8fb-a366-4279-a31c-ff2ba3f6fdb8) ![image](https://github.com/psaumur/CCNA/assets/106411237/6fed6489-c53c-404e-b794-b71c2e9b8e4f) --- STATIC Tuyến đường Cấu hình with *exit-Giao diện* ![image](https://github.com/psaumur/CCNA/assets/106411237/dc93b5f9-791c-44fc-8b88-2053491183a9) --- Default Tuyến đường ![image](https://github.com/psaumur/CCNA/assets/106411237/a0eef93a-b40b-409b-8b51-6cdbace4ff45) 
+# 12. ĐỊNH TUYẾN TĨNH: PHẦN 2
+
+## ÔN TẬP:
+
+- **SWITCH** chuyển tiếp lưu lượng TRONG LAN
+- **ROUTER** chuyển tiếp lưu lượng GIỮA các LAN
+
+**WAN (Wide Area Network)** - Mạng trải rộng trên một khu vực lớn
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/e44ac71c-91e3-4963-85da-ac07e475b248)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/289212da-6c94-44fb-a1e3-1c066b56d79c)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/f8f7d58b-89b7-412c-9cf6-c038338e105d)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/63611407-719e-46d3-8331-a18533616285)
+
+---
+
+## TUYẾN ĐƯỜNG TĨNH:
+
+Tuyến đường tĩnh là các tuyến đường được cấu hình thủ công bởi quản trị viên mạng.
+
+**Ưu điểm:**
+- Kiểm soát hoàn toàn đường đi của gói tin
+- Không tiêu tốn băng thông cho việc trao đổi thông tin định tuyến
+- Bảo mật cao hơn (không quảng bá thông tin mạng)
+
+**Nhược điểm:**
+- Cần cấu hình thủ công trên mỗi router
+- Không tự động thích ứng khi có thay đổi trong mạng
+- Khó quản lý trong mạng lớn
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/10135afa-ace6-47f1-aada-1b73f243589b)
+
+---
+
+## CẤU HÌNH TUYẾN ĐƯỜNG TĨNH:
+
+### Cú pháp cơ bản:
+```
+Router(config)# ip route [destination-network] [subnet-mask] [next-hop-ip]
+```
+
+### Ví dụ cấu hình:
+```
+Router(config)# ip route 192.168.2.0 255.255.255.0 192.168.1.2
+```
+
+Lệnh này có nghĩa:
+- **Destination Network:** 192.168.2.0/24
+- **Subnet Mask:** 255.255.255.0
+- **Next-hop:** 192.168.1.2
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/d375a428-e171-4212-9698-2f2589878884)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/012f4134-2667-421b-9b36-f449faebf423)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/0a3ed6cb-c414-4365-aef4-754b4b82483e)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/4379f8fb-a366-4279-a31c-ff2ba3f6fdb8)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/6fed6489-c53c-404e-b794-b71c2e9b8e4f)
+
+---
+
+## CẤU HÌNH TUYẾN ĐƯỜNG TĨNH VỚI EXIT-INTERFACE
+
+Thay vì chỉ định next-hop IP, bạn có thể chỉ định giao diện đầu ra:
+
+### Cú pháp:
+```
+Router(config)# ip route [destination-network] [subnet-mask] [exit-interface]
+```
+
+### Ví dụ:
+```
+Router(config)# ip route 192.168.2.0 255.255.255.0 GigabitEthernet0/1
+```
+
+**Lưu ý:** Phương pháp này chỉ nên sử dụng với giao diện point-to-point.
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/dc93b5f9-791c-44fc-8b88-2053491183a9)
+
+---
+
+## TUYẾN ĐƯỜNG MẶC ĐỊNH (DEFAULT ROUTE)
+
+Tuyến đường mặc định là tuyến đường được sử dụng khi không có tuyến đường cụ thể nào khớp với địa chỉ đích.
+
+### Cú pháp:
+```
+Router(config)# ip route 0.0.0.0 0.0.0.0 [next-hop-ip]
+```
+
+### Ví dụ:
+```
+Router(config)# ip route 0.0.0.0 0.0.0.0 192.168.1.1
+```
+
+**0.0.0.0 0.0.0.0** có nghĩa là "bất kỳ mạng nào" - đây là tuyến đường cuối cùng được kiểm tra.
+
+**Sử dụng:** Thường được cấu hình trên router biên để gửi tất cả lưu lượng không biết đến ISP.
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/a0eef93a-b40b-409b-8b51-6cdbace4ff45)
+
+---
+
+## CÁC LỆNH KIỂM TRA:
+
+```
+Router# show ip route          // Hiển thị bảng định tuyến
+Router# show ip route static   // Chỉ hiển thị tuyến đường tĩnh
+Router# ping [destination-ip]  // Kiểm tra kết nối
+```
