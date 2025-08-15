@@ -7,26 +7,6 @@ Each "Day" is broken down into individual chapters covering all essential networ
 
 These notes represent my learning journey through the complete CCNA curriculum, carefully organized and documented for easy reference and study.
 
-## Course Resources
-
-Jeremy's IT Lab [Complete Course for the CCNA 200-300](https://www.youtube.com/watch?v=H8W9oMNSuwo&list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ) 
-
-Custom [YouTube Playlist](https://www.youtube.com/watch?v=a1Im6GYaSno&list=PLeKkafR2n05H0FZNgcz2z56pMPooaskFr) of just the Course Labs for easy access.
-
-Additional [older labs](https://www.youtube.com/watch?v=XgcGcrLKu1A&list=PLxbwE86jKRgMQ4HTuaJ7yQgA2BoNwY9ct) for practice during and after finishing the course.
-
-[Jeremy's MEGA Lab](https://www.youtube.com/watch?v=2p7-MluKAgE&list=PLeKkafR2n05G-C6sd19ZMKq7et__aDR1S) encompasses everything you will learn in his CCNA course.
-
-## How to Use
-
-To download these course notes:
-```bash
-git clone https://github.com/vanhoangkha/Networking-fundamentals.git
-```
-
-For browser-based conversion of these .md files to PDF format, I recommend [Dillinger.io](https://dillinger.io/)
-For local conversion to other formats, use the open source [Calibre](https://calibre-ebook.com/) (allows bulk processing to mobile/iPad)
-
 ---
 
 ## Course Day Chapter Notes:
