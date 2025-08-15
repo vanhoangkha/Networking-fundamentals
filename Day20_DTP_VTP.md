@@ -1,1 +1,258 @@
-# 19. DTP / VTP (NOT trong SYLLABUS) DTP (Dynamic Trunking Giao thức) - Giao thức that allows SWITCHES đến negotiate the status của their SWITCHPORTS, without manual Cấu hình, to be: - Truy cập PORTS - Trunk PORTS - DTP là ENABLED bởi Default trên all Cisco GIAO DIỆN Switch We’ve been manually configuring SWITCHPORTS using : - “switchport mode Truy cập” - “switchport mode Trunk” ``` 💡 'show interfaces <interface-id> switchport' will show you a switchport’s settings. ``` For Bảo mật purposes, **manual Cấu hình** is recommended. DTP nên be disabled trên ALL SWITCHPORTS ![image](https://github.com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d) DYNAMIC DESIRABLE: - This MODE sẽ actively try đến form một Trunk với other Cisco SWITCHES. - Will form một Trunk if connected đến another SWITCHPORT trong the following modes: - “switchport mode Trunk” - “switchport mode dynamic desirable” - “switchport mode dynamic auto” HOWEVER … if the other Giao diện là set to “static Truy cập” (Truy cập mode), it sẽ NOT form một Trunk, it sẽ be một Truy cập Cổng DYNAMIC AUTO: - This MODE sẽ NOT actively try đến form một Trunk với other Cisco SWITCHES - Will form một Trunk if connected SWTICH là actively trying đến form một Trunk. - It sẽ form một Trunk với một SWITCHPORT trong the following modes: - “switchport mode Trunk” - “switchport mode dynamic desirable” Trunk đến Truy cập connection sẽ operate trong a **Mismatched Mode**. This Cấu hình does NOT work và nên result trong một error. Traffic sẽ NOT work. TABLE SHOWING THE DIFFERENT MODES và COMPATIBILITY trong FORMING một Trunk ![image](https://github.com/psaumur/CCNA/assets/106411237/93d5e4f4-cb24-4d3f-ba62-fd002581cfbb) --- DTP sẽ NOT form một Trunk with: a Router a PC etcetera … The SWITCHPORT sẽ be trong Truy cập Mode only! OLD SWITCHES: - “switchport mode dynamic desirable” = Default Quản trị mode. NEWER SWITCHES: - “switchport mode dynamic auto” = Default Quản trị mode. Cách Vô hiệu hóa DTP NEGOTIATION trên một Giao diện: - “switchport nonegotiate” - “switchport mode Truy cập” It là một Bảo mật recommendation đến Vô hiệu hóa DTP trên all SWITCHPORTS và manually configure them as Truy cập hoặc Trunk ports. --- Đóng gói: SWITCHES that support both: - 802.1Q - ISL Trunk Đóng gói có thể use DTP đến negotiate the Đóng gói they sẽ use. - Negotiation là Enabled bởi Default ``` 💡 'switchport trunk encapsulation negotiate' ``` - ISL là favored over 802.1Q - If BOTH SWITCHES support ISL, ISL sẽ be selected. - DTP frames là sent in: - VLAN1 when using ISL - VLAN gốc when using 802.1Q (the Default VLAN gốc là VLAN1, however) --- VTP (VLAN Trunking Giao thức) In Privileged EXEC mode: ``` 💡 #show vtp status ``` - Giao thức cho configuring VLANs trên một Central Switch - A SERVER that other SWITCHES synch. to (auto configuring bởi connection) - Other switches (VTP CLIENTS) will synchronize their VLAN database đến the SERVER - Designed cho large networks với many VLANs (reduces manual Cấu hình) - RARELY used. Recommended you DO NOT USE it - There là THREE VTP Versions : - v1 - Does NOT supports Extended VLAN Range 1006-4094 - v2 - Does NOT supports Extended VLAN Range 1006-4094 - Supports Token Ring VLANs ; otherwise similar đến V1 - v3 - Supports Extended VLAN Range 1006-4094 - CLIENTS store VLAN dBase trong NVRAM - There are **THREE VTP modes**: - SERVER - CLIENT - TRANSPARENT - Cisco SWITCHES operate trong VTP SERVER mode, by Default --- ![image](https://github.com/psaumur/CCNA/assets/106411237/87dcd7ff-f3d3-4441-841c-a0506c249f03) --- VTP SERVERS: - Can ADD / MODIFY / DELETE VLANs - Store the VLAN dBase trong NVRAM - Increase Revision Number every time VLAN là Added / Modified / Deleted - Advertises **Latest Version** of VLAN dBase trên Trunk interfaces. - VTP CLIENTS synchronize their VLAN dBase đến it - **VTP SERVERS also function as VTP CLIENTS** - **THEREFORE, a VTP SERVER sẽ synchronize đến another VTP SERVER với một higher Revision Number** <aside> 🚨 One danger của VTP: Connecting một old Switch với higher Revision Number đến Mạng (and if the VTP Domain Name matches), all SWITCHES trong Domain sẽ synchronize their VLAN dBase đến Switch </aside> VTP CLIENTS: ``` 💡 (config)# vtp mode client ``` - Cannot Add / Modify / Delete VLANs - Does NOT store the VLAN database trong NVRAM - **VTP v3 CLIENTS DO** - Will synchronize their VLAN dBase đến the SERVER với the highest version number trong their VTP Domain - Advertise their VLAN dBase và forward VTP Advertisements đến other CLIENTS over Trunk Ports VTP TRANSPARENT MODE: ``` 💡 (config)# vtp mode transparent ``` - Does NOT participate trong VTP Domain (does NOT sync VLAN database) - Maintains own VLAN dBase trong NVRAM. - Can Add / Modify / Delete VLANs - Won’t Advertise đến other SWITCHES - Will forward VTP advertisements đến SWITCHES trong the same Domain as it. --- VTP DOMAINS If một Switch với no VTP Domain (Domain NULL) receives một VTP advertisement với một VTP Domain name, it sẽ automatically join that VTP Domain If một Switch receives một VTP advertisement trong the same VTP domain với một higher revision number, it sẽ update it’s VLAN database đến match --- REVISION NUMBERS: There là TWO ways đến RESET một REVISION NUMBER đến 0: - Change VTP Domain đến một unused Domain - Change VTP mode đến TRANSPARENT --- VTP VERSION NUMBER ``` 💡 (config)#vtp version <version number> ``` Changing the Version # will force sync/update all connected SWITCHES đến the latest Version # 
+# 20. DTP / VTP (KHÔNG TRONG SYLLABUS)
+
+## DTP (DYNAMIC TRUNKING PROTOCOL)
+
+**DTP** là giao thức cho phép **SWITCH** thương lượng trạng thái của SWITCHPORT mà không cần cấu hình thủ công, để trở thành:
+- **Access PORT**
+- **Trunk PORT**
+
+**DTP được BẬT theo mặc định** trên tất cả Cisco Switch Interface
+
+Chúng ta đã cấu hình thủ công SWITCHPORT sử dụng:
+- `switchport mode access`
+- `switchport mode trunk`
+
+💡 **Lệnh kiểm tra:** `show interfaces <interface-id> switchport` sẽ hiển thị cài đặt switchport.
+
+**Vì mục đích Bảo mật, khuyến nghị cấu hình thủ công. DTP nên được vô hiệu hóa trên TẤT CẢ SWITCHPORT**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d)
+
+---
+
+## CÁC CHẾ ĐỘ DTP
+
+### DYNAMIC DESIRABLE:
+- Chế độ này sẽ **chủ động cố gắng** tạo Trunk với Switch Cisco khác
+- Sẽ tạo Trunk nếu kết nối với SWITCHPORT ở các chế độ sau:
+  - `switchport mode trunk`
+  - `switchport mode dynamic desirable`
+  - `switchport mode dynamic auto`
+
+**TUY NHIÊN...** nếu interface khác được đặt thành "static access" (chế độ Access), nó sẽ KHÔNG tạo Trunk, nó sẽ là Access Port
+
+### DYNAMIC AUTO:
+- Chế độ này sẽ **KHÔNG chủ động** cố gắng tạo Trunk với Switch Cisco khác
+- Sẽ tạo Trunk nếu SWITCH được kết nối đang chủ động cố gắng tạo Trunk
+- Nó sẽ tạo Trunk với SWITCHPORT ở các chế độ sau:
+  - `switchport mode trunk`
+  - `switchport mode dynamic desirable`
+
+**Kết nối Trunk đến Access sẽ hoạt động trong Chế độ Không Khớp (Mismatched Mode). Cấu hình này KHÔNG hoạt động và sẽ gây lỗi. Lưu lượng sẽ KHÔNG hoạt động.**
+
+---
+
+## BẢNG TƯƠNG THÍCH CÁC CHẾ ĐỘ
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/93d5e4f4-cb24-4d3f-ba62-fd002581cfbb)
+
+### Tóm tắt tương thích:
+| Chế độ 1 | Chế độ 2 | Kết quả |
+|----------|----------|---------|
+| Access | Access | Access |
+| Access | Dynamic Desirable | Access |
+| Access | Dynamic Auto | Access |
+| Access | Trunk | **KHÔNG HOẠT ĐỘNG** |
+| Dynamic Desirable | Dynamic Desirable | **Trunk** |
+| Dynamic Desirable | Dynamic Auto | **Trunk** |
+| Dynamic Desirable | Trunk | **Trunk** |
+| Dynamic Auto | Dynamic Auto | Access |
+| Dynamic Auto | Trunk | **Trunk** |
+| Trunk | Trunk | **Trunk** |
+
+---
+
+## THIẾT BỊ KHÔNG HỖ TRỢ DTP
+
+**DTP sẽ KHÔNG tạo Trunk với:**
+- Router
+- PC
+- Thiết bị khác...
+
+**SWITCHPORT sẽ chỉ ở chế độ Access!**
+
+---
+
+## CÀI ĐẶT MẶC ĐỊNH
+
+### SWITCH CŨ:
+- `switchport mode dynamic desirable` = Chế độ quản trị mặc định
+
+### SWITCH MỚI:
+- `switchport mode dynamic auto` = Chế độ quản trị mặc định
+
+---
+
+## VÔ HIỆU HÓA DTP NEGOTIATION
+
+### Cách vô hiệu hóa DTP trên Interface:
+```
+Switch(config-if)# switchport nonegotiate
+```
+HOẶC
+```
+Switch(config-if)# switchport mode access
+```
+
+**Khuyến nghị bảo mật:** Vô hiệu hóa DTP trên tất cả SWITCHPORT và cấu hình thủ công làm Access hoặc Trunk port.
+
+---
+
+## ENCAPSULATION NEGOTIATION
+
+**SWITCH hỗ trợ cả hai:**
+- 802.1Q
+- ISL
+
+Trunk Encapsulation có thể sử dụng DTP để thương lượng Encapsulation sẽ sử dụng.
+
+### Cài đặt mặc định:
+💡 `switchport trunk encapsulation negotiate`
+
+### Quy tắc ưu tiên:
+- **ISL được ưu tiên hơn 802.1Q**
+- Nếu CẢ HAI SWITCH hỗ trợ ISL, ISL sẽ được chọn
+
+### DTP frames được gửi trong:
+- **VLAN1** khi sử dụng ISL
+- **Native VLAN** khi sử dụng 802.1Q (Native VLAN mặc định là VLAN1)
+
+---
+
+## VTP (VLAN TRUNKING PROTOCOL)
+
+### Lệnh kiểm tra:
+```
+Switch# show vtp status
+```
+
+### Định nghĩa VTP:
+- **Giao thức** để cấu hình VLAN trên Switch Trung tâm
+- Một **SERVER** mà các SWITCH khác đồng bộ hóa (tự động cấu hình bằng kết nối)
+- Các switch khác (**VTP CLIENT**) sẽ đồng bộ hóa VLAN database với SERVER
+- **Được thiết kế** cho mạng lớn với nhiều VLAN (giảm cấu hình thủ công)
+- **HIẾM KHI được sử dụng. Khuyến nghị KHÔNG SỬ DỤNG**
+
+---
+
+## PHIÊN BẢN VTP
+
+### Ba phiên bản VTP:
+
+**VTP v1:**
+- KHÔNG hỗ trợ Extended VLAN Range 1006-4094
+
+**VTP v2:**
+- KHÔNG hỗ trợ Extended VLAN Range 1006-4094
+- Hỗ trợ Token Ring VLAN; tương tự V1
+
+**VTP v3:**
+- Hỗ trợ Extended VLAN Range 1006-4094
+- CLIENT lưu trữ VLAN database trong NVRAM
+
+---
+
+## BA CHẾ ĐỘ VTP
+
+### 1. SERVER
+### 2. CLIENT  
+### 3. TRANSPARENT
+
+**Cisco SWITCH hoạt động ở chế độ VTP SERVER theo mặc định**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/87dcd7ff-f3d3-4441-841c-a0506c249f03)
+
+---
+
+## VTP SERVER
+
+### Khả năng:
+- Có thể **THÊM / SỬA ĐỔI / XÓA** VLAN
+- **Lưu trữ** VLAN database trong NVRAM
+- **Tăng Revision Number** mỗi khi VLAN được Thêm/Sửa đổi/Xóa
+- **Quảng bá Phiên bản Mới nhất** của VLAN database trên Trunk interface
+- VTP CLIENT đồng bộ hóa VLAN database với nó
+- **VTP SERVER cũng hoạt động như VTP CLIENT**
+- **DO ĐÓ, VTP SERVER sẽ đồng bộ hóa với VTP SERVER khác có Revision Number cao hơn**
+
+🚨 **Nguy hiểm của VTP:** Kết nối Switch cũ với Revision Number cao hơn vào Mạng (và nếu VTP Domain Name khớp), tất cả SWITCH trong Domain sẽ đồng bộ hóa VLAN database với Switch đó
+
+---
+
+## VTP CLIENT
+
+### Cấu hình:
+```
+Switch(config)# vtp mode client
+```
+
+### Đặc điểm:
+- **Không thể** Thêm/Sửa đổi/Xóa VLAN
+- **KHÔNG lưu trữ** VLAN database trong NVRAM
+  - **VTP v3 CLIENT CÓ lưu trữ**
+- Sẽ đồng bộ hóa VLAN database với SERVER có version number cao nhất trong VTP Domain
+- Quảng bá VLAN database và chuyển tiếp VTP Advertisement đến CLIENT khác qua Trunk Port
+
+---
+
+## VTP TRANSPARENT MODE
+
+### Cấu hình:
+```
+Switch(config)# vtp mode transparent
+```
+
+### Đặc điểm:
+- **KHÔNG tham gia** VTP Domain (không đồng bộ VLAN database)
+- **Duy trì** VLAN database riêng trong NVRAM
+- **Có thể** Thêm/Sửa đổi/Xóa VLAN
+- **Không quảng bá** đến SWITCH khác
+- **Sẽ chuyển tiếp** VTP advertisement đến SWITCH trong cùng Domain
+
+---
+
+## VTP DOMAIN
+
+### Quy tắc tự động tham gia:
+- Nếu Switch không có VTP Domain (Domain NULL) nhận VTP advertisement với VTP Domain name, nó sẽ **tự động tham gia** VTP Domain đó
+- Nếu Switch nhận VTP advertisement trong cùng VTP domain với revision number cao hơn, nó sẽ **cập nhật VLAN database** để khớp
+
+---
+
+## REVISION NUMBER
+
+### Hai cách RESET Revision Number về 0:
+
+1. **Thay đổi VTP Domain** thành Domain chưa sử dụng
+2. **Thay đổi VTP mode** thành TRANSPARENT
+
+---
+
+## VTP VERSION NUMBER
+
+### Cấu hình:
+```
+Switch(config)# vtp version <version-number>
+```
+
+**Thay đổi Version Number sẽ buộc đồng bộ/cập nhật tất cả SWITCH được kết nối lên Version Number mới nhất**
+
+---
+
+## TÓM TẮT VÀ KHUYẾN NGHỊ
+
+### Khuyến nghị bảo mật:
+1. **Vô hiệu hóa DTP** trên tất cả switchport
+2. **Cấu hình thủ công** access/trunk mode
+3. **KHÔNG sử dụng VTP** trong môi trường sản xuất
+4. **Sử dụng VTP Transparent mode** nếu bắt buộc phải dùng VTP
+
+### Lệnh quan trọng:
+```
+Switch(config-if)# switchport nonegotiate        // Vô hiệu hóa DTP
+Switch(config-if)# switchport mode access        // Cấu hình access thủ công
+Switch(config-if)# switchport mode trunk         // Cấu hình trunk thủ công
+Switch(config)# vtp mode transparent             // VTP transparent mode
+Switch# show vtp status                          // Kiểm tra VTP
+Switch# show interfaces <int> switchport         // Kiểm tra DTP
+```
