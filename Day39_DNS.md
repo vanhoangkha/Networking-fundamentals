@@ -1,11 +1,11 @@
 # 38. DNS (Domain Name System)
 
-THE PURPOSE OF DNS
+Mục đích của DNS
 
 - DNS is used to *resolve* human-readable names (google.com) to IP ADDRESSES
 - Machines such as PCs don’t use names, they use ADDRESSES (ie: IPv4/IPv6)
 - Names are much easier for us to use and remember than IP ADDRESSES
-    - What is the IP ADDRESS of [youtube.com](http://youtube.com) ?
+    - là gì the Địa chỉ IP of [youtube.com](HTTP://youtube.com) ?
 - When you type ‘youtube.com` into a web browser, your device will ask a DNS SERVER for the IP ADDRESS of [youtube.com](http://youtube.com)
 - The DNS SERVER(S) your DEVICE uses can be manually configured or learned via DHCP
 
@@ -57,7 +57,7 @@ CONFIGURING DNS IN CISCO IOS
     - If an INTERNAL DNS SERVER is used, usually it’s a WINDOWS or LINUX SERVER
 - A CISCO ROUTER can also be configured as a DNS CLIENT
 
-Command `ip dns server` and `ip host <hostname> <ip address>`
+Command `ip DNS server` and `ip host <hostname> <Địa chỉ IP>`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f65a4118-ae59-4db5-8fc4-c83d39c3072d)
 
@@ -75,6 +75,6 @@ Command `ip name-server` and `ip domain lookup`
 
 ---
 
-COMMAND REVIEW:
+Lệnh REVIEW:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6c3e7873-04c4-407e-a851-cb74a9f78eb9)

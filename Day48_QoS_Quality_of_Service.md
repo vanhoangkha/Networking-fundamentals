@@ -1,18 +1,18 @@
-# 47. QoS (Quality of Service) : PART 2
+# 47. QoS (Chất lượng dịch vụ) : PART 2
 
-CLASSIFICATION / MARKING
+Phân loại / Đánh dấu
 
-- The purpose of QoS is to give certain kinds of NETWORK TRAFFIC priority over other during congestion
-- CLASSIFICATION organizes network TRAFFIC (PACKETS) into TRAFFIC CLASSES (CATEGORIES)
-- CLASSIFICATION is fundamental to QoS.
+- Mục đích của QoS is to give certain kinds of Mạng TRAFFIC priority over other during congestion
+- Phân loại organizes Mạng TRAFFIC (PACKETS) into TRAFFIC CLASSES (CATEGORIES)
+- Phân loại is fundamental to QoS.
     - To give PRIORITY to certain types of TRAFFIC, you have to IDENTIFY which types of TRAFFIC to give PRIORITY to.
 - There are MANY methods of CLASSIFYING TRAFFIC
     - An ACL : TRAFFIC which is permitted by the ACL will be given certain TREATMENT, other TRAFFIC will not
-    - NBAR (Network Based Application Recognition) performs a *DEEP PACKET INSPECTION,* looking beyond the LAYER 3 and LAYER 4 information up to LAYER 7 to identify the specific kinds of TRAFFIC
+    - NBAR (Mạng Based Application Recognition) performs a *DEEP Gói tin INSPECTION,* looking beyond the LAYER 3 and LAYER 4 information up to LAYER 7 to identify the specific kinds of TRAFFIC
     - In the LAYER 2 and LAYER 3 HEADERS there are specific FIELDS used for this purpose
-- The PCP (PRIORITY CODE POINT) FIELD of the 802.1Q Tag (in the ETHERNET HEADER) can be used to identify HIGH / LOW PRIORITY TRAFFIC
+- The PCP (PRIORITY CODE POINT) FIELD of the 802.1Q Tag (in the Ethernet Header) can be used to identify HIGH / LOW PRIORITY TRAFFIC
     - ** ONLY when there is a dot1q tag!
-- The DSCP (DIFFERENTIATED SERVICES CODE POINT) FIELD of the IP HEADER can also be used to identify HIGH / LOW PRIORITY TRAFFIC
+- The DSCP (DIFFERENTIATED SERVICES CODE POINT) FIELD of the IP Header can also be used to identify HIGH / LOW PRIORITY TRAFFIC
 
 ---
 
@@ -33,9 +33,9 @@ PCP / CoS
     - IP PHONES MARK call signaling TRAFFIC (used to establish calls) as PCP3
         - They MARK the actual VOICE TRAFFIC as PCP5
 
-- Because PCP is found in the dot1q header, it can only be used over the following connections:
-    - TRUNK LINKS
-    - ACCESS LINKS with a VOICE VLAN
+- Because PCP is found in the dot1q Header, it can only be used over the following connections:
+    - Trunk LINKS
+    - Access LINKS with a VLAN thoại
     
 - In the diagram below, TRAFFIC between R1 and R2, or between R2 and EXTERNAL DESTINATIONS will not have a dot1q tag. So, traffic over those links PCP cannot be marked with a PCP value.
 
@@ -58,7 +58,7 @@ IP PRECEDENCE (OLD)
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1b0ca3ca-fc8d-4225-9368-64c8ff9587da)
 
 - Standard IPP markings are similar to PCP:
-    - 6 and 7 are reserved to ‘network control traffic’ (ie: OSPF Messages between ROUTERS)
+    - 6 and 7 are reserved to ‘Mạng control traffic’ (ie: OSPF Messages between ROUTERS)
     - 5 = VOICE
     - 4 = VIDEO
     - 3 = VOICE SIGNALLING
@@ -80,7 +80,7 @@ DSCP (CURRENT)
         - etc.
 
 - You should be AWARE of the FOLLOWING STANDARD MARKINGS:
-    - DEFAULT FORWARDING (DF) - Best Effort TRAFFIC
+    - Mặc định FORWARDING (DF) - Best Effort TRAFFIC
     - EXPEDITED FORWARDING (EF) - Low Loss / Latency / Jitter TRAFFIC (usually voice)
     - ASSURED FORWARDING (AF) - A set of 12 STANDARD VALUES
     - CLASS SELECTOR (CS) - A set of 8 STANDARD VALUES, provides backward compatibility with IPP
@@ -89,19 +89,19 @@ DSCP (CURRENT)
 
 DF / EF
 
-DEFAULT FORWARDING (DF)
+Mặc định FORWARDING (DF)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/26f6bc76-6b33-40f0-9327-022b4816d280)
 
 - Used for BEST EFFORT TRAFFIC
-- The DSCP marking for DF is 0
+- The DSCP Đánh dấu for DF is 0
 
 EXPEDITED FORWARDING (EF)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/12cf77c0-f139-494c-ab8b-d765a73a92f4)
 
 - EF is used for TRAFFIC that requires Low Loss / Latency / Jitter
-- The DSCP marking for EF is 46
+- The DSCP Đánh dấu for EF is 46
 
 ---
 
@@ -110,7 +110,7 @@ ASSURED FORWARDING (AF)
 - Defines FOUR TRAFFIC CLASSES
 - ALL PACKETS in a CLASS have the same PRIORITY
 - Within each CLASS, there are THREE LEVELS of DROP PRECEDENCE
-    - HIGHER DROP PRECEDENCE = More likely to DROP the PACKET during CONGESTION
+    - HIGHER DROP PRECEDENCE = More likely to DROP the Gói tin during CONGESTION
     
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/407ab29c-678d-4a38-8e8e-2a6f904b4d94)
@@ -160,7 +160,7 @@ RFC 4954
 
 TRUST BOUNDARIES
 
-- The TRUST BOUNDARY of a NETWORK defines where the DEVICE TRUST / DON’T TRUST the QoS MARKINGS of received messages
+- The TRUST BOUNDARY of a Mạng defines where the DEVICE TRUST / DON’T TRUST the QoS MARKINGS of received messages
 - If the MARKINGS are TRUSTED:
     - DEVICE will forward the message without changing the MARKINGS
 - If the MARKINGS are NOT TRUSTED:
@@ -168,27 +168,27 @@ TRUST BOUNDARIES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cdcdc302-9dbe-4dd8-9184-72d1f501bc1a)
 
-- If an IP PHONE is connected to the SWITCH PORT, it is RECOMMENDED to move the TRUST BOUNDARY to the IP PHONES
-- This is done via CONFIGURATION on the SWITCH PORT connected to the IP PHONE
-- If a user MARKS their PC’s TRAFFIC with a HIGH PRIORITY, the MARKING will be CHANGED (not trusted)
+- If an IP PHONE is connected to the Switch Cổng, it is RECOMMENDED to move the TRUST BOUNDARY to the IP PHONES
+- This is done via Cấu hình on the Switch Cổng connected to the IP PHONE
+- If a user MARKS their PC’s TRAFFIC with a HIGH PRIORITY, the Đánh dấu will be CHANGED (not trusted)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/606ad681-fad4-4f23-96bf-bd7dde91eaf4)
 
 ---
 
-QUEUING / CONGESTION MANAGEMENT
+QUEUING / CONGESTION Quản lý
 
-- When a NETWORK DEVICE receives TRAFFIC at a FASTER PACE than it can FORWARD out of the appropriate INTERACE, PACKETS are placed in that INTERFACE’S QUEUE as they wait to be FORWARDED
+- When a Mạng DEVICE receives TRAFFIC at a FASTER PACE than it can FORWARD out of the appropriate INTERACE, PACKETS are placed in that Giao diện’S QUEUE as they wait to be FORWARDED
 - When a QUEUE becomes FULL, PACKETS that don’t FIT in the QUEUE are dropped (Tail Drop)
 - RED and WRED DROP PACKETS early to avoid TAIL DROP
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5dbfd417-097c-4107-a5e1-b5476f423b15)
 
 - An essential part of QoS is the use of MULTIPLE QUEUES
-    - This is where CLASSIFICATION plays a role.
-    - DEVICE can match TRAFFIC based on various factors (like DSCP MARKINGS in the IP HEADER) and then place it in the appropriate QUEUE
+    - This is where Phân loại plays a role.
+    - DEVICE can match TRAFFIC based on various factors (like DSCP MARKINGS in the IP Header) and then place it in the appropriate QUEUE
 
-- HOWEVER, the DEVICE is only able to forward one FRAME out of an INTERFACE at once SO a *SCHEDULER*, is used to decide which QUEUE TRAFFIC is FORWARDED from the next
+- HOWEVER, the DEVICE is only able to forward one Khung out of an Giao diện at once SO a *SCHEDULER*, is used to decide which QUEUE TRAFFIC is FORWARDED from the next
     - *PRIORITZATION* allows the SCHEDULER to give certain QUEUES more PRIORITY than others
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/56bfe184-5bdf-4b8f-8851-756766456bf9)
@@ -203,7 +203,7 @@ QUEUING / CONGESTION MANAGEMENT
 
 - CBWFQ (CLASS BASED WEIGHED FAIR QUEUING)
     - Popular method of SCHEDULING
-    - Uses WEIGHTED ROUND-ROBIN SCHEDULER while guaranteeing each QUEUE a certain PERCENTAGE of the INTERFACE’S bandwidth during CONGESTION
+    - Uses WEIGHTED ROUND-ROBIN SCHEDULER while guaranteeing each QUEUE a certain PERCENTAGE of the Giao diện’S bandwidth during CONGESTION
     
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/eee24cef-c67a-42de-9fa0-9351cab56354)
@@ -215,10 +215,10 @@ QUEUING / CONGESTION MANAGEMENT
 
 - LLQ (LOW LATENCY QUEUING)
     - Designates ONE (or more) QUEUES as *strict priority queues*
-    - This means that if there is TRAFFIC in the QUEUE, the SCHEDULER will ALWAYS take the next PACKET from that QUEUE until it is EMPTY
+    - This means that if there is TRAFFIC in the QUEUE, the SCHEDULER will ALWAYS take the next Gói tin from that QUEUE until it is EMPTY
     - This is VERY EFFECTIVE for reducing the DELAY and JITTER of VOICE / VIDEO TRAFFIC
     - HOWEVER, LLQ has a DOWNSIDE of potentially starving other QUEUES if there is always TRAFFIC in the DESIGNATED *STRICT PRIORITY QUEUE*
-        - POLICING can control the AMOUNT of TRAFFIC allowed in the *STRICT PRIORITY QUEUE* so that it can’t take all of the link’s BANDWIDTH
+        - Kiểm soát can control the AMOUNT of TRAFFIC allowed in the *STRICT PRIORITY QUEUE* so that it can’t take all of the link’s BANDWIDTH
     
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2b544243-3a2e-4721-bf1f-4636ec4085a7)
@@ -227,20 +227,20 @@ QUEUING / CONGESTION MANAGEMENT
 
 ---
 
-SHAPING / POLICING
+SHAPING / Kiểm soát
 
-- TRAFFIC SHAPING and POLICING are both used to control the RATE of TRAFFIC
+- Định hình lưu lượng and Kiểm soát are both used to control the RATE of TRAFFIC
 - SHAPING
     - Buffers TRAFFIC in a QUEUE if the TRAFFIC RATE goes over the CONFIGURED RATE
 
-- POLICING
+- Kiểm soát
     - DROPS TRAFFIC if the TRAFFIC RATE goes over the CONFIGURED RATE
-        - POLICING also has the option of RE-MARKING the TRAFFIC, instead of DROPPING
+        - Kiểm soát also has the option of RE-Đánh dấu the TRAFFIC, instead of DROPPING
     - “BURST” TRAFFIC over the CONFIGURED RATE is allowed for a short period of time
     - This accommodates DATA APPLICATIONS which typically are “bursty” in nature (ie: not constant stream)
     - The amount of BURST TRAFFIC allowed is configurable
     
-- In BOTH cases, CLASSIFICATION can be used to ALLOW for different RATES for different KINDS of TRAFFIC
+- In BOTH cases, Phân loại can be used to ALLOW for different RATES for different KINDS of TRAFFIC
 - WHY would you want to LIMIT the RATE that TRAFFIC is SENT / RECEIVED ?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/09771d78-4570-4300-97e1-adba77fe28b4)

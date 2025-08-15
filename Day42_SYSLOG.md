@@ -2,9 +2,9 @@
 
 SYSLOG OVERVIEW
 
-- SYSLOG is an INDUSTRY-STANDARD PROTOCOL for message logging
-- On NETWORK DEVICES, SYSLOG can be used to LOG EVENTS
-    - Changes in INTERFACE status (UP / DOWN)
+- SYSLOG is an INDUSTRY-STANDARD Giao thức for message logging
+- On Mạng DEVICES, SYSLOG can be used to LOG EVENTS
+    - Changes in Giao diện status (UP / DOWN)
     - Changes in OSFP NEIGHBOUR STATUS (UP / DOWN)
     - System Restarts
     - etc…
@@ -12,8 +12,8 @@ SYSLOG OVERVIEW
 
  ![image](https://github.com/psaumur/CCNA/assets/106411237/44a405e5-6cb1-41e3-b408-470afcaccd7e)
 
-- Logs are essential when troubleshooting issues, examining the cause of incidents, etc.
-- SYSLOG and SNMP are both used for MONITORING and TROUBLESHOOTING of DEVICES. They are complementary, but their functionalities are different
+- Logs are essential when Khắc phục sự cố issues, examining the cause of incidents, etc.
+- SYSLOG and SNMP are both used for Giám sát and Khắc phục sự cố of DEVICES. They are complementary, but their functionalities are different
 
 ---
 
@@ -22,7 +22,7 @@ SYSLOG MESSAGE FORMAT
 `seq: time stamp: %facility-severity-MNEMONIC:description`
 
 <aside>
-💡 These TWO FIELDS may or may not be displayed, depending on the DEVICE’S configuration
+💡 These TWO FIELDS may or may not be displayed, depending on the DEVICE’S Cấu hình
 
 </aside>
 
@@ -58,20 +58,20 @@ Official RFC for SYSLOG severity levels
 SYSLOG LOGGING LOCATIONS
 
 - **CONSOLE LINE**
-    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via the CONSOLE port. By DEFAULT, all messages (Level 0-7) are displayed
+    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via the CONSOLE Cổng. By Mặc định, all messages (Level 0-7) are displayed
 - **BUFFER**
-    - Syslog messages will be saved to RAM. By default, ALL messages (Level 0-7) are displayed
+    - Syslog messages will be saved to RAM. By Mặc định, ALL messages (Level 0-7) are displayed
 - **VTY LINES**
-    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via Telnet/SSH (coming in a later video). Disabled by default.
+    - SYSLOG messages will be displayed in the CLI when connected to the DEVICE via Telnet/SSH (coming in a later video). Disabled by Mặc định.
 
 - **EXTERNAL SERVER**
     - You can configure the DEVICE to send SYSLOG messages to an external server
 
-** SYSLOG SERVERS will listen for messages on UDP PORT 514 **
+** SYSLOG SERVERS will listen for messages on UDP Cổng 514 **
 
 ---
 
-SYSLOG CONFIGURATION
+SYSLOG Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a5321bcf-d149-4a3d-82a2-197426cf484a)
 
@@ -81,14 +81,14 @@ SYSLOG CONFIGURATION
 
 TERMINAL MONITOR
 
-- Even if `logging monitor level` is enabled, by default SYSLOG messages will not be displayed when connected via Telnet or SSH
-- For the messages to be displayed, you must use the following command:
+- Even if `logging monitor level` is enabled, by Mặc định SYSLOG messages will not be displayed when connected via Telnet or SSH
+- For the messages to be displayed, you must use the following Lệnh:
     - `R1# terminal monitor`
-- The command must be used **every time you connect to the DEVICE via Telnet or SSH**
+- The Lệnh must be used **every time you connect to the DEVICE via Telnet or SSH**
 
 LOGGING SYNCHRONOUS
 
-- By default, logging messages displayed in the CLI while you are in the middle of typing a command will result in something like this:
+- By Mặc định, logging messages displayed in the CLI while you are in the middle of typing a Lệnh will result in something like this:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bf0ed51a-c8b4-4c96-806a-ba90f829edd0)
 
@@ -108,18 +108,18 @@ SERVICE TIMESTAMPS and SERVICE SEQUENCE-NUMBERS
 
 SYSLOG versus SNMP
 
-- SYSLOG and SNMP are both used for MONITORING and TROUBLESHOOTING of DEVICES. They are COMPLIMENTARY, but their FUNCTIONALITIES are different.
+- SYSLOG and SNMP are both used for Giám sát and Khắc phục sự cố of DEVICES. They are COMPLIMENTARY, but their FUNCTIONALITIES are different.
 
 - SYSLOG
     - Used for MESSAGE LOGGING
     - Events that occur within the system are categorized based on FACILITY / SEVERITY and LOGGED
-    - Used for SYSTEM MANAGEMENT, ANALYSIS, and TROUBLESHOOTING
+    - Used for SYSTEM Quản lý, ANALYSIS, and Khắc phục sự cố
     - Messages are sent from the DEVICES to the SERVER.
         - The SERVER can’t actively pull information from the DEVICES (like SNMP ‘get’) or modify variables (like SNMP ‘set’)
 - SNMP
     - Used to retrieve and organize information about the SNMP managed DEVICES
         - IP ADDRESSES
-        - Current INTERFACE status
+        - Current Giao diện status
         - Temperature
         - CPU Usage
         - etc…

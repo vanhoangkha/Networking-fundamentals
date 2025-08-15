@@ -1,10 +1,10 @@
-# 34. STANDARD ACCESS CONTROL LISTS (ACL)
+# 34. STANDARD Access CONTROL LISTS (ACL)
 
 WHAT ARE ACLs
 
 - ACLs (Access Control Lists) have multiple uses
-- In DAY 34 and DAY 35, we will focus on ACL’s from a security perspective
-- ACLs function as a “packet filter” - instructing the ROUTER to ALLOW or DENY specific traffic
+- In DAY 34 and DAY 35, we will focus on ACL’s from a Bảo mật perspective
+- ACLs function as a “Gói tin filter” - instructing the Router to ALLOW or DENY specific traffic
 - ACLs can filter traffic based on:
     - SOURCE / DESTINATION IP ADDRESSES
     - SOURCE / DESTINATION LAYER 4 PORTS
@@ -19,22 +19,22 @@ HOW ACLs WORK
 <aside>
 💡 REQUIREMENTS:
 
-- Hosts in 192.168.1.0/24 should have ACCESS to the 10.0.1.0/24 NETWORK
-- Hosts in 192.168.2.0/24 should not have ACCESS to the 10.0.10/24 NETWORK
+- Hosts in 192.168.1.0/24 should have Access to the 10.0.1.0/24 Mạng
+- Hosts in 192.168.2.0/24 should not have Access to the 10.0.10/24 Mạng
 </aside>
 
-ACLs are configured GLOBALLY on the ROUTER (Global Config Mode)
+ACLs are configured GLOBALLY on the Router (Global Config Mode)
 
 - They are an ordered sequence of ACEs (Access Control Entries)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2eb0c042-21d0-4a40-ade3-9715bd2b3bcb)
 
 - Configuring an ACL in Global Config Mode will not make the ACL take effect
-- The ACL must be applied to an interface
+- The ACL must be applied to an Giao diện
     - ACLs are applied either INBOUND or OUTBOUND
 - ACLs are made up of one or more ACEs
-- When a ROUTER checks a PACKET against the ACL, it processes the ACEs in order, from top to bottom
-- If the PACKET matches one of the ACEs in the ACL, the ROUTER takes the action and stops processing the ACL. All entries below the matching entry will be ignored
+- When a Router checks a Gói tin against the ACL, it processes the ACEs in order, from top to bottom
+- If the Gói tin matches one of the ACEs in the ACL, the Router takes the action and stops processing the ACL. All entries below the matching entry will be ignored
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a4a86a8e-f73c-476b-b0e5-15bfb4f4748d)
 
@@ -44,9 +44,9 @@ ACLs are configured GLOBALLY on the ROUTER (Global Config Mode)
 
 IMPLICIT DENY
 
-- What will happen if a PACKET doesn’t match any of the entries in an ACL ?
+- What will happen if a Gói tin doesn’t match any of the entries in an ACL ?
 - There is an INPLICIT DENY at the end of ALL ACL’s
-- The IMPLICIT DENY tells the ROUTER to DENY ALL TRAFFIC that doesn’t match ANY of the configured entries in the ACL
+- The IMPLICIT DENY tells the Router to DENY ALL TRAFFIC that doesn’t match ANY of the configured entries in the ACL
 
 ---
 
@@ -58,7 +58,7 @@ ACL TYPES
 
 STANDARD NUMBERED ACLs
 
-- Match traffic based only on the SOURCE IP ADDRESS of the PACKET
+- Match traffic based only on the SOURCE Địa chỉ IP of the Gói tin
 - Numbered ACLs are identified with a number (ie: ACL 1, ACL 2, etc.)
 - Different TYPES of ACLs have a different range of numbers that can be used
     
@@ -68,7 +68,7 @@ STANDARD NUMBERED ACLs
     </aside>
     
 
-- The basic command to configure a STANDARD NUMBERED ACL
+- The basic Lệnh to configure a STANDARD NUMBERED ACL
     - `R1(config)# access-list *number* {deny | permit} *ip wildcard-mask*`
     
     This is an example of denying a SPECIFIC host’s traffic
@@ -93,7 +93,7 @@ STANDARD NUMBERED ACLs
 Order is important. Lower Numbers are processed FIRST
 
 ---
-TO APPLY AN ACL TO AN INTERFACE
+TO APPLY AN ACL TO AN Giao diện
 
 `R1(config-if)# ip access-group *number* {in | out}`
 
@@ -110,7 +110,7 @@ WHY WAS THIS RULE PLACED ON G0/2 OUT ?
 
 STANDARD NAMED ACLs
 
-- Standard ACLs match traffic based only on the SOURCE IP ADDRESS of the PACKET
+- Standard ACLs match traffic based only on the SOURCE Địa chỉ IP of the Gói tin
 - NAMED ACLs are identified with a NAME (ie: ‘BLOCK_BOB’)
 - STANDARD NAMED ACLs are configured by entering ‘standard named ACL config mode’ then configuring EACH entry within that config mode
     - `R1(config)# ip access-list standard *acl-name*`
@@ -136,4 +136,4 @@ WHY THE REORDERING?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e5ed273d-1c24-4b78-884f-712e1cf6922a)
 
-CISCOs PACKET TRACER does not reorder these, however.
+CISCOs Gói tin TRACER does not reorder these, however.

@@ -1,4 +1,4 @@
-# 21. SPANNING TREE PROTOCOL (STP) : PART 2
+# 21. Spanning Tree Giao thức (STP) : PART 2
 
 STP STATES
 
@@ -7,13 +7,13 @@ STP STATES
 
 - ROOT / DESIGNATED PORTS remain STABLE in a FORWARDING state
 - NON-DESIGNATED PORTS remain STABLE in a BLOCKING state
-- LISTENING and LEARNING are TRANSITIONAL states which are passed through when an interface is activated, or when a BLOCKING PORT must transition to a FORWARDING state due to a change in network topology.
+- LISTENING and LEARNING are TRANSITIONAL states which are passed through when an Giao diện is activated, or when a BLOCKING Cổng must transition to a FORWARDING state due to a change in Mạng Cấu trúc mạng.
 
 **1) BLOCKING / STABLE**
 
 - NON-DESIGNATED PORTS are in a BLOCKING state
 - Interfaces in a BLOCKING state are effectively disabled to prevent loops
-- Interfaces in a BLOCKING state do NOT Send/Receive regular network traffic
+- Interfaces in a BLOCKING state do NOT Send/Receive regular Mạng traffic
 - Interfaces in a BLOCKING state do NOT forward STP BPDUs
 - Interfaces in a BLOCKING state do NOT learn MAC ADDRESSES
 
@@ -21,26 +21,26 @@ STP STATES
 
 - After the BLOCKING state, interfaces with the DESIGNATED or ROOT role enter the LISTENING state
 - ONLY DESIGNATED or ROOT PORTS enter the LISTENING state (NON-DESIGNATED PORTS are ALWAYS BLOCKING)
-- The LISTENING state is 15 seconds long by Default. This is determined by the FORWARD DELAY TIMER
-- Interfaces in a LISTENING state do NOT Send / Receive regular network traffic
+- The LISTENING state is 15 seconds long by Mặc định. This is determined by the FORWARD DELAY TIMER
+- Interfaces in a LISTENING state do NOT Send / Receive regular Mạng traffic
 - Interfaces in a LISTENING state ONLY Forward/Receive STP BPDUs
-- Interfaces in a LISTENING state does NOT learn MAC ADDRESSES from regular traffic that arrives on the interface
+- Interfaces in a LISTENING state does NOT learn MAC ADDRESSES from regular traffic that arrives on the Giao diện
 
 **3) LEARNING / TRANSITIONAL**
 
-- After the LISTENING state, a DESIGNATED or ROOT port will enter the LEARNING state
-- The LEARNING state is 15 seconds long by Default. This is determined by the FORWARD DELAY TIMER (same one used for both LISTENING and LEARNING states)
-- Interfaces in a LEARNING state do NOT Send / Receive regular network traffic
+- After the LISTENING state, a DESIGNATED or ROOT Cổng will enter the LEARNING state
+- The LEARNING state is 15 seconds long by Mặc định. This is determined by the FORWARD DELAY TIMER (same one used for both LISTENING and LEARNING states)
+- Interfaces in a LEARNING state do NOT Send / Receive regular Mạng traffic
 - Interfaces in a LEARNING state ONLY Sends/Receives STP BPDUs
-- Interfaces in a LEARNING state **learns** MAC ADDRESSES from regular traffic that arrives on the interface
+- Interfaces in a LEARNING state **learns** MAC ADDRESSES from regular traffic that arrives on the Giao diện
 
 4) FORWARDING / STABLE
 
 - ROOT and DESIGNATED PORTS are in a FORWARDING state
-- A PORT in the FORWARDING state operate as NORMAL
-- A PORT in the FORWARDING state Sends/Receives regular network traffic
-- A PORT in the FORWARDING state Sends/Receives STP BPDUs
-- A PORT in the FORWARDING state **learns** MAC ADDRESSES
+- A Cổng in the FORWARDING state operate as NORMAL
+- A Cổng in the FORWARDING state Sends/Receives regular Mạng traffic
+- A Cổng in the FORWARDING state Sends/Receives STP BPDUs
+- A Cổng in the FORWARDING state **learns** MAC ADDRESSES
 
 SUMMARY : 
 
@@ -60,40 +60,40 @@ STP TIMERS
 MAX AGE TIMER:
 
 - If another BPDU is received BEFORE MAX AGE TIMER counts down to 0, the TIME will RESET to 20 Seconds and no changes will occur.
-- If another BPDU is not received, the MAX AGE TIMER counts down to 0 and the SWITCH will re-evaluate it’s STP choices, including ROOT BRIDGE, LOCAL ROOT, DESIGNATED, and NON-DESIGNATED PORTS.
-- If a NON-DESIGNATED PORT is selected to become a DESIGNATED or ROOT PORT, it will transition from the BLOCKING state to the LISTENING state (15 Seconds), LEARNING state (15 Seconds), and then finally the FORWARDING state.
-    - So… it can take 50 Seconds for a BLOCKING interface to transition to FORWARDING! (MAX AGE TIMER  + (LISTENING + LEARNING 15 Second timers))
-- These TIMERS and TRANSITIONAL STATES are to make sure that LOOPS are not accidentally created by an INTERFACE moving to FORWARDING STATE too soon
+- If another BPDU is not received, the MAX AGE TIMER counts down to 0 and the Switch will re-evaluate it’s STP choices, including Bridge gốc, LOCAL ROOT, DESIGNATED, and NON-DESIGNATED PORTS.
+- If a NON-DESIGNATED Cổng is selected to become a DESIGNATED or ROOT Cổng, it will transition from the BLOCKING state to the LISTENING state (15 Seconds), LEARNING state (15 Seconds), and then finally the FORWARDING state.
+    - So… it can take 50 Seconds for a BLOCKING Giao diện to transition to FORWARDING! (MAX AGE TIMER  + (LISTENING + LEARNING 15 Second timers))
+- These TIMERS and TRANSITIONAL STATES are to make sure that LOOPS are not accidentally created by an Giao diện moving to FORWARDING STATE too soon
 
  HOWEVER …
 
-💡 A FORWARDING interface can move DIRECTLY to a BLOCKING state (there is no worry about creating a loop)
+💡 A FORWARDING Giao diện can move DIRECTLY to a BLOCKING state (there is no worry about creating a loop)
 
-💡 A BLOCKING interface can NOT move DIRECTLY to a FORWARDING state. It MUST go through the LISTENING and LEARNING states first!
+💡 A BLOCKING Giao diện can NOT move DIRECTLY to a FORWARDING state. It MUST go through the LISTENING and LEARNING states first!
 
 
 ---
 
-STP BPDU (BRIDGE PROTOCOL DATA UNIT)
+STP BPDU (Bridge Giao thức DATA UNIT)
 
 Ethernet Header of a BPDU
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/0e68839f-c4ec-448b-8876-791212462009)
 
 
-💡 PVST+ uses the MAC ADDRESS : 
+💡 PVST+ uses the Địa chỉ MAC : 
 
 01 : 00 : 0c : cc : cc : cd
 
-PVST = ONLY ISL Trunk Encapsulation
+PVST = ONLY ISL Trunk Đóng gói
 
 PVST+ = Supports 802.1Q
 
-💡 Regular STP (not Cisco’s PVST+) uses the MAC ADDRESS : 
+💡 Regular STP (not Cisco’s PVST+) uses the Địa chỉ MAC : 
 
 01 : 80 : c2 : 00 : 00 : 00
 
-💡 The STP TIMERS on the ROOT BRIDGE determine ALL STP TIMERS for the entire network!
+💡 The STP TIMERS on the Bridge gốc determine ALL STP TIMERS for the entire Mạng!
 
 ---
 
@@ -103,30 +103,30 @@ PORTFAST:
 
 - Can be Enabled on INTERFACES which are connected to END HOSTS
 
-💡 PORTFAST allows a PORT to move immediately to the FORWARDING state, bypassing LISTENING and LEARNING
+💡 PORTFAST allows a Cổng to move immediately to the FORWARDING state, bypassing LISTENING and LEARNING
 
 - If used, it MUST be ENABLED only on PORTS connected to END HOSTS
-- If ENABLED on a PORT connected to another SWITCH, it could cause a LAYER 2 LOOP
+- If ENABLED on a Cổng connected to another Switch, it could cause a LAYER 2 LOOP
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/43c91f09-0d9f-4b81-b5a2-f02003e25b88)
 
 
-You can also ENABLE PORTFAST with the following command:
+You can also Kích hoạt PORTFAST with the following Lệnh:
 
-💡 SW1(config)# spanning-tree portfast default
+💡 SW1(config)# spanning-tree portfast Mặc định
 
-This ENABLES PORTFAST on ALL ACCESS PORTS (not TRUNK PORTS)
+This ENABLES PORTFAST on ALL Access PORTS (not Trunk PORTS)
 
 BPDU GUARD:
 
-- If an INTERFACE with BPDU GUARD ENABLED receives a BPDU from another SWITCH, the INTERFACE will be SHUT DOWN to prevent loops from forming.
+- If an Giao diện with BPDU GUARD ENABLED receives a BPDU from another Switch, the Giao diện will be SHUT DOWN to prevent loops from forming.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/00c61767-72b4-4d51-b964-f76b6f4f6ae9)
 
 
-You can also ENABLE BPDU GUARD with the following command:
+You can also Kích hoạt BPDU GUARD with the following Lệnh:
 
-💡 SW1(config)# spanning-tree portfast bpduguard default
+💡 SW1(config)# spanning-tree portfast bpduguard Mặc định
 
 
 This ENABLES BPDU GUARD on all PORTFAST-enabled INTERFACES
@@ -144,20 +144,20 @@ BUT…
 
 ---
 
-STP CONFIGURATION
+STP Cấu hình
 
-Command to CONFIGURE Spanning-Tree mode on a SWITCH
+Lệnh to CONFIGURE Spanning-Tree mode on a Switch
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f29e2f41-3fac-463c-ab14-bb2d2f49816d)
 
 
-Modern Cisco SWITCHES run **rapid-pvst**, by default
+Modern Cisco SWITCHES run **rapid-pvst**, by Mặc định
 
 ---
 
-CONFIGURE THE PRIMARY ROOT BRIDGE
+CONFIGURE THE PRIMARY Bridge gốc
 
-Command to CONFIGURE Spanning-Tree PRIMARY ROOT BRIDGE on a SWITCH
+Lệnh to CONFIGURE Spanning-Tree PRIMARY Bridge gốc on a Switch
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e90f16ad-c85c-4868-bbf4-9095c0abd581)
 
@@ -166,47 +166,47 @@ Confirm with “(do) show spanning-tree”
 
 Can see in the above example, SW3 has become the “root”
 
-- The “spanning-tree vlan <vlan-number> root primary” command sets the STP PRIORITY to 24576. If another SWITCH already has a priority number lower than 24576, it sets this SWITCH’s priority to 4096 LESS THAN the other SWITCH’s Priority (remember STP PART 1 lecture)
+- The “spanning-tree VLAN <VLAN-number> root primary” Lệnh sets the STP PRIORITY to 24576. If another Switch already has a priority number lower than 24576, it sets this Switch’s priority to 4096 LESS THAN the other Switch’s Priority (remember STP PART 1 lecture)
 
 ---
 
-SECONDARY ROOT BRIGE (backup ROOT BRIDGE)
+SECONDARY ROOT BRIGE (backup Bridge gốc)
 
-Command to CONFIGURE Spanning-Tree SECONDARY ROOT BRIDGE on a SWITCH
+Lệnh to CONFIGURE Spanning-Tree SECONDARY Bridge gốc on a Switch
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7d28f782-4673-4bc8-9aae-999aeac90685)
 
 
 
-- The “spanning-tree vlan <vlan-number> root secondary” command sets the STP PRIORITY to 28672 (exactly 4096 higher than 24576).
+- The “spanning-tree VLAN <VLAN-number> root secondary” Lệnh sets the STP PRIORITY to 28672 (exactly 4096 higher than 24576).
 
 ---
 
-VLAN 1 TOPOLOGY running PVST+
+VLAN 1 Cấu trúc mạng running PVST+
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/880a4cc7-e472-4764-a68b-a62288066796)
 
 
-SW1 WAS the PRIMARY ROOT BRIDGE but : 
+SW1 WAS the PRIMARY Bridge gốc but : 
 
 - We have configured SW3 to be the PRIMARY
 - We have configured SW2 to be the SECONDARY
 
-The TOPOLOGY for VLAN 2, however, won’t be the same. It will be the OLD Topology.
+The Cấu trúc mạng for VLAN 2, however, won’t be the same. It will be the OLD Cấu trúc mạng.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2cedeb36-27f1-4984-96e7-28ab70957c51)
 
 
 WHY?
-Because we made changes ONLY to the TOPOLOGY found in VLAN 1 (see the commands we used)
+Because we made changes ONLY to the Cấu trúc mạng found in VLAN 1 (see the commands we used)
 
 ---
 
-CONFIGURE STP PORT SETTINGS
+CONFIGURE STP Cổng SETTINGS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/58af0a8d-eeb4-4c34-8b54-6b8ff511695c)
 
 
 “cost” = “ROOT COST”
 
-“port-priority” = “PORT PRIORITY”
+“Cổng-priority” = “Cổng PRIORITY”

@@ -1,19 +1,19 @@
 # 52. LAN ARCHITECTURES
 
-- You have studied various NETWORK technologies: ROUTING, SWITCHING, STP, ETHERCHANNEL, OSPF, FHRPs, SWITCH SECURITY FEATURES, etc.
-    - Now, let’s look at some BASIC NETWORK DESIGN / ARCHITECTURE
-- There are standard “BEST PRACTICES” for NETWORK DESIGN
+- You have studied various Mạng technologies: Định tuyến, SWITCHING, STP, ETHERCHANNEL, OSPF, FHRPs, Switch Bảo mật FEATURES, etc.
+    - Now, let’s look at some BASIC Mạng DESIGN / Kiến trúc
+- There are standard “Thực hành tốt nhất” for Mạng DESIGN
     - However there are a few UNIVERSAL “CORRECT ANSWERS”
-    - The answer to MOST general questions about NETWORK DESIGN is “IT DEPENDS”
+    - The answer to MOST general questions about Mạng DESIGN is “IT DEPENDS”
 - In the early stages of your NETWORKING career, you probably won’t be asked to DESIGN NETWORKS yourself
-- However, to understand the NETWORKS you will be CONFIGURING and TROUBLESHOOTING, it’s important to know some BASICS of NETWORK DESIGN
+- However, to understand the NETWORKS you will be CONFIGURING and Khắc phục sự cố, it’s important to know some BASICS of Mạng DESIGN
 
 ---
 
 COMMON TERMINOLOGIES
 
 - STAR
-    - When several DEVICES all connect to ONE CENTRAL DEVICE, we can draw them in a “STAR” shape like below, so this is often called a “STAR TOPOLOGY”
+    - When several DEVICES all connect to ONE CENTRAL DEVICE, we can draw them in a “STAR” shape like below, so this is often called a “STAR Cấu trúc mạng”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8aeb545d-3cc0-44bf-a01e-b7e5d47deaf2)
 
@@ -29,20 +29,20 @@ COMMON TERMINOLOGIES
 
 ---
 
-2-TIER AND 3-TIER LAN ARCHITECTURE
+2-TIER AND 3-TIER LAN Kiến trúc
 
 - The TWO-TIER LAN DESIGN consists of TWO Hierarchical Layers:
-    - ACCESS LAYER
+    - Access LAYER
     - DISTRIBUTION LAYER
 - Also called a “COLLAPSED CORE” DESIGN because it omits a layer that is found in the THREE TIER DESIGN : THE CORE LAYER
-- ACCESS LAYER
+- Access LAYER
     - The LAYER that END HOSTS connect to (PCs, Printers, Cameras, etc)
-    - Typically, ACCESS LAYER SWITCHES have lots of PORTS for END HOSTS to connect to
-    - QoS MARKING is typically done here
-    - Security Services like PORT SECURITY, DAI, etc are typically performed here
-    - SWITCHPORTS might be PoE-Enabled for Wireless APs, IP Phones, etc.
+    - Typically, Access LAYER SWITCHES have lots of PORTS for END HOSTS to connect to
+    - QoS Đánh dấu is typically done here
+    - Bảo mật Services like Cổng Bảo mật, DAI, etc are typically performed here
+    - SWITCHPORTS might be PoE-Enabled for Không dây APs, IP Phones, etc.
 - DISTRIBUTION LAYER
-    - Aggregates connections from the ACCESS LAYER SWITCHES
+    - Aggregates connections from the Access LAYER SWITCHES
     - Typically is the border between LAYER 2 and LAYER 3
     - Connects to services such as Internet, WAN, etc
     - Sometimes called AGGREGATION LAYER
@@ -57,9 +57,9 @@ COMMON TERMINOLOGIES
 
 ---
 
-THREE-TIER CAMPUS LAN DESIGN
+THREE-TIER Campus LAN DESIGN
 
-- In large NETWORKS with many DISTRIBUTION LAYER SWITCHES (for example in separate buildings), the number of connections required between DISTRIBUTION LAYER SWITCHES grows rapidly
+- In large NETWORKS with many DISTRIBUTION LAYER SWITCHES (Ví dụ in separate buildings), the number of connections required between DISTRIBUTION LAYER SWITCHES grows rapidly
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8b94c8e9-813b-40e0-bcd1-b27d73da31e8)
 
@@ -70,14 +70,14 @@ THREE-TIER CAMPUS LAN DESIGN
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d5c1a677-38ff-425f-b91a-65a8fa37c377)
 
 - The THREE-TIER LAN DESIGN consists of THREE HIERARCHICAL LAYERS:
-    - ACCESS LAYER
+    - Access LAYER
     - DISTRIBUTION LAYER
     - CORE LAYER
 
 - CORE LAYER:
     - Connects DISTRIBUTION LAYERS together in large LAN NETWORKS
     - The focus is SPEED (”FAST TRANSPORT”)
-    - CPU-INTENSIVE OPERATIONS, such as SECURITY, QoS Markings / Classification, etc. should be avoided at this LAYER
+    - CPU-INTENSIVE OPERATIONS, such as Bảo mật, QoS Markings / Phân loại, etc. should be avoided at this LAYER
     - Connections are all LAYER 3. NO SPANNING-TREE!
     - Should maintain connectivity throughout the LAN even if DEVICES FAIL
     
@@ -86,23 +86,23 @@ THREE-TIER CAMPUS LAN DESIGN
 
 ---
 
-SPINE-LEAF ARCHITECTURE (DATA CENTER)
+SPINE-LEAF Kiến trúc (DATA CENTER)
 
-- CISCO ACI ARCHITECTURE (Application Centric Infrastructure) uses this architecture
-- DATA CENTERS are dedicated spaces / buildings used to STORE COMPUTER SYSTEMS such as SERVERS and NETWORK DEVICES
-- Traditional DATA CENTER designs used a THREE-TIER ARCHITECTURE (ACCESS-DISTRIBUTION-CORE) like we just covered
+- CISCO ACI Kiến trúc (Application Centric Hạ tầng) uses this Kiến trúc
+- DATA CENTERS are dedicated spaces / buildings used to STORE COMPUTER SYSTEMS such as SERVERS and Mạng DEVICES
+- Traditional DATA CENTER designs used a THREE-TIER Kiến trúc (Access-DISTRIBUTION-CORE) like we just covered
 - This worked well when most TRAFFIC in the DATA CENTER was NORTH-SOUTH
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7e2ff784-d16f-4606-a186-c73223bf5582)
 
 - With the precedence of VIRTUAL SERVERS, applications are often deployed in a DISTRIBUTED manner (across multiple physical SERVERS) which increases the amount of EAST-WEST TRAFFIC in the DATA CENTER
-- The traditional THREE-TIER ARCHITECTURE led to bottlenecks in the BANDWIDTH as well as VARIABILITY in the SERVER-TO-SERVER latency depending on the PATH the TRAFFIC takes
-- To SOLVE this, SPINE-LEAF ARCHITECTURE (also called CLOS ARCHITECTURE) has become prominent in DATA CENTERS
+- The traditional THREE-TIER Kiến trúc led to bottlenecks in the BANDWIDTH as well as VARIABILITY in the SERVER-TO-SERVER latency depending on the PATH the TRAFFIC takes
+- To SOLVE this, SPINE-LEAF Kiến trúc (also called CLOS Kiến trúc) has become prominent in DATA CENTERS
 
-RULES FOR SPINE-LEAF ARCHITECTURE
+RULES FOR SPINE-LEAF Kiến trúc
 
-- Every LEAF SWITCH is connected to every SPINE SWITCH
-- Every SPINE SWITCH is connected to every LEAF SWITCH
+- Every LEAF Switch is connected to every SPINE Switch
+- Every SPINE Switch is connected to every LEAF Switch
 - LEAF SWITCHES do NOT connect to other LEAF SWITCHES
 - SPINE SWITCHES do NOT connect to other SPINE SWITCHES
 - END HOSTS (Servers, etc) ONLY connect to LEAF SWITCHES
@@ -117,14 +117,14 @@ RULES FOR SPINE-LEAF ARCHITECTURE
 SOHO (SMALL OFFICE / HOME OFFICE)
 
 - SMALL OFFICE / HOME OFFICE (SOHO) refers to the office of a small company, or a small home office with few DEVICES
-    - Doesn’t have to be an actual home “office”; if your home has a NETWORK connected to the INTERNET it is considered a SOHO NETWORK
+    - Doesn’t have to be an actual home “office”; if your home has a Mạng connected to the Internet it is considered a SOHO Mạng
 
-- SOHO NETWORKS don’t have complex needs, so all NETWORKING functions are typically provided by a SINGLE DEVICE, often called a “HOME ROUTER” or “WIRELESS ROUTER”
+- SOHO NETWORKS don’t have complex needs, so all NETWORKING functions are typically provided by a SINGLE DEVICE, often called a “HOME Router” or “Không dây Router”
 - The one DEVICE can serve as a:
-    - ROUTER
-    - SWITCH
-    - FIREWALL
-    - WIRELESS ACCESS POINT
+    - Router
+    - Switch
+    - Tường lửa
+    - Không dây Điểm truy cập
     - MODEM
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c9edf179-f333-4fec-9e95-ee291b5eb84c)

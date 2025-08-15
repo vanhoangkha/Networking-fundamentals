@@ -45,7 +45,7 @@ VIRTUALIZATION (TYPE 2 HYPERVISOR)
 - The OS running directly on the hardware is called the HOST OS
 - The OS running in a VM is called a GUEST OS
 - Another name for a TYPE 2 HYPERVISOR is *hosted hypervisor*
-- Although TYPE 2 HYPERVISORS are rarely used in data center environments, they are common on personal-use devices (for example, if a MAC/Linux user needs to run an app that is only supported on Windows, or vice-versa)
+- Although TYPE 2 HYPERVISORS are rarely used in data center environments, they are common on personal-use devices (Ví dụ, if a MAC/Linux user needs to run an app that is only supported on Windows, or vice-versa)
 
 ---
 
@@ -56,9 +56,9 @@ WHY VIRTUALIZATION?
     - Divide system resources between VIRTUAL MACHINES
     
 - ISOLATION :
-    - Provide FAULT and SECURITY ISOLATION at the hardware level
+    - Provide FAULT and Bảo mật ISOLATION at the hardware level
     - Preserve performance with advanced resource controls
-- ENCAPSULATION :
+- Đóng gói :
     - Save the entire state of a virtual machine to files
     - Move and copy virtual machines as easily as moving and copying files
 
@@ -73,24 +73,24 @@ VIRTUAL NETWORKS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7bf3f22c-a7b8-41bf-bc1e-8c128a41f20f)
 
-- VMs are connected to each other and the EXTERNAL NETWORK via a VIRTUAL SWITCH running on the HYPERVISOR
-- Just like a regular PHYSICAL SWITCH, the vSWITCH’s INTERFACES can operate as ACCESS PORTS or TRUNK PORTS and use VLANs to separate the VMs at LAYER 2
-- INTERFACES on the vSWITCH connect to the PHYSICAL NIC (or NICs) of the SERVER to communicate with the EXTERNAL NETWORK
+- VMs are connected to each other and the EXTERNAL Mạng via a VIRTUAL Switch running on the HYPERVISOR
+- Just like a regular PHYSICAL Switch, the vSWITCH’s INTERFACES can operate as Access PORTS or Trunk PORTS and use VLANs to separate the VMs at LAYER 2
+- INTERFACES on the vSWITCH connect to the PHYSICAL NIC (or NICs) of the SERVER to communicate with the EXTERNAL Mạng
 
 ---
 
 INTRO TO CLOUD COMPUTING
 
-- Traditional IT infrastructure deployments were some combination of the following:
+- Traditional IT Hạ tầng deployments were some combination of the following:
     - ON-PREMISES
-        - All SERVERS, NETWORK DEVICES, and other infrastructure are located on company property
+        - All SERVERS, Mạng DEVICES, and other Hạ tầng are located on company property
         - All equipment is purchased and owned by the company using it
         - The company is responsible for the necessary space, power, and cooling
     
     - CO-LOCATION
-        - Data centers that rent out space for customers to put their infrastructure (SERVERS, NETWORK DEVICES)
+        - Data centers that rent out space for customers to put their Hạ tầng (SERVERS, Mạng DEVICES)
         - The data center provides the space, electricity, and cooling
-        - The SERVERS, NETWORK DEVICES, etc are still the responsibility of the end customer, although they are not located on the customer’s premises
+        - The SERVERS, Mạng DEVICES, etc are still the responsibility of the end customer, although they are not located on the customer’s premises
 - CLOUD SERVICE provide an alternative that is hugely popular and is continuing to grow
     - Most people associate “CLOUD” with PUBLIC CLOUD PROVIDERS such as AWS
         - Although this is the most common USE of CLOUD SERVICES, it’s not the only one
@@ -115,14 +115,14 @@ THE FIVE ESSENTIAL CHARACTERISTICS OF CLOUD
 - ON-DEMAND SELF-SERVICE
     - The CUSTOMER is able to use the SERVICE (or stop the SERVICE) freely (via a web portal) without direct communication to the SERVICE PROVIDER
 
-- BROAD NETWORK ACCESS
-    - The SERVICE is available through standard NETWORK connections (ie: the Internet or PRIVATE WAN) and can be access through many kinds of DEVICES
+- BROAD Mạng Access
+    - The SERVICE is available through standard Mạng connections (ie: the Internet or PRIVATE WAN) and can be Access through many kinds of DEVICES
 - RESOURCE POOLING
-    - A POOL of RESOURCES is provided by the SERVICE PROVIDER and when a CUSTOMER requests a SERVICE (for example creates a new VM), the RESOURCES to fulfill that request are allocated from the shared POOL
+    - A POOL of RESOURCES is provided by the SERVICE PROVIDER and when a CUSTOMER requests a SERVICE (Ví dụ creates a new VM), the RESOURCES to fulfill that request are allocated from the shared POOL
 - RAPID ELASTICITY
-    - CUSTOMERS can quickly expand the SERVICE they use in the CLOUD (for example: add new VMs, expand STORAGE, etc) from a POOL of RESOURCES that appear to be infinite. Likewise, they can quickly reduce their SERVICES when not needed
+    - CUSTOMERS can quickly expand the SERVICE they use in the CLOUD (Ví dụ: add new VMs, expand STORAGE, etc) from a POOL of RESOURCES that appear to be infinite. Likewise, they can quickly reduce their SERVICES when not needed
 - MEASURED SERVICE
-    - The CLOUD SERVICE PROVIDER measures the CUSTOMER’s usage of CLOUD RESOURCES and the CUSTOMER can measure their own use as well. CUSTOMERS are charged based on usage (for example: X Dollars per Gigabyte of STORAGE per day)
+    - The CLOUD SERVICE PROVIDER measures the CUSTOMER’s usage of CLOUD RESOURCES and the CUSTOMER can measure their own use as well. CUSTOMERS are charged based on usage (Ví dụ: X Dollars per Gigabyte of STORAGE per day)
 
 ---
 
@@ -131,7 +131,7 @@ THE THREE SERVICE MODELS OF THE CLOUD
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a3f0e08a-3207-4a69-aa81-d4142d6735a3)
 
 - In CLOUD COMPUTING, everything is provided on a “SERVICE” model
-- For example: rather than the END USER buying a PHYSICAL SERVER, mounting it on a rack, installing the hypervisor, creating the VM, etc. the SERVICE PROVIDER offers all of this as a SERVICE
+- Ví dụ: rather than the END USER buying a PHYSICAL SERVER, mounting it on a rack, installing the hypervisor, creating the VM, etc. the SERVICE PROVIDER offers all of this as a SERVICE
 - There are a variety of SERVICES referred to as “___________ as a SERVICE” or “__aaS”
 - The THREE SERVICE MODELS of CLOUD COMPUTING are:
     
@@ -143,7 +143,7 @@ THE THREE SERVICE MODELS OF THE CLOUD
     
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e3886b6b-4ed8-4358-ba47-e2f50378c53d)
     
-    INFRASTRUCTURE as a SERVICE (Iaas) - Examples: Amazon EC2 and Google Compute Engine
+    Hạ tầng as a SERVICE (Iaas) - Examples: Amazon EC2 and Google Compute Engine
     
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f8144a61-0d7f-4928-9e47-73fb969e0b4a)
     
@@ -162,17 +162,17 @@ DEPLOYMENT MODELS
 
 - PRIVATE CLOUDS are generally only used by large enterprises
 - Although the CLOUD is PRIVATE, it may be owned by a THIRD PARTY
-    - For example: AWS provides PRIVATE CLOUD SERVICES for the American DoD
+    - Ví dụ: AWS provides PRIVATE CLOUD SERVICES for the American DoD
 - PRIVATE CLOUDS may be ON or OFF PREMISES
     - Many people assume “CLOUD” and “ON-PREM” are two different things but that is not always the case
-- The same kind of SERVICES offered are the same as in PUBLIC CLOUDS (SaaS, PaaS, IaaS) but the infrastructure is reserved for a SINGLE ORGANIZATION
+- The same kind of SERVICES offered are the same as in PUBLIC CLOUDS (SaaS, PaaS, IaaS) but the Hạ tầng is reserved for a SINGLE ORGANIZATION
 
 - COMMUNITY CLOUD
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1c9008e9-205b-4ca8-8236-fc0b02c3addc)
 
 - Least common CLOUD deployment
-- Similar to PRIVATE CLOUD, but the INFRASTRUCTURE is reserved for use by a SPECIFIC GROUP or ORGANIZATION
+- Similar to PRIVATE CLOUD, but the Hạ tầng is reserved for use by a SPECIFIC GROUP or ORGANIZATION
 
 - PUBLIC CLOUD
 
@@ -183,7 +183,7 @@ DEPLOYMENT MODELS
     - AWS
     - MS AZURE
     - GCP (Google Cloud Platform)
-    - OCI (Oracle Cloud Infrastructure)
+    - OCI (Oracle Cloud Hạ tầng)
     - IBM Cloud
     - Alibaba Cloud
 

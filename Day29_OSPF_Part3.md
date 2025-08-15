@@ -2,74 +2,74 @@
 
 LOOPBACK INTERFACES
 
-- A LOOPBACK INTERFACE is a virtual INTERFACE in the ROUTER
+- A LOOPBACK Giao diện is a virtual Giao diện in the Router
 - It is ALWAYS UP/UP - unless you manually shut it down
-- It is NOT dependent on a PHYSICAL INTERFACE
-- So, it provides a consistent IP ADDRESS that can be used to REACH / IDENTIFY the ROUTER
+- It is NOT dependent on a PHYSICAL Giao diện
+- So, it provides a consistent Địa chỉ IP that can be used to REACH / IDENTIFY the Router
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/697e7d43-b428-4fe3-a270-5fc1c9ad13d0)
 
 ---
 
-OSPF NETWORK TYPES
+OSPF Mạng TYPES
 
-- The OSPF “NETWORK TYPE” refers to the TYPES of connection between OSPF neighbors (Ethernet, etc.)
+- The OSPF “Mạng TYPE” refers to the TYPES of connection between OSPF neighbors (Ethernet, etc.)
 
-- There are THREE MAIN OSPF NETWORK TYPES:
+- There are THREE MAIN OSPF Mạng TYPES:
 
-- BROADCAST :
-    - Enabled by DEFAULT on **ETHERNET** and **FDDI** (Fiber Distributed Data Interfaces) INTERFACES
+- Broadcast :
+    - Enabled by Mặc định on **Ethernet** and **FDDI** (Fiber Distributed Data Interfaces) INTERFACES
 
 - POINT TO POINT :
-    - Enabled by DEFAULT on **PPP** (Point-to-Point) and **HDLC** (High-Level Data Link Control) INTERFACES
+    - Enabled by Mặc định on **PPP** (Point-to-Point) and **HDLC** (High-Level Data Link Control) INTERFACES
 
-- NON-BROADCAST :
-    - Enabled by DEFAULT on **FRAME RELAY** and **X.25** INTERFACES
+- NON-Broadcast :
+    - Enabled by Mặc định on **Khung RELAY** and **X.25** INTERFACES
 
 <aside>
-💡  CCNA focuses on BROADCAST and POINT-TO-POINT types
+💡  CCNA focuses on Broadcast and POINT-TO-POINT types
 
 </aside>
 
 ---
 
-OSPF BROADCAST NETWORK TYPE
+OSPF Broadcast Mạng TYPE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8f99053d-3501-4d1d-86a2-f859c62c160d)
 
-- Enabled on ETHERNET and FDDI interfaces by DEFAULT
-- ROUTERS *dynamically discover* neighbors by SENDING / LISTENING for OSPF “Hello” messages using the multicast address 224.0.0.5
-- A **DR (DESIGNATED ROUTER)** and **BDR (BACKUP DESIGNATION ROUTER)** must be elected on each subnet (only DR if there are no OSPF neighbors, ie: R1’s G1/0 INTERFACE)
+- Enabled on Ethernet and FDDI interfaces by Mặc định
+- ROUTERS *dynamically discover* neighbors by SENDING / LISTENING for OSPF “Hello” messages using the Multicast address 224.0.0.5
+- A **DR (DESIGNATED Router)** and **BDR (BACKUP DESIGNATION Router)** must be elected on each Mạng con (only DR if there are no OSPF neighbors, ie: R1’s G1/0 Giao diện)
 - ROUTERS which aren’t the DR or BDR become a **DROther**
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1ba5b6e1-dd4a-4277-8f33-f806e21302bc)
 
 The DR / BDR election order of priority:
 
-1) Highest OSPF INTERFACE PRIORITY
+1) Highest OSPF Giao diện PRIORITY
 
-2) Highest OSPF ROUTER ID
+2) Highest OSPF Router ID
 
-“First Place” becomes the DR for the SUBNET
+“First Place” becomes the DR for the Mạng con
 
 “Second Place” because the BDR
 
 <aside>
-💡 DEFAULT OSPF INTERFACE PRIORITY is “1” on ALL INTERFACES!
+💡 Mặc định OSPF Giao diện PRIORITY is “1” on ALL INTERFACES!
 
 </aside>
 
-The command to change the OSPF PRIORITY of an INTERFACE is :
+The Lệnh to change the OSPF PRIORITY of an Giao diện is :
 
 <aside>
-💡 R2(config-if)# ip ospf priority <priority number>
+💡 R2(config-if)# ip OSPF priority <priority number>
 
 </aside>
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cd98b06f-3730-4b2d-8dfe-a6387fdb66a1)
 
 <aside>
-💡 IF an OSPF PRIORITY is set to “0”, the ROUTER CANNOT be the DR / BDR for the SUBNET!
+💡 IF an OSPF PRIORITY is set to “0”, the Router CANNOT be the DR / BDR for the Mạng con!
 
 </aside>
 
@@ -78,7 +78,7 @@ The DR / DBR ELECTION is “non-preemptive”.
 Once the DR / DBR are selected, they will keep their role until OSPF is:
 
 - Reset
-- Interface fails
+- Giao diện fails
 - Is shut down
 - etc.
 
@@ -87,7 +87,7 @@ Once the DR / DBR are selected, they will keep their role until OSPF is:
 ![image](https://github.com/psaumur/CCNA/assets/106411237/82eb1f11-4aed-456b-b2b1-1679cae06743)
 
 <aside>
-💡 In the BROADCAST NETWORK TYPE, ROUTERS will only form a FULL OSPF ADJACENCY with the DR and the BDR of the SEGMENT!
+💡 In the Broadcast Mạng TYPE, ROUTERS will only form a FULL OSPF ADJACENCY with the DR and the BDR of the Đoạn!
 
 </aside>
 
@@ -95,14 +95,14 @@ Therefore, ROUTERS only exchange LSAs with the DR and BDR.
 
 DROthers will NOT exchange LSAs with each other.
 
-ALL ROUTERS will still have the same LSDB but THIS reduces the amount of LSAs flooding the NETWORK
+ALL ROUTERS will still have the same LSDB but THIS reduces the amount of LSAs flooding the Mạng
 
 <aside>
-💡 MESSAGES to the DR / BDR are MULTICAST to 224.0.0.6
+💡 MESSAGES to the DR / BDR are Multicast to 224.0.0.6
 
 </aside>
 
-The DR and BDR will form a FULL ADJACENCY with ALL ROUTERS in the SUBNET
+The DR and BDR will form a FULL ADJACENCY with ALL ROUTERS in the Mạng con
 
 DROthers will form a FULL ADJACENCY ONLY with the DR / BDR !
 
@@ -110,12 +110,12 @@ DROthers will form a FULL ADJACENCY ONLY with the DR / BDR !
 
 ---
 
-OSPF POINT-TO-POINT NETWORK TYPE
+OSPF POINT-TO-POINT Mạng TYPE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/51d7d486-a810-4a69-8be2-804f667fca03)
 
-- ENABLED on **SERIAL** INTERFACES using the **PPP** and **HDLC** encapsulations, by DEFAULT
-- ROUTERS dynamically discover neighbors by SENDING / LISTENING for OSPF “Hello” messages using the multicast address 224.0.0.5
+- ENABLED on **SERIAL** INTERFACES using the **PPP** and **HDLC** encapsulations, by Mặc định
+- ROUTERS dynamically discover neighbors by SENDING / LISTENING for OSPF “Hello” messages using the Multicast address 224.0.0.5
 - A DR and BDR are NOT elected
 - These ENCAPSULATIONS are used for “Point-To-Point” connections
     - Therefore, there is no point in electing  a DR and DBR
@@ -133,28 +133,28 @@ SERIAL INTERFACES
 - The OTHER side functions as DTE (Data Terminal Equipment)
 - ONLY the DCE side needs to specify the *clock rate* (speed) of the connection
 
-ETHERNET INTERFACES use the “speed” command to configure the operating speed.
+Ethernet INTERFACES use the “speed” Lệnh to configure the operating speed.
 
-SERIAL INTERFACES use the “clock rate” command
+SERIAL INTERFACES use the “clock rate” Lệnh
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c32af4a3-105c-451a-9641-0f7fc26e7f42)
 
-If you change the ENCAPSULATION, it must MATCH on BOTH ENDS or the INTERFACE will go down.
+If you change the Đóng gói, it must MATCH on BOTH ENDS or the Giao diện will go down.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8a448ef2-96f2-4371-bef1-520572ba5224)
 
-R1 and R2 sharing the SAME Encapsulation Type 
+R1 and R2 sharing the SAME Đóng gói Type 
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6f934097-30fb-4605-935d-08a29e53a476)
 
 
 SERIAL INTERFACES SUMMARY
 
-- The DEFAULT encapsulation is HDLC
-- You can configure PPP encapsulation with this command:
+- The Mặc định Đóng gói is HDLC
+- You can configure PPP Đóng gói with this Lệnh:
     
     <aside>
-    💡 R1(config-if)# **encapsulation ppp**
+    💡 R1(config-if)# **Đóng gói ppp**
     
     </aside>
     
@@ -162,7 +162,7 @@ SERIAL INTERFACES SUMMARY
 - Identify which side is DCE / DTE :
     
     <aside>
-    💡 R1# **show controllers** *interface-id*
+    💡 R1# **show controllers** *Giao diện-id*
     
     </aside>
     
@@ -180,21 +180,21 @@ SERIAL INTERFACES SUMMARY
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/232c8658-d129-49f4-9a37-76139ebe857e)
 
-- You can configure the OSPF NETWORK TYPE on an INTERFACE with :
+- You can configure the OSPF Mạng TYPE on an Giao diện with :
 
 <aside>
-💡 R1(config-if)# ip ospf network <network type>
+💡 R1(config-if)# ip OSPF Mạng <Mạng type>
 
 </aside>
 
-For example, if TWO ROUTES are directly connected with an ETHERNET link, there is no need for a DR / DBR. You can configure the POINT-TO-POINT NETWORK type in this case
+Ví dụ, if TWO ROUTES are directly connected with an Ethernet link, there is no need for a DR / DBR. You can configure the POINT-TO-POINT Mạng type in this case
 
-NOTE: Not all NETWORK TYPES work on ALL LINK TYPES (for example, a serial link cannot use the BROADCAST NETWORK type)
+NOTE: Not all Mạng TYPES work on ALL LINK TYPES (Ví dụ, a serial link cannot use the Broadcast Mạng type)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8688e7ef-d166-4433-9f65-b918917f385f)
 
 <aside>
-💡 NON-BROADCAST NETWORK type Default Timers : Hello 30, Dead 120
+💡 NON-Broadcast Mạng type Mặc định Timers : Hello 30, Dead 120
 
 </aside>
 
@@ -204,13 +204,13 @@ OSPF NEIGHBOUR / ADJACENCY REQUIREMENTS
 
 1) AREA NUMBER MUST MATCH
 
-2) INTERFACES must be in the SAME SUBNET
+2) INTERFACES must be in the SAME Mạng con
 
 3) OSPF PROCESS must not be **SHUTDOWN**
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/80b626ac-f368-4d86-85f4-dc80e3be5259)
 
-4) OSPF ROUTER ID must be unique
+4) OSPF Router ID must be unique
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8f089c68-96e9-4cbf-a9c0-c93f74de4888)
 
@@ -224,12 +224,12 @@ OSPF NEIGHBOUR / ADJACENCY REQUIREMENTS
 
 7) IP MTU settings must MATCH
 
-- IP MTU : Maximum size of an IP Packet that can be sent from an INTERFACE
+- IP MTU : Maximum size of an IP Gói tin that can be sent from an Giao diện
 - If the settings DO NOT match, can still become OSPF Neighbors but OSPF WILL NOT operated properly
 
-8) OSPF NETWORK TYPE must match
+8) OSPF Mạng TYPE must match
 
-- will appear to be working but NEIGHBOR won’t appear in ROUTING information
+- will appear to be working but NEIGHBOR won’t appear in Định tuyến information
 
 ---
 
@@ -238,19 +238,19 @@ OSPF LSA TYPES
 - The OSPF LSDB is made up of LSAs
 - There are 11 types of LSA but there are only 3 you should be aware of for the CCNA:
     - Type 1 (Router LSA)
-    - Type 2 (Network LSA)
+    - Type 2 (Mạng LSA)
     - Type 5 (AS External LSA)
 
 TYPE 1 (Router LSA)
 
-- Every OSPF ROUTER generates this type of LSA
-- It identifies the ROUTER using it’s ROUTER ID
-- It also lists NETWORKS attached to the ROUTER’s OSPF-Activated INTERFACES
+- Every OSPF Router generates this type of LSA
+- It identifies the Router using it’s Router ID
+- It also lists NETWORKS attached to the Router’s OSPF-Activated INTERFACES
 
-TYPE 2 (Network LSA)
+TYPE 2 (Mạng LSA)
 
-- Generated by the DR of EACH “multi-access” NETWORK (ie: the BROADCAST network type)
-- Lists the ROUTERS which are attached to the multi-access NETWORK
+- Generated by the DR of EACH “multi-Access” Mạng (ie: the Broadcast Mạng type)
+- Lists the ROUTERS which are attached to the multi-Access Mạng
 
 TYPE 5 (AS-External LSA)
 

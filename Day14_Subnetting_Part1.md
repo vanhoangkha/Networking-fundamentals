@@ -1,9 +1,9 @@
-# 13. SUBNETTING : PART 1
+# 13. Chia mạng con : PART 1
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a475e909-59b8-4615-a0b9-8a3c1fbdc313)
 
 
-HOWEVER, only Class A, B, C Addresses can be assigned to a device as an IP Address.
+HOWEVER, only Class A, B, C Addresses can be assigned to a device as an Địa chỉ IP.
 
 CLASS 		PREFIX LENGTH
 
@@ -16,7 +16,7 @@ C 			/24
 
 The IANA (Internet Assigned Numbers Authority) assigns IPv4 addresses/networks to companies based on their size.
 
-The problem with 'CLASSFUL' assignment is that it led to IP Address wastefulness.
+The problem with 'CLASSFUL' assignment is that it led to Địa chỉ IP wastefulness.
 
 Example: A company requiring 5000 address was assigned a CLASS B IP, leaving 60000+ addresses unused.
 
@@ -24,14 +24,14 @@ Example: A company requiring 5000 address was assigned a CLASS B IP, leaving 600
 
 The IETF (Internet Engineering Task Force) introduce CIDR in 1993 to replace the "classful" addressing system.
 
-CIDR (Classless Inter-Domain Routing) removed the requirements of CLASS A, B, and C regarding size.
+CIDR (Classless Inter-Domain Định tuyến) removed the requirements of CLASS A, B, and C regarding size.
 
 - This allowed larger networks to be split into smaller networks, allowing greater efficiency.
 - These smaller networks are called "SUB-NETWORKS" or "SUBNETS"
 
 ---
 
-HOW MANY USABLE ADDRESSES ARE THERE IN EACH NETWORK?
+HOW MANY USABLE ADDRESSES ARE THERE IN EACH Mạng?
 
 REMEMBER:
 
@@ -48,9 +48,9 @@ CIDR PRACTICE!
 
 1100 1011 . 0000 0000 . 0111 0001 . 0 | 000 0000
 
-(Subnet prefix is the first 25 bits)
+(Mạng con prefix is the first 25 bits)
 
-Flipping all the bits to 1’s, we get the SUBNET MASK for /25:
+Flipping all the bits to 1’s, we get the Mạng con MASK for /25:
 
 1111 1111 . 1111 1111 . 1111 1111 . 1 | 000 0000
 
@@ -71,9 +71,9 @@ What about /28 ?
 
 1100 1011 . 0000 0000 . 0111 0001 . 0000 | 0000
 
-(Subnet prefix is the first 28 bits)
+(Mạng con prefix is the first 28 bits)
 
-flipping all the bits to 1’s, we get the SUBNET MASK for /28:
+flipping all the bits to 1’s, we get the Mạng con MASK for /28:
 
 1111 1111 . 1111 1111 . 1111 1111 . 1111 | 0000
 
@@ -81,16 +81,16 @@ which is equal to:
 
 255.255.255.240 (because the last octet is 1111 0000) = 128+64+32+16 =  (128+32) + (64+16) = 160 + 80 = 240
 
-The SUBNET MASK for /28 is 255.255.255.240
-which has 16 hosts / group (2 * 4 bits = 16) - 2 Reserved IPs for Network and Broadcast 
+The Mạng con MASK for /28 is 255.255.255.240
+which has 16 hosts / group (2 * 4 bits = 16) - 2 Reserved IPs for Mạng and Broadcast 
 
 ---
 
-SUBNETTING CHEATSHEET:
+Chia mạng con CHEATSHEET:
 
 | Group Size | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Subnet Mask | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255 |
+| Mạng con Mask | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255 |
 | CIDR | /25 | /26 | /27 | /28 | /29 | /30 | /31 | /32 |
 | 3rd Octet | /17 | /18 | /19 | /20 | /21 | /22 | /23 | /24 |
 | 2nd Octet | /9 | /10 | /11 | /12 | /13 | /14 | /15 | /16 |
@@ -100,7 +100,7 @@ SUBNETTING CHEATSHEET:
 
 1. Use a given CIDR/Mask to find column on Cheat Sheet
     
-    a) CIDR/Subnet Mask map to each other
+    a) CIDR/Mạng con Mask map to each other
     
     b) Locate Group Size
     
@@ -111,32 +111,32 @@ SUBNETTING CHEATSHEET:
     Example: 10.2.2.256 → 10.2.3.0
     
 
-1. Number BEFORE Target IP is NETWORK ID
-2. Number AFTER Target IP is NEXT NETWORK
-3. IP Address BEFORE Next Network is BROADCAST
-4. IP Address AFTER Network ID is First Host
-5. IP Address BEFORE Broadcast IP is Last Host
+1. Number BEFORE Target IP is Mạng ID
+2. Number AFTER Target IP is NEXT Mạng
+3. Địa chỉ IP BEFORE Next Mạng is Broadcast
+4. Địa chỉ IP AFTER Mạng ID is First Host
+5. Địa chỉ IP BEFORE Broadcast IP is Last Host
 6. Group Size is total # of IP Addresses
     - Don’t forget to subtract 2 for USABLE #
 
 ---
 
-Solving CIDR/Subnet for 3rd Octet IPs :
+Solving CIDR/Mạng con for 3rd Octet IPs :
 
 Every number LEFT of 3rd Octet is 255. Every number RIGHT of 3rd Octet is 0
 
-Example: 10.4.77.188 / 19 → Subnet : 255.255.224.0
+Example: 10.4.77.188 / 19 → Mạng con : 255.255.224.0
 
 You use the SAME process as above except when finding Target IPs, you use the 3rd Octet for your Target.
 
-Example: 10.4.77.188 /19 → Subnet : 255.255.224.0
+Example: 10.4.77.188 /19 → Mạng con : 255.255.224.0
 
 256 - 224 = 32 so…
 
 Using 32, we step through the address blocks 0, 32,64, and 96.
 Since 77 is between 64 and 96, there’s our range.
 
-Network: 10.4.64.0 (Start / First Block)
+Mạng: 10.4.64.0 (Start / First Block)
 
 Next: 10.4.96.0 (Second Block)
 …
@@ -151,13 +151,13 @@ Alternative method to "Cheat Sheet"
 ![image](https://github.com/user-attachments/assets/d1e103b8-142a-44cc-8ab4-f5337268c9de)
 
 1. Find the "magic octet" where a given IP /Prefix lies, from the bit chart shown (boundary digits are inclusive of the octet preceding them)
-2. Count the number of network bits (left to right) in that octet and count the same amount, using the red bit slot chart. This'll be your address group size.
-3. Subtract that number from 256 to find your Subnet Mask number used in the "magic octet" (any octet LEFT of that "magic octet" will be 255, everything RIGHT of that octet will be 0)
+2. Count the number of Mạng bits (left to right) in that octet and count the same amount, using the red bit slot chart. This'll be your address group size.
+3. Subtract that number from 256 to find your Mạng con Mask number used in the "magic octet" (any octet LEFT of that "magic octet" will be 255, everything RIGHT of that octet will be 0)
 4. Divide whatever IP octet number is in the "magic octet" by the address group size.
-  - If there is a remainder, multiple the whole integer by the address group size - your Base Network Address is that value, with every octet to the right of that as all 0's
-  - If there is NO remainder, the IP number in the "magic octet" IS the Base Network Address is that value, with every octet to the right of that as all 0's
-5. The Base Broadcast Number will be Network Base Number + Group Size - 1 in the "magic octet", every value to the right of that octet will be 255.
-6. Number of subnets is (2 to the power of the number of network bits in the "magic octet". ** 2^8 or 256 is equal to 0 **)
+  - If there is a remainder, multiple the whole integer by the address group size - your Base Mạng Address is that value, with every octet to the right of that as all 0's
+  - If there is NO remainder, the IP number in the "magic octet" IS the Base Mạng Address is that value, with every octet to the right of that as all 0's
+5. The Base Broadcast Number will be Mạng Base Number + Group Size - 1 in the "magic octet", every value to the right of that octet will be 255.
+6. Number of subnets is (2 to the power of the number of Mạng bits in the "magic octet". ** 2^8 or 256 is equal to 0 **)
 7. Total Useable Hosts size is (2 to the power of (32 - Prefix Length) -2)
 ---
 Example 1:

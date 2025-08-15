@@ -1,4 +1,4 @@
-# 14. SUBNETTING : PART 2
+# 14. Chia mạng con : PART 2
 
 CLASS C NETWORKS
 

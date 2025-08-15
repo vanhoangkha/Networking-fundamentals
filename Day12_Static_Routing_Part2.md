@@ -1,13 +1,13 @@
-# 11. STATIC ROUTING : PART 2
+# 11. STATIC Định tuyến : PART 2
 
 REVIEW:
 
 SWITCHES forward traffic WITHIN LAN's
 ROUTERS forward traffic BETWEEN LAN's
 
-WAN (Wide Area Network)
+WAN (Wide Area Mạng)
 
-- Network spread over a large area
+- Mạng spread over a large area
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e44ac71c-91e3-4963-85da-ac07e475b248)
 
@@ -28,7 +28,7 @@ STATIC ROUTES:
 
 ---
 
-STATIC ROUTE CONFIGURATION:
+STATIC Tuyến đường Cấu hình:
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d375a428-e171-4212-9698-2f2589878884)
 
@@ -46,12 +46,12 @@ STATIC ROUTE CONFIGURATION:
 
 ---
 
-STATIC ROUTE CONFIGURATION with *exit-interface*
+STATIC Tuyến đường Cấu hình with *exit-Giao diện*
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/dc93b5f9-791c-44fc-8b88-2053491183a9)
 
 ---
 
-DEFAULT ROUTE
+Mặc định Tuyến đường
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a0eef93a-b40b-409b-8b51-6cdbace4ff45)

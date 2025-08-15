@@ -57,11 +57,11 @@ EXPANDING (Abbreviating) IPv6 ADDRESSES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/934a089e-6ec1-4297-b0da-154b8240af35)
 
-FINDING the IPv6 PREFIX (GLOBAL UNICAST ADDRESSES)
+FINDING the IPv6 PREFIX (GLOBAL Unicast ADDRESSES)
 
-- Typically, an Enterprise requesting IPv6 ADDRESSES from their ISP will receive a /48 BLOCK
+- Typically, an Doanh nghiệp requesting IPv6 ADDRESSES from their ISP will receive a /48 BLOCK
 - Typically, IPv6 SUBNETS use a /64 PREFIX LENGTH
-- That means an Enterprise has 16 bits to use to make SUBNETS
+- That means an Doanh nghiệp has 16 bits to use to make SUBNETS
 - The remaining 64 bits can be used for HOSTS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/12448711-2636-4133-bed9-d655bedbd418)
@@ -88,18 +88,18 @@ CONFIGURING IPv6 ADDRESSES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7ee88c71-617f-4bfc-8220-a4ef5bbe89e3)
 
-This allows the ROUTER to perform IPv6 ROUTING
+This allows the Router to perform IPv6 Định tuyến
 
 <aside>
-💡 R1(config) #ipv6 unicast-routing
+💡 R1(config) #IPv6 Unicast-Định tuyến
 
 </aside>
 
-Configuring an INTERFACE with an IPv6 Address
+Configuring an Giao diện with an IPv6 Address
 
 <aside>
 💡 R1(config) #int g0/0
-R1(config-if) #ipv6 address 2001:db8:0:0::1/64
+R1(config-if) #IPv6 address 2001:db8:0:0::1/64
 R1(config) #no shutdown
 
 </aside>
@@ -110,4 +110,4 @@ You can also type out the full address (if necessary)
 
 NOTE ABBREVIATED IPv6 ADDRESSES SHOWN
 
-LINK-LOCAL ADDRESSES are automatically added when creating an IPv6 INTERFACE (Covered in IPv6 - PART 2 Lecture)
+LINK-LOCAL ADDRESSES are automatically added when creating an IPv6 Giao diện (Covered in IPv6 - PART 2 Lecture)

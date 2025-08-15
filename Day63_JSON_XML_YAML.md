@@ -2,7 +2,7 @@
 
 DATA SERIALIZATION
 
-- DATA SERIALIZATION is the process of converting DATA into a standardized format/structure that can be stored (in a file) or transmitted (over a network) and reconstructed later (ie: by a different application)
+- DATA SERIALIZATION is the process of converting DATA into a standardized format/structure that can be stored (in a file) or transmitted (over a Mạng) and reconstructed later (ie: by a different application)
     - This allows the DATA to be communicated between applications in a way both APPLICATIONS understand.
 
 - DATA SERIALIZATION languages allow us to represent *variables* with text
@@ -15,7 +15,7 @@ JSON (JAVASCRIPT OBJECT NOTATION)
 
 - JSON (JAVASCRIPT OBJECT NOTATION) **is an open standard FILE FORMAT and DATA INTERCHANGE FORMAT that uses human-readable text to store and transmit data objects
 
-- It is standardized in RFC 8259 (https://datatracker.ietf.org/doc/html/rfc8259)
+- It is standardized in RFC 8259 (HTTPS://datatracker.ietf.org/doc/html/rfc8259)
 - It was derived from JavaScript, but it is language-independent and many modern programming languages are able to generate and read JSON data
     - REST APIs often use JSON
 - *Whitespace* is insignificant
@@ -96,7 +96,7 @@ XML (EXTENSIBLE MARKUP LANGUAGE)
 YAML (YAML AIN’T MARKUP LANGUAGE)
 
 - YAML originally meant *YET ANOTHER MARKUP LANGUAGE* but to distinguish its purpose as a data-serialization language rather than a markup language, it was repurposed to *YAML AINT MARKUP LANGUAGE*
-- YAML is used by the network automation tool ANSIBLE (covered later in the course)
+- YAML is used by the Mạng Tự động hóa tool Ansible (covered later in the course)
 - YAML is VERY Human-Readable
 - Whitespace **is significant** (unlike JSON and XML)
     - Indentation is very important

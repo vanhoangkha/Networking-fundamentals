@@ -1,4 +1,4 @@
-# 35. EXTENDED ACCESS CONTROL LISTS (EACL)
+# 35. EXTENDED Access CONTROL LISTS (EACL)
 
 ANOTHER WAY TO CONFIGURE NUMBERED ACLs
 
@@ -25,7 +25,7 @@ ADVANTAGES OF NAMED ACL CONFIG MODE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f7f85684-6300-495d-bde9-1e1ffcead85e)
 
-This doesn’t work with NUMBERED access lists
+This doesn’t work with NUMBERED Access lists
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8e27f6f1-794b-45be-ac67-20b3f563f551)
 
@@ -38,7 +38,7 @@ This doesn’t work with NUMBERED access lists
 RESEQUENCING ACLs
 
 - There is a *resequencing* function that helps edit ACLs
-- The command is  `R1(config)#ip access-list resequence *acl-id starting-seq-num increment*`
+- The Lệnh is  `R1(config)#ip access-list resequence *acl-id starting-seq-num increment*`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1c5e3f13-900a-4be4-99ba-db86b0128f57)
 
@@ -52,7 +52,7 @@ EXTENDED NUMBERS AND NAMED ACLs
 - Processed from TOP to BOTTOM, just like STANDARD ACLs
 - However, they can match traffic based on MORE PARAMETERS, so they are more PRECISE (and more complex) than STANDARD ACLs
 - We will focus on matching based on these main parameters:
-    - **LAYER 4 protocol / port**
+    - **LAYER 4 Giao thức / Cổng**
     - **Source Address**
     - D**estination Address**
 
@@ -79,26 +79,26 @@ EXTENDED NAMED ACL
 
 ---
 
-MATCHING THE PROTOCOL
+MATCHING THE Giao thức
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f6337620-5eb1-4ddc-837c-ae242a718f29)
 
-IP Protocol Number is the number used in the IPv4 Header Protocol field
+IP Giao thức Number is the number used in the IPv4 Header Giao thức field
 
 Examples: (1) ICMP, (6) TCP, (17) UDP, (88) EIGRP, (89) OSPF
 
-MATCHING THE SOURCE / DESTINATION IP ADDRESS
+MATCHING THE SOURCE / DESTINATION Địa chỉ IP
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bbb38418-3276-485b-ba6b-5c4c7097d56f)
 
-This command:
+This Lệnh:
 
 <aside>
 💡 `R1(config-ext-nacl)#deny tcp any 10.0.0.0 0.0.0.255`
 
 </aside>
 
-Deny ALL PACKETS that encapsulate a TCP segment from ANY source to DESTINATION 10.0.0.0/24
+Deny ALL PACKETS that encapsulate a TCP Đoạn from ANY source to DESTINATION 10.0.0.0/24
 
 ---
 
@@ -116,9 +116,9 @@ PRACTICE QUESTIONS:
 
 `R1(config-ext-nacl)# deny icmp host 172.16.1.1 192.168.0.0 0.0.0.255`
 
-MATCHING THE TCP /  UDP PORT NUMBERS
+MATCHING THE TCP /  UDP Cổng NUMBERS
 
-- When matching TCP / UDP, you can optionally specify the SOURCE and/or DESTINATION PORT NUMBERS to match
+- When matching TCP / UDP, you can optionally specify the SOURCE and/or DESTINATION Cổng NUMBERS to match
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c059d148-b685-49b2-81e0-518a6d66c25b)
 
@@ -132,7 +132,7 @@ neq = not equal to
 
 range = range of ports
 
-You can use either the PORT NUMBER or the specific TYPE (that has a KNOWN PORT NUMBER)
+You can use either the Cổng NUMBER or the specific TYPE (that has a KNOWN Cổng NUMBER)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/03dd80be-1f0f-41ac-ae1a-bdb851579bb4)
 
@@ -142,19 +142,19 @@ You can use either the PORT NUMBER or the specific TYPE (that has a KNOWN PORT N
 
 PRACTICE QUESTIONS 2:
 
-1) ALLOW TRAFFIC from 10.0.0.0/16 to access the server at 2.2.2.2/32 using HTTPS
+1) ALLOW TRAFFIC from 10.0.0.0/16 to Access the server at 2.2.2.2/32 using HTTPS
 
 `R1(config-ext-nacl)# permit tcp 10.0.0.0 0.0.255.255 host 2.2.2.2 eq 443`
 
-2) PREVENT ALL HOSTS using SOURCE UDP Port Numbers from 20000 to 30000 from accessing the server at 3.3.3.3/32
+2) PREVENT ALL HOSTS using SOURCE UDP Cổng Numbers from 20000 to 30000 from accessing the server at 3.3.3.3/32
 
 `R1(config-ext-nacl)# deny udp any range 20000 30000 host 3.3.3.3`
 
-3) ALLOW HOSTS in 172.16.1.0/24 using a TCP SOURCE Port greater than 9999 to access ALL TCP ports on server 4.4.4.4/32 EXCEPT port 23
+3) ALLOW HOSTS in 172.16.1.0/24 using a TCP SOURCE Cổng greater than 9999 to Access ALL TCP ports on server 4.4.4.4/32 EXCEPT Cổng 23
 
 `R1(config-ext-nacl)# permit tcp 172.16.1.0 0.0.0.255 gt 9999 host 4.4.4.4 neq 23`
 
-EXAMPLE NETWORK
+EXAMPLE Mạng
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ddb40c27-b195-49fe-a12a-49e078166e30)
 
@@ -162,11 +162,11 @@ EXAMPLE NETWORK
 
 REQUIREMENTS:
 
-- Hosts in 192.168.1.0/24 can’t use HTTPS to access SRV1
-- Hosts in 192.168.2.0/24 can’t access 10.0.2.0/24
+- Hosts in 192.168.1.0/24 can’t use HTTPS to Access SRV1
+- Hosts in 192.168.2.0/24 can’t Access 10.0.2.0/24
 - NONE of the hosts in 192.168.1.0/24 or 192.168.2.0/24 can ping 10.0.1.0/24 OR 10.0.2.0/24
 
-EXTENDED ACL #1 (Applied at R1 G0/1 INBOUND interface)
+ACL mở rộng #1 (Applied at R1 G0/1 INBOUND Giao diện)
 
 `R1(config)# ip access-list extended HTTP_SRV1`
 `R1(config-ext-nacl)# deny tcp 192.168.1.0 0.0.0.255 host 10.0.1.100 eq 443`
@@ -177,7 +177,7 @@ EXTENDED ACL #1 (Applied at R1 G0/1 INBOUND interface)
 
 `R1(config-if)# ip access-group HTTP_SRV1 in`
 
-EXTENDED ACL #2 (APPLIED at R1 G0/2 INBOUND interface)
+ACL mở rộng #2 (APPLIED at R1 G0/2 INBOUND Giao diện)
 
 `R1(config)# ip access-list extended BLOCK_10.0.2.0`
 
@@ -189,7 +189,7 @@ EXTENDED ACL #2 (APPLIED at R1 G0/2 INBOUND interface)
 
 `R1(config-if)# ip access-group BLOCK_10.0.2.0 in`
 
-EXTENDED ACL #3 (APPLIED at R1 g0/0 OUTBOUND interface)
+ACL mở rộng #3 (APPLIED at R1 g0/0 OUTBOUND Giao diện)
 
 `R1(config)# ip access-list extended BLOCK_ICMP`
 
@@ -209,6 +209,6 @@ What the EXTENDED ACLs look like
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cda064f2-b1ce-45ee-a660-04cdceb3514b)
 
-HOW TO SEE WHICH EXTENDED ACL’s ARE APPLIED TO AN INTERFACE
+Cách SEE WHICH ACL mở rộng’s ARE APPLIED TO AN Giao diện
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f596bca6-c06a-445e-84a3-8f8eb0c6baaf)

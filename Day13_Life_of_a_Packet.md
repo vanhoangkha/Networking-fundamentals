@@ -1,19 +1,19 @@
-# 12. LIFE OF A PACKET
+# 12. LIFE OF A Gói tin
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ec16b9fd-4d90-4b73-b930-cd825ff13b00)
 
 
-EACH Network device's interfaces have a UNIQUE MAC Addresses.
+EACH Mạng device's interfaces have a UNIQUE MAC Addresses.
 
-In a TCP HEADER
+In a TCP Header
 
-SOURCE IP ADDRESS comes before DESTINATION IP ADDRESS
+SOURCE Địa chỉ IP comes before DESTINATION Địa chỉ IP
 
 while...
 
-in an ETHERNET HEADER
+in an Ethernet Header
 
-DESTINATION MAC ADDRESS comes before SOURCE MAC ADDRESS
+DESTINATION Địa chỉ MAC comes before SOURCE Địa chỉ MAC
 
 ---
 
@@ -59,4 +59,4 @@ DESTINATION MAC ADDRESS comes before SOURCE MAC ADDRESS
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1f236bda-d2cf-4252-af3b-bdc5ec5c2aca)
 
 
-When a HOST sends a packet to another HOST, the SOURCE or DESTINATION IP doesn't change - even though ROUTERS may change the ETHERNET HEADER (SRC/DEST MAC ADDRESSES).
+When a HOST sends a Gói tin to another HOST, the SOURCE or DESTINATION IP doesn't change - even though ROUTERS may change the Ethernet Header (SRC/DEST MAC ADDRESSES).

@@ -1,26 +1,26 @@
-# 51. DYNAMIC ARP INSPECTION
+# 51. DYNAMIC Kiểm tra ARP
 
-WHAT IS DYNAMIC ARP INSPECTION (DAI) ?
+là gì DYNAMIC Kiểm tra ARP (DAI) ?
 
 ARP REVIEW
 
-- ARP is used to learn the MAC ADDRESS of another DEVICE with a known IP ADDRESS
-    - For example, a PC will use ARP to learn the MAC ADDRESS of its DEFAULT GATEWAY to communicate with external NETWORKS
+- ARP is used to learn the Địa chỉ MAC of another DEVICE with a known Địa chỉ IP
+    - Ví dụ, a PC will use ARP to learn the Địa chỉ MAC of its Mặc định Gateway to communicate with external NETWORKS
 - Typically, it is a TWO MESSAGE EXCHANGE :  ARP REQUEST and ARP REPLY
 
 GRATUITOUS ARP
 
 - A GRATUITOUS ARP MESSAGE is an ARP REPLY that is sent without receiving an ARP REQUEST
-- It is SENT to the BROADCAST MAC ADDRESS
-- It allows other DEVICES to learn the MAC ADDRESS of the sending DEVICE without having to send ARP REQUESTS.
-- Some DEVICES automatically send GARP MESSAGES when an INTERFACE is enabled, IP ADDRESS is changed, MAC address is changed, etc.
+- It is SENT to the Broadcast Địa chỉ MAC
+- It allows other DEVICES to learn the Địa chỉ MAC of the sending DEVICE without having to send ARP REQUESTS.
+- Some DEVICES automatically send GARP MESSAGES when an Giao diện is enabled, Địa chỉ IP is changed, Địa chỉ MAC is changed, etc.
 
-DYNAMIC ARP INSPECTION
+DYNAMIC Kiểm tra ARP
 
-- DAI is a SECURITY FEATURE of SWITCHES that is used to filter ARP MESSAGES received on  *UNTRUSTED PORTS*
+- DAI is a Bảo mật FEATURE of SWITCHES that is used to filter ARP MESSAGES received on  *UNTRUSTED PORTS*
 - DAI only filters ARP MESSAGES. Non-ARP MESSAGES are NOT affected
-- All PORTS are *UNTRUSTED*, by DEFAULT
-    - Typically, all PORTS connected to other NETWORK DEVICES (SWITCHES, ROUTERS) should be configured as TRUSTED, while INTERFACES connected to END HOSTS should remain UNTRUSTED
+- All PORTS are *UNTRUSTED*, by Mặc định
+    - Typically, all PORTS connected to other Mạng DEVICES (SWITCHES, ROUTERS) should be configured as TRUSTED, while INTERFACES connected to END HOSTS should remain UNTRUSTED
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/02da32ef-654c-4755-abcd-ea8230df4029)
 
@@ -33,14 +33,14 @@ DYNAMIC ARP INSPECTION
 ARP POISONING (MAN IN THE MIDDLE)
 
 - Similar to DHCP POISONING, ARP POISONING involved an ATTACKER manipulating TARGET’S ARP TABLES so TRAFFIC is sent to the ATTACKER
-- To do this, the ATTACKER can send GRATUITOUS ARP MESSAGES using another DEVICE’S IP ADDRESS
-- Other DEVICES in the NETWORK will receive the GARP and update their ARP TABLES, causing them to send TRAFFIC to the ATTACKER instead of the legitimate DESTINATION
+- To do this, the ATTACKER can send GRATUITOUS ARP MESSAGES using another DEVICE’S Địa chỉ IP
+- Other DEVICES in the Mạng will receive the GARP and update their ARP TABLES, causing them to send TRAFFIC to the ATTACKER instead of the legitimate DESTINATION
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/aae80c8f-2673-4c04-a206-9b646f5c1f08)
 
-DYNAMIC ARP INSPECTION OPERATIONS
+DYNAMIC Kiểm tra ARP OPERATIONS
 
-- DAI inspects the SENDER MAC and SENDER IP fields of ARP MESSAGES received on UNTRUSTED PORTS and checks that there is a matching entry in the DHCP SNOOPING BINDING TABLE
+- DAI inspects the SENDER MAC and SENDER IP fields of ARP MESSAGES received on UNTRUSTED PORTS and checks that there is a matching entry in the DHCP Snooping BINDING TABLE
     - If there is a MATCH, the ARP MESSAGE is FORWARDED
     - If there is NO MATCH, the ARP MESSAGE is DISCARDED
 
@@ -53,19 +53,19 @@ DYNAMIC ARP INSPECTION OPERATIONS
     
 - DAI can be configured to perform more in-depth checks also - but these are optional
 
-- Like DHCP SNOOPING, DAI also supports RATE-LIMITING to prevent ATTACKERS from overwhelming the SWITCH with ARP MESSAGES
-    - DHCP SNOOPING and DAI both require work from the SWITCH’S CPU
-    - Even if the ATTACKER’S messages are BLOCKED, they can OVERLOAD the SWITCH CPU with ARP MESSAGES
+- Like DHCP Snooping, DAI also supports RATE-LIMITING to prevent ATTACKERS from overwhelming the Switch with ARP MESSAGES
+    - DHCP Snooping and DAI both require work from the Switch’S CPU
+    - Even if the ATTACKER’S messages are BLOCKED, they can OVERLOAD the Switch CPU with ARP MESSAGES
 
 ---
 
-DYNAMIC ARP INSPECTION CONFIGURATION
+DYNAMIC Kiểm tra ARP Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4a91bd7b-626a-4d64-b69a-308d65bbdda4)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/774765fa-4918-4cd9-bb64-57130968c359)
 
-Command : `show ip arp inspection interfaces`
+Lệnh : `show ip arp inspection interfaces`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e64a568e-e5c6-442b-98f7-4fe829ff7519)
 
@@ -87,18 +87,18 @@ CREATE AN ARP ACL FOR SRV1
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cf121a75-45b2-4e2d-a35f-320e3f5491fa)
 
-AFTER APPLYING IT TO SWITCH 2, SRV1 is able to send ARP REQUEST to R1
+AFTER APPLYING IT TO Switch 2, SRV1 is able to send ARP REQUEST to R1
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/582feed0-1915-4f59-b3b9-9db37854c6e1)
 
-Command: `show ip arp inspection`
+Lệnh: `show ip arp inspection`
 
-Shows a summary of the DAI configuration and statistics
+Shows a summary of the DAI Cấu hình and statistics
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/684e694a-5b0a-4f85-b135-b288a8c4c6ec)
 
 ---
 
-COMMAND REVIEW
+Lệnh REVIEW
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4cb7dc28-b09d-4a98-8d43-aca2cdf6180b)

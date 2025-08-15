@@ -1,24 +1,24 @@
-# 58. WIRELESS CONFIGURATION
+# 58. Không dây Cấu hình
 
-TOPOLOGY INTRODUCTION
+Cấu trúc mạng INTRODUCTION
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1e8ed6b8-1183-42e7-9584-d5504c52987a)
 
-INTERNAL PC (VLAN 100) ACCESSING DEFAULT GATEWAY via Internal CAPWAP tunnel
+INTERNAL PC (VLAN 100) ACCESSING Mặc định Gateway via Internal CAPWAP tunnel
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4dec4c60-945e-4f2c-b7db-3028269ec441)
 
-REACHING External GUEST PC  via DEFAULT GATEWAY + Internal and External CAPWAP tunnels
+REACHING External GUEST PC  via Mặc định Gateway + Internal and External CAPWAP tunnels
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3b1c79a6-f8c5-496b-a0b8-d561ff87880f)
 
 ---
 
-LAYER 3 SWITCH CONFIGURATION (SW1)
+LAYER 3 Switch Cấu hình (SW1)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/eae43f12-aa95-41a3-8a5d-26ffc5e83262)
 
-PART 2 of configuration
+PART 2 of Cấu hình
 
 Note DHCP “Option 43”
 
@@ -26,7 +26,7 @@ Note DHCP “Option 43”
 
 WLC SETUP
 
-This helps set up the WLC to allow GUI configuration
+This helps set up the WLC to allow GUI Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3a2c00c0-eda3-4b72-af07-b07e820365c5)
 
@@ -54,27 +54,27 @@ ACCESSING THE WLC GUI
 
 ---
 
-WLC CONFIGURATION
+WLC Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fbc3b9fd-c0db-48f3-9ce8-270812e00008)
 
 WLC PORTS
 
 - WLC PORTS are the PHYSICAL PORTS that cables connect to
-- WLC INTERFACES are the logical interfaces within the WLC (ie: SVIs on a SWITCH)
+- WLC INTERFACES are the logical interfaces within the WLC (ie: SVIs on a Switch)
 - WLCs have a few different PORTS:
-    - SERVICE PORT
-        - A dedicated MANAGEMENT PORT
-        - Used for OUT-OF-BAND management
-        - Must connected to a SWITCH ACCESS PORT because it only supports one VLAN
-        - This PORT can be used to connect to the DEVICE while it is booting, performing system recovery, etc.
-    - DISTRIBUTION SYSTEM PORT
-        - These are the standard NETWORK PORTS that connect to the “DISTRIBUTION SYSTEM” (WIRED NETWORK) and are used for DATA traffic.
-        - These PORTS usually connect to SWITCH TRUNK PORTS, and if multiple distribution PORTS are used they can form a LAG
-    - CONSOLE PORT
-        - This is a standard CONSOLE PORT, either RJ45 or USB
-    - REDUNDANCY PORT
-        - This PORT is used to connect to another WLC to form a HIGH AVAILABILITY (HA) pair
+    - SERVICE Cổng
+        - A dedicated Quản lý Cổng
+        - Used for OUT-OF-BAND Quản lý
+        - Must connected to a Switch Access Cổng because it only supports one VLAN
+        - This Cổng can be used to connect to the DEVICE while it is booting, performing system recovery, etc.
+    - DISTRIBUTION SYSTEM Cổng
+        - These are the standard Mạng PORTS that connect to the “DISTRIBUTION SYSTEM” (WIRED Mạng) and are used for DATA traffic.
+        - These PORTS usually connect to Switch Trunk PORTS, and if multiple distribution PORTS are used they can form a LAG
+    - CONSOLE Cổng
+        - This is a standard CONSOLE Cổng, either RJ45 or USB
+    - REDUNDANCY Cổng
+        - This Cổng is used to connect to another WLC to form a HIGH AVAILABILITY (HA) pair
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/cec94d93-d58b-43b1-8e5e-f4c07ee430fd)
 
@@ -82,33 +82,33 @@ WLC PORTS
 
 WLC INTERFACES
 
-- MANAGEMENT INTERFACES
-    - Used for management traffic such as TELNET, SSH, HTTP, HTTPS, RADIUS authentication, NTP, SYSLOG, etc.
-    - CAPWAP TUNNELS are also formed to / from the WLC’s management INTERFACE
-- REDUNDANCY MANAGEMENT INTERFACE
+- Quản lý INTERFACES
+    - Used for Quản lý traffic such as Telnet, SSH, HTTP, HTTPS, RADIUS authentication, NTP, SYSLOG, etc.
+    - CAPWAP TUNNELS are also formed to / from the WLC’s Quản lý Giao diện
+- REDUNDANCY Quản lý Giao diện
     - When TWO WLCs are connected by their REDUNDANCY PORTS, one WLC is “ACTIVE” and the other is “STANDBY”
-    - This INTERFACE can be used to connect to and manage the “STANDBY” WLC
+    - This Giao diện can be used to connect to and manage the “STANDBY” WLC
 
-- VIRTUAL INTERFACE
-    - This INTERFACE is used when communicating with WIRELESS CLIENTS to relay DHCP requests, perform CLIENT WEB AUTHENTICATION, etc.
+- VIRTUAL Giao diện
+    - This Giao diện is used when communicating with Không dây CLIENTS to relay DHCP requests, perform CLIENT WEB AUTHENTICATION, etc.
 
-- SERVICE PORT INTERFACE
-    - If the SERVICE PORT is used, this INTERFACE is bound to it and used for OUT-OF-BAND MANAGEMENT
+- SERVICE Cổng Giao diện
+    - If the SERVICE Cổng is used, this Giao diện is bound to it and used for OUT-OF-BAND Quản lý
 
-- DYNAMIC INTERFACE
+- DYNAMIC Giao diện
     - These are the INTERFACES used to map a WLAN to a VLAN
-    - For example :
-        - TRAFFIC from the “INTERNAL” WLAN will be sent to the WIRED NETWORK from the WLCs “INTERNAL” DYNAMIC INTERFACE
+    - Ví dụ :
+        - TRAFFIC from the “INTERNAL” WLAN will be sent to the WIRED Mạng from the WLCs “INTERNAL” DYNAMIC Giao diện
 
 ---
 
-WLAN CONFIGURATION
+WLAN Cấu hình
 
 Click “NEW”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/b20dbb39-fac6-4cf3-926b-869e75c04e15)
 
-Fill in details of the interface and click “APPLY”
+Fill in details of the Giao diện and click “APPLY”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/48a4810d-a56c-4aef-8cfd-d2474d42cbb1)
 
@@ -116,11 +116,11 @@ Fill out details (IP, Netmask, Gateway…) and then click “APPLY”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6d11036b-3d82-4c2f-a20a-4367eb18ca8a)
 
-INTERNAL interface has now been created
+INTERNAL Giao diện has now been created
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/80a91b22-c4fa-43e2-b035-05ac6199c6f3)
 
-Now, repeat the above steps for the GUEST interface
+Now, repeat the above steps for the GUEST Giao diện
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/80d5a300-a3ef-4e46-ae1a-7b7afb6a5078)
 
@@ -130,21 +130,21 @@ Fill out details (IP, Netmask, Gateway…) and then click “APPLY”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3a98ae1c-13a4-4bde-ab8c-398f8d16da43)
 
-Now that all the INTERFACES are created, we can start WLAN CONFIGURATION
+Now that all the INTERFACES are created, we can start WLAN Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d80eff95-41c7-43c6-a31e-0ebde3a7cd81)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/960f24e5-efb9-4a15-9f5f-2a8e45b2d425)
 
-INTERNAL WLAN is set to “MANAGEMENT”, it needs to be changed to “INTERNAL”
+INTERNAL WLAN is set to “Quản lý”, it needs to be changed to “INTERNAL”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/a3cb544c-3ce4-43b5-b054-e52e8388ab83)
 
-SECURITY will also need to be changed from [WPA2] to [WPA2 PSK]
+Bảo mật will also need to be changed from [WPA2] to [WPA2 PSK]
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4cb2783e-26db-4584-8daa-feba124e9966)
 
-(Need to CHECK the PSK “Enable” box at the bottom)
+(Need to CHECK the PSK “Kích hoạt” box at the bottom)
 
 Change the PSK FORMAT to “ASCII” and enter a PASSWORD (at least 8 chars in length)
 
@@ -153,11 +153,11 @@ Change the PSK FORMAT to “ASCII” and enter a PASSWORD (at least 8 chars in l
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8cd2c63a-aa10-48c3-b826-fe107d04666d)
 
 - WEB AUTHENTICATION
-    - After the WIRELESS CLIENTS gets an IP ADDRESS and tries to access a WEB PAGE, they will have to enter a USERNAME and PASSWORD to AUTHENTICATE
+    - After the Không dây CLIENTS gets an Địa chỉ IP and tries to Access a WEB PAGE, they will have to enter a USERNAME and PASSWORD to AUTHENTICATE
 
 - WEB PASSTHROUGH
     - Similar to the above, but NO USERNAME or PASSWORD are required
-    - A warning or statement is displayed and the CLIENT simply has to agree to gain access to the INTERNET
+    - A warning or statement is displayed and the CLIENT simply has to agree to gain Access to the Internet
     
 - CONDITIONAL and SPLASH PAGE web redirect options are similar but additionally require 802.1x LAYER 2 AUTHENTICATION
 
@@ -167,7 +167,7 @@ QoS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/957336a3-d81c-4914-b35f-99925a316ad3)
 
-Default QoS setting is “SILVER” (Best Effort). This can be changed depending on the class of traffic being sent through the WLAN
+Mặc định QoS setting is “SILVER” (Best Effort). This can be changed depending on the class of traffic being sent through the WLAN
 
 ---
 
@@ -183,15 +183,15 @@ CONFIGURING A NEW WLAN (GUEST)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4782e82e-4545-458e-917c-42d40e08748d)
 
-Change STATUS to “ENABLED” and INTERFACE GROUP to “GUEST”
+Change STATUS to “ENABLED” and Giao diện GROUP to “GUEST”
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7a84ce73-0250-404b-896c-695ac5b9d05a)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2ca8357b-7564-4ef9-8f36-cb730a4b415f)
 
-Now, we need to change the SECURITY POLICY to [WPA2][Auth(PSK)]
+Now, we need to change the Bảo mật POLICY to [WPA2][Auth(PSK)]
 
-Returning to MONITORING, we can see the changes we made to the CONFIGURATION
+Returning to Giám sát, we can see the changes we made to the Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5a06ae8b-cad0-46ec-bf34-adab0960fc41)
 
@@ -206,19 +206,19 @@ To SEE a list of the CLIENTS connected, click the left-hand side “CLIENTS” t
 
 ADDTIONAL WLC FEATURES
 
-WIRELESS tab showing a list of the APs currently in the NETWORK
+Không dây tab showing a list of the APs currently in the Mạng
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/29f5608e-9edb-4c6e-9382-998deedd4c72)
 
-Clicking on an AP shows information and configuration settings for it
+Clicking on an AP shows information and Cấu hình settings for it
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7d87bbcc-ed95-47b6-b966-fb95f5bb7f29)
 
 ---
 
-MANAGEMENT tab allows you change the ways you can MANAGE the WLC
+Quản lý tab allows you change the ways you can MANAGE the WLC
 
-Clicking “Mgmt Via Wireless” allows you change if you can access MANAGEMENT via WI-FI
+Clicking “Mgmt Via Không dây” allows you change if you can Access Quản lý via WI-FI
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/605361a0-c8da-47fc-bca3-af09751838dd)
 
@@ -226,11 +226,11 @@ Clicking “Mgmt Via Wireless” allows you change if you can access MANAGEMENT 
 
 ---
 
-SECURITY tab can allow us to create ACCESS LISTS
+Bảo mật tab can allow us to create Access LISTS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7eddccfb-07cd-4ba9-914e-54161a4b10f3)
 
-First, NAME the ACL and what kind of IP ADDRESS it’s for
+First, NAME the ACL and what kind of Địa chỉ IP it’s for
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e9f303bc-9078-4ff2-be86-f63fb9877008)
 
@@ -242,7 +242,7 @@ CLICK “Add New Rule” to specify the ACL Rules (What traffic can pass)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/afbdb580-5383-4f32-9713-708f0a4ebb7e)
 
-We now need to APPLY the ACL (just like applying it to an INTERFACE on a ROUTER)
+We now need to APPLY the ACL (just like applying it to an Giao diện on a Router)
 
 Click “CPU ACL” from the left-hand menu
 

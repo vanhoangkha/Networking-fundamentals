@@ -1,13 +1,13 @@
-# 39. DHCP (Dynamic Host Configuration Protocol)
+# 39. DHCP (Dynamic Host Cấu hình Giao thức)
 
-THE PURPOSE OF DHCP
+Mục đích của DHCP
 
-- DHCP is used to allow HOSTS to automatically / dynamically learn various aspects of their NETWORK configuration; without MANUAL / STATIC configuration
+- DHCP is used to allow HOSTS to automatically / dynamically learn various aspects of their Mạng Cấu hình; without MANUAL / STATIC Cấu hình
 - It is an ESSENTIAL part of modern NETWORKS
-    - When you connect a phone / laptop to WiFi, do you ask your NETWORK admin which IP ADDRESS, SUBNET MASK, DEFAULT GATEWAY, etc the phone / laptop should use ?
+    - When you connect a phone / laptop to WiFi, do you ask your Mạng admin which Địa chỉ IP, Mạng con MASK, Mặc định Gateway, etc the phone / laptop should use ?
 - Typically used for CLIENT devices (workstations, phones, etc)
 - DEVICES (such as ROUTERS, SERVERS, etc) are usually MANUALLY configured
-- In small NETWORKS (such as Home NETWORKS), the ROUTER typically acts as the DHCP SERVER for HOSTS in the LAN
+- In small NETWORKS (such as Home NETWORKS), the Router typically acts as the DHCP SERVER for HOSTS in the LAN
 - In LARGE NETWORKS, the DHCP SERVER is usually a Windows / Linux SERVER
 
 ---
@@ -24,9 +24,9 @@ BASIC FUNCTIONS OF DHCP
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bd292766-0a22-4c0a-ac96-0262ba03d720)
 
-Note: ALL the IPs are the same because this is Jeremy’s Home ROUTER (it provides all these services)
+Note: ALL the IPs are the same because this is Jeremy’s Home Router (it provides all these services)
 
-Command `ipconfig /release`
+Lệnh `ipconfig /release`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/13c9528b-8ecb-43e3-a3be-9993c03e1fa5)
 
@@ -40,7 +40,7 @@ Wireshark capture of the `ipconfig /release` mechanism
 
 ---
 
-Command `ipconfig /renew`
+Lệnh `ipconfig /renew`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/de06e7a3-b011-48eb-a5c6-8a6295258fbc)
 
@@ -50,7 +50,7 @@ Renewing Process has FOUR messages:
 
 1) DHCP DISCOVER
 
-- Are there any DHCP Servers in this NETWORK? I need an IP ADDRESS ?
+- Are there any DHCP Servers in this Mạng? I need an Địa chỉ IP ?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/70f7fc01-3222-4fec-8bd3-8b96cfbc086f)
 
@@ -58,16 +58,16 @@ NOTE the use of DHCP Reserved Ports 67 and 68
 
 2) DHCP OFFER:
 
-- How about THIS IP ADDRESS ?
+- How about THIS Địa chỉ IP ?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/0f6e38bc-5eb0-4538-b0d1-e5795ee3af3a)
 
-- The DHCP OFFER message can be either BROADCAST or UNICAST
-- NOTE OPTIONS at the bottom : Message Type, Server ID, Lease Time, Subnet, etc.
+- The DHCP OFFER message can be either Broadcast or Unicast
+- NOTE OPTIONS at the bottom : Message Type, Server ID, Lease Time, Mạng con, etc.
 
 3) DHCP REQUEST
 
-- I want to use the IP ADDRESS that was offered
+- I want to use the Địa chỉ IP that was offered
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3023a977-2477-42ec-8890-283ef326bad1)
 
@@ -86,11 +86,11 @@ DHCP RENEW PROCESS SUMMARY
 
 DHCP RELAY
 
-- Some NETWORK engineers might choose to configure each ROUTER to act as the DHCP SERVER for its connected LANS
+- Some Mạng engineers might choose to configure each Router to act as the DHCP SERVER for its connected LANS
 - However, large enterprises often choose to use a CENTRALIZED DHCP SERVER
 - If the SERVER is centralized, it won’t receive the DHCP CLIENTS’ Broadcast DHCP messages
-- To FIX this, you can configure a ROUTER to act as a DHCP RELAY AGENT
-- The ROUTER will forward the clients’ Broadcast DHCP messages to the remote DHCP SERVER as a Unicast messages
+- To FIX this, you can configure a Router to act as a DHCP RELAY AGENT
+- The Router will forward the clients’ Broadcast DHCP messages to the remote DHCP SERVER as a Unicast messages
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/3c0b188e-a120-499e-b089-18740d0d4559)
 
@@ -104,7 +104,7 @@ Commands for configuring DHCP SERVERS in Cisco IOS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5cac378b-2769-4da2-bd46-1bd93dd5d144)
 
-Command `show ip dhcp binding`
+Lệnh `show ip dhcp binding`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2cb89226-c24f-4cac-86f0-5cfb5ba16575)
 
@@ -112,7 +112,7 @@ Command `show ip dhcp binding`
 
 ---
 
-DHCP RELAY AGENT CONFIGURATION IN IOS
+DHCP RELAY AGENT Cấu hình IN IOS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/d1e1df72-85ef-4323-87f4-26cf14132bda)
 
@@ -120,7 +120,7 @@ RELAY AGENT MUST HAVE CONNECTIVITY WITH DHCP SERVER
 
 ---
 
-DHCP CLIENT CONFIGURATION IN IOS
+DHCP CLIENT Cấu hình IN IOS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/353e553c-b4a5-4f18-818f-3d7a395491b3)
 

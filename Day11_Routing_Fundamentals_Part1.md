@@ -1,32 +1,32 @@
-# 11. ROUTING FUNDAMENTALS : PART 1
+# 11. Định tuyến FUNDAMENTALS : PART 1
 
 
 
 
-### WHAT IS ROUTING ?
+### là gì Định tuyến ?
 
 
 
-ROUTING is the process that routers use to determine the path that IP packets should take over a network to reach their destination.
+Định tuyến is the process that routers use to determine the path that IP packets should take over a Mạng to reach their destination.
 
-- ROUTERS store routes to all their known destinations in a ROUTING TABLE
-- When ROUTERS receive PACKETS, they look in the ROUTING TABLE to find the best route to forward that packet.
+- ROUTERS store routes to all their known destinations in a Định tuyến TABLE
+- When ROUTERS receive PACKETS, they look in the Định tuyến TABLE to find the best Tuyến đường to forward that Gói tin.
 
-There are two main routing methods (methods that routers use to learn routes):
+There are two main Định tuyến methods (methods that routers use to learn routes):
 
-- DYNAMIC ROUTING : ROUTERS use Dynamic Routing Protocols (ie: OSPF) to share routing information with each other automatically and build their routing tables.
-- STATIC ROUTING : A network engineer / Admin manually configures routes on the router.
+- DYNAMIC Định tuyến : ROUTERS use Dynamic Định tuyến Protocols (ie: OSPF) to share Định tuyến information with each other automatically and build their Định tuyến tables.
+- STATIC Định tuyến : A Mạng engineer / Admin manually configures routes on the Router.
 
-A ROUTE tells the ROUTER :
+A Tuyến đường tells the Router :
 
-- to send a packet to Destination X, you should send the pack to ***next-hop*** Y
-- or if the Destination is directly connected to the router, *send the packet directly to the destination.*
-- or if the Destination is the router’s own IP address, *receive the packet for yourself (don’t forward it).*
+- to send a Gói tin to Destination X, you should send the pack to ***next-hop*** Y
+- or if the Destination is directly connected to the Router, *send the Gói tin directly to the destination.*
+- or if the Destination is the Router’s own Địa chỉ IP, *receive the Gói tin for yourself (don’t forward it).*
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8ceefb10-d70d-4530-969d-40347ed34297)
 
 
-WAN (Wide Area Network) = network that extends over a large geographic area.
+WAN (Wide Area Mạng) = Mạng that extends over a large geographic area.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/b3555fdd-37a4-4bc8-b998-76e0b5455bb1)
 

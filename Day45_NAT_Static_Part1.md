@@ -2,8 +2,8 @@
 
 PRIVATE IPv4 ADDRESSES (RFC 1918)
 
-- IPv4 doesn’t provide enough ADDRESSES for all DEVICES that need an IP ADDRESS in the modern world
-- The long-term solution is to switch to IPv6
+- IPv4 doesn’t provide enough ADDRESSES for all DEVICES that need an Địa chỉ IP in the modern world
+- The long-term solution is to Switch to IPv6
 - There are THREE MAIN short-term solutions:
     - CIDR
     - PRIVATE IPv4 ADDRESS
@@ -24,17 +24,17 @@ PRIVATE IPv4 ADDRESSES (RFC 1918)
 
 INTRO TO NAT
 
-- NETWORK ADDRESS TRANSLATION (NAT) is used to modify the SOURCE and / or DESTINATION IP ADDRESSES of packets
-- There are various reasons to use NAT, but the MOST common reason is to ALLOW HOSTS with PRIVATE IP ADDRESSES to communicate with other HOSTS over the INTERNET
-- For the CCNA you have to understand SOURCE NAT and how to configure it on CISCO ROUTERS
+- Mạng ADDRESS TRANSLATION (NAT) is used to modify the SOURCE and / or DESTINATION IP ADDRESSES of packets
+- There are various reasons to use NAT, but the MOST common reason is to ALLOW HOSTS with PRIVATE IP ADDRESSES to communicate with other HOSTS over the Internet
+- For the CCNA you have to understand SOURCE NAT and Cách configure it on CISCO ROUTERS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/11cbc222-4b2d-4283-9a8f-86cfff2e109d)
 
 ---
 
-STATIC NAT
+NAT tĩnh
 
-- STATIC NAT involves statically configuring ONE-TO-ONE MAPPINGS of PRIVATE IP ADDRESSES to PUBLIC ADDRESSES
+- NAT tĩnh involves statically configuring ONE-TO-ONE MAPPINGS of PRIVATE IP ADDRESSES to PUBLIC ADDRESSES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/40867b28-66ff-4182-be97-8495a4c2de23)
 
@@ -50,22 +50,22 @@ THE SECOND MAPPING WILL BE REJECTED
 
 ---
 
-STATIC NAT CONFIGURATIONS
+NAT tĩnh CONFIGURATIONS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1b0d6780-56d8-4ea0-870b-abb65d3a6e66)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/add755f6-2d2c-4fe8-aae1-6d1aeecb6ea2)
 
-Command `clear ip nat translation`
+Lệnh `clear ip nat translation`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/4266d928-0970-4386-82d7-159cc2b02df6)
 
-Command `show ip nat statistics`
+Lệnh `show ip nat statistics`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2e70576f-3879-4ba6-8ffa-307fd0c243c9)
 
 ---
 
-COMMAND REVIEW
+Lệnh REVIEW
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/061f4c43-e755-41e8-b8b4-9e31e0723a19)

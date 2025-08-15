@@ -1,10 +1,10 @@
 # 32. IPv6 : PART 2
 
-IPv6 ADDRESS CONFIGURATION (EUI-64)
+IPv6 ADDRESS Cấu hình (EUI-64)
 
 - EUI stands for Extended Unique Identifier
-- (Modified) EUI-64 is a method of converting a MAC address (48-bits) into a 64-bit INTERFACE identifier
-- This INTERFACE identifier can then become the “HOST portion” of a /64 IPv6 ADDRESS
+- (Modified) EUI-64 is a method of converting a Địa chỉ MAC (48-bits) into a 64-bit Giao diện identifier
+- This Giao diện identifier can then become the “HOST portion” of a /64 IPv6 ADDRESS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bee8f7bf-3877-4307-9ca7-863af19aae6c)
 
@@ -40,21 +40,21 @@ WHY INVERT THE 7th BIT ?
     - UAA (Universally Administered Address)
         - Uniquely assigned to the device of the manufacturer
     - LAA (Locally Administered Address)
-        - Manually assigned by an Admin (with the mac-address command on the INTERFACE) or protocol. Doesn’t have to be globally unique.
-- You can INDENTIFY a UAA or LAA by the 7th bit of the MAC ADDRESS, called the U/L bit (Universal/Local bit)
+        - Manually assigned by an Admin (with the mac-address Lệnh on the Giao diện) or Giao thức. Doesn’t have to be globally unique.
+- You can INDENTIFY a UAA or LAA by the 7th bit of the Địa chỉ MAC, called the U/L bit (Universal/Local bit)
     - U/L bit set to 0 = UAA
     - U/L bit set to 1 = LAA
 - In the context of IPv6 addresses/EUI-64, the meaning of the U/L bit is reversed:
-    - U/L bit set to 0 = The MAC address the EUI-64 INTERFACE ID was made from was an LAA
-    - U/L bit set to 1 = The MAC address the EUI-64 INTERFACE ID was made from was a UAA
+    - U/L bit set to 0 = The Địa chỉ MAC the EUI-64 Giao diện ID was made from was an LAA
+    - U/L bit set to 1 = The Địa chỉ MAC the EUI-64 Giao diện ID was made from was a UAA
 
 ---
 
 IPv6 ADDRESS TYPES
 
-1) GLOBAL UNICAST ADDRESSES
+1) GLOBAL Unicast ADDRESSES
 
-- **Global Unicast** IPv6 ADDRESSES are PUBLIC ADDRESSES which can be used over the INTERNET
+- **Global Unicast** IPv6 ADDRESSES are PUBLIC ADDRESSES which can be used over the Internet
 - Must REGISTER to use them.
 - They are PUBLIC ADDRESSES so need to be GLOBALLY UNIQUE
 
@@ -63,7 +63,7 @@ IPv6 ADDRESS TYPES
 
 - NOW defined as ALL ADDRESSES which are not RESERVED for other purposes
 
-Remember THESE THREE PARTS of a GLOBAL UNICAST ADDRESS
+Remember THESE THREE PARTS of a GLOBAL Unicast ADDRESS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/c5552f0e-eca2-4069-a656-611b5c196402)
 
@@ -71,11 +71,11 @@ Remember THESE THREE PARTS of a GLOBAL UNICAST ADDRESS
 
 2) UNIQUE LOCAL ADDRESSES 
 
-- **Unique Local** IPv6 ADDRESSES are PRIVATE ADDRESSES which cannot be used over the internet
+- **Unique Local** IPv6 ADDRESSES are PRIVATE ADDRESSES which cannot be used over the Internet
 - You do NOT need to REGISTER to use them
 - Can be used FREELY within INTERNAL NETWORKS
 - Do NOT need to be GLOBALLY UNIQUE (*)
-- CANNOT be ROUTED over the INTERNET
+- CANNOT be ROUTED over the Internet
 
 <aside>
 💡 Uses the ADDRESS block FC00 ::/7
@@ -94,7 +94,7 @@ Remember THESE THREE PARTS of a GLOBAL UNICAST ADDRESS
 3) LINK-LOCAL ADDRESSES
 
 - **Link-Local** IPv6 ADDRESSES are AUTOMATICALLY generated on IPv6-enabled INTERFACES
-- Use command `R1(config-if)# ipv6 enable` on an interface to enable IPv6 on an INTERFACE
+- Use Lệnh `R1(config-if)# ipv6 enable` on an Giao diện to Kích hoạt IPv6 on an Giao diện
 
 <aside>
 💡 Uses the ADDRESS block FE80::/10
@@ -103,67 +103,67 @@ Remember THESE THREE PARTS of a GLOBAL UNICAST ADDRESS
 </aside>
 
 - The STANDARD states that the 54-bits AFTER FE80/10 should be ALL 0’s so you won’t see Link-Local ADDRESSES beginning with FE9, FEA, or FEB - ONLY FE8(!)
-- The INTERFACE ID is generated using EUI-64 rules
-- Link-Local means that these addresses are used for communication within a single link (SUBNET)
-    - ROUTER will not route PACKETS with a Link-Local DESTINATION IPv6 ADDRESS
+- The Giao diện ID is generated using EUI-64 rules
+- Link-Local means that these addresses are used for communication within a single link (Mạng con)
+    - Router will not Tuyến đường PACKETS with a Link-Local DESTINATION IPv6 ADDRESS
 - Common uses of Link-Local Addresses:
-    - Routing Protocol Peerings (OSPFv3 uses Link-Local Addresses for Neighbour Adjacencies)
+    - Định tuyến Giao thức Peerings (OSPFv3 uses Link-Local Addresses for Neighbour Adjacencies)
     - NEXT-HOP ADDRESS for STATIC ROUTES
-    - Neighbor Discovery Protocol (NDP, IPv6’s replacement for ARP) uses Link-Local ADDRESSES to function
+    - Neighbor Discovery Giao thức (NDP, IPv6’s replacement for ARP) uses Link-Local ADDRESSES to function
     
-    Network using Link-Local Addresses for “next-hop” routing
+    Mạng using Link-Local Addresses for “next-hop” Định tuyến
     
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7d74c4fb-ef52-4436-8285-77ab571f2964)
     
 
 ---
 
-4) MULTICAST ADDRESSES
+4) Multicast ADDRESSES
 
 - **Unicast Addresses** are one-to-one
     - ONE SOURCE to ONE DESTINATION
 - ***Broadcast*** Addresses are one-to-all
-    - ONE SOURCE to ALL DESTINATIONS (within the subnet)
+    - ONE SOURCE to ALL DESTINATIONS (within the Mạng con)
 - **Multicast** Addresses are one-to-many
-    - ONE SOURCE to MULTIPLE DESTINATIONS (that have joined the specific ***multicast*** group)
+    - ONE SOURCE to MULTIPLE DESTINATIONS (that have joined the specific ***Multicast*** group)
 
 <aside>
-💡 IPv6 uses range FF00::/8 for multicast
+💡 IPv6 uses range FF00::/8 for Multicast
 (FF00:: to FFFF : FFFF : FFFF : FFFF : FFFF : FFFF : FFFF : FFFF)
 
 </aside>
 
 - **IPv6 doesn’t use Broadcast** (there IS NO “Broadcast Address” in IPv6!)
 
-YOU MUST KNOW THE MULTICAST ADDRESS FOR EACH ROUTER TYPE
+YOU MUST KNOW THE Multicast ADDRESS FOR EACH Router TYPE
 
-NOTE that the IPv6 and IPv4 Addresses share the same last digit
+Lưu ý rằng the IPv6 and IPv4 Addresses share the same last digit
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e5efcdd7-5d7d-4020-a179-07ba267bf5ab)
 
-MULTICAST ADDRESS SCOPES
+Multicast ADDRESS SCOPES
 
-- IPv6 defines multiple MULTICAST ‘scopes’ which indicate how far the PACKET should be forwarded
-- The ADDRESS in the previous slide all use the ‘link-local’ scope (FF02), which stays in the LOCAL SUBNET
+- IPv6 defines multiple Multicast ‘scopes’ which indicate how far the Gói tin should be forwarded
+- The ADDRESS in the previous slide all use the ‘link-local’ scope (FF02), which stays in the LOCAL Mạng con
 
 **IPv6 Multicast Scope Types:**
 
-- **Interface-Local (FF01)**
-    - The PACKET doesn’t leave the LOCAL device
+- **Giao diện-Local (FF01)**
+    - The Gói tin doesn’t leave the LOCAL device
     - Can be used to SEND traffic to a SERVICE within the LOCAL device
     
 - **Link-Local (FF02)**
-    - The PACKET remains in the LOCAL SUBNET
-    - ROUTERS will not route the PACKET between SUBNETS
+    - The Gói tin remains in the LOCAL Mạng con
+    - ROUTERS will not Tuyến đường the Gói tin between SUBNETS
 
 - **Site-Local  (FF05)**
-    - The PACKET can be forwarded by ROUTERS
+    - The Gói tin can be forwarded by ROUTERS
     - Should be limited to a SINGLE PHYSICAL LOCATION (not forwarded over a WAN)
 - **Organization-Local (FF08)**
     - Wider in scope than Site-Local (an entire company / ORGANIZATION)
 - **Global (FF0E)**
     - No boundaries
-    - Possible to be ROUTED over the INTERNET
+    - Possible to be ROUTED over the Internet
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5d5f2d6e-3e21-4ab7-bf8e-dec5d12b6eed)
 
@@ -172,10 +172,10 @@ MULTICAST ADDRESS SCOPES
 - **ANYCAST is a NEW feature of IPv6**
 - ANYCAST is ‘one-to-one-of-many’
 - Multiple ROUTERS are configured with the SAME IPv6 ADDRESS
-    - They use a ROUTING PROTOCOL to advertise the address
-    - When HOSTS sends PACKETS to that DESTINATION ADDRESS, ROUTERS will forward it to the NEAREST ROUTER configured with THAT IP ADDRESS (based on ROUTING METRIC)
+    - They use a Định tuyến Giao thức to advertise the address
+    - When HOSTS sends PACKETS to that DESTINATION ADDRESS, ROUTERS will forward it to the NEAREST Router configured with THAT Địa chỉ IP (based on Định tuyến Metric)
 - There is NO SPECIFIC ADDRESS range for ANYCAST ADDRESSES.
-    - Use a regular UNICAST (Global Unicast, Unique Local) and specify THAT as an ANYCAST ADDRESS
+    - Use a regular Unicast (Global Unicast, Unique Local) and specify THAT as an ANYCAST ADDRESS
     - `R1(config-if)# ipv6 address 2000:db8:1:1::99/128 anycast`
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/71729af9-6c02-49bd-b290-af7f5009bd6e)
@@ -184,9 +184,9 @@ MULTICAST ADDRESS SCOPES
 
 - The :: Address = The *unspecified* IPv6 ADDRESS
     - Can be used when a DEVICE doesn’t yet know its IPv6 ADDRESS
-    - IPv6 DEFAULT ROUTES are configured to ::/0
+    - IPv6 Mặc định ROUTES are configured to ::/0
     - IPv4 equivalent: 0.0.0.0
 - The ::1 Address = The Loopback Address
-    - Used to test the PROTOCOL STACK on the LOCAL DEVICE
+    - Used to test the Giao thức STACK on the LOCAL DEVICE
     - Messages sent to THIS ADDRESS are processed within the LOCAL DEVICE but not SENT to other DEVICES
     - IPv4 equivalent : 127.0.0.0 /8  address range

@@ -1,8 +1,8 @@
-# 40. SNMP (Simple Network Management Protocol)
+# 40. SNMP (Simple Mạng Quản lý Giao thức)
 
 SNMP OVERVIEW
 
-- SNMP is an INDUSTRY-STANDARD FRAMEWORK and PROTOCOL that was originally released in 1988
+- SNMP is an INDUSTRY-STANDARD FRAMEWORK and Giao thức that was originally released in 1988
 
 These RFCs make up SNMPv1 (Do not need to memorize)
 
@@ -13,12 +13,12 @@ RFC 1067 - A simple network management protocol
 ```
 
 - Don’t let the ‘Simple’ in the name fool you !
-- SNMP can be used to monitor the STATUS of DEVICES, make CONFIGURATION CHANGES, etc.
+- SNMP can be used to monitor the STATUS of DEVICES, make Cấu hình CHANGES, etc.
 - There are TWO MAIN TYPES of DEVICES in SNMP:
     - MANAGED DEVICES
         - These are the DEVICES being managed using SNMP
             - Ex: ROUTERS, SWITCHES
-    - NETWORK MANAGEMENT STATION (NMS)
+    - Mạng Quản lý STATION (NMS)
         - The DEVICE / DEVICES managing the MANAGED DEVICES
         - THIS is the SNMP ‘SERVER’
 
@@ -90,31 +90,31 @@ SNMP MESSAGES
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fe9266fc-12b8-41d3-8d8f-95f3f7b52ef6)
 
 
-SNMP AGENT listens for MESSAGES on UDP Port 161
+SNMP AGENT listens for MESSAGES on UDP Cổng 161
 
-SNMP MANAGER listens for MESSAGES on UDP Port 162
+SNMP MANAGER listens for MESSAGES on UDP Cổng 162
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/23e6fd0a-ed1e-441b-b7b0-457a4e55f645)
 
 ---
 
-SNMPv2c CONFIGURATION (Basic)
+SNMPv2c Cấu hình (Basic)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/caf4624e-9ca2-4c8e-82fe-53db2499a38f)
 
-WHAT HAPPENS WITH R1’s G0/1 INTERFACE GOES DOWN?
+WHAT HAPPENS WITH R1’s G0/1 Giao diện GOES DOWN?
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/96341ab3-1ed3-4dd4-903c-fa57ab1f83be)
 
 NOTE:
 
-UDP message sent to Destination Port 162 (SNMP Manager)
+UDP message sent to Destination Cổng 162 (SNMP Manager)
 
 “version” is set to v2c
 
 community is “Jeremy1” (Read Only - no Set messages)
 
-snmpV2-trap : trap message sent due to interface G0/1 going down
+snmpV2-trap : trap message sent due to Giao diện G0/1 going down
 
 variable-bindings : contains the OID sent to identify the issue.
 
@@ -122,14 +122,14 @@ variable-bindings : contains the OID sent to identify the issue.
 
 SNMP SUMMARY
 
-- SNMP helps MANAGE DEVICES over a NETWORK
+- SNMP helps MANAGE DEVICES over a Mạng
 - MANAGED DEVICES are the devices being managed using SNMP (such as ROUTERS, SWITCHES, FIREWALLS)
-- NETWORK MANAGEMENT STATIONS (NMS) are the SNMP “servers” that manage the devices
+- Mạng Quản lý STATIONS (NMS) are the SNMP “servers” that manage the devices
     - NMS receives notifications from Managed Devices
     - NMS changes settings on Managed Devices
     - NMS checks status of Managed Devices
     
-- Variables, such as Interface Status, Temperature, Traffic Load, Hostname, etc are STORED in the MANAGMENT INFORMATION BASE (MIB) and identified using Object IDs (OIDs)
+- Variables, such as Giao diện Status, Temperature, Traffic Load, Hostname, etc are STORED in the MANAGMENT INFORMATION BASE (MIB) and identified using Object IDs (OIDs)
 
 Main SNMP versions : SNMPv1, SNMPv2c, SNMPv3
 

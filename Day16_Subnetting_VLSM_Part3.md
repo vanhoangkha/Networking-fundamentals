@@ -1,10 +1,10 @@
-# 15. SUBNETTING (VLSM) : PART 3
+# 15. Chia mạng con (VLSM) : PART 3
 
-The process of subnetting Class A, Class B, and Class C is identical.
+The process of Chia mạng con Class A, Class B, and Class C is identical.
 
-SUBNETTING CLASS A NETWORKS
+Chia mạng con CLASS A NETWORKS
 
-Given a 10.0.0.0/8 network, you must create 2000 subnets which will distributed to various enterprises. What prefix length must you use?
+Given a 10.0.0.0/8 Mạng, you must create 2000 subnets which will distributed to various enterprises. What prefix length must you use?
 
 2^10 = 1024 so 2^11 = 2048. We have to "borrow" 11 bits (Left to Right) to get enough subnets
 
@@ -15,21 +15,21 @@ Given a 10.0.0.0/8 network, you must create 2000 subnets which will distributed 
 0000 1010 . 0000 0000 . 000 | 00000 . 0000 0000
 1111 1111 . 1111 1111 . 111 | 00000 . 0000 0000
 
-255.255.224.0 is the Subnet mask
+255.255.224.0 is the Mạng con mask
 
 The answer is /19 (/8 + /11 = /19)
 
-How many hosts per subnet? There are 13 host bits remaining so:
+How many hosts per Mạng con? There are 13 host bits remaining so:
 
-2^13 - 2 = 8190 hosts per subnet
+2^13 - 2 = 8190 hosts per Mạng con
 
 ---
 
-VARIABLE-LENGTH SUBNET MASKS (VLSM)
+VARIABLE-LENGTH Mạng con MASKS (VLSM)
 
-- Until now, we have practiced subnetting using FLSM (Fixed-Length Subnet Masks).
-- This means that all of the subnets use the same prefix length (ie: Subnetting a Class C network into 4 subnets using /26)
-- VLSM (Variable-Length Subnet Masks) is the process of creating subnets of different sizes, to make your use of network addresses more efficient.
+- Until now, we have practiced Chia mạng con using FLSM (Fixed-Length Mạng con Masks).
+- This means that all of the subnets use the same prefix length (ie: Chia mạng con a Class C Mạng into 4 subnets using /26)
+- VLSM (Variable-Length Mạng con Masks) is the process of creating subnets of different sizes, to make your use of Mạng addresses more efficient.
 - VLSM is more complicated than FLSM, BUT it's easy if you follow the steps correctly.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/30a08f93-796a-4fe9-854e-58af0bcbd69b)
@@ -174,8 +174,8 @@ TOTAL NUMBER OF USABLE HOSTS: 2 hosts (2^2 - 2)
 ```
 ---
 
-ADDITIONAL PRACTICE FOR SUBNETTING
+ADDITIONAL PRACTICE FOR Chia mạng con
 
-[http://www.subnettingquestions.com](http://www.subnettingquestions.com/)
-[http://subnetting.org](http://subnetting.org/)
-[https://subnettingpractice.com](https://subnettingpractice.com/) *** Preferred site ***
+[HTTP://www.subnettingquestions.com](HTTP://www.subnettingquestions.com/)
+[HTTP://Chia mạng con.org](HTTP://Chia mạng con.org/)
+[HTTPS://subnettingpractice.com](HTTPS://subnettingpractice.com/) *** Preferred site ***

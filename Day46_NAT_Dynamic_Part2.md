@@ -1,27 +1,27 @@
 # 45. NAT (DYNAMIC): PART 2
 
-MORE ABOUT STATIC NAT
+MORE ABOUT NAT tĩnh
 
-- STATIC NAT involves statically configuring one-to-one mappings of PRIVATE IP ADDRESSES to PUBLIC IP ADDRESSES
-- When traffic from the INTERNAL HOST is sent to the OUTSIDE NETWORK, the ROUTER will translate the SOURCE ADDRESS
+- NAT tĩnh involves statically configuring one-to-one mappings of PRIVATE IP ADDRESSES to PUBLIC IP ADDRESSES
+- When traffic from the INTERNAL HOST is sent to the OUTSIDE Mạng, the Router will translate the SOURCE ADDRESS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/60ba15dd-ee70-4bd9-b9a7-febf3ebbcd10)
 
-- HOWEVER, this one-to-one mapping also allows EXTERNAL HOSTS to access the INTERNAL HOST via INSIDE GLOBAL ADDRESS
+- HOWEVER, this one-to-one mapping also allows EXTERNAL HOSTS to Access the INTERNAL HOST via INSIDE GLOBAL ADDRESS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/09de8e06-249c-4185-9d09-ca5fc1435f5a)
 
 ---
 
-DYNAMIC NAT
+NAT động
 
-- In DYNAMIC NAT, the ROUTER dynamically maps INSIDE LOCAL ADDRESSES to INSIDE GLOBAL ADDRESSES, as needed
+- In NAT động, the Router dynamically maps INSIDE LOCAL ADDRESSES to INSIDE GLOBAL ADDRESSES, as needed
 - An ACL is used to identify WHICH traffic should be translated
     - If the SOURCE IP is PERMITTED; the SOURCE IP will be translated
     - If the SOURCE IP is DENIED; the SOURCE IP will NOT be translated
         
         <aside>
-        💡 However, Packet Traffic will NOT be dropped
+        💡 However, Gói tin Traffic will NOT be dropped
         
         </aside>
         
@@ -31,11 +31,11 @@ DYNAMIC NAT
 
   
 
-- Although they are dynamically assigned, the mappings are still one-to-one (one INSIDE LOCAL IP ADDRESS per INSIDE GLOBAL IP ADDRESS)
+- Although they are dynamically assigned, the mappings are still one-to-one (one INSIDE LOCAL Địa chỉ IP per INSIDE GLOBAL Địa chỉ IP)
 - If there are NOT enough INSIDE GLOBAL IP ADDRESSES available (=ALL are being used), it is called ‘NAT POOL EXHAUSTION’
-    - If a PACKET from another INSIDE HOST arrives and needs NAT but there are no AVAILABLE ADDRESSES, the ROUTER will drop the PACKET
-    - The HOST will be unable to access OUTSIDE NETWORKS until one of the INSIDE GLOBAL IP ADDRESSES becomes available
-    - DYNAMIC NAT entries will time out automatically if not used, or you can clear them manually
+    - If a Gói tin from another INSIDE HOST arrives and needs NAT but there are no AVAILABLE ADDRESSES, the Router will drop the Gói tin
+    - The HOST will be unable to Access OUTSIDE NETWORKS until one of the INSIDE GLOBAL IP ADDRESSES becomes available
+    - NAT động entries will time out automatically if not used, or you can clear them manually
 
 NAT POOL EXHAUSTION
 
@@ -45,7 +45,7 @@ NAT POOL EXHAUSTION
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/59e68f3b-8acc-4d7e-8d8e-f930dec3be5f)
 
-DYNAMIC NAT CONFIGURATION
+NAT động Cấu hình
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/6694689a-4880-497c-a1f6-838003810f0c)
 
@@ -61,14 +61,14 @@ DYNAMIC NAT CONFIGURATION
 
 DYNAMIC PAT (NAT OVERLOAD)
 
-- PAT (NAT OVERLOAD) translates BOTH the IP ADDRESS and the PORT NUMBER (if necessary)
-- By using a unique PORT NUMBER for each communication flow, a single PUBLIC IP ADDRESS can be used by many different INTERNAL HOSTS
-    - PORT NUMBERS are 16 bits = over 65,000 available port numbers
-- The ROUTER will keep track of which INSIDE LOCAL ADDRESS is using which INSIDE GLOBAL ADDRESS and PORT
+- PAT (NAT OVERLOAD) translates BOTH the Địa chỉ IP and the Cổng NUMBER (if necessary)
+- By using a unique Cổng NUMBER for each communication flow, a single PUBLIC Địa chỉ IP can be used by many different INTERNAL HOSTS
+    - Cổng NUMBERS are 16 bits = over 65,000 available Cổng numbers
+- The Router will keep track of which INSIDE LOCAL ADDRESS is using which INSIDE GLOBAL ADDRESS and Cổng
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8f720b58-9700-4908-bd8d-a1846191854b)
 
-PAT CONFIGURATION (POOL)
+PAT Cấu hình (POOL)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2a1acc30-658c-4479-9984-9c620b5e6ce3)
 
@@ -76,7 +76,7 @@ PAT CONFIGURATION (POOL)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/088db6f4-a695-4765-b435-2f20a5e16c9e)
 
-PAT CONFIGURATION (INTERFACE)
+PAT Cấu hình (Giao diện)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/8a3990ff-c58e-44a9-928d-e534f0cff690)
 
@@ -88,6 +88,6 @@ PAT CONFIGURATION (INTERFACE)
 
 ---
 
-COMMAND REVIEW
+Lệnh REVIEW
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/fe0655bb-4020-4ddc-bec4-b2fb198e2314)

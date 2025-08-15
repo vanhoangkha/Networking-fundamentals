@@ -1,8 +1,8 @@
 # 8. IPv4 ADDRESSING : PART 2
 
-MAXIMUM HOSTS PER NETWORK
+MAXIMUM HOSTS PER Mạng
 
-Let's take a Class C Network:
+Let's take a Class C Mạng:
 
 192.168.1.0/24
 
@@ -12,41 +12,41 @@ Said another way, the HOST portion (the .0) is equal to 8 bits so...
 
 Host portion = 8 bits = 2^8 = 256
 
-HOWEVER, since the Network Address (Network ID)
+HOWEVER, since the Mạng Address (Mạng ID)
 
 192.168.1.0 is Reserved
 
 AND
 
-192.168.1.255 (BROADCAST ADDRESS) is ALSO reserved.
+192.168.1.255 (Broadcast ADDRESS) is ALSO reserved.
 
-The MAXIMUM Hosts per Network = 2^8-2 = 254 hosts
+The MAXIMUM Hosts per Mạng = 2^8-2 = 254 hosts
 
 ---
 
-What about a Class B Network ?
+What about a Class B Mạng ?
 
 172.16.0.0/16 ----> 172.16.255.255/16
 
 Host portion = 16 bits = 2^16 = 65,536
 
-Maximum hosts per network = 2^16-2 = 65,534 hosts
+Maximum hosts per Mạng = 2^16-2 = 65,534 hosts
 
 ---
 
-What about a Class A Network ?
+What about a Class A Mạng ?
 
 10.0.0.0/8 -------------> 10.255.255.255/8
 
 Host portion = 24 bits = 2^24 = 16,777,216
 
-Maximum hosts per network = 2^24-2 = 16,777,214 hosts
+Maximum hosts per Mạng = 2^24-2 = 16,777,214 hosts
 
 ---
 
 THEREFORE:
 
-The formula for calculating the number of HOSTS on a network is:
+The formula for calculating the number of HOSTS on a Mạng is:
 
 2 ^ N - 2 (2 to the power of N - 2)
 
@@ -56,9 +56,9 @@ where N = number of HOST bits
 
 FIRST / LAST USABLE ADDRESSES
 
-Class C Network
+Class C Mạng
 
-192.168.1.0/24 (NETWORK ADDRESS)
+192.168.1.0/24 (Mạng ADDRESS)
 
 Add 1 so the Host Portion = 00000001
 
@@ -66,17 +66,17 @@ Add 1 so the Host Portion = 00000001
 
 ---
 
-192.168.1.255/24 (BROADCAST ADDRESS)
+192.168.1.255/24 (Broadcast ADDRESS)
 
-Subtract 1 from the BROADCAST ADDRESS = 11111110
+Subtract 1 from the Broadcast ADDRESS = 11111110
 
 192.168.1.254/24 = LAST USABLE ADDRESS
 
 ---
 
-Class B Network
+Class B Mạng
 
-172.16.0.0/16 (NETWORK ADDRESS)
+172.16.0.0/16 (Mạng ADDRESS)
 
 Add 1 to Host portion so 0000 0000 0000 0001
 
@@ -84,7 +84,7 @@ Add 1 to Host portion so 0000 0000 0000 0001
 
 ---
 
-172.16.255.255/16 (BROADCAST ADDRESS)
+172.16.255.255/16 (Broadcast ADDRESS)
 
 Subtract 1 to Broadcast Address so 1111 1111 1111 1110
 
@@ -92,9 +92,9 @@ Subtract 1 to Broadcast Address so 1111 1111 1111 1110
 
 ---
 
-Class A Network
+Class A Mạng
 
-10.0.0.0/8 (NETWORK ADDRESS)
+10.0.0.0/8 (Mạng ADDRESS)
 
 Add 1 to Host portion so 00000000 00000000 00000001
 
@@ -102,7 +102,7 @@ Add 1 to Host portion so 00000000 00000000 00000001
 
 ---
 
-10.255.255.255/8 (BROADCAST ADDRESS)
+10.255.255.255/8 (Broadcast ADDRESS)
 
 Subtract 1 to Broadcast Address so 1111 1111 1111 1110
 
@@ -110,35 +110,35 @@ Subtract 1 to Broadcast Address so 1111 1111 1111 1110
 
 ---
 
-CISCO CLI DEVICE CONFIGURATION
+CISCO CLI DEVICE Cấu hình
 
-R1> enable
-R1# show ip interface brief
+R1> Kích hoạt
+R1# show ip Giao diện brief
 
-Lists the Interfaces, IP Addresses, Method, Status, and Protocol.
+Lists the Interfaces, IP Addresses, Method, Status, and Giao thức.
 
 Interfaces:
 
-- What port interfaces are available/connected
+- What Cổng interfaces are available/connected
 
 IP Addresses
 
-- Self explanatory. What IP Address is assigned.
+- Self explanatory. What Địa chỉ IP is assigned.
 
 Method
 
-- What method was the IP address assigned?
+- What method was the Địa chỉ IP assigned?
 
 Status (Layer 1 Status)
 
-- Current status of interface
-- 'administratively down' = Interface has been disabled with the 'shutdown' command
+- Current status of Giao diện
+- 'administratively down' = Giao diện has been disabled with the 'shutdown' Lệnh
 
-Administratively down is the DEFAULT status of Cisco Router interfaces.
+Administratively down is the Mặc định status of Cisco Router interfaces.
 
-Cisco Switch interfaces are NOT administratively down by DEFAULT.
+Cisco Switch interfaces are NOT administratively down by Mặc định.
 
-Protocol (Layer 2 Status)
+Giao thức (Layer 2 Status)
 
 - Cannot operate if Status (Layer 1) is down
   
@@ -151,18 +151,18 @@ Protocol (Layer 2 Status)
 
 R1# conf t
 
-// This enters interface configuration mode
+// This enters Giao diện Cấu hình mode
 
-R1(config)# interface gigabitethernet 0/0
+R1(config)# Giao diện gigabitethernet 0/0
 
-This can be shortened to 'g0/0' like they are listed in physical network maps.
+This can be shortened to 'g0/0' like they are listed in physical Mạng maps.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/df83bf09-c391-45b7-b1b4-41db061b84f4)
 
 
-// This sets the IP ADDRESS and SUBNET MASK of device
+// This sets the Địa chỉ IP and Mạng con MASK of device
 
-R1(config-if) #ip address 10.255.255.254 255.0.0.0
+R1(config-if) #Địa chỉ IP 10.255.255.254 255.0.0.0
 
 // This enables the device
 
@@ -170,13 +170,13 @@ R1(config-if) #no shutdown
 
 ---
 
-Two messages should appear showing the state has changed to 'up' (Status). Second message should show line protocol is now 'up' (Protocol).
+Two messages should appear showing the state has changed to 'up' (Status). Second message should show line Giao thức is now 'up' (Giao thức).
 
-// 'do' allows you to run a Privileged EXEC command from outside the mode.
+// 'do' allows you to run a Privileged EXEC Lệnh from outside the mode.
 
-R1(config-if) #do show ip interface brief
+R1(config-if) #do show ip Giao diện brief
 
-Good to confirm that the device/interface you have configured is up and running.
+Good to confirm that the device/Giao diện you have configured is up and running.
 
 ---
 
@@ -185,11 +185,11 @@ More 'show' CLI Commands
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bdc1152e-1946-4ddb-ae72-1e23b9c9defa)
 
 
-'show interfaces <interface name>'
+'show interfaces <Giao diện name>'
 
-- Shows Layer 1 and Layer 2 information about the interface and some Layer 3.
-- Shows MAC Address (or BIA address)
-- IP Address
+- Shows Layer 1 and Layer 2 information about the Giao diện and some Layer 3.
+- Shows Địa chỉ MAC (or BIA address)
+- Địa chỉ IP
 - ... and so much more
 
 'show interfaces description'
@@ -198,7 +198,7 @@ More 'show' CLI Commands
 
 Example:
 
-// Configure mode for interface Gigabyte Interface 0/0
+// Configure mode for Giao diện Gigabyte Giao diện 0/0
 
 R1(config) #int g0/0
 
@@ -206,6 +206,6 @@ R1(config) #description ## to SW1 ##
 
 This sets the 'Description' column to display:
 
-Interface 				Description
+Giao diện 				Description
 
 Gi0/0                   ## to SW1 ##

@@ -1,31 +1,31 @@
-# 55. WIRELESS FUNDAMENTALS
+# 55. Không dây FUNDAMENTALS
 
-- Although we will briefly look at other types of WIRELESS NETWORKS, in this section of the course we will be focusing on WIRELESS LANs using WI-FI
-- The STANDARDS we use for WIRELESS LANs are defined in IEEE 802.11
+- Although we will briefly look at other types of Không dây NETWORKS, Trong phần này of the course we will be focusing on Không dây LANs using WI-FI
+- The STANDARDS we use for Không dây LANs are defined in IEEE 802.11
 - The term WI-FI is a trademark of the WI-FI ALLIANCE, not directly connected to the IEEE
 - The WI-FI ALLIANCE tests and certifies equipment for 802.11 standards compliance
-- However, WI-FI has become the common term that people use to refer to 802.11 WIRELESS LANs and that term will be used through the course videos
+- However, WI-FI has become the common term that people use to refer to 802.11 Không dây LANs and that term will be used through the course videos
 
-WIRELESS NETWORKS
+Không dây NETWORKS
 
-- WIRELESS NETWORKS have some issues that we need to deal with
+- Không dây NETWORKS have some issues that we need to deal with
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f1adc053-b4e7-4779-b497-d17fb8caa973)
 
-1)  ALL DEVICES within range receive ALL FRAMES, like DEVICES connected to an ETHERNET HUB
+1)  ALL DEVICES within range receive ALL FRAMES, like DEVICES connected to an Ethernet Hub
 
 - Privacy of DATA within the LAN is a greater concern
 - CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance) is used to facilitate HALF-DUPLEX communications
 - CSMA / CD is used in WIRED NETWORKS to detect and recover from COLLISIONS
-- CSMA / CA is used in WIRELESS NETWORKS to avoid COLLISIONS
+- CSMA / CA is used in Không dây NETWORKS to avoid COLLISIONS
 
 - When using CSMA / CA, a DEVICE will wait for other DEVICES to STOP TRANSMITTING before it TRANSMITS DATA itself.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7d266279-5342-478e-8001-0146a016296b)
 
-2)  WIRELESS COMMUNICATIONS are regulated by various INTERNATIONAL and NATIONAL bodies
+2)  Không dây COMMUNICATIONS are regulated by various INTERNATIONAL and NATIONAL bodies
 
-3)  WIRELESS SIGNAL COVERAGE AREA must be considered
+3)  Không dây SIGNAL COVERAGE AREA must be considered
 
 - Signal Range
 - Signal ABSORPTION, REFLECTION, REFRACTION, DIFFRACTION, and SCATTERING
@@ -34,7 +34,7 @@ WIRELESS NETWORKS
 
 SIGNAL ABSORPTION
 
-- ABSOPTION happens when a WIRELESS SIGNAL PASSES THROUGH a material and is converted into HEAT, weakening the SIGNAL
+- ABSOPTION happens when a Không dây SIGNAL PASSES THROUGH a material and is converted into HEAT, weakening the SIGNAL
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9ef52c86-66ef-46fb-872e-cb76f0fb8d83)
 
@@ -48,7 +48,7 @@ SIGNAL REFLECTION
 SIGNAL REFRACTION
 
 - REFRACTION happens when a WAVE is BENT when entering a medium where the SIGNAL travels at a different speed
-    - For example, glass and water can refract waves
+    - Ví dụ, glass and water can refract waves
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9c807832-6feb-40ed-81aa-f9d7337da241)
 
@@ -70,15 +70,15 @@ SIGNAL SCATTERING
 
 4) Other DEVICES using the SAME CHANNELS can cause INTERFERENCE
 
-- For example, a WIRELESS LAN in your neighbor’s house / apartment
+- Ví dụ, a Không dây LAN in your neighbor’s house / apartment
 
 ---
 
 RADIO FREQUENCY (RF)
 
-- To send WIRELESS SIGNALS, the SENDER applies an ALTERNATING CURRENT to an antenna
+- To send Không dây SIGNALS, the SENDER applies an ALTERNATING CURRENT to an antenna
     - This creates ELECTROMAGNETIC WAVES which propagate out as WAVES
-- ELECTROMAGENETIC WAVES can be measured in multiple ways - for example AMPLITUDE and FREQUENCY
+- ELECTROMAGENETIC WAVES can be measured in multiple ways - Ví dụ AMPLITUDE and FREQUENCY
 - AMPLITUDE is the MAXIMUM STRENGTH of the ELECTRIC and MAGNETIC FIELDS
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/f7daa2ac-16a7-41f2-8ba4-a7c214c7e96b)
@@ -135,7 +135,7 @@ CHANNELS
 - Each BAND is divided up into MULTIPLE “CHANNELS”
     - DEVICES are configured to TRANSMIT and RECEIVE traffic on one (or more) of these CHANNELS
 - The 2.4 GHz BAND is divided into several CHANNELS, each with a 22 MHz RANGE
-- In a SMALL WIRELESS LAN with only a single ACCESS POINT (AP), you can use ANY channel
+- In a SMALL Không dây LAN with only a single Điểm truy cập (AP), you can use ANY channel
 - However, in larger WLANs with multiple APs, it’s important that adjacent APs don’t use OVERLAPPING CHANNELS. This helps avoid INTERFERENCE
 - In the 2.4 GHz BAND, it is recommended to use CHANNELS 1, 6 and 11
 
@@ -157,10 +157,10 @@ WI-FI STANDARDS (802.11)
 
 SERVICE SETS
 
-- 802.11 defines different kinds of SERVICE SETS which are groups of WIRELESS NETWORK DEVICES
+- 802.11 defines different kinds of SERVICE SETS which are groups of Không dây Mạng DEVICES
 - There are THREE MAIN TYPES:
     - INDEPENDENT
-    - INFRASTRUCTURE
+    - Hạ tầng
     - MESH
 - ALL DEVICES in a SERVICE SET share the same SSID (Service Set Identifier)
 - The SSID is a HUMAN-READABLE NAME which identifies the SERVICE SET
@@ -168,8 +168,8 @@ SERVICE SETS
 
 SERVICE SETS : IBSS
 
-- An IBSS (INDEPENDENT BASIC SERVICE SET) is a WIRELESS NETWORK in which TWO or MORE WIRELESS DEVICES connect directly without using an AP (ACCESS POINT)
-- Also called an AD HOC NETWORK
+- An IBSS (INDEPENDENT BASIC SERVICE SET) is a Không dây Mạng in which TWO or MORE Không dây DEVICES connect directly without using an AP (Điểm truy cập)
+- Also called an AD HOC Mạng
 - Can be used for FILE TRANSFER (ie: AirDrop)
 - Not scalable beyond a few DEVICES
 
@@ -177,20 +177,20 @@ SERVICE SETS : IBSS
 
 SERVICE SETS : BSS
 
-- A BSS (BASIC SERVICE SET) is a kind of infrastructure SERVICE SET in which CLIENTS connect to each other via an AP (ACCESS POINT) but not DIRECTLY to each other
+- A BSS (BASIC SERVICE SET) is a kind of Hạ tầng SERVICE SET in which CLIENTS connect to each other via an AP (Điểm truy cập) but not DIRECTLY to each other
 - A BSSID (BASIC SERVICE SET ID) is used to uniquely identify the AP
     - Other APs can use the SAME SSID but NOT THE SAME BSSID
-    - The BSSID is the MAC ADDRESS of the APs RADIO
-- WIRELESS DEVICES request to *associate* with the BSS
-- WIRELESS DEVICES that have associated with the BSS are called “CLIENTS” or “STATIONS”
+    - The BSSID is the Địa chỉ MAC of the APs RADIO
+- Không dây DEVICES request to *associate* with the BSS
+- Không dây DEVICES that have associated with the BSS are called “CLIENTS” or “STATIONS”
 - The AREA around an AP where its SIGNAL is usable is called a BSA (BASIC SERVICE AREA)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/ef259f45-ead1-45f3-8ad3-5f343a763988)
 
 SERVICE SETS: ESS
 
-- To create LARGER WIRELESS LANS beyond the range of a SINGLE AP, we use an ESS (EXTENDED SERVICE SET)
-- APs with their own BSSs are connected by a WIRED NETWORK
+- To create LARGER Không dây LANS beyond the range of a SINGLE AP, we use an ESS (EXTENDED SERVICE SET)
+- APs with their own BSSs are connected by a WIRED Mạng
     - Each BSS uses the SAME SSID
     - Each BSS has a UNIQUE BSSID
     - Each BSS uses a DIFFERENT channel to avoid INTERFERENCE
@@ -202,13 +202,13 @@ SERVICE SETS: ESS
 
 SERVICE SETS: MBSS
 
-- An MBSS (MESH BASIC SERVICE SET) can be used in situations where it’s difficult to run an ETHERNET connection to every AP
+- An MBSS (MESH BASIC SERVICE SET) can be used in situations where it’s difficult to run an Ethernet connection to every AP
 - MESH APs use TWO RADIOS:
-    - ONE provides BSS to WIRELESS CLIENTS
-    - ONE forms a “BACKHAUL NETWORK” which is used to BRIDGE traffic from AP to AP
-- At least ONE AP is connected to the WIRED NETWORK and it is called the RAP (ROOT ACCESS POINT)
-- The OTHER APs are called MAPs (MESH ACCESS POINTS)
-- A PROTOCOL is used to determine the BEST PATH through the MESH (similar to how DYNAMIC ROUTING PROTOCOLS are used to determine the BEST PATH to a DESTINATION)
+    - ONE provides BSS to Không dây CLIENTS
+    - ONE forms a “BACKHAUL Mạng” which is used to Bridge traffic from AP to AP
+- At least ONE AP is connected to the WIRED Mạng and it is called the RAP (ROOT Điểm truy cập)
+- The OTHER APs are called MAPs (MESH Access POINTS)
+- A Giao thức is used to determine the BEST PATH through the MESH (similar to how DYNAMIC Định tuyến PROTOCOLS are used to determine the BEST PATH to a DESTINATION)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/1604f0ea-8a93-4922-a78d-fe55e836ba9a)
 
@@ -216,15 +216,15 @@ SERVICE SETS: MBSS
 
 DISTRIBUTION SYSTEM
 
-- Most WIRELESS NETWORKS are not STANDALONE NETWORKS
-    - Rather, they are a way for WIRELESS CLIENTS to connect to the WIRED NETWORK INFRASTRUCTURE
-- In 802.11, the UPSTREAM WIRED NETWORK is called the DS (DISTRIBUTION SYSTEM)
-- Each WIRELESS BSS or ESS is mapped to a VLAN in the WIRED NETWORK
+- Most Không dây NETWORKS are not STANDALONE NETWORKS
+    - Rather, they are a way for Không dây CLIENTS to connect to the WIRED Mạng Hạ tầng
+- In 802.11, the UPSTREAM WIRED Mạng is called the DS (DISTRIBUTION SYSTEM)
+- Each Không dây BSS or ESS is mapped to a VLAN in the WIRED Mạng
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/adf9deae-693c-4f1b-8d6d-c4fbfc356418)
 
-- It is possible for an AP to provide MULTIPLE WIRELESS LANs, each with a unique SSID
-- Each WLAN is mapped to a separate VLAN and connected to the WIRED NETWORK via a TRUNK
+- It is possible for an AP to provide MULTIPLE Không dây LANs, each with a unique SSID
+- Each WLAN is mapped to a separate VLAN and connected to the WIRED Mạng via a Trunk
 - Each WLAN uses a UNIQUE BSSID, usually by INCREMENTING the LAST digit of the BBSID by one
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/5667abba-dc3f-4571-a11a-43b3e8cf4304)
@@ -243,14 +243,14 @@ ADDITIONAL AP OPERATIONAL MODES
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/7973107f-7f2a-47de-9272-186040b038b5)
 
-- A WORKGROUP BRIDGE (WGB) operates as a WIRELESS CLIENT of another AP and can be used to CONNECT WIRED DEVICES to the WIRELESS NETWORK
-- In the example below, PC1 does NOT have WIRELESS CAPABILITIES, and also DOES NOT have ACCESS to WIRED CONNECTIONS to SW1
-- PC1 has a WIRED CONNECTION to the WGB, which has a WIRELESS CONNECTION to the AP
+- A WORKGROUP Bridge (WGB) operates as a Không dây CLIENT of another AP and can be used to CONNECT WIRED DEVICES to the Không dây Mạng
+- In the example below, PC1 does NOT have Không dây CAPABILITIES, and also DOES NOT have Access to WIRED CONNECTIONS to SW1
+- PC1 has a WIRED CONNECTION to the WGB, which has a Không dây CONNECTION to the AP
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/85cffc3f-3e76-4a55-9810-254135162a82)
 
-- AN OUTDOOR BRIDGE can be used to connect NETWORKS over LONG DISTANCES without a PHYSICAL CABLE connecting them
-- The APs will use SPECIALIZED ANTENNAS that focus most of the SIGNAL POWER in one direction, which allows the WIRELESS CONNECTION to be made over LONGER DISTANCES than normally possible
+- AN OUTDOOR Bridge can be used to connect NETWORKS over LONG DISTANCES without a PHYSICAL Cáp connecting them
+- The APs will use SPECIALIZED ANTENNAS that focus most of the SIGNAL POWER in one direction, which allows the Không dây CONNECTION to be made over LONGER DISTANCES than normally possible
 - The CONNECTION can be POINT-TO-POINT as in the diagram below, or POINT-TO-MULTIPOINT in which MULTIPLE SITES connect to on CENTRAL SITE
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/36b421fd-ba81-4230-8c67-72b0b88aae8a)

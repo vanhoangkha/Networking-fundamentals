@@ -2,9 +2,9 @@
 
 API REVIEW
 
-- An API (Application Programming Interface) is a software interface that allows two applications to communicate with each other.
-- APIs are essential not just for network automation but for all kinds of applications
-- In SDN Architecture, APIs are use to communicate between apps and the SDN controller (via the NBI) and between the SDN controller and the network devices (via the SBI)
+- An API (Application Programming Giao diện) is a software Giao diện that allows two applications to communicate with each other.
+- APIs are essential not just for Mạng Tự động hóa but for all kinds of applications
+- In SDN Kiến trúc, APIs are use to communicate between apps and the SDN controller (via the NBI) and between the SDN controller and the Mạng devices (via the SBI)
 - The NBI typically uses REST APIs
 - NETCONF and RESTCONF are popular Southbound APIs
 
@@ -39,9 +39,9 @@ CRUD OPERATIONS AND HTTP VERBS
 
 HTTP REQUEST :
 
-- When an HTTP client sends a request to an HTTP server, the HTTP header includes information like this:
+- When an HTTP client sends a request to an HTTP server, the HTTP Header includes information like this:
     - An HTTP Verb (ie: GET)
-    - A URI (Uniform Resource Identifier) indicating the resource it is trying to access
+    - A URI (Uniform Resource Identifier) indicating the resource it is trying to Access
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e859d701-50bc-475a-89ca-5267efaeaf87)
 
@@ -51,14 +51,14 @@ An example of a URI (demonstrated later)
 
 - The HTTP request can include additional headers which pass additional information to the server.
 
-Check the list at  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+Check the list at  HTTPS://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/010f553f-971d-49d8-be1b-dd0eff5854ac)
 
-- An example would be an ACCEPT header, which informs the server about the types(s) of data that can be sent back to the client.
-    - Example: **Accept: application/json** or **Accept: application/xml**
+- An example would be an ACCEPT Header, which informs the server about the types(s) of data that can be sent back to the client.
+    - Example: **Accept: application/JSON** or **Accept: application/XML**
 
-- You can also view standard HTTP header fields with some examples at https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+- You can also view standard HTTP Header fields with some examples at HTTPS://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 
 - When a REST client makes an API call (request) to a REST server, it will send an HTTP request like the one above
 
@@ -95,7 +95,7 @@ Examples of each HTTP Response class:
     - 404 Not Found means the requested resource was not found
 
 - 5xx Server Error
-    - 500 Internal Server Error means the server encountered something unexpected that it doesn’t know how to handle
+    - 500 Internal Server Error means the server encountered something unexpected that it doesn’t know Cách handle
 
 ---
 
@@ -105,25 +105,25 @@ REST APIs
 - REST APIs are also know as REST-based APIs or RESTful APIs
     - REST isn’t a specific API. Instead it describes a set of rules about how the API should work
     
-- The SIX constraints of RESTful architecture are:
+- The SIX constraints of RESTful Kiến trúc are:
     - Stateless
     - Layered system
-    - Uniform Interface
+    - Uniform Giao diện
     - Client-Server
     - Cacheable or non-cacheable
     - Code-on-Demand (optional)
 
-- For applications to communicate over a network, networking protocols must be used to facilitate those communications
+- For applications to communicate over a Mạng, networking protocols must be used to facilitate those communications
     - For REST APIs, HTTP(S) is the most common choice
 
 ---
 
 REST: Client-Server
 
-- REST APIs use a client-server architecture
-- The client uses API calls (HTTP requests) to access the resources on the server
+- REST APIs use a client-server Kiến trúc
+- The client uses API calls (HTTP requests) to Access the resources on the server
 - The separation between the client and server means they can both change and evolve independently of each other
-    - When the client application changes or the server application changes, the interface between them must not break
+    - When the client application changes or the server application changes, the Giao diện between them must not break
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e39d0588-8e4c-441b-97b9-c2345bf09342)
 
@@ -135,10 +135,10 @@ REST: Stateless
 - This means that each API exchange is a separate event, independent of all past exchanges between the client and server
     - The server does not store information about previous requests from the client to determine how it should respond to new requests
 - If authentication is required, this means that the client must authenticate with the server for each request it makes
-- TCP is an example of a STATEFUL protocol
-- UDP is an example of  STATELESS protocol
+- TCP is an example of a STATEFUL Giao thức
+- UDP is an example of  STATELESS Giao thức
 
-** Although REST APIs use HTTP, which uses TCP (STATEFUL) as it’s LAYER 4 protocol, HTTP and REST APIs themselves aren’t STATEFUL. The functions of each layer are separate ! 
+** Although REST APIs use HTTP, which uses TCP (STATEFUL) as it’s LAYER 4 Giao thức, HTTP and REST APIs themselves aren’t STATEFUL. The functions of each layer are separate ! 
 
 ---
 
@@ -160,9 +160,9 @@ REST API CALLS USING CISCO DEVNET
 
 - “Cisco DevNet is Cisco’s developer program to help developers and IT professionals who want to write applications and develop integrations with Cisco products, platforms, and API’s”
 
-- DevNet offers lots of free resources such as courses, tutorials, labs, sandboxes, documentation, etc to learn about AUTOMATION and develop your skills
+- DevNet offers lots of free resources such as courses, tutorials, labs, sandboxes, documentation, etc to learn about Tự động hóa and develop your skills
 
-- There is also a DevNet certification track that you can pursue if you are interested in AUTOMATION
+- There is also a DevNet certification track that you can pursue if you are interested in Tự động hóa
 
 - We will use their Cisco DNA Center Sandbox to send a REST API call using Postman
     - DNA Center is one of Cisco’s SDN Controllers (covered in more detail later)
@@ -171,5 +171,5 @@ REST API CALLS USING CISCO DEVNET
 
 TO START:
 
-- Make an account on [developer.cisco.com](http://developer.cisco.com) (Used my NetAcademy login)
-- Make an accounts on [postman.com](http://postman.com) and download the desktop app (https://www.postman.com/downloads) - Used my [gmail.com](http://gmail.com) account
+- Make an account on [developer.cisco.com](HTTP://developer.cisco.com) (Used my NetAcademy login)
+- Make an accounts on [postman.com](HTTP://postman.com) and download the desktop app (HTTPS://www.postman.com/downloads) - Used my [gmail.com](HTTP://gmail.com) account
