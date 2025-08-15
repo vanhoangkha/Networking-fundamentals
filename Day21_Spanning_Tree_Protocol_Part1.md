@@ -1,1 +1,228 @@
-# 20. SPANNING TREE GIAO THỨC (STP) : PART 1 REDUNDANCY trong NETWORKS - Essential trong Mạng design - Modern networks là expected đến run 24/7/265; even một short downtime có thể be disastrous cho business. - If one Mạng component fails, you phải ensure that other components sẽ take over với little hoặc no downtime. - As much as possible, you phải implement REDUNDANCY tại every possible point trong the Mạng AN EXAMPLE của một POORLY DESIGNED Mạng ![image](https://github.com/psaumur/CCNA/assets/106411237/b3b76af5-11e6-495b-8c40-40eb5800704b) NOTE the many single-point failures that có thể occur (single connections) A BETTER Mạng DESIGN ![image](https://github.com/psaumur/CCNA/assets/106411237/01c20d92-2cf6-4d1f-a193-ded7753aeb38) UNFORTUNATELY : - Most PCS only have một single Mạng Giao diện card (NIC), so they có thể only be plugged into một single Switch. However, important SERVERS typically have multiple NICs, so they có thể be plugged into multiple SWITCHES cho redundancy! So HOW có thể all this redundancy be một BAD thing? Broadcast STORMS ![image](https://github.com/psaumur/CCNA/assets/106411237/a0bf91be-a463-45df-bfc5-df471d0544b5) ![image](https://github.com/psaumur/CCNA/assets/106411237/d13b6ab5-5298-4166-bdfa-3315f05a2961) ![image](https://github.com/psaumur/CCNA/assets/106411237/f719de69-df9e-4549-b3cb-914d7c5aabc4) FLOODED với ARP REQUESTS (Red = Clockwise Loops // Purple = Counter-Clockwise Loops) Mạng Congestion isn’t the only problem. Each time một Khung arrives trên một SWITCHPORT, the Switch uses the SOURCE Địa chỉ MAC field to “learn” the Địa chỉ MAC và update it’s Địa chỉ MAC TABLE. When frames với the same SOURCE Địa chỉ MAC repeatedly arrive trên different interfaces, the Switch là continuously updating the Giao diện trong it’s Địa chỉ MAC TABLE. This là called Địa chỉ MAC FLAPPING So how we design một Mạng, with redundant paths, that doesn’t result trong LAYER 2 LOOPS. Spanning Tree Giao thức là one solution --- STP (Spanning Tree Giao thức) : 802.1D - “Classic Spanning Tree Giao thức” is IEEE **802.1D** - SWITCHES từ ALL vendors run STP bởi Default - STP prevents LAYER 2 loops bởi placing redundant PORTS trong một BLOCKING state, essentially disabling the Giao diện - These INTERFACES act as backups that có thể enter một FORWARDING state if một active (=currently forwarding) Giao diện fails. - INTERFACES trong một BLOCKING state only send hoặc receive STP messages (called BPDUs = Bridge Giao thức Data Units) 💡 Spanning Tree Giao thức still uses the term “Bridge”. However, when use the term “Bridge”, we really mean “Switch”. BRIDGES là not used trong modern networks. ![image](https://github.com/psaumur/CCNA/assets/106411237/f253770d-22fa-4e3f-91b0-8f2b4c2f1a61) ORANGE Giao diện is “BLOCKED” causing một break trong the loops ![image](https://github.com/psaumur/CCNA/assets/106411237/45125471-da23-4753-b5b1-16c23a2bfeff) If changes occur trong the connections, the traffic sẽ adjust the Cấu trúc mạng. - By selecting WHICH ports là FORWARDING và which ports là BLOCKING, STP creates một single path TO / FROM each point trong the Mạng. This prevents LAYER 2 Loops. - There là một set process that STP uses đến determine which ports nên be FORWARDING và which nên be BLOCKING - STP-enabled SWITCHES send / receive “Hello BPDUs” out của all INTERFACES - The Default timer is : ONCE every TWO seconds per Giao diện! - If một Switch receives a “Hello BPDU” on một Giao diện, it knows that Giao diện là connected đến another Switch (ROUTERS, PCs, etc. do NOT use STP so do not send “Hello BPDUs”) --- là gì BPDUs USED FOR? - SWITCHES use one field trong the STP BPDU, the Bridge ID field, to elect một Bridge gốc cho the Mạng - The Switch với the lowest Bridge ID becomes the Bridge gốc - ALL PORTS trên the Bridge gốc là put trong một FORWARDING state, and other SWITCHES trong the Cấu trúc mạng phải have một path đến reach the Bridge gốc ![image](https://github.com/psaumur/CCNA/assets/106411237/05177f47-882e-47ea-8bec-22e073392e1c) ![image](https://github.com/psaumur/CCNA/assets/106411237/17f921f6-0583-4070-9493-5f5d80ad4866) ![image](https://github.com/psaumur/CCNA/assets/106411237/bb49a034-9f6d-4e92-9ea0-8bc71c4f2ec8) To REDUCE the Bridge PRIORITY, we có thể only change it trong units của 4096 ! ![image](https://github.com/psaumur/CCNA/assets/106411237/39fe6239-1217-4885-b07b-8f368dad0e28) In THIS Cấu trúc mạng, SW1 becomes the Bridge gốc due đến it’s Địa chỉ MAC being LOWEST (Hex “A” = 10) ![image](https://github.com/psaumur/CCNA/assets/106411237/b1e1a69d-4b9c-46bf-9b77-f30b9f7c3933) ALL INTERFACES trên the Bridge gốc là DESIGNATED PORTS. DESIGNATED PORTS là trong một FORWARDING STATE! Bridge gốc - When một Switch là powered on, it assumes it là the Bridge gốc - It sẽ only give up its position if it receives a “SUPERIOR” BPDU (lower Bridge ID) - Once the Cấu trúc mạng has converged và all SWITCHES agree trên the Bridge gốc, only the Bridge gốc sends BPDUs - Other SWITCHES trong the Mạng sẽ forward these BPDUs, but sẽ not generate their own original BPDUs --- Spanning Tree Giao thức STEPS 1) One Switch là elected as Bridge gốc. All PORTS trên the Bridge gốc là DESIGNATED PORTS (FORWARDING STATE) - Bridge gốc selection order: - 1) Lowest Bridge ID - 2) Lowest Địa chỉ MAC (in case của Bridge ID tie) 2) Each remaining Switch sẽ select ONE của its INTERFACES đến be it’s ROOT Cổng (FORWARDING STATE). PORTS across từ the ROOT Cổng là always DESIGNATED PORTS. - ROOT Cổng selection order: - 1) LOWEST ROOT COST (see STP COST CHART) - 2) LOWEST NEIGHBOUR Bridge ID - 3) LOWEST NEIGHBOUR Cổng ID 3) Each remaining COLLISION DOMAIN sẽ select ONE Giao diện đến be một DESIGNATION Cổng (FORWARDING STATE). The other Cổng trong the COLLISION DOMAIN sẽ NON-DESIGNATED (BLOCKING) - DESIGNATED Cổng SELECTION: - 1) Giao diện trên Switch với LOWEST ROOT COST - 2) Giao diện trên Switch với LOWEST Bridge ID --- STP COST CHART 💡 Only OUTGOING INTERFACES toward the Bridge gốc have một STP COST; not RECEIVING INTERFACES. Add up all the OUTGOING Cổng costs until you reach the Bridge gốc ![image](https://github.com/psaumur/CCNA/assets/106411237/0ee95883-aed8-42a3-ba82-11209ef8cd40) SW1 là the Bridge gốc so has một STP COST của 0 trên ALL INTERFACES ![image](https://github.com/psaumur/CCNA/assets/106411237/35037ae9-3430-44ac-be6d-c8d2a2a42c24) The PORTS connected đến another Switch’s ROOT Cổng phải be DESIGNATED (D). Because the ROOT Cổng là the Switch’s path đến the Bridge gốc, another Switch phải not block it. STP Cổng ID (in case của một tie-breaker) ![image](https://github.com/psaumur/CCNA/assets/106411237/63d2fb87-31fa-4b57-a2c3-a203feded8ba) NEIGHBOUR Switch Cổng ID (in case của một tie-breaker) (D) = DESIGNATED Cổng (R) = ROOT Cổng ![image](https://github.com/psaumur/CCNA/assets/106411237/c3fcc32b-e95f-4d4b-a241-f9f3080e858f) Cách DETERMINE WHICH Cổng sẽ BE BLOCKED đến PREVENT LAYER 2 LOOPS ![image](https://github.com/psaumur/CCNA/assets/106411237/1b69a092-4150-44c3-b605-5916fdea91d6) QUIZ Identify the Bridge gốc và the ROLE của EACH Giao diện trên the Mạng (ROOT / DESIGNATED / NON-DESIGNATED) #1 ![image](https://github.com/psaumur/CCNA/assets/106411237/62bcf349-dd89-48be-92f6-d6a184edeb6f) ALL SWITCHES have the same PRIORITY NUMBER (32769) Tie-breaker goes đến the LOWEST Địa chỉ MAC SW3 has the LOWEST so it’s the Bridge gốc và ALL it’s INTERFACES become DESIGNATED Connections từ SW1 (G0/1) and S4 (G0/0) to SW3 become ROOT INTERFACES Because SW2 has TWO connections đến SW1, both của SW1’s INCOMING interfaces become DESIGNATED. SW2 G0/2 Giao diện becomes một ROOT Giao diện because the G0/0 Giao diện của SW1 là LOWER than it’s G0/2 Giao diện The remaining interfaces trên SW2 become NON-DESIGNATED because it has the HIGHEST ROOT COST (12 = 4x 1 GB connection). INTERFACES they là attached đến trên other SWITCHES become DESIGNATED #2 ![image](https://github.com/psaumur/CCNA/assets/106411237/ae382ec2-9c0f-4673-94b5-5d1411c8db6b) SW4 has the LOWEST Priority Number so it là designated Bridge gốc All của SW4 INTERFACES become DESIGNATED SW2 G0/0 becomes ROOT Cổng because SW4 G0/0 connection là một LOWER NUMBER than G0/1. SW3 G0/1 becomes ROOT Cổng SW1 G0/1 becomes ROOT Cổng because G0/1 cost là LESS than Fa1/0 và 2/0 EACH remaining Cổng sẽ be either DESIGNATED hoặc NON-DESIGNATED SW1 Fa1/0 và 2/0 become NON-DESIGNATED since they have một HIGHER STP COST (38) than SW2 outbound ports (8) making SW2 Fa1/0 và 2/0 DESIGNATED SW2 remaining connection, G0/1, NON-DESIGNATED 
+# 21. GIAO THỨC SPANNING TREE (STP): PHẦN 1
+
+## DƯ THỪA TRONG MẠNG
+
+### Tầm quan trọng của Redundancy:
+- **Thiết yếu** trong thiết kế Mạng
+- **Mạng hiện đại** được mong đợi chạy 24/7/365; ngay cả thời gian ngừng hoạt động ngắn cũng có thể **thảm khốc cho doanh nghiệp**
+- Nếu một thành phần Mạng bị lỗi, bạn phải đảm bảo các thành phần khác sẽ **tiếp quản với ít hoặc không có thời gian ngừng hoạt động**
+- Càng nhiều càng tốt, bạn phải **triển khai DƯ THỪA tại mọi điểm có thể** trong Mạng
+
+---
+
+## VÍ DỤ VỀ MẠNG THIẾT KẾ KÉM
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/b3b76af5-11e6-495b-8c40-40eb5800704b)
+
+**Chú ý nhiều điểm lỗi đơn có thể xảy ra (kết nối đơn)**
+
+---
+
+## THIẾT KẾ MẠNG TỐT HƠN
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/01c20d92-2cf6-4d1f-a193-ded7753aeb38)
+
+### Lưu ý:
+- **Hầu hết PC** chỉ có **một card giao diện mạng (NIC)** duy nhất, vì vậy chúng chỉ có thể được cắm vào một Switch duy nhất
+- Tuy nhiên, **SERVER quan trọng** thường có **nhiều NIC**, vì vậy chúng có thể được cắm vào nhiều SWITCH để dự phòng!
+
+---
+
+## TẠI SAO DƯ THỪA CÓ THỂ LÀ ĐIỀU XẤU?
+
+### BROADCAST STORM
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/a0bf91be-a463-45df-bfc5-df471d0544b5)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/d13b6ab5-5298-4166-bdfa-3315f05a2961)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/f719de69-df9e-4549-b3cb-914d7c5aabc4)
+
+**NGẬP LỤT với ARP REQUEST** (Đỏ = Vòng lặp Thuận chiều kim đồng hồ // Tím = Vòng lặp Ngược chiều kim đồng hồ)
+
+---
+
+## VẤN ĐỀ MAC ADDRESS FLAPPING
+
+**Tắc nghẽn Mạng không phải là vấn đề duy nhất.**
+
+Mỗi khi một Khung đến trên SWITCHPORT, Switch sử dụng trường **SOURCE MAC Address** để "học" địa chỉ MAC và cập nhật **MAC ADDRESS TABLE**.
+
+Khi các khung với cùng **SOURCE MAC Address** liên tục đến trên các interface khác nhau, Switch liên tục cập nhật Interface trong **MAC ADDRESS TABLE**.
+
+**Điều này được gọi là MAC ADDRESS FLAPPING**
+
+---
+
+## GIẢI PHÁP: SPANNING TREE PROTOCOL
+
+**Làm thế nào chúng ta thiết kế một Mạng với đường dẫn dự phòng mà không dẫn đến VÒNG LẶP TẦNG 2?**
+
+**Spanning Tree Protocol là một giải pháp**
+
+---
+
+## STP (SPANNING TREE PROTOCOL): 802.1D
+
+### Đặc điểm cơ bản:
+- **"Classic Spanning Tree Protocol"** là IEEE **802.1D**
+- **SWITCH từ TẤT CẢ nhà cung cấp** chạy STP theo Mặc định
+- **STP ngăn chặn VÒNG LẶP TẦNG 2** bằng cách đặt các PORT dự phòng trong trạng thái **BLOCKING**, về cơ bản vô hiệu hóa Interface
+- Những **INTERFACE này hoạt động như bản sao lưu** có thể vào trạng thái **FORWARDING** nếu Interface đang hoạt động (=hiện đang forwarding) bị lỗi
+- **INTERFACE trong trạng thái BLOCKING** chỉ gửi hoặc nhận thông điệp STP (gọi là **BPDU = Bridge Protocol Data Units**)
+
+💡 **Spanning Tree Protocol vẫn sử dụng thuật ngữ "Bridge". Tuy nhiên, khi sử dụng thuật ngữ "Bridge", chúng ta thực sự có nghĩa là "Switch". BRIDGE không được sử dụng trong mạng hiện đại.**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/f253770d-22fa-4e3f-91b0-8f2b4c2f1a61)
+
+**Interface MÀU CAM bị "BLOCKED" gây ra sự gián đoạn trong vòng lặp**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/45125471-da23-4753-b5b1-16c23a2bfeff)
+
+**Nếu có thay đổi trong kết nối, lưu lượng sẽ điều chỉnh Cấu trúc mạng.**
+
+---
+
+## CÁCH HOẠT ĐỘNG CỦA STP
+
+### Nguyên tắc cơ bản:
+- Bằng cách chọn port nào **FORWARDING** và port nào **BLOCKING**, STP tạo ra **một đường dẫn duy nhất ĐẾN/TỪ mỗi điểm** trong Mạng
+- Điều này **ngăn chặn VÒNG LẶP TẦNG 2**
+- Có một **quy trình cố định** mà STP sử dụng để xác định port nào nên **FORWARDING** và port nào nên **BLOCKING**
+
+### Hello BPDU:
+- **SWITCH hỗ trợ STP** gửi/nhận **"Hello BPDU"** ra khỏi tất cả INTERFACE
+- **Timer mặc định:** **MỖI HAI GIÂY một lần** trên mỗi Interface!
+- Nếu Switch nhận **"Hello BPDU"** trên Interface, nó biết Interface đó được kết nối với Switch khác (**ROUTER, PC, v.v. KHÔNG sử dụng STP** nên không gửi "Hello BPDU")
+
+---
+
+## BPDU ĐƯỢC SỬ DỤNG ĐỂ LÀM GÌ?
+
+### Bầu chọn Root Bridge:
+- **SWITCH sử dụng một trường** trong STP BPDU, **trường Bridge ID**, để bầu chọn **Root Bridge** cho Mạng
+- **Switch có Bridge ID thấp nhất** trở thành **Root Bridge**
+- **TẤT CẢ PORT trên Root Bridge** được đặt trong trạng thái **FORWARDING**, và các SWITCH khác trong Cấu trúc mạng phải có đường dẫn để đến **Root Bridge**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/05177f47-882e-47ea-8bec-22e073392e1c)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/17f921f6-0583-4070-9493-5f5d80ad4866)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/bb49a034-9f6d-4e92-9ea0-8bc71c4f2ec8)
+
+**Để GIẢM Bridge PRIORITY, chúng ta chỉ có thể thay đổi nó theo đơn vị 4096!**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/39fe6239-1217-4885-b07b-8f368dad0e28)
+
+**Trong Cấu trúc mạng NÀY, SW1 trở thành Root Bridge do địa chỉ MAC của nó THẤP NHẤT (Hex "A" = 10)**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/b1e1a69d-4b9c-46bf-9b77-f30b9f7c3933)
+
+---
+
+## DESIGNATED PORT
+
+**TẤT CẢ INTERFACE trên Root Bridge là DESIGNATED PORT. DESIGNATED PORT ở trạng thái FORWARDING!**
+
+### Quá trình bầu chọn Root Bridge:
+- Khi Switch được bật, nó **giả định mình là Root Bridge**
+- Nó sẽ chỉ **từ bỏ vị trí** nếu nhận được **"SUPERIOR" BPDU** (Bridge ID thấp hơn)
+- Khi Cấu trúc mạng đã **hội tụ** và tất cả SWITCH đồng ý về Root Bridge, **chỉ Root Bridge gửi BPDU**
+- Các SWITCH khác trong Mạng sẽ **chuyển tiếp những BPDU này**, nhưng sẽ **không tạo BPDU gốc riêng**
+
+---
+
+## CÁC BƯỚC CỦA SPANNING TREE PROTOCOL
+
+### Bước 1: Bầu chọn Root Bridge
+**Một Switch được bầu làm Root Bridge. TẤT CẢ PORT trên Root Bridge là DESIGNATED PORT (TRẠNG THÁI FORWARDING)**
+
+**Thứ tự chọn Root Bridge:**
+1. **Bridge ID thấp nhất**
+2. **Địa chỉ MAC thấp nhất** (trong trường hợp Bridge ID bằng nhau)
+
+### Bước 2: Chọn Root Port
+**Mỗi Switch còn lại sẽ chọn MỘT trong các INTERFACE của nó làm ROOT PORT (TRẠNG THÁI FORWARDING). PORT đối diện với ROOT PORT luôn là DESIGNATED PORT.**
+
+**Thứ tự chọn Root Port:**
+1. **ROOT COST THẤP NHẤT** (xem BẢNG STP COST)
+2. **NEIGHBOR Bridge ID THẤP NHẤT**
+3. **NEIGHBOR Port ID THẤP NHẤT**
+
+### Bước 3: Chọn Designated Port
+**Mỗi COLLISION DOMAIN còn lại sẽ chọn MỘT Interface làm DESIGNATED PORT (TRẠNG THÁI FORWARDING). Port khác trong COLLISION DOMAIN sẽ là NON-DESIGNATED (BLOCKING)**
+
+**Chọn DESIGNATED Port:**
+1. **Interface trên Switch có ROOT COST THẤP NHẤT**
+2. **Interface trên Switch có Bridge ID THẤP NHẤT**
+
+---
+
+## BẢNG STP COST
+
+💡 **Chỉ có INTERFACE RA NGOÀI hướng về Root Bridge mới có STP COST; không phải INTERFACE NHẬN VÀO. Cộng tất cả chi phí Port RA NGOÀI cho đến khi bạn đến Root Bridge**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/0ee95883-aed8-42a3-ba82-11209ef8cd40)
+
+| Tốc độ Link | STP Cost |
+|-------------|----------|
+| 10 Mbps     | 100      |
+| 100 Mbps    | 19       |
+| 1 Gbps      | 4        |
+| 10 Gbps     | 2        |
+
+**SW1 là Root Bridge nên có STP COST là 0 trên TẤT CẢ INTERFACE**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/35037ae9-3430-44ac-be6d-c8d2a2a42c24)
+
+**PORT kết nối với ROOT PORT của Switch khác phải là DESIGNATED (D). Vì ROOT PORT là đường dẫn của Switch đến Root Bridge, Switch khác không được chặn nó.**
+
+---
+
+## STP PORT ID
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/63d2fb87-31fa-4b57-a2c3-a203feded8ba)
+
+**NEIGHBOR Switch Port ID (trong trường hợp tie-breaker)**
+
+**(D) = DESIGNATED Port**
+**(R) = ROOT Port**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/c3fcc32b-e95f-4d4b-a241-f9f3080e858f)
+
+---
+
+## XÁC ĐỊNH PORT NÀO SẼ BỊ CHẶN
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/1b69a092-4150-44c3-b605-5916fdea91d6)
+
+---
+
+## BÀI TẬP THỰC HÀNH
+
+### Xác định Root Bridge và VAI TRÒ của MỖI Interface trên Mạng (ROOT / DESIGNATED / NON-DESIGNATED)
+
+### Bài tập #1:
+![image](https://github.com/psaumur/CCNA/assets/106411237/62bcf349-dd89-48be-92f6-d6a184edeb6f)
+
+**Giải:**
+- **TẤT CẢ SWITCH có cùng PRIORITY NUMBER (32769)**
+- **Tie-breaker** đến **địa chỉ MAC THẤP NHẤT**
+- **SW3 có THẤP NHẤT** nên là Root Bridge và **TẤT CẢ INTERFACE của nó trở thành DESIGNATED**
+- Kết nối từ SW1 (G0/1) và SW4 (G0/0) đến SW3 trở thành **ROOT INTERFACE**
+- Vì SW2 có **HAI kết nối** đến SW1, cả hai interface INCOMING của SW1 trở thành **DESIGNATED**
+- SW2 G0/2 Interface trở thành **ROOT Interface** vì G0/0 Interface của SW1 **THẤP HƠN** G0/2 Interface của nó
+- Các interface còn lại trên SW2 trở thành **NON-DESIGNATED** vì nó có **ROOT COST CAO NHẤT** (12 = 4 × kết nối 1 GB)
+
+### Bài tập #2:
+![image](https://github.com/psaumur/CCNA/assets/106411237/ae382ec2-9c0f-4673-94b5-5d1411c8db6b)
+
+**Giải:**
+- **SW4 có Priority Number THẤP NHẤT** nên được chỉ định làm Root Bridge
+- **Tất cả INTERFACE của SW4** trở thành **DESIGNATED**
+- **SW2 G0/0** trở thành **ROOT Port** vì kết nối SW4 G0/0 có **SỐ THẤP HƠN** G0/1
+- **SW3 G0/1** trở thành **ROOT Port**
+- **SW1 G0/1** trở thành **ROOT Port** vì chi phí G0/1 **ÍT HƠN** Fa1/0 và 2/0
+- **Mỗi Port còn lại** sẽ là **DESIGNATED** hoặc **NON-DESIGNATED**
+- **SW1 Fa1/0 và 2/0** trở thành **NON-DESIGNATED** vì chúng có **STP COST CAO HƠN** (38) so với port outbound của SW2 (8) làm cho **SW2 Fa1/0 và 2/0** là **DESIGNATED**
+- **Kết nối còn lại của SW2, G0/1**, là **NON-DESIGNATED**

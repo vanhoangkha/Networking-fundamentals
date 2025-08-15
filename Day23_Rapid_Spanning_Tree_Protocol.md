@@ -1,1 +1,291 @@
-# 22. RAPID SPANNING TREE GIAO THỨC *COMPARISON của STP VERSIONS (Standard vs. Cisco)* ![image](https://github.com/psaumur/CCNA/assets/106411237/ca5ff85c-842e-4ed3-9b6a-f9d6ed546a78) We là only concerned với 802.1w cho MOST use cases. MSTP (802.1s) is more useful cho VERY LARGE networks. là gì RAPID PER-VLAN Spanning Tree PLUS? > RSTP là not một time-based Spanning Tree algorithm like 802.1D. Therefore, RSTP offers một improvment over teh 30 seconds hoặc more 802.1D takes đến move một link đến forwarding. The heart của the Giao thức là một new Bridge-Bridge handshake mechanism, which allows ports đến move directly đến forwarding --- SIMILARITIES BETWEEN STP và RSTP: - RSTP serves the same purpose as STP, blocking specific PORTS đến prevent LAYER 2 LOOPS. - RSTP elects một Bridge gốc với the same rules as STP - RSTP elects ROOT PORTS với the same rules as STP - RSTP elects DESIGNATED PORTS với the same rules as STP --- DIFFERENCES BETWEEN STP và RSTP: **Cổng COSTS** ![image](https://github.com/psaumur/CCNA/assets/106411237/b250c6da-2579-4576-8e93-5a8f8e66d873) (STUDY và MEMORIZE Cổng COSTS của STP và RSTP) RSTP Cổng STATES ![image](https://github.com/psaumur/CCNA/assets/106411237/054d5037-a60e-478e-986b-6f43825a0d1a) - If một Cổng has been ADMINISTRATIVELY DISABLED (”shutdown” Lệnh) = DISCARDING STATE - If một Cổng là ENABLED but BLOCKING traffic đến prevent LAYER 2 LOOPS = DISCARDING STATE --- RSTP ROLES - The ROOT Cổng role remains unchanged trong RSTP - The Cổng that là closest đến the Bridge gốc becomes the ROOT Cổng cho the Switch - The Bridge gốc là the only Switch that doesn’t have một ROOT Cổng - The DESIGNATED Cổng role remains unchanged trong RSTP - The Cổng trên một Đoạn (Collision Domain) that sends the best BPDU là that Đoạn’s DESIGNATED Cổng (only one per Đoạn!) - The NON-DESIGNATED Cổng role là split into TWO separate roles trong RSTP: - The ALTERNATE Cổng role - The BACKUP Cổng role **RSTP : ALTERNATE Cổng ROLE** - The RSTP ALTERNATE Cổng ROLE là một DISCARDING Cổng that receives một superior BPDU từ another Switch - This là the same as what you’ve learned about BLOCKING PORTS trong classic STP ![image](https://github.com/psaumur/CCNA/assets/106411237/7d81e70c-3b31-4448-9d45-9aadb738c74d) - An ALTERNATE Cổng (labelled “A” above) functions as một backup đến the ROOT Cổng - If the ROOT Cổng fails, the Switch có thể immediately move it’s best alternate Cổng đến FORWARDING ![image](https://github.com/psaumur/CCNA/assets/106411237/41f3be85-6225-4749-83b4-f76952c5756a) 💡 This immediate move đến FORWARDING STATE functions like một classic STP optional feature called **UplinkFast.** Because it là built into RSTP, you do not need đến activate UplinkFast when using RSTP/Rapid PVST+ One more STP optional feature that was built into RSTP is **BackboneFast** ![image](https://github.com/psaumur/CCNA/assets/106411237/c4cea7b7-599f-4ec8-b9d3-a5acba71a5f5) - **BackboneFast** allows SW3 đến expire the MAX AGE TIMERS trên it’s Giao diện và rapidly FORWARD the superior BPDUs đến SW2 - This FUNCTIONALITY là built into RSTP, so it does not need đến be configured. UPLINKFAST và BACKBONE FAST (SUMMARY) 💡 **UplinkFast** and **BackboneFast** are two optional features trong Classic STP. They phải be configured đến operate trên the Switch (not necessary đến know cho the CCNA) - Both features là built into RSTP, so you do NOT have đến configure them. They operate, by Default - You do NOT need đến have một detailed understanding của them cho the CCNA. Know their names và their BASIC purpose (to help BLOCKING / DISCARDING PORTS rapidly move đến FORWARDING) --- **RSTP : BACKUP Cổng ROLE** - The RSTP BACKUP Cổng role là một DISCARDING Cổng that receives một superior BPDU từ another Giao diện trên the same Switch - This only happens when TWO INTERFACES là connected đến the SAME COLLISION DOMAIN (via một Hub) - Hubs là NOT used trong modern networks, so you sẽ probably NOT encounter một RSTP BACKUP Cổng - Hubs là NOT used trong modern networks, so you sẽ probably NOT encounter một RSTP BACKUP Cổng. - Functions as một BACKUP cho một DESIGNATED Cổng 💡 The Giao diện với the LOWERS Cổng ID sẽ be selected as the DESIGNATED Cổng, and the other sẽ be the BACKUP Cổng. ![image](https://github.com/psaumur/CCNA/assets/106411237/61aefc04-b3a9-484a-bbfa-1efe792c73c7) WHICH Switch sẽ be Bridge gốc? What about the OTHER ports ? ![image](https://github.com/psaumur/CCNA/assets/106411237/be4d404d-829d-41ab-ba39-34e918ed7ea9) ![image](https://github.com/psaumur/CCNA/assets/106411237/b5dec396-d5fc-486b-9110-5dcc2c4dc4aa) ![image](https://github.com/psaumur/CCNA/assets/106411237/1930a17b-6c74-4756-b89d-4148008f586b) 💡 RAPID STP *is* compatible với CLASSIC STP. 💡 The Giao diện(S) on the RAPID STP-enabled Switch connected đến the CLASSIC STP-enabled Switch sẽ operate trong CLASSIC STP MODE (Timers, BLOCKING >>> LISTENING >>> LEARNING >>> FORWARDING, etc.) --- RAPID STP BPDU CLASSIC RSTP (LEFT) vs RAPID STP BPDU (RIGHT) ![image](https://github.com/psaumur/CCNA/assets/106411237/2d2deb45-3f81-4c60-b9fa-0f6c3fe7c060) 💡 NOTE: Classic STP BPDU has a “Giao thức Version Identifier: Spanning Tree (0) BPDU Type: Cấu hình (0x00) BPDU flags: 0x00 RAPID STP BPDU has a “Giao thức Version Identifier: Spanning Tree (2) BPDU Type: Cấu hình (0x02) BPDU flags: 0x3c In CLASSIC STP, only the Bridge gốc originated BPDUs, and other SWITCHES just FORWARDED the BPDUs they received. In RAPID STP, ALL SWITCHES originate và send their own BPDUs từ their DESIGNATED PORTS --- RAPID Spanning Tree Giao thức - ALL SWITCHES running RAPID STP send their own BPDUs every “hello” time (2 Seconds) - SWITCHES “age” the BPDU information much more quickly - In CLASSIC STP, a Switch waits 10 “hello” intervals (20 seconds) - In RAPID STP, a Switch considers một neighbour lost if it misses 3 BPDUs (6 seconds). It sẽ then “flush” ALL MAC ADDRESSES learned trên that Giao diện ![image](https://github.com/psaumur/CCNA/assets/106411237/c03d2645-42d8-4d95-b486-999e82ac12a8) --- RSTP LINK TYPES ![image](https://github.com/psaumur/CCNA/assets/106411237/e837a271-ad13-4d6a-a800-434a0eff2576) ``` <E> = EDGE <P> = POINT-TO-POINT <S> = SHARED ``` RSTP distinguishes between THREE different “link types” : **EDGE**, **POINT-TO-POINT**, and **SHARED** EDGE PORTS - Connected đến END HOSTS - Because there là NO RISK của creating một LOOP, they có thể move straight đến the FORWARDING STATE without the negotiation process! - They function like một CLASSIC STP Cổng với PORTFAST ENABLED 💡 SW1(config-if)# spanning-tree portfast --- POINT-TO-POINT PORTS - Connect directly đến another Switch - They function trong FULL-DUPLEX - You don’t need đến configure the Giao diện as POINT-TO-POINT (it nên be detected) 💡 SW1(config-if)# spanning-tree link-type point-to-point --- SHARED PORTS - Connect đến another Switch (or SWITCHES) via một Hub - They function trong HALF-DUPLEX - You don’t need đến configure the Giao diện as SHARED (it nên be detected) 💡 SW1(config-if)# spanning-tree link-type shared --- QUIZ: ![image](https://github.com/psaumur/CCNA/assets/106411237/a7314f6f-55f0-4e62-bd24-b311b090afe8) SW1 : - **Bridge gốc** - G0/0 - 0/3= DESIGNATED SW2 : - G0/0 = ROOT Cổng - G0/1 = DESIGNATED Cổng - G0/2 = BACKUP Cổng - G0/3 = DESIGNATED Cổng SW3 : - G0/0 = DESIGNATED Cổng - G0/1 = ALTERNATE Cổng - G0/2 = ROOT Cổng - G0/3 = DESIGNATED Cổng SW4: - G0/0 = ROOT - G0/1 = ALTERNATE Cổng - G0/2 = DESIGNATED Cổng Connection between SW1 G0/0 và SW2 G0/0 = POINT-TO-POINT Connection between SW3 G0/0 và SW4 G0/0 = POINT-TO-POINT Connection between SW1 G0/1 và G0/2 đến SW3 G0/1 và G0/2 = POINT-TO-POINT Connections đến all the END HOSTS = EDGE Connection từ SW4 đến Hub = SHARED Connections từ SW2 đến Hub = SHARED ANSWER ![image](https://github.com/psaumur/CCNA/assets/106411237/b76eb7be-897a-4617-990e-f399ceaea5f2) 
+# 23. GIAO THỨC RAPID SPANNING TREE
+
+## SO SÁNH CÁC PHIÊN BẢN STP (Tiêu chuẩn vs. Cisco)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/ca5ff85c-842e-4ed3-9b6a-f9d6ed546a78)
+
+| Tiêu chuẩn IEEE | Tên Cisco | Mô tả |
+|-----------------|-----------|-------|
+| 802.1D | STP | Classic Spanning Tree |
+| 802.1w | RSTP | Rapid Spanning Tree |
+| 802.1s | MSTP | Multiple Spanning Tree |
+| - | PVST+ | Per-VLAN Spanning Tree Plus |
+| - | Rapid PVST+ | Rapid Per-VLAN Spanning Tree Plus |
+
+**Chúng ta chỉ quan tâm đến 802.1w cho HẦU HẾT các trường hợp sử dụng. MSTP (802.1s) hữu ích hơn cho mạng RẤT LỚN.**
+
+---
+
+## RAPID PER-VLAN SPANNING TREE PLUS LÀ GÌ?
+
+> **RSTP không phải là thuật toán Spanning Tree dựa trên thời gian như 802.1D. Do đó, RSTP cung cấp cải tiến so với 30 giây hoặc hơn mà 802.1D cần để chuyển link sang forwarding. Trái tim của giao thức là cơ chế handshake Bridge-Bridge mới, cho phép port chuyển trực tiếp sang forwarding.**
+
+---
+
+## ĐIỂM TƯƠNG ĐỒNG GIỮA STP VÀ RSTP
+
+- **RSTP phục vụ cùng mục đích** như STP, chặn các PORT cụ thể để ngăn chặn **VÒNG LẶP TẦNG 2**
+- **RSTP bầu chọn Root Bridge** với cùng quy tắc như STP
+- **RSTP bầu chọn ROOT PORT** với cùng quy tắc như STP  
+- **RSTP bầu chọn DESIGNATED PORT** với cùng quy tắc như STP
+
+---
+
+## ĐIỂM KHÁC BIỆT GIỮA STP VÀ RSTP
+
+### PORT COST
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/b250c6da-2579-4576-8e93-5a8f8e66d873)
+
+**(HỌC VÀ GHI NHỚ Port Cost của STP và RSTP)**
+
+| Tốc độ Link | STP Cost | RSTP Cost |
+|-------------|----------|-----------|
+| 10 Mbps     | 100      | 2,000,000 |
+| 100 Mbps    | 19       | 200,000   |
+| 1 Gbps      | 4        | 20,000    |
+| 10 Gbps     | 2        | 2,000     |
+| 100 Gbps    | N/A      | 200       |
+| 1 Tbps      | N/A      | 20        |
+
+---
+
+## RSTP PORT STATES
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/054d5037-a60e-478e-986b-6f43825a0d1a)
+
+### So sánh trạng thái:
+
+| STP States | RSTP States | Mô tả |
+|------------|-------------|-------|
+| Disabled | **Discarding** | Port bị vô hiệu hóa |
+| Blocking | **Discarding** | Port chặn để tránh loop |
+| Listening | **Discarding** | Port đang lắng nghe |
+| Learning | **Learning** | Port đang học MAC |
+| Forwarding | **Forwarding** | Port chuyển tiếp bình thường |
+
+### Quy tắc trạng thái RSTP:
+- Nếu Port bị **VÔ HIỆU HÓA QUẢN TRỊ** (lệnh "shutdown") = **DISCARDING STATE**
+- Nếu Port được **BẬT** nhưng **CHẶN lưu lượng** để ngăn **VÒNG LẶP TẦNG 2** = **DISCARDING STATE**
+
+---
+
+## RSTP ROLES
+
+### Vai trò không thay đổi:
+- **ROOT Port role** vẫn không thay đổi trong RSTP
+- **DESIGNATED Port role** vẫn không thay đổi trong RSTP
+
+### Vai trò mới:
+**NON-DESIGNATED Port role được chia thành HAI vai trò riêng biệt trong RSTP:**
+1. **ALTERNATE Port role**
+2. **BACKUP Port role**
+
+---
+
+## RSTP: ALTERNATE PORT ROLE
+
+**RSTP ALTERNATE Port ROLE là DISCARDING Port nhận BPDU superior từ Switch khác**
+
+- Điều này **giống như** những gì bạn đã học về **BLOCKING PORT** trong classic STP
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/7d81e70c-3b31-4448-9d45-9aadb738c74d)
+
+### Chức năng Alternate Port:
+- **ALTERNATE Port** (được gắn nhãn "A" ở trên) hoạt động như **backup cho ROOT Port**
+- Nếu **ROOT Port bị lỗi**, Switch có thể **ngay lập tức chuyển** Alternate Port tốt nhất sang **FORWARDING**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/41f3be85-6225-4749-83b4-f76952c5756a)
+
+💡 **Việc chuyển ngay lập tức sang FORWARDING STATE này hoạt động như tính năng tùy chọn classic STP gọi là UplinkFast. Vì nó được tích hợp vào RSTP, bạn không cần kích hoạt UplinkFast khi sử dụng RSTP/Rapid PVST+**
+
+---
+
+## UPLINKFAST VÀ BACKBONEFAST
+
+### BackboneFast:
+![image](https://github.com/psaumur/CCNA/assets/106411237/c4cea7b7-599f-4ec8-b9d3-a5acba71a5f5)
+
+- **BackboneFast** cho phép SW3 hết hạn **MAX AGE TIMER** trên Interface và nhanh chóng **FORWARD** các BPDU superior đến SW2
+- **CHỨC NĂNG này được tích hợp vào RSTP**, vì vậy không cần cấu hình
+
+### Tóm tắt:
+💡 **UplinkFast và BackboneFast** là hai tính năng tùy chọn trong Classic STP. Chúng phải được cấu hình để hoạt động trên Switch (không cần biết cho CCNA)
+
+- **Cả hai tính năng đều được tích hợp vào RSTP**, vì vậy bạn **KHÔNG phải cấu hình** chúng. Chúng hoạt động theo Mặc định
+- Bạn **KHÔNG cần hiểu chi tiết** về chúng cho CCNA. Biết tên và mục đích CƠ BẢN (giúp BLOCKING/DISCARDING PORT nhanh chóng chuyển sang FORWARDING)
+
+---
+
+## RSTP: BACKUP PORT ROLE
+
+**RSTP BACKUP Port role là DISCARDING Port nhận BPDU superior từ Interface khác trên cùng Switch**
+
+### Điều kiện xảy ra:
+- Điều này chỉ xảy ra khi **HAI INTERFACE được kết nối với cùng COLLISION DOMAIN** (qua Hub)
+- **Hub KHÔNG được sử dụng** trong mạng hiện đại, vì vậy bạn có thể sẽ **KHÔNG gặp** RSTP BACKUP Port
+- Hoạt động như **BACKUP cho DESIGNATED Port**
+
+💡 **Interface có Port ID THẤP HƠN sẽ được chọn làm DESIGNATED Port, và interface khác sẽ là BACKUP Port.**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/61aefc04-b3a9-484a-bbfa-1efe792c73c7)
+
+---
+
+## TƯƠNG THÍCH GIỮA RSTP VÀ CLASSIC STP
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/be4d404d-829d-41ab-ba39-34e918ed7ea9)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/b5dec396-d5fc-486b-9110-5dcc2c4dc4aa)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/1930a17b-6c74-4756-b89d-4148008f586b)
+
+💡 **RAPID STP tương thích với CLASSIC STP.**
+
+💡 **Interface trên RAPID STP-enabled Switch kết nối với CLASSIC STP-enabled Switch sẽ hoạt động trong CLASSIC STP MODE** (Timer, BLOCKING >>> LISTENING >>> LEARNING >>> FORWARDING, v.v.)
+
+---
+
+## RAPID STP BPDU
+
+### So sánh CLASSIC STP (TRÁI) vs RAPID STP BPDU (PHẢI):
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/2d2deb45-3f81-4c60-b9fa-0f6c3fe7c060)
+
+### Khác biệt trong BPDU:
+
+**Classic STP BPDU:**
+- Protocol Version Identifier: Spanning Tree **(0)**
+- BPDU Type: Configuration **(0x00)**
+- BPDU flags: **0x00**
+
+**RAPID STP BPDU:**
+- Protocol Version Identifier: Spanning Tree **(2)**
+- BPDU Type: Configuration **(0x02)**
+- BPDU flags: **0x3c**
+
+### Khác biệt hoạt động:
+- Trong **CLASSIC STP**: chỉ **Root Bridge tạo BPDU**, và các SWITCH khác chỉ **CHUYỂN TIẾP** BPDU nhận được
+- Trong **RAPID STP**: **TẤT CẢ SWITCH tạo và gửi BPDU riêng** từ **DESIGNATED PORT** của chúng
+
+---
+
+## RAPID SPANNING TREE PROTOCOL
+
+### Cải tiến thời gian:
+- **TẤT CẢ SWITCH chạy RAPID STP** gửi BPDU riêng mỗi **"hello" time (2 Giây)**
+- **SWITCH "age" thông tin BPDU** nhanh hơn nhiều:
+  - Trong **CLASSIC STP**: Switch đợi **10 "hello" interval (20 giây)**
+  - Trong **RAPID STP**: Switch coi neighbor bị mất nếu **miss 3 BPDU (6 giây)**. Sau đó sẽ **"flush" TẤT CẢ địa chỉ MAC** học được trên Interface đó
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/c03d2645-42d8-4d95-b486-999e82ac12a8)
+
+---
+
+## RSTP LINK TYPES
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/e837a271-ad13-4d6a-a800-434a0eff2576)
+
+```
+<E> = EDGE
+<P> = POINT-TO-POINT  
+<S> = SHARED
+```
+
+**RSTP phân biệt giữa BA "link type" khác nhau: EDGE, POINT-TO-POINT, và SHARED**
+
+---
+
+### EDGE PORTS
+- **Kết nối với END HOST**
+- Vì **KHÔNG CÓ RỦI RO tạo VÒNG LẶP**, chúng có thể **chuyển thẳng sang FORWARDING STATE** mà không cần quá trình thương lượng!
+- Chúng hoạt động như **CLASSIC STP Port với PORTFAST ENABLED**
+
+```
+Switch(config-if)# spanning-tree portfast
+```
+
+---
+
+### POINT-TO-POINT PORTS
+- **Kết nối trực tiếp** với Switch khác
+- Hoạt động trong **FULL-DUPLEX**
+- Bạn **không cần cấu hình** Interface là POINT-TO-POINT (nó sẽ được phát hiện)
+
+```
+Switch(config-if)# spanning-tree link-type point-to-point
+```
+
+---
+
+### SHARED PORTS
+- **Kết nối với Switch khác** (hoặc SWITCH) qua **Hub**
+- Hoạt động trong **HALF-DUPLEX**
+- Bạn **không cần cấu hình** Interface là SHARED (nó sẽ được phát hiện)
+
+```
+Switch(config-if)# spanning-tree link-type shared
+```
+
+---
+
+## BÀI TẬP THỰC HÀNH
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/a7314f6f-55f0-4e62-bd24-b311b090afe8)
+
+### Phân tích topology:
+
+**SW1 (Root Bridge):**
+- G0/0-0/3 = **DESIGNATED**
+
+**SW2:**
+- G0/0 = **ROOT Port**
+- G0/1 = **DESIGNATED Port**
+- G0/2 = **BACKUP Port**
+- G0/3 = **DESIGNATED Port**
+
+**SW3:**
+- G0/0 = **DESIGNATED Port**
+- G0/1 = **ALTERNATE Port**
+- G0/2 = **ROOT Port**
+- G0/3 = **DESIGNATED Port**
+
+**SW4:**
+- G0/0 = **ROOT Port**
+- G0/1 = **ALTERNATE Port**
+- G0/2 = **DESIGNATED Port**
+
+### Link Types:
+- Kết nối giữa SW1 G0/0 và SW2 G0/0 = **POINT-TO-POINT**
+- Kết nối giữa SW3 G0/0 và SW4 G0/0 = **POINT-TO-POINT**
+- Kết nối giữa SW1 G0/1 và G0/2 đến SW3 G0/1 và G0/2 = **POINT-TO-POINT**
+- Kết nối đến tất cả END HOST = **EDGE**
+- Kết nối từ SW4 đến Hub = **SHARED**
+- Kết nối từ SW2 đến Hub = **SHARED**
+
+### Đáp án:
+![image](https://github.com/psaumur/CCNA/assets/106411237/b76eb7be-897a-4617-990e-f399ceaea5f2)
+
+---
+
+## TÓM TẮT RSTP
+
+### Ưu điểm chính:
+- **Hội tụ nhanh hơn** (giây thay vì phút)
+- **Tương thích ngược** với Classic STP
+- **Tích hợp UplinkFast và BackboneFast**
+- **Phân loại link type** tự động
+
+### Lệnh cấu hình:
+```
+spanning-tree mode rapid-pvst                    // Bật Rapid PVST+
+spanning-tree link-type point-to-point          // Cấu hình link type
+spanning-tree portfast                          // Edge port
+show spanning-tree                               // Kiểm tra RSTP
+```
+
+### Port roles RSTP:
+- **Root Port** - Đường đến Root Bridge
+- **Designated Port** - Chuyển tiếp trên segment
+- **Alternate Port** - Backup cho Root Port
+- **Backup Port** - Backup cho Designated Port (hiếm gặp)
