@@ -1,173 +1,170 @@
-# 3. OSI MODEL & TCP/IP SUITE
+# 3. MÔ HÌNH OSI & BỘ GIAO THỨC TCP/IP
 
-## What is a networking model?
+## Mô hình mạng là gì?
 
-Networking models categorize and provide a structure for networking protocols and standards.
+Các mô hình mạng phân loại và cung cấp cấu trúc cho các giao thức và tiêu chuẩn mạng.
 
-(Protocols are a set of logical rules defining how network devices and software should work)
+(Giao thức là một tập hợp các quy tắc logic xác định cách các thiết bị mạng và phần mềm nên hoạt động)
 
-## OSI MODEL
+## MÔ HÌNH OSI
 
-- Open Systems Interconnection Model
-- Conceptual model that categorizes and standardizes the different functions in a network.
-- Created by the "International Organization for Standardization" (ISO)
-- Functions are divided into 7 "Layers"
-- These layers work together to make the network work.
+- Mô Hình Kết Nối Hệ Thống Mở (Open Systems Interconnection Model)
+- Mô hình khái niệm phân loại và chuẩn hóa các chức năng khác nhau trong mạng.
+- Được tạo ra bởi "Tổ Chức Tiêu Chuẩn Hóa Quốc Tế" (ISO)
+- Các chức năng được chia thành 7 "Tầng"
+- Những tầng này làm việc cùng nhau để làm cho mạng hoạt động.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/bbf46de2-e025-4ddd-b52b-614b280598da)
 
-As data moves from the top layer, downward, the process is called “encapsulation”
+Khi dữ liệu di chuyển từ tầng trên xuống dưới, quá trình này được gọi là "đóng gói" (encapsulation)
 
-As data moves from the bottom layer, upward, the process is called “de-encapsulation”
+Khi dữ liệu di chuyển từ tầng dưới lên trên, quá trình này được gọi là "mở gói" (de-encapsulation)
 
-When interactions occur on the same layer, it’s called “same-layer interaction”
+Khi các tương tác xảy ra trên cùng một tầng, nó được gọi là "tương tác cùng tầng" (same-layer interaction)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/b7cf4900-993c-49f0-b6ea-70f4f0719633)
 
-Mnemonic to help remember the Data Layer Names / Order
+Câu ghi nhớ để giúp nhớ Tên/Thứ tự các Tầng Dữ liệu
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/01f532f6-b636-4b7c-99d0-a67f7e483a99)
 
+### Các tầng là:
 
-### The layers are :
+### 7 - ỨNG DỤNG (APPLICATION)
 
-### 7 - APPLICATION
+- Tầng này gần nhất với người dùng cuối.
+- Tương tác với các ứng dụng phần mềm.
+- HTTP và HTTPS là các giao thức Tầng 7
 
-- This Layer is closest to end user.
-- Interacts with software applications.
-- HTTP and HTTPS are Layer 7 protocols
+Chức năng của Tầng 7 bao gồm:
 
-Functions of Layer 7 include:
-
-- Identifying communication partners
-- Synchronizing communication
-
----
-
-### 6 - PRESENTATION
-
-- Translates data to the appropriate format (between Application and Network formats) to be sent over the network.
+- Xác định các đối tác giao tiếp
+- Đồng bộ hóa giao tiếp
 
 ---
 
-### 5 - SESSION
+### 6 - TRÌNH BÀY (PRESENTATION)
 
-- Controls dialogues (sessions) between communicating hosts.
-- Establishes, manages, and terminates connections between local application and the remote application.
-
----
-
-Network engineers don't usually work with the top 3 layers.
-Application developers work with the top layers of the OSI model to connect their applications over networks.
+- Dịch dữ liệu sang định dạng thích hợp (giữa định dạng Ứng dụng và Mạng) để gửi qua mạng.
 
 ---
 
-### 4 - TRANSPORT
+### 5 - PHIÊN (SESSION)
 
-- Segments and reassembles data for communication between end hosts.
-- Breaks large pieces of data into smaller segments which can be more easily sent over the network and are less likely to cause transmission problems if errors occur.
-- Provides HOST-TO-HOST (end to end) communication
-
-When Data from Layer 7-5 arrives, it receives a Layer 4 Header in the Transport layer.
-
-<< DATA + L4 Header >>
-
-This is called a SEGMENT.
+- Kiểm soát các cuộc đối thoại (phiên) giữa các host giao tiếp.
+- Thiết lập, quản lý và kết thúc kết nối giữa ứng dụng cục bộ và ứng dụng từ xa.
 
 ---
 
-### 3 - NETWORK
-
-- Provides connectivity between end hosts on different networks (ie: outside of the LAN).
-- Provides logical addressing (IP Addresses).
-- Provides path selection between source and destination
-- **ROUTERS** operate at Layer 3.
-
-When Data and the Layer 4 Header arrive in the Network Layer, it receives a Layer 3 Header.
-
-<< DATA + L4 Header + L3 Header >>
-
-This is called a **PACKET**.
+Các kỹ sư mạng thường không làm việc với 3 tầng trên cùng.
+Các nhà phát triển ứng dụng làm việc với các tầng trên của mô hình OSI để kết nối ứng dụng của họ qua mạng.
 
 ---
 
-### 2 - DATA LINK
+### 4 - VẬN CHUYỂN (TRANSPORT)
 
-- Provides NODE-TO-NODE connectivity and data transfer (for example, PC to Switch, Switch to Router, Router to Router)
-- Defines how data is formatted for transmission over physical medium (for example, copper UTP cables)
-- Detects and (possibly) corrects Physical (Layer 1) errors.
-- Uses Layer 2 addressing, separate from Layer 3 addressing.
-- **SWITCHES** operate at Layer 2
+- Phân đoạn và tái lắp ráp dữ liệu để giao tiếp giữa các host cuối.
+- Chia các phần dữ liệu lớn thành các đoạn nhỏ hơn có thể được gửi dễ dàng hơn qua mạng và ít có khả năng gây ra vấn đề truyền tải nếu có lỗi xảy ra.
+- Cung cấp giao tiếp HOST-ĐẾN-HOST (đầu cuối đến đầu cuối)
 
-When the Layer 3 Packet arrives, a Layer 2 Trailer and Header are added.
+Khi Dữ liệu từ Tầng 7-5 đến, nó nhận được Header Tầng 4 trong tầng Vận chuyển.
 
-<< L2 Trailer + DATA + L4 Header + L3 Header + L2 Header >>
+<< DỮ LIỆU + Header L4 >>
 
-This is called a FRAME.
-
-All the steps leading up to transmission is called ENCAPSULATION.
-When the frame is sent to the receiver, it then goes through the reverse process, DE-ENCAPSULATION, stripping off layers while travelling from OSI Layer 1 to Layer 7.
+Điều này được gọi là ĐOẠN (SEGMENT).
 
 ---
 
-### 1 - PHYSICAL
+### 3 - MẠNG (NETWORK)
 
-- Defines physical characteristics of the medium used to transfer data between devices. For example : voltage levels, maximum transmission distances, physical connectors, cable specs.
-- Digital bits are converted into electrical (for wired connections) or radio (for wireless connections) signals.
-- All of the information in SECTION 2 (NETWORKING DEVICES) is related to the Physical Layer
+- Cung cấp kết nối giữa các host cuối trên các mạng khác nhau (tức là: bên ngoài LAN).
+- Cung cấp địa chỉ logic (Địa chỉ IP).
+- Cung cấp lựa chọn đường đi giữa nguồn và đích
+- **ROUTER** hoạt động ở Tầng 3.
+
+Khi Dữ liệu và Header Tầng 4 đến trong Tầng Mạng, nó nhận được Header Tầng 3.
+
+<< DỮ LIỆU + Header L4 + Header L3 >>
+
+Điều này được gọi là **GÓI TIN (PACKET)**.
 
 ---
 
-### OSI MODEL - PDU's
+### 2 - LIÊN KẾT DỮ LIỆU (DATA LINK)
+
+- Cung cấp kết nối NÚT-ĐẾN-NÚT và truyền dữ liệu (ví dụ: PC đến Switch, Switch đến Router, Router đến Router)
+- Định nghĩa cách dữ liệu được định dạng để truyền qua phương tiện vật lý (ví dụ: cáp UTP đồng)
+- Phát hiện và (có thể) sửa lỗi Vật lý (Tầng 1).
+- Sử dụng địa chỉ Tầng 2, tách biệt với địa chỉ Tầng 3.
+- **SWITCH** hoạt động ở Tầng 2
+
+Khi Gói tin Tầng 3 đến, Header và Trailer Tầng 2 được thêm vào.
+
+<< Trailer L2 + DỮ LIỆU + Header L4 + Header L3 + Header L2 >>
+
+Điều này được gọi là KHUNG (FRAME).
+
+Tất cả các bước dẫn đến việc truyền được gọi là ĐÓNG GÓI (ENCAPSULATION).
+Khi khung được gửi đến người nhận, nó sau đó trải qua quá trình ngược lại, MỞ GÓI (DE-ENCAPSULATION), loại bỏ các tầng trong khi di chuyển từ Tầng OSI 1 đến Tầng 7.
+
+---
+
+### 1 - VẬT LÝ (PHYSICAL)
+
+- Định nghĩa các đặc tính vật lý của phương tiện được sử dụng để truyền dữ liệu giữa các thiết bị. Ví dụ: mức điện áp, khoảng cách truyền tối đa, đầu nối vật lý, thông số kỹ thuật cáp.
+- Các bit số được chuyển đổi thành tín hiệu điện (cho kết nối có dây) hoặc radio (cho kết nối không dây).
+- Tất cả thông tin trong PHẦN 2 (THIẾT BỊ MẠNG) liên quan đến Tầng Vật lý
+
+---
+
+### MÔ HÌNH OSI - PDU
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/9b885a51-91cd-4fe6-b1be-e7fa7aa220b5)
 
-A PDU is a Protocol Data Unit. Each step of the process is a PDU.
+PDU là Đơn vị Dữ liệu Giao thức (Protocol Data Unit). Mỗi bước của quá trình là một PDU.
 
-| OSI LAYER # | PDU NAME | PROTOCOL DATA ADDED |
+| SỐ TẦNG OSI | TÊN PDU | DỮ LIỆU GIAO THỨC ĐƯỢC THÊM |
 | --- | --- | --- |
-| 7-5 | DATA | Data |
-| 4 | SEGMENT | Layer 4 Header Added |
-| 3 | PACKET | Layer 3 Header Added |
-| 2 | FRAME | Layer 2 Trailer and Header Added |
-| 1 | BIT | 0s and 1s Transmission |
+| 7-5 | DỮ LIỆU (DATA) | Dữ liệu |
+| 4 | ĐOẠN (SEGMENT) | Header Tầng 4 Được Thêm |
+| 3 | GÓI TIN (PACKET) | Header Tầng 3 Được Thêm |
+| 2 | KHUNG (FRAME) | Trailer và Header Tầng 2 Được Thêm |
+| 1 | BIT | Truyền 0 và 1 |
 
-<< L2 Trailer + DATA + L4 Header + L3 Header + L2 Header >>
+<< Trailer L2 + DỮ LIỆU + Header L4 + Header L3 + Header L2 >>
 
 ---
 
-### TCP/IP Suite
+### BỘ GIAO THỨC TCP/IP
 
-- Conceptual model and set of communications protocols used in the Internet and other networks.
-- Known as TCP/IP because those are two of the foundational protocols in the suite.
-- Developed by the US Dept. of Defense through DARPA (Defense Advanced Research Projects Agency).
-- Similar structure to the OSI Model, but fewer layers.
-- THIS is the model actually in use in modern networks.
-- * Note : The OSI Model still influences how network engineers think and talk about networks.
+- Mô hình khái niệm và tập hợp các giao thức giao tiếp được sử dụng trong Internet và các mạng khác.
+- Được biết đến là TCP/IP vì đó là hai trong số các giao thức nền tảng trong bộ giao thức.
+- Được phát triển bởi Bộ Quốc phòng Hoa Kỳ thông qua DARPA (Cơ quan Dự án Nghiên cứu Tiên tiến Quốc phòng).
+- Cấu trúc tương tự như Mô hình OSI, nhưng ít tầng hơn.
+- ĐÂY là mô hình thực sự được sử dụng trong các mạng hiện đại.
+- * Lưu ý: Mô hình OSI vẫn ảnh hưởng đến cách các kỹ sư mạng suy nghĩ và nói về mạng.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/e9593c06-46a3-4ff9-aa01-863e0aeb5df3)
 
-
 ---
 
-### Layer Interactions
+### Tương Tác Giữa Các Tầng
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/372c45a0-bb3e-4342-af2b-79d3606384ec)
 
+Tương Tác Tầng Liền Kề:
 
-Adjacent-Layer Interactions:
+- Tương tác giữa các tầng khác nhau của Mô hình OSI trên cùng một host.
 
-- Interactions between different layers of the OSI Model on same host.
+Ví dụ:
 
-Example:
+Tầng 5-7 gửi Dữ liệu đến Tầng 4, sau đó thêm header tầng 4 (tạo ra một ĐOẠN).
 
-Layers 5-7 sending Data to Layer 4, which then adds a Layer 4 header (creating a SEGMENT).
+Tương Tác Cùng Tầng:
 
-Same-Layer Interactions:
+- Tương tác giữa cùng một Tầng trên các host khác nhau.
+- Khái niệm Tương tác Cùng tầng cho phép bạn bỏ qua các tầng khác liên quan và tập trung vào tương tác giữa một tầng duy nhất trên các thiết bị khác nhau.
 
-- Interactions between the same Layer on different hosts.
-- The concept of Same-Layer interaction allows you to ignore the other layers involved and focus on the interactions between a single layer on different devices.
+Ví dụ:
 
-Example:
-
-The Application Layer of YouTube's web server and your PC's browser.
+Tầng Ứng dụng của máy chủ web YouTube và trình duyệt PC của bạn.
