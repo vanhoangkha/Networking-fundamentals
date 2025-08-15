@@ -1,71 +1,70 @@
-# 4. INTRO TO THE CLI
+# 4. GIỚI THIỆU VỀ CLI
 
-### Giới thiệu về CLI?
+### CLI là gì?
 
-- A "Command-line Interface"
-- The Interface you use to configure Cisco devices
+- Một "Giao diện dòng lệnh" (Command-line Interface)
+- Giao diện mà bạn sử dụng để cấu hình các thiết bị Cisco
 
-A GUI is a "Graphical User Interface"
+GUI là "Giao diện đồ họa người dùng" (Graphical User Interface)
 
-### How do you connect to a Cisco Device?
+### Làm thế nào để kết nối với thiết bị Cisco?
 
-- Console Port : When you first configure a device, you have to connect via the Console Port.
+- Cổng Console: Khi bạn lần đầu cấu hình thiết bị, bạn phải kết nối qua Cổng Console.
 
-You can use a "Rollover Cable" : DB9 serial connector to RJ45 OR a DB9 Serial to USB
+Bạn có thể sử dụng "Cáp Rollover": Đầu nối serial DB9 sang RJ45 HOẶC DB9 Serial sang USB
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/0527c007-d607-4bef-8ce1-7b18a177614d)
 
-### How do you actually Access the CLI?
+### Làm thế nào để thực sự truy cập CLI?
 
-- You need to use a TERMINAL EMULATOR (Example: PuTTy is a popular choice) and connect via "Serial" (Default settings)
+- Bạn cần sử dụng TRÌNH GIẢ LẬP TERMINAL (Ví dụ: PuTTy là lựa chọn phổ biến) và kết nối qua "Serial" (Cài đặt mặc định)
 
-### Cisco Default Settings are:
+### Cài đặt mặc định của Cisco:
 
-Speed (baud) : 9600 bits/second
-Data bits: 8 data bits
-Stop bits: 1 stop bit (sent after 8 data bits are sent)
-Parity: None
-Flow Control: None
-
----
-
-When you first enter the CLI you will Default be in là gì called 'User EXEC' mode.
-
-USER EXEC MODE:
-
-(Hostname) >		// Prompt looks like THIS //
-
-- User EXEC mode is very limited.
-- User can look at some things but can't make ANY changes to the Configuration.
-- AKA 'User Mode'
-
-Using the 'Kích hoạt' Lệnh, in User EXEC mode, switches you to 'Privileged EXEC' mode.
+Tốc độ (baud): 9600 bit/giây
+Bit dữ liệu: 8 bit dữ liệu
+Bit dừng: 1 bit dừng (được gửi sau khi 8 bit dữ liệu được gửi)
+Parity: Không
+Kiểm soát luồng: Không
 
 ---
 
-PRIVILEGED EXEC MODE:
+Khi bạn lần đầu vào CLI, bạn sẽ mặc định ở chế độ được gọi là 'User EXEC'.
 
-- Provides complete Access to view the device's Configuration, restart the device, etc.
-- Cannot change the Configuration, but can change the time on the device, save the Configuration file, etc.
+CHẾ ĐỘ USER EXEC:
 
-(Hostname)#		// Prompt looks like THIS //
+(Hostname) >		// Dấu nhắc trông như THẾ NÀY //
+
+- Chế độ User EXEC rất hạn chế.
+- Người dùng có thể xem một số thứ nhưng không thể thực hiện BẤT KỲ thay đổi nào đối với Cấu hình.
+- Còn gọi là 'Chế độ User'
+
+Sử dụng lệnh 'enable', trong chế độ User EXEC, chuyển bạn sang chế độ 'Privileged EXEC'.
 
 ---
 
-USE a Question Mark (?) to view the available commands in ANY mode. Combining ? with a letter or partial Lệnh will list all the commands with those letters.
+CHẾ ĐỘ PRIVILEGED EXEC:
+
+- Cung cấp quyền truy cập hoàn toàn để xem Cấu hình của thiết bị, khởi động lại thiết bị, v.v.
+- Không thể thay đổi Cấu hình, nhưng có thể thay đổi thời gian trên thiết bị, lưu file Cấu hình, v.v.
+
+(Hostname)#		// Dấu nhắc trông như THẾ NÀY //
+
+---
+
+SỬ DỤNG dấu hỏi chấm (?) để xem các lệnh có sẵn trong BẤT KỲ chế độ nào. Kết hợp ? với một chữ cái hoặc lệnh một phần sẽ liệt kê tất cả các lệnh có những chữ cái đó.
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/52454e6f-d5b1-45f0-9a50-e412d356f6d2)
 
-
-USE the TAB key to complete partially entered commands IF the Lệnh exists.
+SỬ DỤNG phím TAB để hoàn thành các lệnh được nhập một phần NẾU lệnh tồn tại.
 
 ---
 
-### GLOBAL Configuration MODE:
+### CHẾ ĐỘ CẤU HÌNH TOÀN CỤC:
 
-To enter Global Configuration Mode, enter the Lệnh, within Privileged EXEC mode
+Để vào Chế độ Cấu hình Toàn cục, nhập lệnh trong chế độ Privileged EXEC
 
- 'configure terminal' (or 'conf t')
+'configure terminal' (hoặc 'conf t')
 
 Router# configure terminal
 Router(config) #		
@@ -74,61 +73,61 @@ Router(config) # run
 
 Router(config) # no 
 
-Type 'exit' to drop back into 'Privileged EXEC' mode.
+Gõ 'exit' để quay lại chế độ 'Privileged EXEC'.
 
 ---
 
-### To Kích hoạt Password for User EXEC mode:
+### Để kích hoạt Mật khẩu cho chế độ User EXEC:
 
-Router(config)# Kích hoạt password (password)
+Router(config)# enable password (mật khẩu)
 
-- Passwords ARE case-sensitive.
+- Mật khẩu PHÂN BIỆT chữ hoa chữ thường.
 
-// This Lệnh encrypts plain-text passwords, visible in the config files, using simple encryption.
+// Lệnh này mã hóa mật khẩu văn bản thuần túy, hiển thị trong các file cấu hình, sử dụng mã hóa đơn giản.
 
 Router(config)# service password-encryption
 
-If you Kích hoạt 'service password-encryption'
+Nếu bạn kích hoạt 'service password-encryption'
 
-- Current passwords WILL be encrypted.
-- Future passwords WILL be encrypted.
-- The 'Kích hoạt secret' WILL NOT be effected.
+- Mật khẩu hiện tại SẼ được mã hóa.
+- Mật khẩu tương lai SẼ được mã hóa.
+- 'enable secret' SẼ KHÔNG bị ảnh hưởng.
 
-If you Vô hiệu hóa 'service password-encryption'
+Nếu bạn vô hiệu hóa 'service password-encryption'
 
-- Current passwords WILL NOT be decrypted.
-- Future passwords WILL NOT be encrypted.
-- The 'Kích hoạt secret' WILL NOT be effected.
+- Mật khẩu hiện tại SẼ KHÔNG được giải mã.
+- Mật khẩu tương lai SẼ KHÔNG được mã hóa.
+- 'enable secret' SẼ KHÔNG bị ảnh hưởng.
 
-// This Lệnh enables passwords for the Privileged EXEC mode.
+// Lệnh này kích hoạt mật khẩu cho chế độ Privileged EXEC.
 
-Router(config)# Kích hoạt secret (password)
+Router(config)# enable secret (mật khẩu)
 
-// Kích hoạt secret will ALWAYS be encrypted (at level 5)
-
----
-
-There are TWO separate Configuration files kept on the device at once.
-
-Running-config :
-
-- The current, ACTIVE Configuration file on the device. As you enter commands in the CLI, you edit the active Configuration.
-
-Startup-config :
-
-- The Configuration file that will be loaded upon RESTART of the device.
-
-To see the Configuration files, inside 'Privileged EXEC' mode:
-
-Router# show running-config // for running config //
-
-OR
-
-Router# show startup-config // for startup config //
+// enable secret sẽ LUÔN được mã hóa (ở cấp độ 5)
 
 ---
 
-To SAVE the Running Configuration file, you can:
+Có HAI file Cấu hình riêng biệt được lưu trên thiết bị cùng một lúc.
+
+Running-config:
+
+- File Cấu hình hiện tại, ĐANG HOẠT ĐỘNG trên thiết bị. Khi bạn nhập lệnh trong CLI, bạn chỉnh sửa Cấu hình đang hoạt động.
+
+Startup-config:
+
+- File Cấu hình sẽ được tải khi KHỞI ĐỘNG LẠI thiết bị.
+
+Để xem các file Cấu hình, trong chế độ 'Privileged EXEC':
+
+Router# show running-config // cho running config //
+
+HOẶC
+
+Router# show startup-config // cho startup config //
+
+---
+
+Để LƯU file Running Configuration, bạn có thể:
 
 Router# write
 Building Configuration...
@@ -147,50 +146,47 @@ Building Configuration...
 
 ---
 
-To encrypt passwords:
+Để mã hóa mật khẩu:
 
 Router# conf t
 
 Router(config)# service password-encryption
 
-This makes all current passwords *encrypted*
+Điều này làm cho tất cả mật khẩu hiện tại được *mã hóa*
 
-Future passwords will ALSO be *encrypted*
+Mật khẩu tương lai cũng sẽ được *mã hóa*
 
-“Kích hoạt secret” will not be effected (it’s ALWAYS encrypted)
+"enable secret" sẽ không bị ảnh hưởng (nó LUÔN được mã hóa)
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/09c841fe-b5c0-4683-9082-baf060e24c03)
 
+Bây giờ bạn sẽ thấy rằng mật khẩu không còn ở dạng văn bản thuần túy.
 
-Now you will see that the password is no longer in plaintext.
+"7" đề cập đến loại mã hóa được sử dụng để mã hóa mật khẩu. Trong trường hợp này, "7" sử dụng mã hóa độc quyền của Cisco.
 
-“7” refers to the type of encryption used to encrypt the password. In this case, “7” uses Cisco’s proprietary encryption.
+"7" khá dễ bị crack vì mã hóa yếu.
 
-“7” is fairly easy to crack since the encryption is weak.
-
-For BETTER / STRONGER encryption, use “Kích hoạt secret”
+Để có mã hóa TỐT HỠN / MẠNH HƠN, sử dụng "enable secret"
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/346f3015-9211-47a9-888f-4e02a013a728)
 
+"5" đề cập đến mã hóa MD5.
 
-“5” refers to MD5 encryption.
+Vẫn có thể bị crack nhưng mạnh hơn rất nhiều.
 
-Can still be cracked but it’s much much stronger.
-
-Once you use “Kích hoạt secret” Lệnh, this will override “Kích hoạt password”
+Khi bạn sử dụng lệnh "enable secret", điều này sẽ ghi đè "enable password"
 
 ---
 
-To CANCEL or delete a Lệnh you entered, use the “no” keyword
+Để HỦY BỎ hoặc xóa một lệnh bạn đã nhập, sử dụng từ khóa "no"
 
 ![image](https://github.com/psaumur/CCNA/assets/106411237/2978d101-08d4-4ee3-8995-f36aa1c47d15)
 
+Trong trường hợp này, vô hiệu hóa "service password-encryption":
 
-In this instance, disabling “service password-encryption”:
-
-- current passwords will NOT be decrypted (unchanged)
-- future passwords will NOT be encrypted
-- the “Kích hoạt secret” will not be effected
+- mật khẩu hiện tại sẽ KHÔNG được giải mã (không thay đổi)
+- mật khẩu tương lai sẽ KHÔNG được mã hóa
+- "enable secret" sẽ không bị ảnh hưởng
 
 ---
 
