@@ -8,8 +8,8 @@
 | Loại File | Số lượng | Trạng thái | Tỷ lệ hoàn thành |
 |-----------|----------|------------|------------------|
 | README.md | 1 | ✅ Hoàn thành 100% | 100% |
-| Day01-06 | 6 | ✅ Dịch thủ công chất lượng cao | 100% |
-| Day07-66 | 60 | ⚠️ Dịch tự động (cần cải thiện) | ~70% |
+| Day01-10 | 10 | ✅ Dịch thủ công chất lượng cao | 100% |
+| Day11-66 | 56 | ⚠️ Dịch tự động (cần cải thiện) | ~70% |
 | **TỔNG CỘNG** | **67** | **🔄 Đang tiến hành** | **~75%** |
 
 ## ✅ ĐÃ HOÀN THÀNH (100%)
@@ -48,6 +48,26 @@
 - ✅ Dịch thủ công chất lượng cao
 - ✅ ARP Protocol và PING
 - ✅ Các lệnh Cisco IOS hữu ích
+
+### Day07: Địa Chỉ IPv4 - Phần 1
+- ✅ Dịch thủ công chất lượng cao
+- ✅ Chuyển đổi nhị phân/thập phân chi tiết
+- ✅ Các lớp địa chỉ IPv4 và Netmask
+
+### Day08: Địa Chỉ IPv4 - Phần 2
+- ✅ Dịch thủ công chất lượng cao
+- ✅ Công thức tính số host và địa chỉ sử dụng được
+- ✅ Cấu hình CLI Cisco Router
+
+### Day09: Giao Diện Switch
+- ✅ Dịch thủ công chất lượng cao
+- ✅ Full/Half Duplex và CSMA/CD
+- ✅ Tự động thương lượng và bộ đếm lỗi
+
+### Day10: Header IPv4
+- ✅ Dịch thủ công chất lượng cao
+- ✅ Tất cả 14 trường header được giải thích chi tiết
+- ✅ Thuật ngữ kỹ thuật chuẩn (TTL, MTU, Fragmentation, v.v.)
 
 ## ⚠️ CẦN CẢI THIỆN (Day07-66)
 

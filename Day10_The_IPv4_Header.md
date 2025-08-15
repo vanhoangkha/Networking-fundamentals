@@ -1,1 +1,153 @@
-# 10. Header IPV4 Internet Giao thức version 4 Header hoặc IPv4 Header Header là used tại LAYER 3 đến help send data between devices trên separate networks, even trên other sides của the world over the Internet. This là known as Định tuyến. Header IPV4 là used đến ENCAPSULATE một TCP hoặc UDP Đoạn. To Review: ![image](https://github.com/psaumur/CCNA/assets/106411237/64906e3c-0bae-4c2c-96ca-4e6850f3844a) --- FIELDS của Header IPV4 ![image](https://github.com/psaumur/CCNA/assets/106411237/f2667488-2769-4e62-bee7-eddbf9e00058) | FIELD | # OF BITS | | --- | --- | | VERSION | 4 | | IHL | 4 | | DSCP | 6 | | ECN | 2 | | TOTAL LENGTH | 16 | | IDENTIFICATION | 16 | | FLAGS | 3 | | FRAGMENT OFFSET | 13 | | TIME đến LIVE | 8 | | Giao thức | 8 | | Header CHECKSUM | 16 | | SOURCE Địa chỉ | 32 | | DESTINATION Địa chỉ | 32 | | OPTIONS | 320 Max | --- VERSION: - LENGTH là 4 bits. - IDs version của IP used (IPv4 hoặc IPv6) - IPv4 = 0100 trong Binary (Decimal 4) - IPv6 = 0110 trong Binary (Decimal 6) --- Internet Header LENGTH (IHL): - LENGTH là 4 bits. - Final field của IPv4 Header (Options) is variable trong length so this field là necessary đến indicate the total length của the Header. - IDs the length của the Header trong 4-BYTE INCREMENTS. - The MINIMUM value là 5 (5 * 4-bytes = 20 bytes) - Empty OPTIONS Field - The MAXIMUM value là 15 (15 * 4-bytes = 60 bytes) MINIMUM IPv4 Header LENGTH = 20 Bytes! MAXIMUM IPv4 Header LENGTH = 60 Bytes! --- DSCP (Differentiated Services Code Point): - LENGTH là 6 bits. - Used cho QoS (Chất lượng dịch vụ) - Used đến prioritize delay-sensitive data (streaming voice, video, etc.) --- ECN (Explicit Congestion Notification): - LENGTH là 2 bits. - Provides end-to-end (between two endpoints) notification của Mạng congestion WITHOUT dropping packets. - Optional feature that requires both endpoints, as well as the underlying Mạng Hạ tầng đến support it. --- TOTAL LENGTH: - LENGTH là 16 bits. - Indicates the TOTAL length của the Gói tin (L3 Header + L4 Đoạn) - Measured trong bytes (not 4-byte increments like IHL) - Minimum value của 20 Bytes (IPv4 Header với NO encapsulated data) - Maximum value của 65,535 (MAXIMUM 16-bit value) = 2^16 --- IDENTIFICATION: - LENGTH là 16 bits. - If một Gói tin là fragmented due đến being too large, this field là used đến identify which Gói tin the fragment belongs to. - All fragments của the same Gói tin sẽ have their own IPv4 Header với the same value trong this field. - Packets là fragmented, if larger than the MTU (Maximum Transmission Unit) - The MTU là usually 1500 bytes (Max size của một Ethernet Khung) - Fragments là reassembled bởi the receiving host. --- FLAGS: - LENGTH là 3 bits - Used đến Kiểm soát/identify fragments. - Bit 0: Reserved, always set đến 0. - Bit 1: Don't Fragment (DF bit), used đến indicate một Gói tin that nên not be fragmented. - Bit 2: More Fragments (MF bit), set đến 1 if there là more fragments trong the Gói tin, set đến 0 cho the last fragment hoặc NO fragments. --- FRAGMENT OFFSET: - LENGTH là 13 bits - Used đến indicated the position của the fragment within the original, unfragmented IP Gói tin. - Allows fragmented packets đến be reassembled even if the fragments arrive out của order. --- TIME đến LIVE (TTL): - LENGTH là 8 bits - A Router sẽ drop một Gói tin với một TTL của 0 - Used đến prevent infinite loops - Originally designed đến indicated một packets maximum lifetime trong seconds. - In practice, indicates a 'hop count': each time the Gói tin arrives tại một Router, the Router decreases the TTL bởi 1. - Recommended Default TTL là 64. --- Giao thức: - LENGTH là 8 bits - Indicates the Giao thức của the encapsulated Layer 4 PDU - Value của 1 : ICMP - Value của 6 : TCP - Value của 17 : UDP - Value của 89 : OSPF (Dynamic Định tuyến Giao thức) - List của Giao thức numbers trên Wikipedia : List của IP Giao thức Numbers Header CHECKSUM: - LENGTH là 16 bits - A calculated checksum used đến check cho errors trong Header IPV4. - When một Router receives một Gói tin, it calculates the checksum của the Header và compares it đến the one trong this field của một Header. - If they do not match, the Router drops the Gói tin. - Used đến check cho ERRORS only trong Header IPV4. - IP relies trên the encapsulated Giao thức đến detect errors trong the encapsulated data. - Both TCP và UDP have their own checksum fields đến detect errors trong the encapsulated data. --- SOURCE và DESTINATION: - LENGTH là 32 bits each - SOURCE IP = IPv4 Địa chỉ của the Sender của the Gói tin. - DESTINATION IP = IPv4 Địa chỉ của the intended Receiver của the Gói tin. --- OPTIONS: - LENGTH là 0-320 bits - Optional / Rarely Used - If the IHL field là greater than 5, it means that Options là present. 
+# 10. HEADER IPv4
+
+## GIỚI THIỆU
+
+**Header Giao thức Internet phiên bản 4** hoặc **Header IPv4**
+
+Header được sử dụng tại **TẦNG 3** để giúp gửi dữ liệu giữa các thiết bị trên các mạng riêng biệt, thậm chí ở phía bên kia thế giới qua Internet.
+
+Điều này được gọi là **Định tuyến**.
+
+**Header IPv4** được sử dụng để **ĐÓNG GÓI** một Đoạn TCP hoặc UDP.
+
+**Để ôn tập:**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/64906e3c-0bae-4c2c-96ca-4e6850f3844a)
+
+---
+
+## CÁC TRƯỜNG CỦA HEADER IPv4
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/f2667488-2769-4e62-bee7-eddbf9e00058)
+
+| TRƯỜNG | SỐ BIT |
+| --- | --- |
+| VERSION | 4 |
+| IHL | 4 |
+| DSCP | 6 |
+| ECN | 2 |
+| TOTAL LENGTH | 16 |
+| IDENTIFICATION | 16 |
+| FLAGS | 3 |
+| FRAGMENT OFFSET | 13 |
+| TIME TO LIVE | 8 |
+| PROTOCOL | 8 |
+| HEADER CHECKSUM | 16 |
+| SOURCE ADDRESS | 32 |
+| DESTINATION ADDRESS | 32 |
+| OPTIONS | 320 Max |
+
+---
+
+## VERSION:
+- **ĐỘ DÀI:** 4 bit
+- Xác định phiên bản IP được sử dụng (IPv4 hoặc IPv6)
+- **IPv4** = 0100 trong Nhị phân (Thập phân 4)
+- **IPv6** = 0110 trong Nhị phân (Thập phân 6)
+
+---
+
+## INTERNET HEADER LENGTH (IHL):
+- **ĐỘ DÀI:** 4 bit
+- Trường cuối cùng của Header IPv4 (Options) có độ dài thay đổi nên trường này cần thiết để chỉ ra tổng độ dài của Header.
+- Xác định độ dài của Header theo **ĐƠN VỊ TĂNG 4-BYTE**.
+- Giá trị **TỐI THIỂU** là 5 (5 × 4-byte = 20 byte) - Trường OPTIONS trống
+- Giá trị **TỐI ĐA** là 15 (15 × 4-byte = 60 byte)
+
+**ĐỘ DÀI Header IPv4 TỐI THIỂU = 20 Byte!**
+**ĐỘ DÀI Header IPv4 TỐI ĐA = 60 Byte!**
+
+---
+
+## DSCP (DIFFERENTIATED SERVICES CODE POINT):
+- **ĐỘ DÀI:** 6 bit
+- Được sử dụng cho **QoS (Chất lượng Dịch vụ)**
+- Được sử dụng để ưu tiên dữ liệu nhạy cảm với độ trễ (streaming voice, video, v.v.)
+
+---
+
+## ECN (EXPLICIT CONGESTION NOTIFICATION):
+- **ĐỘ DÀI:** 2 bit
+- Cung cấp thông báo đầu cuối đến đầu cuối (giữa hai điểm cuối) về tắc nghẽn Mạng MÀ KHÔNG loại bỏ gói tin.
+- Tính năng tùy chọn yêu cầu cả hai điểm cuối, cũng như Hạ tầng Mạng cơ bản hỗ trợ nó.
+
+---
+
+## TOTAL LENGTH:
+- **ĐỘ DÀI:** 16 bit
+- Chỉ ra độ dài TỔNG của Gói tin (Header L3 + Đoạn L4)
+- Được đo bằng byte (không phải đơn vị tăng 4-byte như IHL)
+- Giá trị tối thiểu là 20 Byte (Header IPv4 KHÔNG có dữ liệu được đóng gói)
+- Giá trị tối đa là 65,535 (giá trị 16-bit TỐI ĐA) = 2^16
+
+---
+
+## IDENTIFICATION:
+- **ĐỘ DÀI:** 16 bit
+- Nếu một Gói tin bị phân mảnh do quá lớn, trường này được sử dụng để xác định Gói tin nào mà mảnh thuộc về.
+- Tất cả các mảnh của cùng một Gói tin sẽ có Header IPv4 riêng với cùng giá trị trong trường này.
+- Gói tin bị phân mảnh nếu lớn hơn **MTU (Maximum Transmission Unit)**
+- MTU thường là 1500 byte (Kích thước tối đa của một Khung Ethernet)
+- Các mảnh được tái lắp ráp bởi host nhận.
+
+---
+
+## FLAGS:
+- **ĐỘ DÀI:** 3 bit
+- Được sử dụng để Kiểm soát/xác định các mảnh.
+- **Bit 0:** Dành riêng, luôn được đặt thành 0.
+- **Bit 1:** Don't Fragment (DF bit), được sử dụng để chỉ ra một Gói tin không nên bị phân mảnh.
+- **Bit 2:** More Fragments (MF bit), được đặt thành 1 nếu có nhiều mảnh hơn trong Gói tin, được đặt thành 0 cho mảnh cuối cùng hoặc KHÔNG có mảnh.
+
+---
+
+## FRAGMENT OFFSET:
+- **ĐỘ DÀI:** 13 bit
+- Được sử dụng để chỉ ra vị trí của mảnh trong Gói tin IP gốc, chưa phân mảnh.
+- Cho phép các gói tin bị phân mảnh được tái lắp ráp ngay cả khi các mảnh đến không theo thứ tự.
+
+---
+
+## TIME TO LIVE (TTL):
+- **ĐỘ DÀI:** 8 bit
+- Router sẽ loại bỏ một Gói tin có TTL bằng 0
+- Được sử dụng để ngăn chặn vòng lặp vô hạn
+- Ban đầu được thiết kế để chỉ ra thời gian sống tối đa của gói tin tính bằng giây.
+- Trong thực tế, chỉ ra 'số hop': mỗi khi Gói tin đến một Router, Router giảm TTL đi 1.
+- TTL Mặc định được khuyến nghị là 64.
+
+---
+
+## PROTOCOL:
+- **ĐỘ DÀI:** 8 bit
+- Chỉ ra Giao thức của PDU Tầng 4 được đóng gói
+- **Giá trị 1:** ICMP
+- **Giá trị 6:** TCP
+- **Giá trị 17:** UDP
+- **Giá trị 89:** OSPF (Giao thức Định tuyến Động)
+- Danh sách số Giao thức trên Wikipedia: List of IP Protocol Numbers
+
+---
+
+## HEADER CHECKSUM:
+- **ĐỘ DÀI:** 16 bit
+- Checksum được tính toán để kiểm tra lỗi trong Header IPv4.
+- Khi một Router nhận một Gói tin, nó tính toán checksum của Header và so sánh với checksum trong trường này của Header.
+- Nếu chúng không khớp, Router loại bỏ Gói tin.
+- Được sử dụng để kiểm tra LỖI chỉ trong Header IPv4.
+- IP dựa vào Giao thức được đóng gói để phát hiện lỗi trong dữ liệu được đóng gói.
+- Cả TCP và UDP đều có trường checksum riêng để phát hiện lỗi trong dữ liệu được đóng gói.
+
+---
+
+## SOURCE VÀ DESTINATION:
+- **ĐỘ DÀI:** 32 bit mỗi trường
+- **SOURCE IP** = Địa chỉ IPv4 của Người gửi Gói tin.
+- **DESTINATION IP** = Địa chỉ IPv4 của Người nhận dự định của Gói tin.
+
+---
+
+## OPTIONS:
+- **ĐỘ DÀI:** 0-320 bit
+- Tùy chọn / Hiếm khi được sử dụng
+- Nếu trường IHL lớn hơn 5, có nghĩa là Options có mặt.
