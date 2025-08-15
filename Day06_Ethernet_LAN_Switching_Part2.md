@@ -1,1 +1,108 @@
-# 6. CHUYỂN MẠCH ETHERNET LAN : PART 2 An Ethernet Khung looks like: Ethernet Header --- DATA (Gói tin) --- Ethernet Trailer ![image](https://github.com/psaumur/CCNA/assets/106411237/27c1877f-57d7-44ea-8c64-b0ec2b308ad0) The Ethernet Header contains 5 Fields: Preamble -- SFD -- Destination -- Source -- Type/Length 7 bytes -- 1 byte -- 6 bytes -- 6 bytes -- 2 bytes Ethernet Trailer contains 1 Field: FCS (Khung Check Sequence) = 4 bytes - The PREAMBLE + SFD là not usually considered part của the Ethernet Header. THEREFORE the size của the Ethernet Header + Trailer là 18 bytes (6 + 6 + 2 + 4 bytes cho the Khung CHECK SEQUENCE) --- The MINIMUM size cho một Ethernet Khung (Header + Payload [Gói tin] + Trailer) is 64 BYTES. 64 BYTES - 18 BYTES (Header + Trailer size) = 46 BYTES THEREFORE the MINIMUM DATA PAYLOAD (Gói tin) size là 46 BYTES! IF the PAYLOAD là LESS than 46 BYTES then PADDING BYTES là added (padding bytes là một series của 0's) until it equals đến 46 BYTES. --- When một PC sends một Gói tin đến một Thiết bị với một unknown Địa chỉ IP, it uses một ARP Request. ![image](https://github.com/psaumur/CCNA/assets/106411237/e2d0e5d2-7c98-4671-b356-903132fd7525) - ARP stands for 'Địa chỉ Resolution Giao thức'. - It là used đến discover the Layer 2 Địa chỉ (Địa chỉ MAC) of một known Layer 3 Địa chỉ (Địa chỉ IP) - Consists của two messages: - ARP REQUEST (Source message) - ARP REPLY (Destination message) - ARP REQUEST là Broadcast = sent đến all hosts trên Mạng, except the one it received the request from. An ARP REQUEST Khung has: - Source Địa chỉ IP - Destination Địa chỉ IP - Source Địa chỉ MAC - Broadcast Địa chỉ MAC - FFFF.FFFF.FFFF An ARP REPLY Khung has: - Source Địa chỉ IP - Destination Địa chỉ IP - Source Địa chỉ MAC - Destination Địa chỉ MAC ARP REPLY là một known Unicast Khung = Sent only đến the host that sent the ARP REQUEST. ![image](https://github.com/psaumur/CCNA/assets/106411237/914cdf2a-c631-47e5-80f9-46e32ebed311) --- PING - A Mạng utility that là used đến test reachability - Measures round-trip time - Uses two messages: - ICMP Echo REQUEST - ICMP Echo REPLY - Is Unicast - Lệnh đến use ping: - ping <ip-Địa chỉ> By Default, a CISCO IOS sends 5 ICMP requests/replies (Default size là 100-bytes) - A period (.) is một failed ping - An exclamation mark (!) is một successful ping --- USEFUL CISCO IOS COMMANDS (from Privileged EXEC mode) PC1# show arp // shows hosts ARP table ![image](https://github.com/psaumur/CCNA/assets/106411237/da199d21-4f41-485e-8917-ca8e3d789617) --- SW1#show Địa chỉ MAC-table // show the switches MAC table ![image](https://github.com/psaumur/CCNA/assets/106411237/c1cd95dd-7742-4703-9487-946652c95485) Will show: VLAN --- Địa chỉ MAC --- Type --- Ports(interfaces) (VLAN = Virtual Local Area Mạng) --- ![image](https://github.com/psaumur/CCNA/assets/106411237/657b054b-a90c-4e5f-8544-2a51082cb631) SW1# clear Địa chỉ MAC-table dynamic <optional Địa chỉ MAC> // clears the entire switches MAC table. // IF the optional Địa chỉ MAC là used, it sẽ clear the SPECFIC Địa chỉ MAC. SW1 #clear Địa chỉ MAC-table dynamic Giao diện <optional Giao diện> // clears the MAC table entry của the Switch bởi it's **Giao diện n**ame. 
+# 6. CHUYỂN MẠCH ETHERNET LAN: PHẦN 2
+
+Một Khung Ethernet trông như:
+
+Header Ethernet --- DỮ LIỆU (Gói tin) --- Trailer Ethernet
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/27c1877f-57d7-44ea-8c64-b0ec2b308ad0)
+
+Header Ethernet chứa 5 Trường:
+
+Preamble -- SFD -- Đích -- Nguồn -- Loại/Độ dài
+7 byte   -- 1 byte -- 6 byte -- 6 byte -- 2 byte
+
+Trailer Ethernet chứa 1 Trường:
+
+FCS (Chuỗi Kiểm tra Khung) = 4 byte
+
+- PREAMBLE + SFD thường không được coi là một phần của Header Ethernet.
+
+DO ĐÓ kích thước của Header Ethernet + Trailer là 18 byte (6 + 6 + 2 + 4 byte cho Chuỗi KIỂM TRA KHUNG)
+
+---
+
+Kích thước TỐI THIỂU cho một Khung Ethernet (Header + Payload [Gói tin] + Trailer) là 64 BYTE.
+
+64 BYTE - 18 BYTE (kích thước Header + Trailer) = 46 BYTE
+
+DO ĐÓ kích thước PAYLOAD DỮ LIỆU TỐI THIỂU (Gói tin) là 46 BYTE!
+
+NẾU PAYLOAD NHỎ HƠN 46 BYTE thì BYTE PADDING được thêm vào (byte padding là một chuỗi số 0) cho đến khi bằng 46 BYTE.
+
+---
+
+Khi một PC gửi một Gói tin đến một Thiết bị với Địa chỉ IP không biết, nó sử dụng ARP Request.
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/e2d0e5d2-7c98-4671-b356-903132fd7525)
+
+- ARP viết tắt của 'Giao thức Phân giải Địa chỉ' (Address Resolution Protocol).
+- Nó được sử dụng để khám phá Địa chỉ Tầng 2 (Địa chỉ MAC) của một Địa chỉ Tầng 3 đã biết (Địa chỉ IP)
+- Bao gồm hai thông điệp:
+  - ARP REQUEST (Thông điệp nguồn)
+  - ARP REPLY (Thông điệp đích)
+- ARP REQUEST là Broadcast = được gửi đến tất cả host trên Mạng, ngoại trừ host mà nó nhận được yêu cầu.
+
+Một Khung ARP REQUEST có:
+- Địa chỉ IP Nguồn
+- Địa chỉ IP Đích
+- Địa chỉ MAC Nguồn
+- Địa chỉ MAC Broadcast - FFFF.FFFF.FFFF
+
+Một Khung ARP REPLY có:
+- Địa chỉ IP Nguồn
+- Địa chỉ IP Đích
+- Địa chỉ MAC Nguồn
+- Địa chỉ MAC Đích
+
+ARP REPLY là một Khung Unicast đã biết = Chỉ được gửi đến host đã gửi ARP REQUEST.
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/914cdf2a-c631-47e5-80f9-46e32ebed311)
+
+---
+
+PING
+
+- Một tiện ích Mạng được sử dụng để kiểm tra khả năng kết nối
+- Đo thời gian khứ hồi
+- Sử dụng hai thông điệp:
+  - ICMP Echo REQUEST
+  - ICMP Echo REPLY
+- Là Unicast
+- Lệnh để sử dụng ping:
+  - ping <địa-chỉ-ip>
+
+Theo mặc định, CISCO IOS gửi 5 ICMP request/reply (Kích thước mặc định là 100-byte)
+
+- Dấu chấm (.) là ping thất bại
+- Dấu chấm than (!) là ping thành công
+
+---
+
+CÁC LỆNH CISCO IOS HỮU ÍCH (từ chế độ Privileged EXEC)
+
+PC1# show arp // hiển thị bảng ARP của host
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/da199d21-4f41-485e-8917-ca8e3d789617)
+
+---
+
+SW1# show mac-address-table // hiển thị bảng MAC của switch
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/c1cd95dd-7742-4703-9487-946652c95485)
+
+Sẽ hiển thị:
+
+VLAN --- Địa chỉ MAC --- Loại --- Cổng(giao diện)
+
+(VLAN = Mạng Cục bộ Ảo)
+
+---
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/657b054b-a90c-4e5f-8544-2a51082cb631)
+
+SW1# clear mac-address-table dynamic <địa chỉ MAC tùy chọn>
+// xóa toàn bộ bảng MAC của switch.
+// NẾU địa chỉ MAC tùy chọn được sử dụng, nó sẽ xóa Địa chỉ MAC CỤ THỂ.
+
+SW1# clear mac-address-table dynamic interface <giao diện tùy chọn>
+// xóa mục bảng MAC của Switch theo **tên Giao diện**.
