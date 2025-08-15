@@ -1,7 +1,11 @@
 # Complete CCNA 200-300 Course Notes
 
-This repository contains comprehensive notes from Jeremy's IT Lab Complete CCNA 200-300 course.
+**Author: Kha Văn**
+
+This repository contains my comprehensive personal notes from Jeremy's IT Lab Complete CCNA 200-300 course.
 Each "Day" is broken down into individual chapters covering all essential networking fundamentals.
+
+These notes represent my learning journey through the complete CCNA curriculum, carefully organized and documented for easy reference and study.
 
 ## Course Resources
 
