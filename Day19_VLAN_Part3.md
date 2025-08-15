@@ -1,1 +1,172 @@
-# 18. VLANS : PART 3 VLAN gốc trên một Router (ROAS) ![image](https://github.com/psaumur/CCNA/assets/106411237/838b9835-d17d-4d57-bac1-52f7e3adfd77) VLAN gốc untagged frames là faster và more efficient (smaller) than tagged ones. Let’s reset all SWITCHES (SW1 và SW2) to VLAN gốc 10 ![image](https://github.com/psaumur/CCNA/assets/106411237/1e903c1b-b814-40b5-aaea-1ba9f3f192c8) There are **TWO methods** of configuring the VLAN gốc trên một Router: - Use the Lệnh “Đóng gói dot1q <VLAN-id>” on một Sub-Giao diện ![image](https://github.com/psaumur/CCNA/assets/106411237/2ea65208-6b2a-4cac-a463-982a731c9e24) OR - Configure the Địa chỉ IP cho the VLAN gốc trên the Router’s physical Giao diện (the “**Đóng gói dot1q** <VLAN-id> Lệnh là not necessary” ![image](https://github.com/psaumur/CCNA/assets/106411237/dabcc3b4-13c3-4d60-abe2-c7cbb5edd4c2) Output of “show running-config” of G0/0 Giao diện ![image](https://github.com/psaumur/CCNA/assets/106411237/37ce4f0f-0ac0-45ce-802f-5fd11057f69d) --- LAYER 3 (MULTILAYER) SWITCHES ICON APPEARANCE ![image](https://github.com/psaumur/CCNA/assets/106411237/0d63f5f9-5efe-4c61-a8e6-3cd6a1161d2a) - A MULTILAYER Switch là capable của both Chuyển mạch và Định tuyến - It là LAYER 3 AWARE - You có thể assign IP Addresses đến its L3 Virtual Giao diện, like một Router - You có thể create Virtual Interfaces cho each VLAN, and assign IP addresses đến those interfaces - You có thể configure routes trên it, just like một Router - It có thể be used cho inter-VLAN Định tuyến ![image](https://github.com/psaumur/CCNA/assets/106411237/af59481b-d0cb-41d7-9eba-7c8d47131c28) SW2 Replaced với một Layer 3 Switch Multi-VLAN connections đến R1 removed và replaced với một point-to-point Layer 3 connection ![image](https://github.com/psaumur/CCNA/assets/106411237/8f3ad167-d774-4fcb-96a5-66e568edead8) - SVIs (Switch Virtual Interfaces) are the virtual interfaces you có thể assign IP addresses đến trong một MULTILAYER Switch. - Configure each HOST đến use the SVI (NOT the Router R1) as their Gateway Địa chỉ - To send traffic đến different SUBNETS / VLANS, the PCs sẽ send traffic đến the Switch, and the Switch sẽ Tuyến đường the traffic. ![image](https://github.com/psaumur/CCNA/assets/106411237/5409b2cc-f876-4754-afe3-33298930fd7a) ![image](https://github.com/psaumur/CCNA/assets/106411237/953372de-579a-4803-9418-0bd1aeef229d) Clearing R1 Cấu hình đến set đến work với the Layer 3 Point-to-Point connection ![image](https://github.com/psaumur/CCNA/assets/106411237/40354cbe-df39-4a78-97cd-bbb0bc10549c) #no Giao diện <sub-Giao diện id> : removes the VLAN Giao diện #Default Giao diện g0/0 : resets the g0/0 Giao diện đến it’s Default settings Then configure the Default R1 G0/0 Giao diện’s đến Địa chỉ IP : 192.168.1.194 (as per the Mạng diagram) Cấu hình của SW2 đến use SVI và the Layer 3 Point-to-Point connection với R1 ![image](https://github.com/psaumur/CCNA/assets/106411237/24d64087-f98c-4a1e-a07f-3f93f06f93a9) “Default Giao diện <Giao diện-id>” : resets settings trên specified Giao diện đến defaults “ip Định tuyến” : **IMPORTANT** Lệnh đến Kích hoạt Layer 3 Định tuyến trên the Switch “no switchport” : configures the Giao diện từ một Layer 2 Switchport đến một Layer 3 “routed Cổng” The sets the Default Tuyến đường đến R1 (192.168.1.194) so that all traffic leaving the Mạng gets routed through R1’s Gateway của Last Resort (aka The Gateway mặc định) ![image](https://github.com/psaumur/CCNA/assets/106411237/7a682a2f-3ae3-420b-8f68-9e1050dd82c6) ![image](https://github.com/psaumur/CCNA/assets/106411237/c0b544b7-8f32-49ae-9a46-d09390a3d08c) SVI Cấu hình trên SW2 (Virtual LAYER 3 Định tuyến INTERFACES) ![image](https://github.com/psaumur/CCNA/assets/106411237/7c1710fb-40d7-44a4-8336-b037e1c2ea77) SVIs are **shut down** by Default, so remember đến use “no shutdown” ![image](https://github.com/psaumur/CCNA/assets/106411237/2b5b13c3-1364-4296-886c-0bd9b00b4167) Creating một unknown SVI (VLAN 40) and the Status/Giao thức is “down/down” là gì the conditions cho một SVI đến be “up/up” ? - The VLAN phải exist trên the Switch - The Switch phải have tại least ONE Truy cập Cổng trong the VLAN trong an “up/up” state AND/OR one Trunk Cổng that allows the VLAN that là trong an “up/up” state - The VLAN phải not be shutdown (you có thể use the “shutdown” Lệnh đến Vô hiệu hóa một VLAN) - The SVI phải not be shutdown (SVIs là disabled, by Default) ![image](https://github.com/psaumur/CCNA/assets/106411237/558ef418-5902-42d0-b4a5-cce14b56b77e) The VLAN Trunk has been successfully replaced bởi một Layer 3 Switch SVI. All hosts nên be able đến connect với each other (tested with “ping”) as well as reach the external Internet (via the Cloud symbol attached đến R1) 
+# 19. VLAN: PHẦN 3
+
+## NATIVE VLAN TRÊN ROUTER (ROAS)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/838b9835-d17d-4d57-bac1-52f7e3adfd77)
+
+**Native VLAN untagged frames nhanh hơn và hiệu quả hơn (nhỏ hơn) so với tagged frames.**
+
+Hãy reset tất cả SWITCH (SW1 và SW2) về Native VLAN 10:
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/1e903c1b-b814-40b5-aaea-1ba9f3f192c8)
+
+## HAI PHƯƠNG PHÁP CẤU HÌNH NATIVE VLAN TRÊN ROUTER
+
+### Phương pháp 1: Sử dụng Sub-Interface
+Sử dụng lệnh **"encapsulation dot1q <VLAN-id>"** trên Sub-Interface:
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/2ea65208-6b2a-4cac-a463-982a731c9e24)
+
+### Phương pháp 2: Sử dụng Physical Interface
+Cấu hình địa chỉ IP cho Native VLAN trên **physical interface** của Router (lệnh **"encapsulation dot1q"** KHÔNG cần thiết):
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/dabcc3b4-13c3-4d60-abe2-c7cbb5edd4c2)
+
+### Kết quả "show running-config" của G0/0 Interface:
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/37ce4f0f-0ac0-45ce-802f-5fd11057f69d)
+
+---
+
+## LAYER 3 (MULTILAYER) SWITCH
+
+### Biểu tượng xuất hiện:
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/0d63f5f9-5efe-4c61-a8e6-3cd6a1161d2a)
+
+### Đặc điểm Multilayer Switch:
+
+- **MULTILAYER Switch** có khả năng cả **Switching và Routing**
+- Nó có **LAYER 3 AWARE**
+- Bạn có thể gán **địa chỉ IP** cho các L3 Virtual Interface, như một Router
+- Bạn có thể tạo **Virtual Interface** cho mỗi VLAN và gán địa chỉ IP cho các interface đó
+- Bạn có thể cấu hình **routes** trên nó, giống như một Router
+- Nó có thể được sử dụng cho **inter-VLAN routing**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/af59481b-d0cb-41d7-9eba-7c8d47131c28)
+
+### Thay đổi cấu trúc mạng:
+
+**SW2 được thay thế bằng Layer 3 Switch**
+- Kết nối Multi-VLAN đến R1 được loại bỏ
+- Thay thế bằng kết nối Layer 3 point-to-point
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/8f3ad167-d774-4fcb-96a5-66e568edead8)
+
+---
+
+## SVI (SWITCH VIRTUAL INTERFACE)
+
+### Định nghĩa SVI:
+- **SVI (Switch Virtual Interface)** là các virtual interface mà bạn có thể gán địa chỉ IP trong MULTILAYER Switch
+- Cấu hình mỗi HOST sử dụng **SVI (KHÔNG phải Router R1)** làm Gateway Address
+- Để gửi lưu lượng đến SUBNET/VLAN khác nhau, PC sẽ gửi lưu lượng đến Switch, và Switch sẽ định tuyến lưu lượng
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/5409b2cc-f876-4754-afe3-33298930fd7a)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/953372de-579a-4803-9418-0bd1aeef229d)
+
+---
+
+## CẤU HÌNH LẠI R1
+
+### Xóa cấu hình R1 để làm việc với kết nối Layer 3 Point-to-Point:
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/40354cbe-df39-4a78-97cd-bbb0bc10549c)
+
+### Các lệnh quan trọng:
+```
+Router(config)# no interface <sub-interface-id>    // Xóa VLAN Interface
+Router(config)# default interface g0/0            // Reset g0/0 về cài đặt mặc định
+```
+
+Sau đó cấu hình Interface G0/0 mặc định của R1 với địa chỉ IP: **192.168.1.194** (theo sơ đồ mạng)
+
+---
+
+## CẤU HÌNH SW2 SỬ DỤNG SVI
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/24d64087-f98c-4a1e-a07f-3f93f06f93a9)
+
+### Các lệnh quan trọng:
+
+```
+Switch(config)# default interface <interface-id>   // Reset interface về mặc định
+Switch(config)# ip routing                         // Kích hoạt Layer 3 routing
+Switch(config-if)# no switchport                   // Chuyển từ L2 switchport sang L3 routed port
+```
+
+**Lệnh "ip routing"** là **QUAN TRỌNG** để kích hoạt Layer 3 Routing trên Switch.
+
+**Lệnh "no switchport"** cấu hình interface từ Layer 2 Switchport thành Layer 3 "routed port".
+
+### Đặt Default Route:
+Đặt Default Route đến R1 (192.168.1.194) để tất cả lưu lượng rời khỏi mạng được định tuyến qua Gateway of Last Resort của R1 (Gateway mặc định).
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/7a682a2f-3ae3-420b-8f68-9e1050dd82c6)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/c0b544b7-8f32-49ae-9a46-d09390a3d08c)
+
+---
+
+## CẤU HÌNH SVI TRÊN SW2
+
+### Virtual Layer 3 Routing Interface:
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/7c1710fb-40d7-44a4-8336-b037e1c2ea77)
+
+**SVI bị shutdown theo mặc định**, vì vậy nhớ sử dụng **"no shutdown"**
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/2b5b13c3-1364-4296-886c-0bd9b00b4167)
+
+### Tạo SVI không biết (VLAN 40):
+Khi tạo SVI không biết (VLAN 40), Status/Protocol là **"down/down"**
+
+---
+
+## ĐIỀU KIỆN ĐỂ SVI "UP/UP"
+
+### SVI sẽ "up/up" khi:
+
+1. **VLAN phải tồn tại** trên Switch
+2. **Switch phải có ít nhất MỘT Access Port** trong VLAN ở trạng thái "up/up" **VÀ/HOẶC** một Trunk Port cho phép VLAN ở trạng thái "up/up"
+3. **VLAN không được shutdown** (bạn có thể sử dụng lệnh "shutdown" để vô hiệu hóa VLAN)
+4. **SVI không được shutdown** (SVI bị vô hiệu hóa theo mặc định)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/558ef418-5902-42d0-b4a5-cce14b56b77e)
+
+---
+
+## KẾT QUẢ CUỐI CÙNG
+
+**VLAN Trunk đã được thay thế thành công bằng Layer 3 Switch SVI.**
+
+Tất cả host nên có thể kết nối với nhau (kiểm tra bằng "ping") cũng như tiếp cận Internet bên ngoài (qua biểu tượng Cloud gắn với R1).
+
+---
+
+## TÓM TẮT LAYER 3 SWITCH
+
+### Ưu điểm:
+- **Hiệu suất cao hơn** ROAS (không cần sub-interface)
+- **Định tuyến nhanh** giữa các VLAN
+- **Giảm tải** cho Router chính
+- **Linh hoạt** trong thiết kế mạng
+
+### Lệnh cấu hình cơ bản:
+```
+Switch(config)# ip routing                    // Kích hoạt routing
+Switch(config)# interface vlan 10            // Tạo SVI
+Switch(config-if)# ip address 192.168.10.1 255.255.255.0
+Switch(config-if)# no shutdown               // Kích hoạt SVI
+Switch(config-if)# no switchport             // Chuyển sang routed port
+```
+
+### So sánh ROAS vs Layer 3 Switch:
+
+| Đặc điểm | ROAS | Layer 3 Switch |
+|----------|------|----------------|
+| Hiệu suất | Thấp hơn | Cao hơn |
+| Cấu hình | Phức tạp | Đơn giản hơn |
+| Chi phí | Thấp | Cao hơn |
+| Khả năng mở rộng | Hạn chế | Tốt |
