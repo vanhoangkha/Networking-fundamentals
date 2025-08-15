@@ -1,1 +1,221 @@
-# 15. CHIA MẠNG CON (VLSM) : PART 3 The process của Chia mạng con Class A, Class B, and Class C là identical. Chia mạng con CLASS một NETWORKS Given một 10.0.0.0/8 Mạng, you phải create 2000 subnets which sẽ distributed đến various enterprises. What prefix length phải you use? 2^10 = 1024 so 2^11 = 2048. We have to "borrow" 11 bits (Left đến Right) to get enough subnets 0000 1010 . 0000 0000 . 000 | 00000 . 0000 0000 8 bits + 8 bits + 3 = 19 bits 0000 1010 . 0000 0000 . 000 | 00000 . 0000 0000 1111 1111 . 1111 1111 . 111 | 00000 . 0000 0000 255.255.224.0 là the Mạng con mask The answer is /19 (/8 + /11 = /19) How many hosts per Mạng con? There là 13 host bits remaining so: 2^13 - 2 = 8190 hosts per Mạng con --- VARIABLE-LENGTH Mạng con MASKS (VLSM) - Until now, we have practiced Chia mạng con using FLSM (Fixed-Length Mạng con Masks). - This means that all của the subnets use the same prefix length (ie: Chia mạng con một Class C Mạng into 4 subnets using /26) - VLSM (Variable-Length Mạng con Masks) is the process của creating subnets của different sizes, to make your use của Mạng addresses more efficient. - VLSM là more complicated than FLSM, BUT it's easy if you follow the steps correctly. ![image](https://github.com/psaumur/CCNA/assets/106411237/30a08f93-796a-4fe9-854e-58af0bcbd69b) ![image](https://github.com/psaumur/CCNA/assets/106411237/ad7d7ac0-5e00-4662-8192-f7f9db86f1d9) ![image](https://github.com/psaumur/CCNA/assets/106411237/dc006342-4bd9-40d4-b1c5-9ac7a670ed96) So, in order: ``` TOKYO LAN A (110 HOSTS) TORONTO LAN B (45 HOSTS) TORONTO LAN A (29 HOSTS) TOKYO LAN B (8 HOSTS) and THE POINT TO POINT CONNECTION (between the two ROUTERS) ``` 192.168.1.0 / 24 1000 0000 . 1010 1000 . 0000 0001 | 0000 0000 (last là host octet = 254 usable hosts) Shifting LEFT - we DOUBLE the # of hosts Shifting RIGHT - we HALF the # of hosts TOKYO LAN A (we need đến borrow 1 host bits, to the RIGHT, to leave enough cho 2^7 hoặc 128 hosts. More than enough cho TOKYO A) so: ``` 192.168.1.0/25 (Network Address) 1000 0000 . 1010 1000 . 0000 0001 . 0 | 000 0000 Converting remaining Host Bits to 1s: 0111 1111, we get 127 so 192.168.1.127/25 is the Broadcast Address ``` --- TOKYO LAN A ``` NETWORK ADDRESS: 192.168.1.0/25 BROADCAST ADDRESS: 192.168.1.127/25 FIRST USABLE: 192.168.1.1/25 LAST USABLE: 192.168.1.126/25 TOTAL NUMBER OF USABLE HOSTS: 126 (2^7 -2) Since TOKYO LAN A is 192.168.1.127, the next Subnet (TOKYO LAN B) starts at 192.168.1.128 (Network Address) ``` --- TORONTO LAN B ``` NETWORK ADDRESS: 192.168.1.128 / 26 BROADCAST ADDRESS: 192.168.1.191 / 26 FIRST USABLE: 192.168.1.129 /26 LAST USABLE: 192.168.1.190 / 26 TOTAL NUMBER OF USABLE HOSTS: 62 (2^6 -2) ``` We need đến borrow đến get enough cho 45 hosts. |128|64|32|16|8|4|2|1| |---|--|--|--|-|-|-|-| |x |x | 0| 0|0|0|0|0| ``` 1000 0000 . 1010 1000 . 0000 0001 . 10 | 00 0000 192 . 168 . 1 . 128 1000 0000 . 1010 1000 . 0000 0001 . 10 | 11 1111 192 . 168 . 1 . 191 (Broadcast Address) ``` --- TORONTO LAN A We need đến borrow đến get enough cho 29 hosts. |128|64|32|16|8|4|2|1| |---|--|--|--|-|-|-|-| |x |x | x| 0|0|0|0|0| ``` 1000 0000 . 1010 1000 . 0000 0001 . 110 | 0 0000 192.168.1.192 (Net Address) 1000 0000 . 1010 1000 . 0000 0001 . 110 | 1 1111 192.168.1.224 (Broadcast address) NETWORK ADDRESS: 192.168.1.192 / 27 BROADCAST ADDRESS: 192.168.1.223 / 27 FIRST USABLE: 192.168.1.193 /27 LAST USABLE: 192.168.1.222 / 27 TOTAL NUMBER OF USABLE HOSTS: 30 hosts (2^5 - 2) ``` --- TOKYO LAN B We need đến borrow đến get enough cho 8 hosts. Remember total usable hosts là equal đến x - 2. |128|64|32|16|8|4|2|1| |---|--|--|--|-|-|-|-| |x |x | x| x|0|0|0|0| ``` 1000 0000 . 1010 1000 . 0000 0001 . 1110 | 0000 192.168.1.224 (Net Address) 1000 0000 . 1010 1000 . 0000 0001 . 1110 | 1111 192.168.1.239 (Broadcast address) NETWORK ADDRESS: 192.168.1.224 / 28 BROADCAST ADDRESS: 192.168.1.239 / 28 FIRST USABLE: 192.168.1.225 /28 LAST USABLE: 192.168.1.238 / 28 TOTAL NUMBER OF USABLE HOSTS: 14 hosts (2^4 - 2) ``` --- POINT đến POINT CONNECTIONS We need đến borrow đến get enough cho 4 hosts. Remember total usable hosts là equal đến x - 2. |128|64|32|16|8|4|2|1| |---|--|--|--|-|-|-|-| |x |x | x| x|x|x|0|0| ``` 1000 0000 . 1010 1000 . 0000 0001 . 1111 00 | 00 192.168.1.240 (Net Address) 1000 0000 . 1010 1000 . 0000 0001 . 1111 00 | 11 192.168.1.243 (Broadcast address) NETWORK ADDRESS: 192.168.1.240 / 30 BROADCAST ADDRESS: 192.168.1.243 / 30 FIRST USABLE: 192.168.1.241 / 30 LAST USABLE: 192.168.1.242 / 30 TOTAL NUMBER OF USABLE HOSTS: 2 hosts (2^2 - 2) ``` --- ADDITIONAL PRACTICE cho Chia mạng con [HTTP://www.subnettingquestions.com](HTTP://www.subnettingquestions.com/) [HTTP://Chia mạng con.org](HTTP://Chia mạng con.org/) [HTTPS://subnettingpractice.com](HTTPS://subnettingpractice.com/) *** Preferred site *** 
+# 16. CHIA MẠNG CON (VLSM): PHẦN 3
+
+## QUÁ TRÌNH CHIA MẠNG CON
+
+Quá trình chia mạng con Class A, Class B, và Class C là giống hệt nhau.
+
+## CHIA MẠNG CON CLASS A
+
+**Cho mạng 10.0.0.0/8**, bạn phải tạo 2000 subnet để phân phối cho các doanh nghiệp khác nhau. Bạn phải sử dụng prefix length nào?
+
+**Tính toán:**
+- 2^10 = 1024 (không đủ)
+- 2^11 = 2048 (đủ)
+
+Chúng ta phải "mượn" 11 bit (từ trái sang phải) để có đủ subnet:
+
+```
+0000 1010 . 0000 0000 . 000|00000 . 0000 0000
+8 bit     + 8 bit     + 3 = 19 bit
+```
+
+**Subnet mask:**
+```
+1111 1111 . 1111 1111 . 111|00000 . 0000 0000
+255.255.224.0
+```
+
+**Đáp án là /19** (/8 + /11 = /19)
+
+**Số host trên mỗi subnet:**
+Còn lại 13 bit host: 2^13 - 2 = **8190 host trên mỗi subnet**
+
+---
+
+## VARIABLE-LENGTH SUBNET MASKS (VLSM)
+
+### So sánh FLSM vs VLSM:
+
+**FLSM (Fixed-Length Subnet Masks):**
+- Tất cả subnet sử dụng cùng prefix length
+- Ví dụ: Chia mạng Class C thành 4 subnet sử dụng /26
+
+**VLSM (Variable-Length Subnet Masks):**
+- Quá trình tạo các subnet có kích thước khác nhau
+- Sử dụng địa chỉ mạng hiệu quả hơn
+- Phức tạp hơn FLSM nhưng dễ nếu làm theo đúng các bước
+
+---
+
+## VÍ DỤ THỰC HÀNH VLSM
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/30a08f93-796a-4fe9-854e-58af0bcbd69b)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/ad7d7ac0-5e00-4662-8192-f7f9db86f1d9)
+
+![image](https://github.com/psaumur/CCNA/assets/106411237/dc006342-4bd9-40d4-b1c5-9ac7a670ed96)
+
+### Yêu cầu (sắp xếp theo thứ tự từ lớn đến nhỏ):
+
+1. **TOKYO LAN A** (110 HOST)
+2. **TORONTO LAN B** (45 HOST)
+3. **TORONTO LAN A** (29 HOST)
+4. **TOKYO LAN B** (8 HOST)
+5. **POINT-TO-POINT CONNECTION** (giữa hai Router)
+
+### Mạng gốc: 192.168.1.0/24
+
+```
+192.168.1.0/24
+11000000.10101000.00000001|00000000
+(octet cuối là host = 254 host sử dụng được)
+```
+
+**Nguyên tắc:**
+- Dịch TRÁI → TĂNG ĐÔI số host
+- Dịch PHẢI → GIẢM NỬA số host
+
+---
+
+## BƯỚC 1: TOKYO LAN A (110 HOST)
+
+Cần mượn 1 bit host sang phải để có 2^7 = 128 host (đủ cho 110 host):
+
+```
+192.168.1.0/25
+11000000.10101000.00000001.0|0000000
+
+Chuyển bit host còn lại thành 1: 01111111 = 127
+Broadcast: 192.168.1.127/25
+```
+
+**Kết quả TOKYO LAN A:**
+- **Network:** 192.168.1.0/25
+- **Broadcast:** 192.168.1.127/25
+- **First usable:** 192.168.1.1/25
+- **Last usable:** 192.168.1.126/25
+- **Tổng host sử dụng được:** 126 (2^7 - 2)
+
+**Subnet tiếp theo bắt đầu từ:** 192.168.1.128
+
+---
+
+## BƯỚC 2: TORONTO LAN B (45 HOST)
+
+Cần 2^6 = 64 host (đủ cho 45 host):
+
+```
+192.168.1.128/26
+11000000.10101000.00000001.10|000000
+
+Chuyển bit host thành 1: 10111111 = 191
+Broadcast: 192.168.1.191/26
+```
+
+**Kết quả TORONTO LAN B:**
+- **Network:** 192.168.1.128/26
+- **Broadcast:** 192.168.1.191/26
+- **First usable:** 192.168.1.129/26
+- **Last usable:** 192.168.1.190/26
+- **Tổng host sử dụng được:** 62 (2^6 - 2)
+
+**Subnet tiếp theo bắt đầu từ:** 192.168.1.192
+
+---
+
+## BƯỚC 3: TORONTO LAN A (29 HOST)
+
+Cần 2^5 = 32 host (đủ cho 29 host):
+
+```
+192.168.1.192/27
+11000000.10101000.00000001.110|00000
+
+Chuyển bit host thành 1: 11011111 = 223
+Broadcast: 192.168.1.223/27
+```
+
+**Kết quả TORONTO LAN A:**
+- **Network:** 192.168.1.192/27
+- **Broadcast:** 192.168.1.223/27
+- **First usable:** 192.168.1.193/27
+- **Last usable:** 192.168.1.222/27
+- **Tổng host sử dụng được:** 30 (2^5 - 2)
+
+**Subnet tiếp theo bắt đầu từ:** 192.168.1.224
+
+---
+
+## BƯỚC 4: TOKYO LAN B (8 HOST)
+
+Cần 2^4 = 16 host (đủ cho 8 host):
+
+```
+192.168.1.224/28
+11000000.10101000.00000001.1110|0000
+
+Chuyển bit host thành 1: 11101111 = 239
+Broadcast: 192.168.1.239/28
+```
+
+**Kết quả TOKYO LAN B:**
+- **Network:** 192.168.1.224/28
+- **Broadcast:** 192.168.1.239/28
+- **First usable:** 192.168.1.225/28
+- **Last usable:** 192.168.1.238/28
+- **Tổng host sử dụng được:** 14 (2^4 - 2)
+
+**Subnet tiếp theo bắt đầu từ:** 192.168.1.240
+
+---
+
+## BƯỚC 5: POINT-TO-POINT CONNECTION
+
+Chỉ cần 2 host cho kết nối point-to-point:
+
+```
+192.168.1.240/30
+11000000.10101000.00000001.111100|00
+
+Chuyển bit host thành 1: 11110011 = 243
+Broadcast: 192.168.1.243/30
+```
+
+**Kết quả POINT-TO-POINT:**
+- **Network:** 192.168.1.240/30
+- **Broadcast:** 192.168.1.243/30
+- **First usable:** 192.168.1.241/30
+- **Last usable:** 192.168.1.242/30
+- **Tổng host sử dụng được:** 2 (2^2 - 2)
+
+---
+
+## TÓM TẮT KẾT QUẢ VLSM
+
+| Subnet | Network | Broadcast | Usable Range | Host | CIDR |
+|--------|---------|-----------|--------------|------|------|
+| Tokyo LAN A | 192.168.1.0 | 192.168.1.127 | .1 - .126 | 126 | /25 |
+| Toronto LAN B | 192.168.1.128 | 192.168.1.191 | .129 - .190 | 62 | /26 |
+| Toronto LAN A | 192.168.1.192 | 192.168.1.223 | .193 - .222 | 30 | /27 |
+| Tokyo LAN B | 192.168.1.224 | 192.168.1.239 | .225 - .238 | 14 | /28 |
+| Point-to-Point | 192.168.1.240 | 192.168.1.243 | .241 - .242 | 2 | /30 |
+
+**Địa chỉ còn lại:** 192.168.1.244 - 192.168.1.255 (12 địa chỉ)
+
+---
+
+## NGUYÊN TẮC VLSM
+
+1. **Sắp xếp theo thứ tự giảm dần** số host cần thiết
+2. **Bắt đầu từ subnet lớn nhất** để tránh lãng phí
+3. **Tính toán chính xác** số bit cần mượn: 2^n ≥ số host cần + 2
+4. **Kiểm tra không trùng lặp** địa chỉ giữa các subnet
+5. **Để lại không gian** cho mở rộng tương lai
+
+---
+
+## TRANG WEB THỰC HÀNH BỔ SUNG
+
+- **http://www.subnettingquestions.com**
+- **http://subnetting.org**
+- **https://subnettingpractice.com** ⭐ **(Được khuyến nghị)**
