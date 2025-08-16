@@ -1,0 +1,33 @@
+# Backup files
+*.backup
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Scripts (có thể giữ hoặc loại trừ tùy ý)
+# *.py
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
