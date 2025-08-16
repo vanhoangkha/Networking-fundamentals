@@ -7,7 +7,7 @@
 **DTP được BẬT theo mặc định** trên tất cả Cisco switch Interface
 Chúng ta đã cấu hình thủ công SWITCHPORT sử dụng: - `switchport mode access`
 - `switchport mode trunk`
-💡 **Lệnh kiểm tra: ** `show interfaces <interface-id> switchport` sẽ hiển thị cài đặt switchport. **Vì mục đích Bảo mật, khuyến nghị cấu hình thủ công. DTP nên được vô hiệu hóa trên TẤT CẢ SWITCHPORT**! [image](https: //github. com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d)
+💡 **Lệnh kiểm tra:** `show interfaces <interface-id> switchport` sẽ hiển thị cài đặt switchport. **Vì mục đích Bảo mật, khuyến nghị cấu hình thủ công. DTP nên được vô hiệu hóa trên TẤT CẢ SWITCHPORT**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d)
 - --
 ## 20.2 CÁC CHẾ ĐỘ DTP
 
@@ -24,7 +24,7 @@ Chúng ta đã cấu hình thủ công SWITCHPORT sử dụng: - `switchport mod
 - `switchport mode dynamic desirable`
 **Kết nối Trunk đến Access sẽ hoạt động trong Chế độ Không Khớp (Mismatched Mode). Cấu hình này KHÔNG hoạt động và sẽ gây lỗi. Lưu lượng sẽ KHÔNG hoạt động. **
 - --
-## 20.5 BẢNG TƯƠNG THÍCH CÁC CHẾ ĐỘ! [image](https: //github. com/psaumur/CCNA/assets/106411237/93d5e4f4-cb24-4d3f-ba62-fd002581cfbb)
+## 20.5 BẢNG TƯƠNG THÍCH CÁC CHẾ ĐỘ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/93d5e4f4-cb24-4d3f-ba62-fd002581cfbb)
 
 | ## 20.6 Tóm tắt tương thích: | Chế độ 1 | Chế độ 2 | Kết quả |
 | ------- | ------- | ------- |
@@ -41,7 +41,7 @@ Chúng ta đã cấu hình thủ công SWITCHPORT sử dụng: - `switchport mod
 - --
 ## 20.7 THIẾT BỊ KHÔNG HỖ TRỢ DTP
 
-**DTP sẽ KHÔNG tạo Trunk với: **
+**DTP sẽ KHÔNG tạo Trunk với:**
 - router
 - PC
 - Thiết bị khác. . . **SWITCHPORT sẽ chỉ ở chế độ Access! **
@@ -63,10 +63,10 @@ HOẶC
 ```
 switch(config-if)# switchport mode access
 ```
-**Khuyến nghị bảo mật: ** Vô hiệu hóa DTP trên tất cả SWITCHPORT và cấu hình thủ công làm Access hoặc Trunk port. - --
+**Khuyến nghị bảo mật:** Vô hiệu hóa DTP trên tất cả SWITCHPORT và cấu hình thủ công làm Access hoặc Trunk port. - --
 ## 20.13 ENCAPSULATION NEGOTIATION
 
-**switch hỗ trợ cả hai: **
+**switch hỗ trợ cả hai:**
 - 802. 1Q
 - ISL
 Trunk Encapsulation có thể sử dụng DTP để thương lượng Encapsulation sẽ sử dụng. ## 20. 14 Cài đặt mặc định: 💡 `switchport trunk encapsulation negotiate`
@@ -92,13 +92,13 @@ switch# show vtp status
 - --
 ## 20.19 PHIÊN BẢN VTP
 
-## 20.20 Ba phiên bản VTP: **VTP v1: **
+## 20.20 Ba phiên bản VTP:**VTP v1: **
 
 - KHÔNG hỗ trợ Extended VLAN Range 1006-4094
-**VTP v2: **
+**VTP v2:**
 - KHÔNG hỗ trợ Extended VLAN Range 1006-4094
 - Hỗ trợ Token Ring VLAN; tương tự V1
-**VTP v3: **
+**VTP v3:**
 - Hỗ trợ Extended VLAN Range 1006-4094
 - CLIENT lưu trữ VLAN database trong NVRAM
 - --
@@ -110,7 +110,7 @@ switch# show vtp status
 
 ## 20.24 TRANSPARENT
 
-**Cisco switch hoạt động ở chế độ VTP SERVER theo mặc định**! [image](https: //github. com/psaumur/CCNA/assets/106411237/87dcd7ff-f3d3-4441-841c-a0506c249f03)
+**Cisco switch hoạt động ở chế độ VTP SERVER theo mặc định**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/87dcd7ff-f3d3-4441-841c-a0506c249f03)
 - --
 ## 20.25 VTP SERVER
 
@@ -122,7 +122,7 @@ switch# show vtp status
 - VTP CLIENT đồng bộ hóa VLAN database với nó
 - **VTP SERVER cũng hoạt động như VTP CLIENT**
 - **DO ĐÓ. VTP SERVER sẽ đồng bộ hóa với VTP SERVER khác có Revision Number cao hơn**
-🚨 **Nguy hiểm của VTP: ** Kết nối switch cũ với Revision Number cao hơn vào Mạng (và nếu VTP Domain Name khớp), tất cả switch trong Domain sẽ đồng bộ hóa VLAN database với switch đó
+🚨 **Nguy hiểm của VTP:** Kết nối switch cũ với Revision Number cao hơn vào Mạng (và nếu VTP Domain Name khớp), tất cả switch trong Domain sẽ đồng bộ hóa VLAN database với switch đó
 - --
 ## 20.27 VTP CLIENT
 

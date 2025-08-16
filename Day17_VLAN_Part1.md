@@ -2,14 +2,14 @@
 
 ## 17.1 LAN LÀ GÌ? - *LAN** là **BROADCAST DOMAIN** duy nhất, bao gồm tất cả các thiết bị trong Broadcast domain đó. ## 17. 2 BROADCAST DOMAIN
 
-**Broadcast Domain** là nhóm các thiết bị sẽ nhận được một Khung Broadcast (Destination MAC: FFFF. FFFF. FFFF) được gửi bởi bất kỳ thành viên nào. ## 17. 3 Hình ảnh LAN với BỐN Broadcast Domain (192. 168. 1. 0/24)! [image](https: //github. com/psaumur/CCNA/assets/106411237/de712483-e881-41f5-9525-576216186498)
+**Broadcast Domain** là nhóm các thiết bị sẽ nhận được một Khung Broadcast (Destination MAC: FFFF. FFFF. FFFF) được gửi bởi bất kỳ thành viên nào. ## 17. 3 Hình ảnh LAN với BỐN Broadcast Domain (192. 168. 1. 0/24)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/de712483-e881-41f5-9525-576216186498)
 - --
 ## 17.2 VẤN ĐỀ VỚI LAN TRUYỀN THỐNG
 
-## 17.3 HIỆU SUẤT: Nhiều lưu lượng Broadcast không cần thiết có thể làm giảm hiệu suất Mạng. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/a807fdc5-27b9-4735-8b8d-51bdc0c91a8c)
+## 17.3 HIỆU SUẤT: Nhiều lưu lượng Broadcast không cần thiết có thể làm giảm hiệu suất Mạng. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/a807fdc5-27b9-4735-8b8d-51bdc0c91a8c)
 
-Khung Broadcast làm ngập tất cả subnet với lưu lượng không cần thiết. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/fcd03904-a193-4423-8940-09be1df1bd2c)
-## 17.4 BẢO MẬT: Ngay cả trong cùng một văn phòng, bạn muốn hạn chế ai có Truy cập vào cái gì. Bạn có thể áp dụng chính sách Bảo mật trên router/Tường lửa. - *Vấn đề: ** Vì đây là LAN, PC có thể tiếp cận nhau trực tiếp mà không cần lưu lượng đi qua router. Vì vậy, ngay cả khi bạn cấu hình chính sách Bảo mật, chúng sẽ không có hiệu lực. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/7bd562fc-7dff-4692-81d7-c026b007df8f)
+Khung Broadcast làm ngập tất cả subnet với lưu lượng không cần thiết. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/fcd03904-a193-4423-8940-09be1df1bd2c)
+## 17.4 BẢO MẬT: Ngay cả trong cùng một văn phòng, bạn muốn hạn chế ai có Truy cập vào cái gì. Bạn có thể áp dụng chính sách Bảo mật trên router/Tường lửa. - *Vấn đề: ** Vì đây là LAN, PC có thể tiếp cận nhau trực tiếp mà không cần lưu lượng đi qua router. Vì vậy, ngay cả khi bạn cấu hình chính sách Bảo mật, chúng sẽ không có hiệu lực. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/7bd562fc-7dff-4692-81d7-c026b007df8f)
 
 - --
 ## 17.5 VLAN LÀ GÌ? - *VLAN (Virtual Local Area Network): **
@@ -22,10 +22,10 @@ Khung Broadcast làm ngập tất cả subnet với lưu lượng không cần t
 
 ## 17.7 HIỆU SUẤT MẠNG: - **Giảm lưu lượng Broadcast không cần thiết**, giúp ngăn chặn tắc nghẽn Mạng và cải thiện hiệu suất Mạng
 
-## 17.8 BẢO MẬT MẠNG: - **Hạn chế lưu lượng Broadcast và Unicast không biết**, cũng cải thiện Bảo mật Mạng, vì thông điệp sẽ không được nhận bởi các thiết bị bên ngoài VLAN! [image](https: //github. com/psaumur/CCNA/assets/106411237/fae2f1ed-ffc3-4d91-adf7-16a67c2dc5aa)
+## 17.8 BẢO MẬT MẠNG: - **Hạn chế lưu lượng Broadcast và Unicast không biết**, cũng cải thiện Bảo mật Mạng, vì thông điệp sẽ không được nhận bởi các thiết bị bên ngoài VLAN! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/fae2f1ed-ffc3-4d91-adf7-16a67c2dc5aa)
 
-**switch không chuyển tiếp lưu lượng trực tiếp giữa các HOST trong VLAN khác nhau**! [image](https: //github. com/psaumur/CCNA/assets/106411237/2e5834e9-9096-46eb-bb96-ba8459338107)! [image](https: //github. com/psaumur/CCNA/assets/106411237/3046f727-fad4-421e-85ef-63a73e109f83)
-## 17.9 Gửi Gói tin đến VLAN khác (Định tuyến qua R1)! [image](https: //github. com/psaumur/CCNA/assets/106411237/7090ef6d-ce8c-454f-b80d-f6dfd82745c8)! [image](https: //github. com/psaumur/CCNA/assets/106411237/b7237602-5b46-4c31-bd75-2e50e0fb1017)
+**switch không chuyển tiếp lưu lượng trực tiếp giữa các HOST trong VLAN khác nhau**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/2e5834e9-9096-46eb-bb96-ba8459338107)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/3046f727-fad4-421e-85ef-63a73e109f83)
+## 17.9 Gửi Gói tin đến VLAN khác (Định tuyến qua R1)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/7090ef6d-ce8c-454f-b80d-f6dfd82745c8)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/b7237602-5b46-4c31-bd75-2e50e0fb1017)
 
 - --
 ## 17.10 CÁCH CẤU HÌNH VLAN TRÊN Cisco switch
@@ -33,21 +33,21 @@ Khung Broadcast làm ngập tất cả subnet với lưu lượng không cần t
 ## 17.11 Lệnh kiểm tra VLAN: ```
 
 # show VLAN brief
-```! [image](https: //github. com/psaumur/CCNA/assets/106411237/13ce8382-6aea-484e-9580-d91c98189522)
-**Hiển thị: **
+```! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/13ce8382-6aea-484e-9580-d91c98189522)
+**Hiển thị:**
 - VLAN nào tồn tại trên switch
 - INTERFACE nào thuộc về mỗi VLAN
 **VLAN 1 (Default). 1002-1005** tồn tại theo Mặc định và **không thể xóa (5 VLAN)**
 - --
-## 17.12 CÁCH GÁN INTERFACE VÀO VLAN! [image](https: //github. com/psaumur/CCNA/assets/106411237/ed31145d-7949-4c68-b88a-97716beaf074)
+## 17.12 CÁCH GÁN INTERFACE VÀO VLAN! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ed31145d-7949-4c68-b88a-97716beaf074)
 
-## 17.13 Các bước cấu hình: **1) Sử dụng lệnh "interface range"** để chọn tất cả interface cùng lúc
+## 17.13 Các bước cấu hình:**1) Sử dụng lệnh "interface range"** để chọn tất cả interface cùng lúc
 
 **2) Sử dụng lệnh "switchport mode access"** để đặt Interface làm Access Port
 - --
 ## 17.14 ACCESS PORT LÀ GÌ? - *Access Port** là **SWITCHPORT** thuộc về **một VLAN duy nhất**, và thường kết nối với end host như PC. - *SWITCHPORT** mạng nhiều VLAN được gọi là **"Trunk PORT"** (thông tin thêm về Trunk trong chương tiếp theo)
 
-**3) Sử dụng lệnh "switchport access VLAN"** để gán VLAN cho Port! [image](https: //github. com/psaumur/CCNA/assets/106411237/b1bdb937-3707-496f-bc49-445df354d16b)
+**3) Sử dụng lệnh "switchport access VLAN"** để gán VLAN cho Port! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/b1bdb937-3707-496f-bc49-445df354d16b)
 - --
 ## 17.15 TẠO VÀ ĐẶT TÊN VLAN
 
@@ -64,11 +64,11 @@ Sử dụng **"#name <tên>"** để cấu hình TÊN cho VLAN của bạn
 ## 17.18 Kiểm tra cấu hình: ```
 
 switch# show VLAN brief
-```! [image](https: //github. com/psaumur/CCNA/assets/106411237/2f7d26d8-9b2a-43a3-b213-fec4f984a309)
+```! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/2f7d26d8-9b2a-43a3-b213-fec4f984a309)
 - --
 ## 17.19 KIỂM TRA VLAN
 
-## 17.20 Test VLAN 10: Ping từ PC1 sử dụng 255. 255. 255. 255 (FFFF: FFFF: FFFF) làm ngập các gói Broadcast chỉ đến R1 và các host VLAN10! [image](https: //github. com/psaumur/CCNA/assets/106411237/5c64e485-f492-4436-9c1d-3a1ab20fbe05)
+## 17.20 Test VLAN 10: Ping từ PC1 sử dụng 255. 255. 255. 255 (FFFF: FFFF: FFFF) làm ngập các gói Broadcast chỉ đến R1 và các host VLAN10! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/5c64e485-f492-4436-9c1d-3a1ab20fbe05)
 
 - --
 ## 17.21 TÓM TẮT VLAN

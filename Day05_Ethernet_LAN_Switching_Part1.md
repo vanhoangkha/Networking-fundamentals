@@ -1,8 +1,8 @@
 # NGÀY 05: ETHERNET LAN SWITCHING PART1
 
 LAN
-- LAN là Mạng được chứa trong một khu vực tương đối nhỏ. - router dùng để kết nối các LAN riêng biệt! [image](https: //github. com/psaumur/CCNA/assets/106411237/2a4de9d4-3408-49b9-9492-42b7eb56fe27)
-Một Khung Ethernet trông như: ! [image](https: //github. com/psaumur/CCNA/assets/106411237/ad579917-f9a0-4cd8-be25-351ecbfc87af)
+- LAN là Mạng được chứa trong một khu vực tương đối nhỏ. - router dùng để kết nối các LAN riêng biệt! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/2a4de9d4-3408-49b9-9492-42b7eb56fe27)
+Một Khung Ethernet trông như: ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ad579917-f9a0-4cd8-be25-351ecbfc87af)
 Trailer Ethernet --- Gói tin --- Header Ethernet
 Header Ethernet chứa 5 Trường: Preamble -- SFD -- Đích -- Nguồn -- Loại
 7 byte -- 1 byte -- 6 byte -- 6 byte -- 2 byte
@@ -33,7 +33,7 @@ Trailer Ethernet chứa: FCS
 - Phát hiện dữ liệu bị hỏng bằng cách chạy thuật toán 'CRC' trên dữ liệu nhận được
 - CRC = "Kiểm Tra Dư Thừa Vòng" (Cyclic Redundancy Check)
 - --
-Tổng cộng Khung Ethernet = 26 byte (Header + Trailer)! [image](https: //github. com/psaumur/CCNA/assets/106411237/c8c1a143-0675-4aa4-83bc-6031d10cc0b8)
+Tổng cộng Khung Ethernet = 26 byte (Header + Trailer)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/c8c1a143-0675-4aa4-83bc-6031d10cc0b8)
 - --
 Địa chỉ MAC (dài 48 bit)
 - Địa chỉ vật lý 6-byte (48-bit) được gán cho thiết bị khi nó được sản xuất. - Còn gọi là 'Địa chỉ Được Ghi Sẵn' (Burned-In Address - BIA)
@@ -43,10 +43,10 @@ Tổng cộng Khung Ethernet = 26 byte (Header + Trailer)! [image](https: //gith
 - Được viết dưới dạng 12 ký tự thập lục phân
 Ví dụ: E8: BA: 70 // 11: 28: 74
 OUI // ID Thiết bị Duy nhất
-THẬP LỤC PHÂN! [image](https: //github. com/psaumur/CCNA/assets/106411237/65a5e84a-b8db-46f5-b288-518139e99453)
+THẬP LỤC PHÂN! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/65a5e84a-b8db-46f5-b288-518139e99453)
 TÊN GIAO DIỆN
 F0/1, F0/2, F0/3. . . F viết tắt của "Fast Ethernet" hoặc giao diện 100 Mbps. - --
 BẢNG ĐỊA CHỈ MAC
-Mỗi switch lưu trữ một BẢNG ĐỊA CHỈ MAC HỌC ĐỘNG, sử dụng Địa chỉ MAC NGUỒN của các khung mà nó nhận được. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/582421a9-6351-48b7-bfe1-c2153520920c)
-Khi switch không biết Địa chỉ MAC ĐÍCH của một Khung (Khung Unicast KHÔNG BIẾT). nó buộc phải FLOOD khung - Chuyển tiếp khung ra khỏi TẤT CẢ các giao diện của nó, ngoại trừ giao diện mà nó nhận Gói tin. Khi một Khung Unicast ĐÃ BIẾT được biết (Địa chỉ MAC được nhận dạng bởi mục trong BẢNG ĐỊA CHỈ MAC), Khung được CHUYỂN TIẾP như bình thường. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/ff731ab3-fad2-4e10-9fa7-ce583a6a0bb2)
+Mỗi switch lưu trữ một BẢNG ĐỊA CHỈ MAC HỌC ĐỘNG, sử dụng Địa chỉ MAC NGUỒN của các khung mà nó nhận được. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/582421a9-6351-48b7-bfe1-c2153520920c)
+Khi switch không biết Địa chỉ MAC ĐÍCH của một Khung (Khung Unicast KHÔNG BIẾT). nó buộc phải FLOOD khung - Chuyển tiếp khung ra khỏi TẤT CẢ các giao diện của nó, ngoại trừ giao diện mà nó nhận Gói tin. Khi một Khung Unicast ĐÃ BIẾT được biết (Địa chỉ MAC được nhận dạng bởi mục trong BẢNG ĐỊA CHỈ MAC), Khung được CHUYỂN TIẾP như bình thường. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ff731ab3-fad2-4e10-9fa7-ce583a6a0bb2)
 - Lưu ý: Địa chỉ MAC Động được loại bỏ khỏi BẢNG ĐỊA CHỈ MAC sau mỗi 5 phút không hoạt động.

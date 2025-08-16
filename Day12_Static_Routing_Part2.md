@@ -3,17 +3,17 @@
 ## 12.1 ÔN TẬP: - **switch** chuyển tiếp lưu lượng TRONG LAN
 
 - **router** chuyển tiếp lưu lượng GIỮA các LAN
-**WAN (Wide Area Network)** - Mạng trải rộng trên một khu vực lớn! [image](https: //github. com/psaumur/CCNA/assets/106411237/e44ac71c-91e3-4963-85da-ac07e475b248)! [image](https: //github. com/psaumur/CCNA/assets/106411237/289212da-6c94-44fb-a1e3-1c066b56d79c)! [image](https: //github. com/psaumur/CCNA/assets/106411237/f8f7d58b-89b7-412c-9cf6-c038338e105d)! [image](https: //github. com/psaumur/CCNA/assets/106411237/63611407-719e-46d3-8331-a18533616285)
+**WAN (Wide Area Network)** - Mạng trải rộng trên một khu vực lớn! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/e44ac71c-91e3-4963-85da-ac07e475b248)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/289212da-6c94-44fb-a1e3-1c066b56d79c)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/f8f7d58b-89b7-412c-9cf6-c038338e105d)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/63611407-719e-46d3-8331-a18533616285)
 - --
 ## 12.2 TUYẾN ĐƯỜNG TĨNH: Tuyến đường tĩnh là các tuyến đường được cấu hình thủ công bởi quản trị viên mạng. - *Ưu điểm: **
 
 - Kiểm soát hoàn toàn đường đi của gói tin
 - Không tiêu tốn băng thông cho việc trao đổi thông tin định tuyến
 - Bảo mật cao hơn (không quảng bá thông tin mạng)
-**Nhược điểm: **
+**Nhược điểm:**
 - Cần cấu hình thủ công trên mỗi router
 - Không tự động thích ứng khi có thay đổi trong mạng
-- Khó quản lý trong mạng lớn! [image](https: //github. com/psaumur/CCNA/assets/106411237/10135afa-ace6-47f1-aada-1b73f243589b)
+- Khó quản lý trong mạng lớn! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/10135afa-ace6-47f1-aada-1b73f243589b)
 - --
 ## 12.3 CẤU HÌNH TUYẾN ĐƯỜNG TĨNH: ## 12. 4 Cú pháp cơ bản: ```
 
@@ -23,9 +23,9 @@ router(config)# IP route [destination-network] [subnet-mask] [next-hop-IP]
 
 router(config)# IP route 192. 168. 2. 0 255. 255. 255. 0 192. 168. 1. 2
 ```
-Lệnh này có nghĩa: - **Destination Network: ** 192. 168. 2. 0/24
-- **Subnet Mask: ** 255. 255. 255. 0
-- **Next-hop: ** 192. 168. 1. 2! [image](https: //github. com/psaumur/CCNA/assets/106411237/d375a428-e171-4212-9698-2f2589878884)! [image](https: //github. com/psaumur/CCNA/assets/106411237/012f4134-2667-421b-9b36-f449faebf423)! [image](https: //github. com/psaumur/CCNA/assets/106411237/0a3ed6cb-c414-4365-aef4-754b4b82483e)! [image](https: //github. com/psaumur/CCNA/assets/106411237/4379f8fb-a366-4279-a31c-ff2ba3f6fdb8)! [image](https: //github. com/psaumur/CCNA/assets/106411237/6fed6489-c53c-404e-b794-b71c2e9b8e4f)
+Lệnh này có nghĩa: - **Destination Network:** 192. 168. 2. 0/24
+- **Subnet Mask:** 255. 255. 255. 0
+- **Next-hop:** 192. 168. 1. 2! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/d375a428-e171-4212-9698-2f2589878884)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/012f4134-2667-421b-9b36-f449faebf423)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/0a3ed6cb-c414-4365-aef4-754b4b82483e)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/4379f8fb-a366-4279-a31c-ff2ba3f6fdb8)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/6fed6489-c53c-404e-b794-b71c2e9b8e4f)
 - --
 ## 12.5 CẤU HÌNH TUYẾN ĐƯỜNG TĨNH VỚI EXIT-INTERFACE
 
@@ -36,7 +36,7 @@ router(config)# IP route [destination-network] [subnet-mask] [exit-interface]
 
 router(config)# IP route 192. 168. 2. 0 255. 255. 255. 0 GigabitEthernet0/1
 ```
-**Lưu ý: ** Phương pháp này chỉ nên sử dụng với giao diện point-to-point. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/dc93b5f9-791c-44fc-8b88-2053491183a9)
+**Lưu ý:** Phương pháp này chỉ nên sử dụng với giao diện point-to-point. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/dc93b5f9-791c-44fc-8b88-2053491183a9)
 - --
 ## 12.7 TUYẾN ĐƯỜNG MẶC ĐỊNH (DEFAULT ROUTE)
 
@@ -47,7 +47,7 @@ router(config)# IP route 0. 0. 0. 0 0. 0. 0. 0 [next-hop-IP]
 
 router(config)# IP route 0. 0. 0. 0 0. 0. 0. 0 192. 168. 1. 1
 ```
-**0. 0. 0. 0 0. 0. 0. 0** có nghĩa là "bất kỳ mạng nào" - đây là tuyến đường cuối cùng được kiểm tra. **Sử dụng: ** Thường được cấu hình trên router biên để gửi tất cả lưu lượng không biết đến ISP. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/a0eef93a-b40b-409b-8b51-6cdbace4ff45)
+**0. 0. 0. 0 0. 0. 0. 0** có nghĩa là "bất kỳ mạng nào" - đây là tuyến đường cuối cùng được kiểm tra. **Sử dụng:** Thường được cấu hình trên router biên để gửi tất cả lưu lượng không biết đến ISP. ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/a0eef93a-b40b-409b-8b51-6cdbace4ff45)
 - --
 ## 12.9 CÁC LỆNH KIỂM TRA: ```
 
