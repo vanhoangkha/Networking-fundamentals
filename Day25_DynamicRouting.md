@@ -1,198 +1,96 @@
 # NGÀY 25: DYNAMICROUTING
 
-## 25.1 ĐỊNH TUYẾN ĐỘNG là gì?
-![image](https://github.com/psaumur/CCNA/assets/106411237/8acc17ee-5d4b-4725-b5e4-18dc5743340e)
+## 25.1 ĐỊNH TUYẾN ĐỘNG là gì? ! [image](https: //github. com/psaumur/CCNA/assets/106411237/8acc17ee-5d4b-4725-b5e4-18dc5743340e)
 
 - LAYER 3
-- Bao gồm việc cấu hình một Giao thức Định tuyến ĐỘNG trên Router và để Router tự động tìm kiếm các tuyến đường tốt nhất đến các MẠNG ĐÍCH.
-- Không cố định (sẽ thích ứng với các thay đổi trong mạng LAN)
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/deb9abf6-6e21-4c94-a407-bfc501a1d739)
-
+- Bao gồm việc cấu hình một Giao thức Định tuyến ĐỘNG trên router và để router tự động tìm kiếm các tuyến đường tốt nhất đến các MẠNG ĐÍCH. - Không cố định (sẽ thích ứng với các thay đổi trong mạng LAN)! [image](https: //github. com/psaumur/CCNA/assets/106411237/deb9abf6-6e21-4c94-a407-bfc501a1d739)
 💡 **Tuyến đường Mạng**: Một tuyến đường đến một Mạng hoặc Mạng con (Độ dài Mask < /32)
-Ví dụ: **10.0.12.0/30** và **10.0.13.0/30** (ở trên) là các TUYẾN ĐƯỜNG MẠNG
-
+Ví dụ: **10. 0. 12. 0/30** và **10. 0. 13. 0/30** (ở trên) là các TUYẾN ĐƯỜNG MẠNG
 💡 **Tuyến đường HOST**: Một tuyến đường đến một HOST cụ thể (Mask /32)
-Ví dụ: **10.0.12.1/32** và **10.0.13.1/32** (ở trên) là các TUYẾN ĐƯỜNG HOST
-
+Ví dụ: **10. 0. 12. 1/32** và **10. 0. 13. 1/32** (ở trên) là các TUYẾN ĐƯỜNG HOST
 Hai TUYẾN ĐƯỜNG này được TỰ ĐỘNG thêm vào các GIAO DIỆN G0/0 và G1/0 của R1
-
 - --
+## 25.2 ĐỊNH TUYẾN ĐỘNG HOẠT ĐỘNG NHƯ THẾ NÀO? ! [image](https: //github. com/psaumur/CCNA/assets/106411237/9d2d7f88-a325-461f-99fd-0dc88ee23749)
 
-## 25.2 ĐỊNH TUYẾN ĐỘNG HOẠT ĐỘNG NHƯ THẾ NÀO?
-![image](https://github.com/psaumur/CCNA/assets/106411237/9d2d7f88-a325-461f-99fd-0dc88ee23749)
-
-(R4 QUẢNG CÁO đến R2, R2 QUẢNG CÁO đến R1, R1 QUẢNG CÁO đến R3 - Họ thêm Tuyến đường Mạng đến R4 vào BẢNG ĐỊNH TUYẾN của mình)
-
-Nếu Tuyến đường Mạng bị hỏng, tuyến đường sẽ được LOẠI BỎ ĐỘNG từ BẢNG ĐỊNH TUYẾN
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/a477d438-f6cb-4a09-b66d-e07826755bd1)
-
+(R4 QUẢNG CÁO đến R2, R2 QUẢNG CÁO đến R1. R1 QUẢNG CÁO đến R3 - Họ thêm Tuyến đường Mạng đến R4 vào BẢNG ĐỊNH TUYẾN của mình)
+Nếu Tuyến đường Mạng bị hỏng, tuyến đường sẽ được LOẠI BỎ ĐỘNG từ BẢNG ĐỊNH TUYẾN! [image](https: //github. com/psaumur/CCNA/assets/106411237/a477d438-f6cb-4a09-b66d-e07826755bd1)
 (R1 loại bỏ tuyến đường đến R4 khỏi BẢNG ĐỊNH TUYẾN của nó)
-
-Trong ĐỊNH TUYẾN TĨNH, một Router bị hỏng vẫn sẽ có traffic được chuyển đến nó. BẢNG ĐỊNH TUYẾN không thay đổi.
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/e689a88a-7275-489c-80b4-18894a7ce4c9)
-
+Trong ĐỊNH TUYẾN TĨNH. một router bị hỏng vẫn sẽ có traffic được chuyển đến nó. BẢNG ĐỊNH TUYẾN không thay đổi. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/e689a88a-7275-489c-80b4-18894a7ce4c9)
 (R1 có một TUYẾN ĐƯỜNG TĨNH đến R4 và chuyển traffic đến mạng của nó bất kể trạng thái)
-
-ĐỊNH TUYẾN ĐỘNG tốt nhưng vẫn cần REDUNDANCY nên chúng ta thêm một kết nối khác giữa R3 và R4
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/8a7cb9cb-beea-4522-87f7-7fd11df9f745)
-
+ĐỊNH TUYẾN ĐỘNG tốt nhưng vẫn cần REDUNDANCY nên chúng ta thêm một kết nối khác giữa R3 và R4! [image](https: //github. com/psaumur/CCNA/assets/106411237/8a7cb9cb-beea-4522-87f7-7fd11df9f745)
 (TUYẾN ĐƯỜNG ĐỘNG thứ hai được thêm đến R4 từ R1 qua R3. BẢNG ĐỊNH TUYẾN được cập nhật phù hợp)
-
-Một lỗi trong tuyến đường, qua R2 đến Giao diện G0/0 của R4, tự động chuyển hướng traffic qua R3
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/d4509ce2-07f1-4fb0-8e31-cf58c049c355)
-
+Một lỗi trong tuyến đường, qua R2 đến Giao diện G0/0 của R4, tự động chuyển hướng traffic qua R3! [image](https: //github. com/psaumur/CCNA/assets/106411237/d4509ce2-07f1-4fb0-8e31-cf58c049c355)
 Tại sao đường đi ưu tiên sử dụng đường đi của R2 thay vì R3? Vì CHI PHÍ! Điều này tương tự như cách SPANNING-TREE hoạt động (với SWITCHES)
-
 - --
-
 ## 25.3 GIỚI THIỆU VỀ CÁC GIAO THỨC ĐỊNH TUYẾN ĐỘNG
+
 - ROUTERS có thể sử dụng CÁC GIAO THỨC ĐỊNH TUYẾN ĐỘNG để QUẢNG CÁO thông tin về các TUYẾN ĐƯỜNG mà chúng biết đến CÁC ROUTERS KHÁC
 - Chúng tạo thành 'ADJACENCIES' / 'QUAN HỆ LÁNG GIỀNG' / 'NEIGHBORSHIPS' với CÁC ROUTERS LIỀN KỀ để trao đổi thông tin này
-- Nếu nhiều TUYẾN ĐƯỜNG đến một ĐÍCH được học, Router xác định tuyến đường nào là TỐT HƠN và thêm nó vào BẢNG ĐỊNH TUYẾN. Nó sử dụng 'Metric' của tuyến đường để quyết định tuyến đường nào tốt hơn (Metric thấp hơn = tốt hơn)
-
+- Nếu nhiều TUYẾN ĐƯỜNG đến một ĐÍCH được học. router xác định tuyến đường nào là TỐT HƠN và thêm nó vào BẢNG ĐỊNH TUYẾN. Nó sử dụng 'Metric' của tuyến đường để quyết định tuyến đường nào tốt hơn (Metric thấp hơn = tốt hơn)
 - --
-
 ## 25.4 CÁC LOẠI GIAO THỨC ĐỊNH TUYẾN ĐỘNG
-CÁC GIAO THỨC ĐỊNH TUYẾN ĐỘNG có thể được chia thành HAI danh mục chính:
-- IGP (Interior Gateway Protocol)
+
+CÁC GIAO THỨC ĐỊNH TUYẾN ĐỘNG có thể chia thành HAI danh mục chính: - IGP (Interior Gateway Protocol)
 - EGP (Exterior Gateway Protocol)
-
-**IGP** - Được sử dụng để CHIA SẺ TUYẾN ĐƯỜNG trong một *hệ thống tự trị* (AS) duy nhất, là một tổ chức duy nhất (ví dụ: một công ty)
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/06af6c77-3a03-44fa-8c55-9382347d3f5e)
-
-**EGP** - Được sử dụng để CHIA SẺ TUYẾN ĐƯỜNG *giữa* các *hệ thống tự trị (AS)* khác nhau
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/37680a4b-caab-4e1d-ac64-00a799bd965f)
-
-Các thuật toán được sử dụng cho IGP và EGP và các Giao thức cho từng loại
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/36729569-0e56-4eb2-91ee-e7cd25a8c234)
-
-💡 BẠN PHẢI GHI NHỚ THUẬT TOÁN NÀO ĐƯỢC SỬ DỤNG CHO TỪNG GIAO THỨC CHO CCNA!
-
-- --
-
+**IGP** - Được sử dụng để CHIA SẺ TUYẾN ĐƯỜNG trong một *hệ thống tự trị* (AS) duy nhất. là tổ chức duy nhất (ví dụ: một công ty)! [image](https: //github. com/psaumur/CCNA/assets/106411237/06af6c77-3a03-44fa-8c55-9382347d3f5e)
+**EGP** - Được sử dụng để CHIA SẺ TUYẾN ĐƯỜNG *giữa* các *hệ thống tự trị (AS)* khác nhau! [image](https: //github. com/psaumur/CCNA/assets/106411237/37680a4b-caab-4e1d-ac64-00a799bd965f)
+Các thuật toán được sử dụng cho IGP và EGP và các Giao thức cho từng loại! [image](https: //github. com/psaumur/CCNA/assets/106411237/36729569-0e56-4eb2-91ee-e7cd25a8c234)
+💡 BẠN PHẢI GHI NHỚ THUẬT TOÁN NÀO ĐƯỢC SỬ DỤNG CHO TỪNG GIAO THỨC CHO CCNA! - --
 ## 25.5 CÁC GIAO THỨC ĐỊNH TUYẾN DISTANCE VECTOR
-- Được gọi là DISTANCE VECTOR vì các ROUTERS chỉ học 'khoảng cách' (Metric) và 'vector' (HƯỚNG, Router NEXT-HOP) của mỗi tuyến đường
+
+- Được gọi là DISTANCE VECTOR vì các ROUTERS chỉ học 'khoảng cách' (Metric) và 'vector' (HƯỚNG. router NEXT-HOP) của mỗi tuyến đường
 - CÁC GIAO THỨC DISTANCE VECTOR được phát minh trước CÁC GIAO THỨC LINK STATE
 - Các ví dụ ban đầu là RIPv1 và IGRP của Cisco (được cập nhật thành EIGRP)
-- CÁC GIAO THỨC DISTANCE VECTOR hoạt động bằng cách gửi những thông tin sau đến các láng giềng kết nối trực tiếp:
-- Các mạng ĐÍCH mà chúng BIẾT
+- CÁC GIAO THỨC DISTANCE VECTOR hoạt động bằng cách gửi những thông tin sau đến các láng giềng kết nối trực tiếp: - Các mạng ĐÍCH mà chúng BIẾT
 - Metric của chúng để đến các mạng ĐÍCH mà chúng BIẾT
 - PHƯƠNG PHÁP chia sẻ thông tin tuyến đường này thường được gọi là ***'Định tuyến theo tin đồn'***
-- ***'Định tuyến theo tin đồn'*** = vì Router không biết về Mạng ngoài các LÁNG GIỀNG của nó. Nó chỉ biết thông tin mà các LÁNG GIỀNG nói với nó.
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/773eb20d-7983-4da4-ae66-e97e421e83ba)
-
+- ***'Định tuyến theo tin đồn'*** = vì router không biết về Mạng ngoài các LÁNG GIỀNG của nó. Nó chỉ biết thông tin mà các LÁNG GIỀNG nói với nó. ! [image](https: //github. com/psaumur/CCNA/assets/106411237/773eb20d-7983-4da4-ae66-e97e421e83ba)
 - --
-
 ## 25.6 METRICS CỦA CÁC GIAO THỨC ĐỊNH TUYẾN ĐỘNG
-BẢNG ĐỊNH TUYẾN của Router chứa TUYẾN ĐƯỜNG TỐT NHẤT đến mỗi MẠNG ĐÍCH mà nó biết
 
-Nếu một Router sử dụng một GIAO THỨC ĐỊNH TUYẾN ĐỘNG học được HAI tuyến đường khác nhau đến cùng một ĐÍCH, làm thế nào nó xác định tuyến đường nào là **'tốt nhất'**?
-
-Nó sử dụng giá trị Metric của các TUYẾN ĐƯỜNG để xác định tuyến đường nào là TỐT NHẤT. Metric thấp hơn = TỐT HƠN! (giống như STP)
-
-MỖI GIAO THỨC ĐỊNH TUYẾN sử dụng một Metric khác nhau để xác định tuyến đường nào là tốt nhất
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/bf324652-f4b8-482e-af17-03da590ac85d)
-
-Ở trên chọn ĐƯỜNG ĐỎ vì "chi phí", sử dụng R3 F2/0 và R4 F2/0 (FastEthernet) CAO HƠN so với R2 G1/0 và R4 G0/0 (GigabyteEthernet)
-
-Nếu CẢ HAI kết nối đều là GigabyteEthernet thì sao? (tức là: cùng giá trị Metric)
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/3f8437cc-5b38-4f1e-b185-c5e9fce6c5f1)
-
+BẢNG ĐỊNH TUYẾN của router chứa TUYẾN ĐƯỜNG TỐT NHẤT đến mỗi MẠNG ĐÍCH mà nó biết
+Nếu một router sử dụng một GIAO THỨC ĐỊNH TUYẾN ĐỘNG học được HAI tuyến đường khác nhau đến cùng một ĐÍCH. làm thế nào nó xác định tuyến đường nào là **'tốt nhất'**? Nó sử dụng giá trị Metric của các TUYẾN ĐƯỜNG để xác định tuyến đường nào là TỐT NHẤT. Metric thấp hơn = TỐT HƠN! (giống như STP)
+MỖI GIAO THỨC ĐỊNH TUYẾN sử dụng một Metric khác nhau để xác định tuyến đường nào là tốt nhất! [image](https: //github. com/psaumur/CCNA/assets/106411237/bf324652-f4b8-482e-af17-03da590ac85d)
+Ở trên chọn ĐƯỜNG ĐỎ vì "chi phí". sử dụng R3 F2/0 và R4 F2/0 (FastEthernet) CAO HƠN so với R2 G1/0 và R4 G0/0 (GigabyteEthernet)
+Nếu CẢ HAI kết nối đều là GigabyteEthernet thì sao? (tức là: cùng giá trị Metric)! [image](https: //github. com/psaumur/CCNA/assets/106411237/3f8437cc-5b38-4f1e-b185-c5e9fce6c5f1)
 CẢ HAI TUYẾN ĐƯỜNG được thêm vào BẢNG ĐỊNH TUYẾN
-
-Vậy...
-
-💡 Nếu một Router học được HAI (hoặc nhiều hơn) TUYẾN ĐƯỜNG qua cùng một GIAO THỨC ĐỊNH TUYẾN đến cùng một ĐÍCH (cùng Địa chỉ Mạng, cùng mask Mạng con) với cùng Metric, cả hai sẽ được thêm vào bảng định tuyến. Traffic sẽ được CÂN BẰNG TẢI trên cả hai TUYẾN ĐƯỜNG
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/79662f99-a847-457b-8080-76f77c25c5e6)
-
+Vậy. . . 💡 Nếu một router học được HAI (hoặc nhiều hơn) TUYẾN ĐƯỜNG qua cùng một GIAO THỨC ĐỊNH TUYẾN đến cùng một ĐÍCH (cùng Địa chỉ Mạng. cùng mask Mạng con) với cùng Metric, cả hai sẽ được thêm vào bảng định tuyến. Traffic sẽ được CÂN BẰNG TẢI trên cả hai TUYẾN ĐƯỜNG! [image](https: //github. com/psaumur/CCNA/assets/106411237/79662f99-a847-457b-8080-76f77c25c5e6)
 "O" = Giao thức OSPF (bên cạnh TUYẾN ĐƯỜNG)
-[110/3]:
-- phần "3" là Metric.
-- phần "110" là Khoảng cách Quản trị (sẽ đề cập sau)
-
-💡 Vì CẢ HAI TUYẾN ĐƯỜNG có cùng Metric, điều này được gọi là ECMP (EQUAL COST MULTI-PATH)
-
-Bạn có thể có ECMP với CÁC TUYẾN ĐƯỜNG TĨNH, cũng như vậy (tuy nhiên chúng không sử dụng Metric)
-
+[110/3]: - phần "3" là Metric. - phần "110" là Khoảng cách Quản trị (sẽ đề cập sau)
+💡 Vì CẢ HAI TUYẾN ĐƯỜNG có cùng Metric. điều này được gọi là ECMP (EQUAL COST MULTI-PATH)
+Bạn có thể có ECMP với CÁC TUYẾN ĐƯỜNG TĨNH, cũng như vậy (nhưng chúng không sử dụng Metric)
 - --
-
-## 25.7 TÓM TẮT CÁC METRICS KHÁC NHAU
-![image](https://github.com/psaumur/CCNA/assets/106411237/7b8390aa-46d4-49d3-83a4-03ba095bf927)
+## 25.7 TÓM TẮT CÁC METRICS KHÁC NHAU! [image](https: //github. com/psaumur/CCNA/assets/106411237/7b8390aa-46d4-49d3-83a4-03ba095bf927)
 
 (IS-IS sẽ không được đề cập chi tiết)
-
-**VÍ DỤ**
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/d0c6c9f2-3526-46b2-b520-1f4b6b28ea8f)
-
-Sử dụng RIP, cả hai TUYẾN ĐƯỜNG sẽ được đưa vào BẢNG ĐỊNH TUYẾN của R1
-
-Sử dụng OSPF, chỉ tuyến đường từ R1 > R2 > R4 sẽ được thêm vào BẢNG ĐỊNH TUYẾN của R1 vì TỔNG CHI PHÍ của mỗi liên kết.
-
-Tuy nhiên, CẢ HAI METRICS đều cố gắng đạt được cùng một mục đích: Để Router chọn TUYẾN ĐƯỜNG TỐT NHẤT đến ĐÍCH
-
+**VÍ DỤ**! [image](https: //github. com/psaumur/CCNA/assets/106411237/d0c6c9f2-3526-46b2-b520-1f4b6b28ea8f)
+Sử dụng RIP. cả hai TUYẾN ĐƯỜNG sẽ được đưa vào BẢNG ĐỊNH TUYẾN của R1
+Sử dụng OSPF, chỉ tuyến đường từ R1 > R2 > R4 sẽ được thêm vào BẢNG ĐỊNH TUYẾN của R1 vì TỔNG CHI PHÍ của mỗi liên kết. Tuy nhiên, CẢ HAI METRICS đều cố gắng đạt được cùng một mục đích: Để router chọn TUYẾN ĐƯỜNG TỐT NHẤT đến ĐÍCH
 - --
-
 ## 25.8 KHOẢNG CÁCH QUẢN TRỊ
+
 - Trong HẦU HẾT các trường hợp, một công ty sẽ chỉ sử dụng một IGP duy nhất - thường là OSPF hoặc EIGRP
-- Tuy nhiên, trong một số trường hợp HIẾM, họ có thể sử dụng HAI.
-- Ví dụ: Nếu HAI công ty kết nối mạng của họ để chia sẻ thông tin, HAI GIAO THỨC ĐỊNH TUYẾN khác nhau có thể được sử dụng.
-- Metric được sử dụng để so sánh CÁC TUYẾN ĐƯỜNG được học qua cùng một GIAO THỨC ĐỊNH TUYẾN
-- Các GIAO THỨC ĐỊNH TUYẾN khác nhau sử dụng các METRICS hoàn toàn khác nhau, vì vậy chúng không thể được so sánh
-- Một tuyến đường OSPF đến 192.168.4.0/24 có thể có Metric là 30, trong khi một tuyến đường EIGRP đến cùng ĐÍCH có Metric là 33280. Tuyến đường nào tốt hơn? Tuyến đường nào Router nên đưa vào BẢNG ĐỊNH TUYẾN?
-- **Khoảng cách Quản trị (AD)**, được sử dụng để xác định GIAO THỨC ĐỊNH TUYẾN nào được ưu tiên.
-- AD THẤP HƠN được ưu tiên, và cho biết rằng GIAO THỨC ĐỊNH TUYẾN được coi là 'đáng tin cậy' hơn (có khả năng chọn TUYẾN ĐƯỜNG tốt cao hơn)
-
+- Tuy nhiên, trong một số trường hợp HIẾM, họ có thể sử dụng HAI. - Ví dụ: Nếu HAI công ty kết nối mạng của họ để chia sẻ thông tin, HAI GIAO THỨC ĐỊNH TUYẾN khác nhau có thể sử dụng. - Metric dùng để so sánh CÁC TUYẾN ĐƯỜNG được học qua cùng một GIAO THỨC ĐỊNH TUYẾN
+- Các GIAO THỨC ĐỊNH TUYẾN khác nhau sử dụng các METRICS hoàn toàn khác nhau. vì vậy chúng không thể được so sánh
+- Một tuyến đường OSPF đến 192. 168. 4. 0/24 có thể có Metric là 30, trong khi một tuyến đường EIGRP đến cùng ĐÍCH có Metric là 33280. Tuyến đường nào tốt hơn? Tuyến đường nào router nên đưa vào BẢNG ĐỊNH TUYẾN? - **Khoảng cách Quản trị (AD)**, dùng để xác định GIAO THỨC ĐỊNH TUYẾN nào được ưu tiên. - AD THẤP HƠN được ưu tiên, và cho biết rằng GIAO THỨC ĐỊNH TUYẾN được coi là 'đáng tin cậy' hơn (có thể chọn TUYẾN ĐƯỜNG tốt cao hơn)
 - --
-
-## 25.9 CÁC SỐ KHOẢNG CÁCH QUẢN TRỊ
-![image](https://github.com/psaumur/CCNA/assets/106411237/0f5ea405-d321-41bc-b2c0-2185874d07db)
+## 25.9 CÁC SỐ KHOẢNG CÁCH QUẢN TRỊ! [image](https: //github. com/psaumur/CCNA/assets/106411237/0f5ea405-d321-41bc-b2c0-2185874d07db)
 
 (SỬ DỤNG FLASHCARDS ĐỂ GHI NHỚ NHỮNG SỐ NÀY)
-
-💡 NẾU Khoảng cách Quản trị là 255, Router không tin tưởng NGUỒN của tuyến đường đó và không cài đặt tuyến đường vào BẢNG ĐỊNH TUYẾN!
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/33dbbe2b-7471-4c17-ae27-4d363d115a4c)
-
-Metric được sử dụng để SO SÁNH CÁC TUYẾN ĐƯỜNG được học từ CÙNG MỘT GIAO THỨC ĐỊNH TUYẾN
-
-Tuy nhiên, trước khi so sánh METRICS, AD được sử dụng để chọn TUYẾN ĐƯỜNG TỐT NHẤT
-
-Do đó, TUYẾN ĐƯỜNG TỐT NHẤT là: "next hop 192.168.3.1, được học qua OSPF (AD thấp hơn RIP), Metric 10"
-
+💡 NẾU Khoảng cách Quản trị là 255. router không tin tưởng NGUỒN của tuyến đường đó và không cài đặt tuyến đường vào BẢNG ĐỊNH TUYẾN! ! [image](https: //github. com/psaumur/CCNA/assets/106411237/33dbbe2b-7471-4c17-ae27-4d363d115a4c)
+Metric dùng để SO SÁNH CÁC TUYẾN ĐƯỜNG được học từ CÙNG MỘT GIAO THỨC ĐỊNH TUYẾN
+Tuy nhiên, trước khi so sánh METRICS. AD dùng để chọn TUYẾN ĐƯỜNG TỐT NHẤT
+Do đó, TUYẾN ĐƯỜNG TỐT NHẤT là: "next hop 192. 168. 3. 1. được học qua OSPF (AD thấp hơn RIP), Metric 10"
 - Bạn có thể THAY ĐỔI AD của một GIAO THỨC ĐỊNH TUYẾN (Điều này sẽ được trình bày trong bài giảng về Cấu hình OSPF)
-- Bạn cũng có thể thay đổi AD của một TUYẾN ĐƯỜNG TĨNH:
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/ec167f95-e5d7-49c8-aff7-1957e51934b1)
-
-![image](https://github.com/psaumur/CCNA/assets/106411237/db6bef3b-ed82-49f0-b094-804c82f67f8d)
-
-**TẠI SAO BẠN MUỐN LÀM ĐIỀU NÀY?**
-
+- Bạn cũng có thể thay đổi AD của một TUYẾN ĐƯỜNG TĨNH: ! [image](https: //github. com/psaumur/CCNA/assets/106411237/ec167f95-e5d7-49c8-aff7-1957e51934b1)! [image](https: //github. com/psaumur/CCNA/assets/106411237/db6bef3b-ed82-49f0-b094-804c82f67f8d)
+**TẠI SAO BẠN MUỐN LÀM ĐIỀU NÀY? **
 **FLOATING STATIC ROUTES**
-
-- Bằng cách THAY ĐỔI AD của một TUYẾN ĐƯỜNG TĨNH, bạn có thể làm cho nó ít được ưu tiên hơn so với CÁC TUYẾN ĐƯỜNG được học bởi một GIAO THỨC ĐỊNH TUYẾN ĐỘNG đến cùng ĐÍCH (đảm bảo AD CAO HƠN AD của GIAO THỨC ĐỊNH TUYẾN!)
+- Bằng cách THAY ĐỔI AD của một TUYẾN ĐƯỜNG TĨNH. bạn có thể làm cho nó ít được ưu tiên hơn so với CÁC TUYẾN ĐƯỜNG được học bởi một GIAO THỨC ĐỊNH TUYẾN ĐỘNG đến cùng ĐÍCH (đảm bảo AD CAO HƠN AD của GIAO THỨC ĐỊNH TUYẾN! )
 - Loại tuyến đường này được gọi là 'FLOATING STATIC ROUTE'
-- Tuyến đường sẽ không hoạt động (không có trong BẢNG ĐỊNH TUYẾN) trừ khi tuyến đường được học bởi GIAO THỨC ĐỊNH TUYẾN ĐỘNG bị loại bỏ.
-- **Ví dụ:** Router từ xa ngừng QUẢNG CÁO nó vì lý do nào đó, hoặc lỗi Giao diện khiến ADJACENCY với một NEIGHBOR bị mất.
-
-- --
-
+- Tuyến đường sẽ không hoạt động (không có trong BẢNG ĐỊNH TUYẾN) trừ khi tuyến đường được học bởi GIAO THỨC ĐỊNH TUYẾN ĐỘNG bị loại bỏ. - **Ví dụ: ** router từ xa ngừng QUẢNG CÁO nó vì lý do nào đó, hoặc lỗi Giao diện khiến ADJACENCY với một NEIGHBOR bị mất. - --
 ## 25.10 CÁC GIAO THỨC ĐỊNH TUYẾN LINK STATE
-- Khi sử dụng một GIAO THỨC ĐỊNH TUYẾN LINK STATE, mỗi Router tạo ra một 'bản đồ kết nối' của Mạng
-- Để cho phép điều này, mỗi Router QUẢNG CÁO thông tin về các GIAO DIỆN của nó (các MẠNG được kết nối) đến các láng giềng của nó. Những QUẢNG CÁO này được chuyển tiếp đến các ROUTERS khác, cho đến khi tất cả ROUTERS trong Mạng phát triển cùng một bản đồ của Mạng
-- Mỗi Router độc lập sử dụng BẢN ĐỒ này để tính toán CÁC TUYẾN ĐƯỜNG TỐT NHẤT đến mỗi ĐÍCH
-- CÁC GIAO THỨC LINK STATE sử dụng nhiều tài nguyên hơn (CPU) trên Router, vì NHIỀU thông tin hơn được chia sẻ.
-- Tuy nhiên, CÁC GIAO THỨC LINK STATE có xu hướng NHANH HƠN trong việc phản ứng với CÁC THAY ĐỔI trong Mạng so với CÁC GIAO THỨC DISTANCE VECTOR
+
+- Khi sử dụng một GIAO THỨC ĐỊNH TUYẾN LINK STATE. mỗi router tạo ra một 'bản đồ kết nối' của Mạng
+- Để cho phép điều này, mỗi router QUẢNG CÁO thông tin về các GIAO DIỆN của nó (các MẠNG được kết nối) đến các láng giềng của nó. Những QUẢNG CÁO này được chuyển tiếp đến các ROUTERS khác. cho đến khi tất cả ROUTERS trong Mạng phát triển cùng một bản đồ của Mạng
+- Mỗi router độc lập sử dụng BẢN ĐỒ này để tính toán CÁC TUYẾN ĐƯỜNG TỐT NHẤT đến mỗi ĐÍCH
+- CÁC GIAO THỨC LINK STATE sử dụng nhiều tài nguyên hơn (CPU) trên router, vì NHIỀU thông tin hơn được chia sẻ. - Tuy nhiên, CÁC GIAO THỨC LINK STATE có xu hướng NHANH HƠN trong việc phản ứng với CÁC THAY ĐỔI trong Mạng so với CÁC GIAO THỨC DISTANCE VECTOR

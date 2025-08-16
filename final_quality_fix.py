@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 """
-Script sửa lỗi markdown cuối cùng - đảm bảo format hoàn hảo
+Script sửa lỗi chất lượng cuối cùng - hoàn thiện tất cả
 """
 
 import os
 import re
 import glob
 
-def fix_markdown_completely(file_path):
-    """Sửa lỗi markdown hoàn toàn"""
+def final_fix_file(file_path):
+    """Sửa lỗi cuối cùng cho file"""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Lấy thông tin từ tên file
+        original_content = content
+        
+        # Lấy thông tin từ filename
         filename = os.path.basename(file_path)
         day_match = re.match(r'Day(\d+)_(.+)\.md', filename)
         if not day_match:
@@ -33,54 +35,55 @@ def fix_markdown_completely(file_path):
         section_counter = 1
         subsection_counter = 1
         
-        skip_next_empty = False
-        
-        for i, line in enumerate(lines):
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            
             # Bỏ qua header cũ
             if line.startswith('# NGÀY'):
+                i += 1
                 continue
             
             # Xử lý headers
             if line.startswith('## '):
-                # Lấy nội dung sau ##
-                header_content = re.sub(r'^##\s*\d*\.?\d*\s*', '', line).strip()
-                if header_content and not header_content.startswith('.'):
+                # Lấy nội dung header
+                header_content = re.sub(r'^##\s*\d*\.?\s*\d*\s*', '', line).strip()
+                if header_content:
                     fixed_lines.append(f"## {day_num}.{section_counter} {header_content}")
+                    fixed_lines.append("")
                     section_counter += 1
                     subsection_counter = 1
-                    skip_next_empty = True
-                continue
-            
             elif line.startswith('### '):
                 # Subsection
                 header_content = re.sub(r'^###\s*\d*\.?\d*\.?\d*\s*', '', line).strip()
                 if header_content:
                     fixed_lines.append(f"### {day_num}.{section_counter-1}.{subsection_counter} {header_content}")
+                    fixed_lines.append("")
                     subsection_counter += 1
-                    skip_next_empty = True
-                continue
+            else:
+                # Xử lý nội dung thường
+                # Sửa bold text bị lỗi
+                line = re.sub(r'- \*([^*]+)\*\*', r'**\1**', line)
+                line = re.sub(r'- \*([^*]+?)\s*:\s*\*\*', r'**\1:**', line)
+                
+                # Sửa bullet points
+                if line.strip().startswith('- '):
+                    line = re.sub(r'^(\s*)- ', r'\1- ', line)
+                
+                # Sửa spacing trong dấu câu
+                line = re.sub(r'\s*\.\s*', '. ', line)
+                line = re.sub(r'\s*,\s*', ', ', line)
+                line = re.sub(r'\s*:\s*', ': ', line)
+                line = re.sub(r'\s*;\s*', '; ', line)
+                
+                # Loại bỏ space thừa
+                line = re.sub(r'\s+', ' ', line)
+                line = line.strip()
+                
+                if line:  # Chỉ thêm dòng không trống
+                    fixed_lines.append(line)
             
-            # Bỏ qua dòng trống sau header
-            if skip_next_empty and line.strip() == '':
-                skip_next_empty = False
-                continue
-            skip_next_empty = False
-            
-            # Sửa các lỗi khác
-            # Sửa bold text bị lỗi
-            line = re.sub(r'- \*([^*]+)\*\*', r'**\1**', line)
-            
-            # Sửa bullet points
-            if line.strip().startswith('- '):
-                line = re.sub(r'^(\s*)- ', r'\1- ', line)
-            
-            # Sửa emphasis
-            line = re.sub(r'\*\*([^*]+?)\s*:\s*\*\*', r'**\1:**', line)
-            
-            # Sửa links
-            line = line.replace('https://github.com', 'https://github.com')
-            
-            fixed_lines.append(line)
+            i += 1
         
         # Loại bỏ dòng trống thừa
         final_lines = []
@@ -95,16 +98,19 @@ def fix_markdown_completely(file_path):
                 final_lines.append(line)
                 prev_empty = False
         
-        # Loại bỏ dòng trống cuối file
+        # Loại bỏ dòng trống cuối
         while final_lines and final_lines[-1] == '':
             final_lines.pop()
         
         # Ghi file
         final_content = '\n'.join(final_lines)
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(final_content)
         
-        return True
+        if final_content != original_content:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(final_content)
+            return True
+        
+        return False
         
     except Exception as e:
         print(f"Lỗi: {e}")
@@ -115,17 +121,17 @@ def main():
     pattern = os.path.join(base_dir, "Day*.md")
     files = glob.glob(pattern)
     
-    print("🔧 SỬA LỖI MARKDOWN CUỐI CÙNG")
+    print("🎯 SỬA LỖI CHẤT LƯỢNG CUỐI CÙNG")
     print("=" * 35)
     
     success_count = 0
     for file_path in sorted(files):
         filename = os.path.basename(file_path)
-        if fix_markdown_completely(file_path):
+        if final_fix_file(file_path):
             success_count += 1
             print(f"✅ {filename}")
         else:
-            print(f"❌ {filename}")
+            print(f"⚪ {filename}")
     
     print(f"\n🎉 Hoàn thành! Đã sửa {success_count}/{len(files)} file")
 
