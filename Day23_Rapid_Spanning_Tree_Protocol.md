@@ -3,10 +3,10 @@
 ## 23.1 SO SÁNH CÁC PHIÊN BẢN STP (Tiêu chuẩn vs. Cisco)! [image](https: //github. com/psaumur/CCNA/assets/106411237/ca5ff85c-842e-4ed3-9b6a-f9d6ed546a78)
 
 | Tiêu chuẩn IEEE | Tên Cisco | Mô tả |
-|-----------------|-----------|-------|
-| 802. 1D | STP | Classic Spanning Tree |
-| 802. 1w | RSTP | Rapid Spanning Tree |
-| 802. 1 s | MSTP | Multiple Spanning Tree |
+| ------- | ------- | ------- |
+| 802.1D | STP | Classic Spanning Tree |
+| 802.1w | RSTP | Rapid Spanning Tree |
+| 802.1 s | MSTP | Multiple Spanning Tree |
 | - | PVST+ | Per-VLAN Spanning Tree Plus |
 | - | Rapid PVST+ | Rapid Per-VLAN Spanning Tree Plus |
 **Chúng ta chỉ quan tâm đến 802. 1w cho HẦU HẾT các trường hợp sử dụng. MSTP (802. 1 s) hữu ích hơn cho mạng RẤT LỚN. **
@@ -27,19 +27,18 @@
 
 **(HỌC VÀ GHI NHỚ Port Cost của STP và RSTP)**
 | Tốc độ Link | STP Cost | RSTP Cost |
-|-------------|----------|-----------|
-| 10 Mbps | 100 | 2, 000, 000 |
-| 100 Mbps | 19 | 200. 000 |
-| 1 Gbps | 4 | 20, 000 |
-| 10 Gbps | 2 | 2, 000 |
+| ------- | ------- | ------- |
+| 10 Mbps | 100 | 2,000,000 |
+| 100 Mbps | 19 | 200.000 |
+| 1 Gbps | 4 | 20,000 |
+| 10 Gbps | 2 | 2,000 |
 | 100 Gbps | N/A | 200 |
 | 1 Tbps | N/A | 20 |
 - --
 ## 23.6 RSTP PORT STATES! [image](https: //github. com/psaumur/CCNA/assets/106411237/054d5037-a60e-478e-986b-6f43825a0d1a)
 
-## 23.7 So sánh trạng thái: | STP States | RSTP States | Mô tả |
-
-|------------|-------------|-------|
+| ## 23.7 So sánh trạng thái: | STP States | RSTP States | Mô tả |
+| ------- | ------- | ------- |
 | Disabled | **Discarding** | Port bị vô hiệu hóa |
 | Blocking | **Discarding** | Port chặn để tránh loop |
 | Listening | **Discarding** | Port đang lắng nghe |

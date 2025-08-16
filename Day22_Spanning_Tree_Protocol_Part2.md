@@ -42,7 +42,7 @@
 ## 22.9 TÓM TẮT TRẠNG THÁI! [image](https: //github. com/psaumur/CCNA/assets/106411237/f4cea5ca-b90a-423e-9160-f206b8b1621d)
 
 | Trạng thái | Gửi/Nhận Data | Gửi/Nhận BPDU | Học MAC | Thời gian |
-|------------|---------------|---------------|---------|-----------|
+| ------- | ------- | ------- | ------- | ------- |
 | **Blocking** | ❌ | ❌ | ❌ | Stable |
 | **Listening** | ❌ | ✅ | ❌ | 15 giây |
 | **Learning** | ❌ | ✅ | ✅ | 15 giây |

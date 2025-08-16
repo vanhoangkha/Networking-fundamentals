@@ -134,8 +134,8 @@ Octet: 1. 8 + 4 = **12**
 - --
 ## 07.9 CÁC LỚP ĐỊA CHỈ IPv4
 
-Địa chỉ IPv4 được chia thành 5 'lớp' khác nhau. Lớp của một IPv4 được xác định bởi OCTET ĐẦU TIÊN của địa chỉ. | LỚP | OCTET ĐẦU TIÊN | PHẠM VI SỐ OCTET ĐẦU TIÊN |
-|-----|----------------|---------------------------|
+| Địa chỉ IPv4 được chia thành 5 'lớp' khác nhau. Lớp của một IPv4 được xác định bởi OCTET ĐẦU TIÊN của địa chỉ. | LỚP | OCTET ĐẦU TIÊN | PHẠM VI SỐ OCTET ĐẦU TIÊN |
+| ------- | ------- | ------- |
 | A | 0xxxxxxx | 0-126 + 127 'loopback' |
 | B | 10xxxxxx | 128-191 |
 | C | 110xxxxx | 192-223 |

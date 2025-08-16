@@ -14,7 +14,7 @@
 - **PuTTY** là lựa chọn phổ biến
 - Kết nối qua giao thức **Serial**
 | Thông số | Giá trị |
-|----------|---------|
+| ------- | ------- |
 | **Tốc độ (Baud rate)** | 9600 bit/giây |
 | **Bit dữ liệu** | 8 bit |
 | **Bit dừng** | 1 bit |

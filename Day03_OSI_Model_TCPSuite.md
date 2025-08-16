@@ -92,7 +92,7 @@
 - **Kết nối không dây**: Bit số → Tín hiệu radio
 > **Lưu ý**: Tất cả nội dung trong Ngày 2 (Giao diện và Cáp mạng) đều liên quan đến tầng vật lý. ## 03. 4 PDU (Protocol Data Unit) - Đơn vị dữ liệu giao thức! [image](https: //github. com/psaumur/CCNA/assets/106411237/9b885a51-91cd-4fe6-b1be-e7fa7aa220b5)
 | Tầng OSI | Tên PDU | Dữ liệu được thêm |
-|----------|---------|-------------------|
+| ------- | ------- | ------- |
 | 7-5 | **DATA** (Dữ liệu) | Dữ liệu gốc |
 | 4 | **SEGMENT** (Đoạn) | Header tầng 4 |
 | 3 | **PACKET** (Gói tin) | Header tầng 3 |

@@ -85,7 +85,7 @@ Có **BA phương pháp** cấu hình EtherChannel trên Cisco switch: ## 24. 18
 ## 24.22 Bảng thương lượng PAgP: ! [image](https: //github. com/psaumur/CCNA/assets/106411237/9eabb76a-1846-48d3-abb1-bd6898a432e7)
 
 | PAgP Mode 1 | PAgP Mode 2 | Kết quả |
-|-------------|-------------|---------|
+| ------- | ------- | ------- |
 | Auto | Auto | ❌ Không tạo EtherChannel |
 | Auto | Desirable | ✅ Tạo EtherChannel |
 | Desirable | Desirable | ✅ Tạo EtherChannel |
@@ -103,7 +103,7 @@ Creating a Port-channel interface Port-channel1
 ## 24.25 Bảng thương lượng LACP: ! [image](https: //github. com/psaumur/CCNA/assets/106411237/0a314613-d398-49f1-a4d3-1b50fb96ab7d)
 
 | LACP Mode 1 | LACP Mode 2 | Kết quả |
-|-------------|-------------|---------|
+| ------- | ------- | ------- |
 | Passive | Passive | ❌ Không tạo EtherChannel |
 | Passive | Active | ✅ Tạo EtherChannel |
 | Active | Active | ✅ Tạo EtherChannel |
@@ -212,7 +212,7 @@ switch# show etherchannel load-balance
 Hiển thị thông tin về cài đặt cân bằng tải
 ## 24.49 Cấu hình Channel Group: ```
 
-switch(config-if)# channel-group <number> mode {desirable | auto | active | passive | on}
+| switch(config-if)# channel-group <number> mode {desirable | auto | active | passive | on} |
 ```
 Cấu hình Interface là PHẦN của EtherChannel
 ## 24.50 Hiển thị tóm tắt EtherChannel: ```

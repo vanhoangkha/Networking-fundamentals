@@ -8,7 +8,7 @@ Header được sử dụng tại **TẦNG 3** để giúp gửi dữ liệu gi�
 ## 10.2 CÁC TRƯỜNG CỦA HEADER IPv4! [image](https: //github. com/psaumur/CCNA/assets/106411237/f2667488-2769-4e62-bee7-eddbf9e00058)
 
 | TRƯỜNG | SỐ BIT |
-| --- | --- |
+| ------- | ------- |
 | VERSION | 4 |
 | IHL | 4 |
 | DSCP | 6 |

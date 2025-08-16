@@ -26,9 +26,8 @@ Chúng ta đã cấu hình thủ công SWITCHPORT sử dụng: - `switchport mod
 - --
 ## 20.5 BẢNG TƯƠNG THÍCH CÁC CHẾ ĐỘ! [image](https: //github. com/psaumur/CCNA/assets/106411237/93d5e4f4-cb24-4d3f-ba62-fd002581cfbb)
 
-## 20.6 Tóm tắt tương thích: | Chế độ 1 | Chế độ 2 | Kết quả |
-
-|----------|----------|---------|
+| ## 20.6 Tóm tắt tương thích: | Chế độ 1 | Chế độ 2 | Kết quả |
+| ------- | ------- | ------- |
 | Access | Access | Access |
 | Access | Dynamic Desirable | Access |
 | Access | Dynamic Auto | Access |

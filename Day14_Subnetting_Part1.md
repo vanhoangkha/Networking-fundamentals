@@ -4,10 +4,10 @@
 
 **Chỉ có địa chỉ Class A, B, C mới có thể gán cho một Thiết bị như một Địa chỉ IP. **
 | CLASS | PREFIX LENGTH |
-|-------|---------------|
+| ------- | ------- |
 | A | /8 |
 | B | /16 |
-| C | /24 |! [image](https: //github. com/psaumur/CCNA/assets/106411237/f0836136-c4a9-475b-b6c2-d1c550b8cfdd)
+| C | /24 | ! [image](https: //github. com/psaumur/CCNA/assets/106411237/f0836136-c4a9-475b-b6c2-d1c550b8cfdd) |
 ## 14.2 VẤN ĐỀ VỚI HỆ THỐNG CLASSFUL
 
 **IANA (Internet Assigned Numbers Authority)** gán địa chỉ IPv4/mạng cho các công ty dựa trên quy mô của họ. **Vấn đề với việc gán 'CLASSFUL'** là nó dẫn đến lãng phí địa chỉ IP. **Ví dụ: ** Một công ty cần 5000 địa chỉ được gán một IP CLASS B, để lại 60000+ địa chỉ không sử dụng. - --
@@ -26,11 +26,11 @@ Trong đó: **n = số bit host**
 
 **/25** có nghĩa là prefix mạng con là 25 bit
 **203. 0. 113. 0** được viết dưới dạng nhị phân: ```
-1100 1011. 0000 0000. 0111 0001. 0|000 0000
+| 1100 1011.0000 0000.0111 0001.0 | 000 0000 |
 ```
 (Prefix mạng con là 25 bit đầu tiên)
 Chuyển tất cả bit thành 1, ta được **Subnet Mask** cho /25: ```
-1111 1111. 1111 1111. 1111 1111. 1|000 0000
+| 1111 1111.1111 1111.1111 1111.1 | 000 0000 |
 ```
 Bằng: **255. 255. 255. 128** (vì octet cuối là 1000 0000 = 128 trong nhị phân)
 **Số host cho 203. 0. 113. 0/25: **
@@ -38,11 +38,11 @@ Bằng: **255. 255. 255. 128** (vì octet cuối là 1000 0000 = 128 trong nhị
 - --
 ## 14.7 Ví dụ 2: /28 là gì? - *203. 0. 113. 0** được viết dưới dạng nhị phân: ```
 
-1100 1011. 0000 0000. 0111 0001. 0000|0000
+| 1100 1011.0000 0000.0111 0001.0000 | 0000 |
 ```
 (Prefix mạng con là 28 bit đầu tiên)
 Chuyển tất cả bit thành 1, ta được **Subnet Mask** cho /28: ```
-1111 1111. 1111 1111. 1111 1111. 1111|0000
+| 1111 1111.1111 1111.1111 1111.1111 | 0000 |
 ```
 Bằng: **255. 255. 255. 240**
 Tính toán octet cuối: 1111 0000 = 128+64+32+16 = 240
@@ -51,7 +51,7 @@ Tính toán octet cuối: 1111 0000 = 128+64+32+16 = 240
 ## 14.8 BẢNG THAM KHẢO CHIA MẠNG CON
 
 | Kích thước nhóm | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
-|-----------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
 | Subnet Mask | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255 |
 | CIDR | /25 | /26 | /27 | /28 | /29 | /30 | /31 | /32 |
 | Octet thứ 3 | /17 | /18 | /19 | /20 | /21 | /22 | /23 | /24 |

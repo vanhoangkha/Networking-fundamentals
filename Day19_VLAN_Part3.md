@@ -94,9 +94,8 @@ switch(config-if)# IP address 192. 168. 10. 1 255. 255. 255. 0
 switch(config-if)# no shutdown // Kích hoạt SVI
 switch(config-if)# no switchport // Chuyển sang routed port
 ```
-## 19.26 So sánh ROAS vs Layer 3 switch: | Đặc điểm | ROAS | Layer 3 switch |
-
-|----------|------|----------------|
+| ## 19.26 So sánh ROAS vs Layer 3 switch: | Đặc điểm | ROAS | Layer 3 switch |
+| ------- | ------- | ------- |
 | Hiệu suất | Thấp hơn | Cao hơn |
 | Cấu hình | Phức tạp | Đơn giản hơn |
 | Chi phí | Thấp | Cao hơn |

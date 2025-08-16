@@ -11,19 +11,19 @@
 **Kết nối** giữa các thiết bị hoạt động ở một tốc độ xác định, được đo bằng **"bit trên giây" (bps)**. - **Bit**: Đơn vị dữ liệu nhỏ nhất, có giá trị "0" hoặc "1"
 - **Byte**: Bằng 8 bit
 | Đơn vị | Số bit |
-|--------|--------|
-| 1 kilobit (Kb) | 1, 000 |
-| 1 megabit (Mb) | 1, 000, 000 |
-| 1 gigabit (Gb) | 1, 000. 000, 000 |
-| 1 terabit (Tb) | 1, 000, 000, 000, 000 |
+| ------- | ------- |
+| 1 kilobit (Kb) | 1,000 |
+| 1 megabit (Mb) | 1,000,000 |
+| 1 gigabit (Gb) | 1,000,000,000 |
+| 1 terabit (Tb) | 1,000,000,000,000 |
 ## 02.3 Tiêu chuẩn Ethernet
 
-**Tiêu chuẩn IEEE 802. 3** được định nghĩa năm 1983 bởi **IEEE** (Viện Kỹ sư Điện và Điện tử). | Tốc độ | Tên thông dụng | Tiêu chuẩn | Loại cáp | Khoảng cách tối đa |
-|--------|----------------|------------|----------|-------------------|
-| 10 Mbps | Ethernet | 802. 3i | 10BASE-T | 100 m |
-| 100 Mbps | Fast Ethernet | 802. 3u | 100BASE-T | 100 m |
-| 1 Gbps | Gigabit Ethernet | 802. 3ab | 1000BASE-T | 100 m |
-| 10 Gbps | 10 Gigabit Ethernet | 802. 3an | 10GBASE-T | 100 m |
+| **Tiêu chuẩn IEEE 802.3** được định nghĩa năm 1983 bởi **IEEE** (Viện Kỹ sư Điện và Điện tử). | Tốc độ | Tên thông dụng | Tiêu chuẩn | Loại cáp | Khoảng cách tối đa |
+| ------- | ------- | ------- | ------- | ------- |
+| 10 Mbps | Ethernet | 802.3i | 10BASE-T | 100 m |
+| 100 Mbps | Fast Ethernet | 802.3u | 100BASE-T | 100 m |
+| 1 Gbps | Gigabit Ethernet | 802.3ab | 1000BASE-T | 100 m |
+| 10 Gbps | 10 Gigabit Ethernet | 802.3an | 10GBASE-T | 100 m |
 **Giải thích ký hiệu: **
 - **BASE**: Tín hiệu băng tần cơ sở (Baseband signaling)
 - **T**: Cặp xoắn (Twisted Pair)
@@ -59,7 +59,7 @@ router và PC kết nối với switch theo cùng một cách, sử dụng **cá
 - CHÂN #3 ↔ CHÂN #1
 - CHÂN #6 ↔ CHÂN #2
 | Loại thiết bị | Chân truyền (TX) | Chân nhận (RX) |
-|---------------|------------------|----------------|
+| ------- | ------- | ------- |
 | router | 1 và 2 | 3 và 6 |
 | tường lửa | 1 và 2 | 3 và 6 |
 | PC | 1 và 2 | 3 và 6 |
@@ -91,11 +91,11 @@ router và PC kết nối với switch theo cùng một cách, sử dụng **cá
 - Khoảng cách truyền dài hơn UTP nhưng ngắn hơn đơn mode
 - **Chi phí thấp hơn** do sử dụng bộ truyền SFP dựa trên LED
 | Tiêu chuẩn | Chuẩn IEEE | Tốc độ | Loại mode | Khoảng cách tối đa |
-|------------|------------|--------|-----------|-------------------|
-| 1000BASE-LX | 802. 3z | 1 Gbps | Đa mode / Đơn mode | 550 m (Đa) / 5 km (Đơn) |
-| 10GBASE-SR | 802. 3ae | 10 Gbps | Đa mode | 400 m |
-| 10GBASE-LR | 802. 3ae | 10 Gbps | Đơn mode | 10 km |
-| 10GBASE-ER | 802. 3ae | 10 Gbps | Đơn mode | 30 km |
+| ------- | ------- | ------- | ------- | ------- |
+| 1000BASE-LX | 802.3z | 1 Gbps | Đa mode / Đơn mode | 550 m (Đa) / 5 km (Đơn) |
+| 10GBASE-SR | 802.3ae | 10 Gbps | Đa mode | 400 m |
+| 10GBASE-LR | 802.3ae | 10 Gbps | Đơn mode | 10 km |
+| 10GBASE-ER | 802.3ae | 10 Gbps | Đơn mode | 30 km |
 ## 02.8 So sánh cáp UTP và cáp quang
 
 **Ưu điểm: **

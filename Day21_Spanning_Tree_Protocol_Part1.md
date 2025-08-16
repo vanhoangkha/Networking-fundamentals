@@ -95,7 +95,7 @@ Mỗi khi một Khung đến trên SWITCHPORT, switch sử dụng trường **SO
 
 💡 **Chỉ có INTERFACE RA NGOÀI hướng về Root Bridge mới có STP COST; không phải INTERFACE NHẬN VÀO. Cộng tất cả chi phí Port RA NGOÀI cho đến khi bạn đến Root Bridge**! [image](https: //github. com/psaumur/CCNA/assets/106411237/0ee95883-aed8-42a3-ba82-11209ef8cd40)
 | Tốc độ Link | STP Cost |
-|-------------|----------|
+| ------- | ------- |
 | 10 Mbps | 100 |
 | 100 Mbps | 19 |
 | 1 Gbps | 4 |

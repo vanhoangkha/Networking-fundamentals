@@ -108,6 +108,6 @@ Tốt để xác nhận rằng Thiết bị/Giao diện bạn đã cấu hình �
 R1(config)# int g0/0
 R1(config-if)# description ## to SW1 ##
 ```
-Điều này đặt cột 'Description' để hiển thị: | Giao diện | Mô tả |
-|-----------|-------|
+| Điều này đặt cột 'Description' để hiển thị: | Giao diện | Mô tả |
+| ------- | ------- |
 | Gi0/0 | ## to SW1 ## |
