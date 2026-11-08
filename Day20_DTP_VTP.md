@@ -7,7 +7,7 @@
 **DTP được BẬT theo mặc định** trên tất cả Cisco switch Interface
 Chúng ta đã cấu hình thủ công SWITCHPORT sử dụng: - `switchport mode access`
 - `switchport mode trunk`
-💡 **Lệnh kiểm tra:** `show interfaces <interface-id> switchport` sẽ hiển thị cài đặt switchport. **Vì mục đích Bảo mật, khuyến nghị cấu hình thủ công. DTP nên được vô hiệu hóa trên TẤT CẢ SWITCHPORT**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d)
+**Lệnh kiểm tra:** `show interfaces <interface-id> switchport` sẽ hiển thị cài đặt switchport. **Vì mục đích Bảo mật, khuyến nghị cấu hình thủ công. DTP nên được vô hiệu hóa trên TẤT CẢ SWITCHPORT**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/bf716a33-8e11-4c09-bb0b-336ba48ef26d)
 - --
 ## 20.2 CÁC CHẾ ĐỘ DTP
 
@@ -69,7 +69,7 @@ switch(config-if)# switchport mode access
 **switch hỗ trợ cả hai:**
 - 802. 1Q
 - ISL
-Trunk Encapsulation có thể sử dụng DTP để thương lượng Encapsulation sẽ sử dụng. ## 20. 14 Cài đặt mặc định: 💡 `switchport trunk encapsulation negotiate`
+Trunk Encapsulation có thể sử dụng DTP để thương lượng Encapsulation sẽ sử dụng. ## 20. 14 Cài đặt mặc định: `switchport trunk encapsulation negotiate`
 ## 20.14 Quy tắc ưu tiên: - **ISL được ưu tiên hơn 802. 1Q**
 
 - Nếu CẢ HAI switch hỗ trợ ISL, ISL sẽ được chọn
@@ -122,7 +122,7 @@ switch# show vtp status
 - VTP CLIENT đồng bộ hóa VLAN database với nó
 - **VTP SERVER cũng hoạt động như VTP CLIENT**
 - **DO ĐÓ. VTP SERVER sẽ đồng bộ hóa với VTP SERVER khác có Revision Number cao hơn**
-🚨 **Nguy hiểm của VTP:** Kết nối switch cũ với Revision Number cao hơn vào Mạng (và nếu VTP Domain Name khớp), tất cả switch trong Domain sẽ đồng bộ hóa VLAN database với switch đó
+**Nguy hiểm của VTP:** Kết nối switch cũ với Revision Number cao hơn vào Mạng (và nếu VTP Domain Name khớp), tất cả switch trong Domain sẽ đồng bộ hóa VLAN database với switch đó
 - --
 ## 20.27 VTP CLIENT
 

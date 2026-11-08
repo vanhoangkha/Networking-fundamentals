@@ -38,10 +38,10 @@ Host đích: 1. Kiểm tra địa chỉ MAC đích (phải khớp với MAC củ
 ## 13.8 ĐIỂM QUAN TRỌNG CẦN NHỚ
 
 **Khi một HOST gửi gói tin đến HOST khác:**
-✅ **KHÔNG THAY ĐỔI:**
+**KHÔNG THAY ĐỔI:**
 - Địa chỉ IP nguồn và đích trong IP Header
 - Dữ liệu gốc
-⚠️ **THAY ĐỔI TẠI MỖI HOP:**
+**THAY ĐỔI TẠI MỖI HOP:**
 - Địa chỉ MAC nguồn và đích trong Ethernet Header
 - TTL (Time To Live) giảm đi 1
 - --

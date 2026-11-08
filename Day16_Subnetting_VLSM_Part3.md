@@ -151,4 +151,4 @@ Broadcast: 192. 168. 1. 243/30
 
 - **HTTP: //www. subnettingquestions. com**
 - **HTTP: //subnetting. org**
-- **HTTPS: //subnettingpractice. com** ⭐ **(Được khuyến nghị)**
+- **HTTPS: //subnettingpractice. com** **(Được khuyến nghị)**

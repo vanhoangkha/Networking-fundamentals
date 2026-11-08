@@ -20,7 +20,7 @@
 - OSPFv3 (2008): Được sử dụng cho IPv6 (có thể sử dụng cho IPv4. nhưng v2 thường được sử dụng)
 - Routers lưu trữ thông tin về Mạng trong LSAs (Link State Advertisements), được tổ chức trong một cấu trúc gọi là LSDB (Link State Database)
 - Routers sẽ **FLOOD** LSAs cho đến khi tất cả ROUTERS trong *area* OSPF phát triển cùng một bản đồ của Mạng (LSDB)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/2a6a126b-74f1-49e2-96be-fc411c8812fd)
-💡 LSA có một BỘ ĐẾM THỜI GIAN LÃO HÓA là 30 Phút, theo Mặc định. LSA sẽ được FLOOD lại sau khi bộ đếm thời gian hết hạn
+LSA có một BỘ ĐẾM THỜI GIAN LÃO HÓA là 30 Phút, theo Mặc định. LSA sẽ được FLOOD lại sau khi bộ đếm thời gian hết hạn
 Trong OSPF. có BA BƯỚC CHÍNH trong quá trình chia sẻ LSAs và xác định TUYẾN ĐƯỜNG TỐT NHẤT đến mỗi ĐÍCH trong Mạng: 1) **TRỞ THÀNH LÁNG GIỀNG** với các ROUTERS khác được kết nối với cùng Segment
 2) **TRAO ĐỔI LSAs** với các ROUTERS láng giềng
 3) **TÍNH TOÁN CÁC TUYẾN ĐƯỜNG TỐT NHẤT** đến mỗi ĐÍCH, và chèn chúng vào BẢNG ĐỊNH TUYẾN
@@ -40,7 +40,7 @@ Trong OSPF. có BA BƯỚC CHÍNH trong quá trình chia sẻ LSAs và xác đ�
 - **BACKBONE AREA** (Area 0) là AREA mà tất cả các AREAS khác phải kết nối đến
 - CÁC ROUTERS với TẤT CẢ CÁC GIAO DIỆN trong CÙNG MỘT AREA được gọi là INTERNAL ROUTERS
 - CÁC ROUTERS với CÁC GIAO DIỆN trong NHIỀU AREAS được gọi là **AREA BORDER ROUTERS** (ABRs)
-💡 ABRs duy trì một LSDB RIÊNG BIỆT cho mỗi AREA mà chúng được kết nối đến. 💡 Được khuyến nghị rằng bạn kết nối một ABR đến TỐI ĐA HAI AREAS. 💡 Kết nối một ABR đến 3+ AREAS có thể làm quá tải router
+ABRs duy trì một LSDB RIÊNG BIỆT cho mỗi AREA mà chúng được kết nối đến. Được khuyến nghị rằng bạn kết nối một ABR đến TỐI ĐA HAI AREAS. Kết nối một ABR đến 3+ AREAS có thể làm quá tải router
 - CÁC ROUTERS được kết nối với BACKBONE AREA (Area 0) được gọi là **BACKBONE ROUTERS**
 - Một **TUYẾN ĐƯỜNG INTRA-AREA** là tuyến đường đến một ĐÍCH bên trong cùng OSPF AREA
 - Một **TUYẾN ĐƯỜNG INTER-AREA** là tuyến đường đến một ĐÍCH trong một OSPF AREA KHÁC

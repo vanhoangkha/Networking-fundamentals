@@ -65,7 +65,7 @@
 ## 23.13 Chức năng Alternate Port: - **ALTERNATE Port** (được gắn nhãn "A" ở trên) hoạt động như **backup cho ROOT Port**
 
 - Nếu **ROOT Port bị lỗi**. switch có thể **ngay lập tức chuyển** Alternate Port tốt nhất sang **FORWARDING**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/41f3be85-6225-4749-83b4-f76952c5756a)
-💡 **Việc chuyển ngay lập tức sang FORWARDING STATE này hoạt động như tính năng tùy chọn classic STP gọi là UplinkFast. Vì nó được tích hợp vào RSTP, bạn không cần kích hoạt UplinkFast khi sử dụng RSTP/Rapid PVST+**
+**Việc chuyển ngay lập tức sang FORWARDING STATE này hoạt động như tính năng tùy chọn classic STP gọi là UplinkFast. Vì nó được tích hợp vào RSTP, bạn không cần kích hoạt UplinkFast khi sử dụng RSTP/Rapid PVST+**
 - --
 ## 23.14 UPLINKFAST VÀ BACKBONEFAST
 
@@ -73,7 +73,7 @@
 
 - **BackboneFast** cho phép SW3 hết hạn **MAX AGE TIMER** trên Interface và nhanh chóng **FORWARD** các BPDU superior đến SW2
 - **CHỨC NĂNG này được tích hợp vào RSTP**. vì vậy không cần cấu hình
-## 23.16 Tóm tắt: 💡 **UplinkFast và BackboneFast** là hai tính năng tùy chọn trong Classic STP. Chúng phải được cấu hình để hoạt động trên switch (không cần biết cho CCNA)
+## 23.16 Tóm tắt: **UplinkFast và BackboneFast** là hai tính năng tùy chọn trong Classic STP. Chúng phải được cấu hình để hoạt động trên switch (không cần biết cho CCNA)
 
 - **Cả hai tính năng đều được tích hợp vào RSTP**, vì vậy bạn **KHÔNG phải cấu hình** chúng. Chúng hoạt động theo Mặc định
 - Bạn **KHÔNG cần hiểu chi tiết** về chúng cho CCNA. Biết tên và mục đích CƠ BẢN (giúp BLOCKING/DISCARDING PORT nhanh chóng chuyển sang FORWARDING)
@@ -85,12 +85,12 @@
 
 - **Hub KHÔNG được sử dụng** trong mạng hiện đại. vì vậy bạn có thể sẽ **KHÔNG gặp** RSTP BACKUP Port
 - Hoạt động như **BACKUP cho DESIGNATED Port**
-💡 **Interface có Port ID THẤP HƠN sẽ được chọn làm DESIGNATED Port, và interface khác sẽ là BACKUP Port. **! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/61aefc04-b3a9-484a-bbfa-1efe792c73c7)
+**Interface có Port ID THẤP HƠN sẽ được chọn làm DESIGNATED Port, và interface khác sẽ là BACKUP Port. **! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/61aefc04-b3a9-484a-bbfa-1efe792c73c7)
 - --
 ## 23.19 TƯƠNG THÍCH GIỮA RSTP VÀ CLASSIC STP! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/be4d404d-829d-41ab-ba39-34e918ed7ea9)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/b5dec396-d5fc-486b-9110-5dcc2c4dc4aa)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/1930a17b-6c74-4756-b89d-4148008f586b)
 
-💡 **RAPID STP tương thích với CLASSIC STP. **
-💡 **Interface trên RAPID STP-enabled switch kết nối với CLASSIC STP-enabled switch sẽ hoạt động trong CLASSIC STP MODE** (Timer, BLOCKING >>> LISTENING >>> LEARNING >>> FORWARDING, v. v. )
+**RAPID STP tương thích với CLASSIC STP. **
+**Interface trên RAPID STP-enabled switch kết nối với CLASSIC STP-enabled switch sẽ hoạt động trong CLASSIC STP MODE** (Timer, BLOCKING >>> LISTENING >>> LEARNING >>> FORWARDING, v. v. )
 - --
 ## 23.20 RAPID STP BPDU
 

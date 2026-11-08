@@ -43,14 +43,14 @@
 
 | Trạng thái | Gửi/Nhận Data | Gửi/Nhận BPDU | Học MAC | Thời gian |
 | ------- | ------- | ------- | ------- | ------- |
-| **Blocking** | ❌ | ❌ | ❌ | Stable |
-| **Listening** | ❌ | ✅ | ❌ | 15 giây |
-| **Learning** | ❌ | ✅ | ✅ | 15 giây |
-| **Forwarding** | ✅ | ✅ | ✅ | Stable |
+| **Blocking** | No | No | No | Stable |
+| **Listening** | No | Yes | No | 15 giây |
+| **Learning** | No | Yes | Yes | 15 giây |
+| **Forwarding** | Yes | Yes | Yes | Stable |
 - --
 ## 22.10 STP TIMER! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/a174469f-9e75-4645-aff8-d4bfe46fb207)
 
-💡 **switch KHÔNG chuyển tiếp BPDU ra khỏi ROOT PORT và NON-DESIGNATED PORT - CHỈ DESIGNATED PORT của chúng! ! ! **
+**switch KHÔNG chuyển tiếp BPDU ra khỏi ROOT PORT và NON-DESIGNATED PORT - CHỈ DESIGNATED PORT của chúng! ! ! **
 ## 22.11 MAX AGE TIMER (20 giây): - Nếu BPDU khác được nhận **TRƯỚC KHI** MAX AGE TIMER đếm xuống 0, **TIMER sẽ RESET** về 20 Giây và không có thay đổi nào xảy ra
 
 - Nếu BPDU khác **không được nhận**, MAX AGE TIMER đếm xuống 0 và switch sẽ **đánh giá lại** các lựa chọn STP, bao gồm **Root Bridge, LOCAL ROOT. DESIGNATED, và NON-DESIGNATED PORT**
@@ -60,26 +60,26 @@
 **(MAX AGE TIMER + (LISTENING + LEARNING 15 Second timer))**
 ## 22.13 Mục đích của Timer: Những **TIMER và TRẠNG THÁI CHUYỂN TIẾP** này để đảm bảo **VÒNG LẶP không được tạo ra một cách tình cờ** bởi Interface chuyển sang **FORWARDING STATE** quá sớm
 
-## 22.14 Lưu ý quan trọng: 💡 **FORWARDING Interface có thể chuyển TRỰC TIẾP sang trạng thái BLOCKING** (không lo lắng về việc tạo vòng lặp)
+## 22.14 Lưu ý quan trọng: **FORWARDING Interface có thể chuyển TRỰC TIẾP sang trạng thái BLOCKING** (không lo lắng về việc tạo vòng lặp)
 
-💡 **BLOCKING Interface KHÔNG THỂ chuyển TRỰC TIẾP sang trạng thái FORWARDING. Nó phải đi qua trạng thái LISTENING và LEARNING trước! **
+**BLOCKING Interface KHÔNG THỂ chuyển TRỰC TIẾP sang trạng thái FORWARDING. Nó phải đi qua trạng thái LISTENING và LEARNING trước! **
 - --
 ## 22.15 STP BPDU (BRIDGE PROTOCOL DATA UNIT)
 
 ## 22.16 Ethernet Header của BPDU: ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/0e68839f-c4ec-448b-8876-791212462009)
 
-## 22.17 Địa chỉ MAC đặc biệt: 💡 **PVST+** sử dụng địa chỉ MAC:**01: 00: 0c: cc: cc: cd**
+## 22.17 Địa chỉ MAC đặc biệt: **PVST+** sử dụng địa chỉ MAC:**01: 00: 0c: cc: cc: cd**
 
 - **PVST** = CHỈ ISL Trunk Encapsulation
 - **PVST+** = Hỗ trợ 802. 1Q
-💡 **Regular STP** (không phải PVST+ của Cisco) sử dụng địa chỉ MAC:**01: 80: c2: 00: 00: 00**
-💡 **STP TIMER trên Root Bridge xác định TẤT CẢ STP TIMER cho toàn bộ Mạng! **
+**Regular STP** (không phải PVST+ của Cisco) sử dụng địa chỉ MAC:**01: 80: c2: 00: 00: 00**
+**STP TIMER trên Root Bridge xác định TẤT CẢ STP TIMER cho toàn bộ Mạng! **
 - --
 ## 22.18 TÍNH NĂNG TÙY CHỌN STP (STP TOOLKIT)
 
 ## 22.19 PORTFAST: - Có thể được **Kích hoạt trên INTERFACE** được kết nối với **END HOST**
 
-💡 **PORTFAST cho phép Port chuyển ngay lập tức sang trạng thái FORWARDING, bỏ qua LISTENING và LEARNING**
+**PORTFAST cho phép Port chuyển ngay lập tức sang trạng thái FORWARDING, bỏ qua LISTENING và LEARNING**
 ## 22.20 Lưu ý quan trọng: - Nếu sử dụng, nó **phải được BẬT chỉ trên PORT** kết nối với **END HOST**
 
 - Nếu **BẬT trên Port** kết nối với switch khác, nó **có thể gây ra VÒNG LẶP TẦNG 2**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/43c91f09-0d9f-4b81-b5a2-f02003e25b88)
@@ -91,7 +91,7 @@ switch(config-if)# spanning-tree portfast
 ```
 switch(config)# spanning-tree portfast default
 ```
-💡 Lệnh này **BẬT PORTFAST trên TẤT CẢ Access PORT** (không phải Trunk PORT)
+Lệnh này **BẬT PORTFAST trên TẤT CẢ Access PORT** (không phải Trunk PORT)
 - --
 ## 22.22 BPDU GUARD: - Nếu Interface với **BPDU GUARD ENABLED** nhận BPDU từ switch khác, **Interface sẽ bị SHUT DOWN** để ngăn chặn vòng lặp hình thành! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/00c61767-72b4-4d51-b964-f76b6f4f6ae9)
 
@@ -103,12 +103,12 @@ switch(config-if)# spanning-tree bpduguard enable
 ```
 switch(config)# spanning-tree portfast bpduguard default
 ```
-💡 Lệnh này **BẬT BPDU GUARD trên tất cả INTERFACE có PORTFAST**
+Lệnh này **BẬT BPDU GUARD trên tất cả INTERFACE có PORTFAST**
 - --
 ## 22.24 ROOT GUARD / LOOP GUARD: ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/bb38aedc-df38-4d76-b6cb-30319e74ecc1)
 
 **Bạn có thể KHÔNG cần biết những tính năng STP tùy chọn này (hoặc các tính năng khác như UplinkFast, Backbone Fast, v. v. ) cho CCNA. **
-💡 **Nhưng. . . Hãy chắc chắn bạn biết PORTFAST và BPDU GUARD. **
+**Nhưng. . . Hãy chắc chắn bạn biết PORTFAST và BPDU GUARD. **
 - --
 ## 22.25 CẤU HÌNH STP
 
