@@ -21,18 +21,18 @@ class IndividualFileChecker:
         
         # Kiểm tra header chính
         if not lines[0].startswith('# NGÀY'):
-            issues.append("❌ Thiếu header chính 'NGÀY XX:'")
+            issues.append("Thiếu header chính 'NGÀY XX:'")
         else:
             # Kiểm tra format header
             header_match = re.match(r'# NGÀY (\d+): (.+)', lines[0])
             if not header_match:
-                issues.append("❌ Format header không đúng")
+                issues.append("Format header không đúng")
             else:
                 day_num = header_match.group(1)
                 title = header_match.group(2)
                 expected_day = filename.split('_')[0].replace('Day', '').zfill(2)
                 if day_num != expected_day:
-                    issues.append(f"❌ Số ngày không khớp: header có {day_num}, filename có {expected_day}")
+                    issues.append(f"Số ngày không khớp: header có {day_num}, filename có {expected_day}")
         
         # Kiểm tra sections
         sections = []
@@ -45,17 +45,17 @@ class IndividualFileChecker:
                 subsections.append((i+1, line))
         
         if len(sections) < 2:
-            issues.append("⚠️ Ít sections (nên có ít nhất 2 sections)")
+            issues.append("Ít sections (nên có ít nhất 2 sections)")
         
         # Kiểm tra format sections
         for line_num, section in sections:
             if not re.match(r'## \d+\.\d+ .+', section):
-                issues.append(f"❌ Dòng {line_num}: Section format sai '{section[:50]}...'")
+                issues.append(f"Dòng {line_num}: Section format sai '{section[:50]}...'")
         
         # Kiểm tra format subsections
         for line_num, subsection in subsections:
             if not re.match(r'### \d+\.\d+\.\d+ .+', subsection):
-                issues.append(f"❌ Dòng {line_num}: Subsection format sai '{subsection[:50]}...'")
+                issues.append(f"Dòng {line_num}: Subsection format sai '{subsection[:50]}...'")
         
         return issues
     
@@ -66,21 +66,21 @@ class IndividualFileChecker:
         # Kiểm tra độ dài nội dung
         word_count = len(re.findall(r'\b\w+\b', content))
         if word_count < 200:
-            issues.append(f"⚠️ Nội dung quá ngắn ({word_count} từ)")
+            issues.append(f"Nội dung quá ngắn ({word_count} từ)")
         elif word_count > 5000:
-            issues.append(f"⚠️ Nội dung quá dài ({word_count} từ)")
+            issues.append(f"Nội dung quá dài ({word_count} từ)")
         
         # Kiểm tra câu quá dài
         sentences = re.split(r'[.!?]+', content)
         long_sentences = [s for s in sentences if len(s.strip()) > 200]
         if long_sentences:
-            issues.append(f"⚠️ {len(long_sentences)} câu quá dài (>200 ký tự)")
+            issues.append(f"{len(long_sentences)} câu quá dài (>200 ký tự)")
         
         # Kiểm tra đoạn văn quá dài
         paragraphs = content.split('\n\n')
         long_paragraphs = [p for p in paragraphs if len(p.strip()) > 1000]
         if long_paragraphs:
-            issues.append(f"⚠️ {len(long_paragraphs)} đoạn văn quá dài (>1000 ký tự)")
+            issues.append(f"{len(long_paragraphs)} đoạn văn quá dài (>1000 ký tự)")
         
         return issues
     
@@ -93,25 +93,25 @@ class IndividualFileChecker:
             # Kiểm tra headers
             if line.startswith('#'):
                 if not re.match(r'^#+\s+', line):
-                    issues.append(f"❌ Dòng {i}: Header thiếu space sau #")
+                    issues.append(f"Dòng {i}: Header thiếu space sau #")
                 
                 # Kiểm tra level headers hợp lý
                 level = len(line) - len(line.lstrip('#'))
                 if level > 6:
-                    issues.append(f"❌ Dòng {i}: Header level quá sâu ({level})")
+                    issues.append(f"Dòng {i}: Header level quá sâu ({level})")
             
             # Kiểm tra lists
             if re.match(r'^\s*[-*+]\s*$', line):
-                issues.append(f"❌ Dòng {i}: List item trống")
+                issues.append(f"Dòng {i}: List item trống")
             
             # Kiểm tra bold/italic
             bold_count = line.count('**')
             if bold_count % 2 != 0:
-                issues.append(f"❌ Dòng {i}: Bold text không đóng đúng")
+                issues.append(f"Dòng {i}: Bold text không đóng đúng")
             
             italic_count = line.count('*') - bold_count
             if italic_count % 2 != 0:
-                issues.append(f"❌ Dòng {i}: Italic text không đóng đúng")
+                issues.append(f"Dòng {i}: Italic text không đóng đúng")
             
             # Kiểm tra code blocks
             if line.strip() == '```':
@@ -122,18 +122,18 @@ class IndividualFileChecker:
                         found_close = True
                         break
                 if not found_close:
-                    issues.append(f"❌ Dòng {i}: Code block không đóng")
+                    issues.append(f"Dòng {i}: Code block không đóng")
             
             # Kiểm tra links
             if '[' in line and ']' in line and '(' in line and ')' in line:
                 # Kiểm tra format link
                 if not re.search(r'\[([^\]]+)\]\(([^)]+)\)', line):
-                    issues.append(f"❌ Dòng {i}: Link format có thể sai")
+                    issues.append(f"Dòng {i}: Link format có thể sai")
             
             # Kiểm tra images
             if line.strip().startswith('!['):
                 if not re.match(r'!\[([^\]]*)\]\(([^)]+)\)', line.strip()):
-                    issues.append(f"❌ Dòng {i}: Image format sai")
+                    issues.append(f"Dòng {i}: Image format sai")
         
         return issues
     
@@ -173,7 +173,7 @@ class IndividualFileChecker:
         issues = []
         
         if len(table_lines) < 2:
-            issues.append(f"❌ Dòng {start_line}: Bảng cần ít nhất 2 dòng")
+            issues.append(f"Dòng {start_line}: Bảng cần ít nhất 2 dòng")
             return issues
         
         # Kiểm tra header
@@ -183,13 +183,13 @@ class IndividualFileChecker:
         if len(table_lines) > 1:
             separator_cells = len([cell for cell in table_lines[1].split('|') if cell.strip()])
             if header_cells != separator_cells:
-                issues.append(f"❌ Dòng {start_line+1}: Separator không khớp với header")
+                issues.append(f"Dòng {start_line+1}: Separator không khớp với header")
         
         # Kiểm tra data rows
         for i, line in enumerate(table_lines[2:], 2):
             data_cells = len([cell for cell in line.split('|') if cell.strip()])
             if data_cells != header_cells:
-                issues.append(f"❌ Dòng {start_line+i}: Số cột không khớp ({data_cells} vs {header_cells})")
+                issues.append(f"Dòng {start_line+i}: Số cột không khớp ({data_cells} vs {header_cells})")
         
         return issues
     
@@ -223,7 +223,7 @@ class IndividualFileChecker:
             
             wrong_cases = [m for m in matches if m != correct]
             if wrong_cases:
-                issues.append(f"⚠️ Thuật ngữ '{wrong}' nên viết '{correct}' ({len(wrong_cases)} lần)")
+                issues.append(f"Thuật ngữ '{wrong}' nên viết '{correct}' ({len(wrong_cases)} lần)")
         
         return issues
     
@@ -244,7 +244,7 @@ class IndividualFileChecker:
         for wrong, correct in common_typos.items():
             if wrong in content:
                 count = content.count(wrong)
-                issues.append(f"❌ Lỗi chính tả: '{wrong}' → '{correct}' ({count} lần)")
+                issues.append(f"Lỗi chính tả: '{wrong}' → '{correct}' ({count} lần)")
         
         return issues
     
@@ -313,7 +313,7 @@ def main():
     pattern = os.path.join(base_dir, "Day*.md")
     files = glob.glob(pattern)
     
-    print("🔍 KIỂM TRA TỪNG FILE CHI TIẾT")
+    print("KIỂM TRA TỪNG FILE CHI TIẾT")
     print("=" * 50)
     
     results = []
@@ -326,7 +326,7 @@ def main():
         filename = result['file']
         
         if result.get('error'):
-            print(f"❌ {filename}: Lỗi - {result['error']}")
+            print(f"{filename}: Lỗi - {result['error']}")
         else:
             score = result['quality_score']
             total_issues = result['total_issues']
@@ -337,13 +337,13 @@ def main():
             
             # Hiển thị kết quả với màu sắc
             if score >= 90:
-                status = "🟢 XUẤT SẮC"
+                status = "XUẤT SẮC"
             elif score >= 80:
-                status = "🟡 TỐT"
+                status = "TỐT"
             elif score >= 70:
-                status = "🟠 TRUNG BÌNH"
+                status = "TRUNG BÌNH"
             else:
-                status = "🔴 CẦN CẢI THIỆN"
+                status = "CẦN CẢI THIỆN"
             
             print(f"{status} {filename}: {score}/100 điểm ({critical} critical, {warning} warning)")
     
@@ -355,7 +355,7 @@ def main():
         f.write("# BÁO CÁO KIỂM TRA TỪNG FILE CHI TIẾT\n\n")
         f.write(f"**Ngày kiểm tra**: {os.popen('date').read().strip()}\n\n")
         
-        f.write("## 📊 Tổng kết\n\n")
+        f.write("## Tổng kết\n\n")
         f.write(f"- **Tổng số file**: {len(results)}\n")
         f.write(f"- **Điểm trung bình**: {avg_score:.1f}/100\n")
         
@@ -374,7 +374,7 @@ def main():
         best_files = sorted([r for r in results if not r.get('error')], 
                            key=lambda x: x['quality_score'], reverse=True)[:10]
         
-        f.write("## 🏆 Top 10 file chất lượng cao nhất\n\n")
+        f.write("## Top 10 file chất lượng cao nhất\n\n")
         for i, result in enumerate(best_files, 1):
             f.write(f"{i}. **{result['file']}**: {result['quality_score']}/100 điểm\n")
         f.write("\n")
@@ -383,18 +383,18 @@ def main():
         worst_files = sorted([r for r in results if not r.get('error')], 
                             key=lambda x: x['quality_score'])[:10]
         
-        f.write("## ⚠️ Top 10 file cần cải thiện\n\n")
+        f.write("## Top 10 file cần cải thiện\n\n")
         for i, result in enumerate(worst_files, 1):
             f.write(f"{i}. **{result['file']}**: {result['quality_score']}/100 điểm\n")
         f.write("\n")
         
         # Chi tiết từng file
-        f.write("## 📋 Chi tiết từng file\n\n")
+        f.write("## Chi tiết từng file\n\n")
         for result in sorted(results, key=lambda x: x.get('quality_score', 0), reverse=True):
             f.write(f"### {result['file']}\n\n")
             
             if result.get('error'):
-                f.write(f"❌ **Lỗi**: {result['error']}\n\n")
+                f.write(f"**Lỗi**: {result['error']}\n\n")
                 continue
             
             score = result['quality_score']
@@ -414,14 +414,14 @@ def main():
                     f.write("\n")
     
     print("\n" + "=" * 50)
-    print("📊 TỔNG KẾT KIỂM TRA TỪNG FILE:")
-    print(f"✅ Đã kiểm tra: {len(results)} file")
-    print(f"📈 Điểm trung bình: {avg_score:.1f}/100")
-    print(f"🟢 Xuất sắc: {excellent} file")
-    print(f"🟡 Tốt: {good} file") 
-    print(f"🟠 Trung bình: {average} file")
-    print(f"🔴 Cần cải thiện: {poor} file")
-    print(f"📋 Báo cáo chi tiết: INDIVIDUAL_FILE_REPORT.md")
+    print("TỔNG KẾT KIỂM TRA TỪNG FILE:")
+    print(f"Đã kiểm tra: {len(results)} file")
+    print(f"Điểm trung bình: {avg_score:.1f}/100")
+    print(f"Xuất sắc: {excellent} file")
+    print(f"Tốt: {good} file") 
+    print(f"Trung bình: {average} file")
+    print(f"Cần cải thiện: {poor} file")
+    print(f"Báo cáo chi tiết: INDIVIDUAL_FILE_REPORT.md")
 
 if __name__ == "__main__":
     main()
