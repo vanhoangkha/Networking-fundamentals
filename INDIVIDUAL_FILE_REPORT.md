@@ -2,7 +2,7 @@
 
 **Ngày kiểm tra**: Sat Aug 16 09:54:29 UTC 2025
 
-## 📊 Tổng kết
+## Tổng kết
 
 - **Tổng số file**: 66
 - **Điểm trung bình**: 95.4/100
@@ -11,7 +11,7 @@
 - **Trung bình (70-79)**: 1 file
 - **Cần cải thiện (<70)**: 0 file
 
-## 🏆 Top 10 file chất lượng cao nhất
+## Top 10 file chất lượng cao nhất
 
 1. **Day10_The_IPv4_Header.md**: 99/100 điểm
 2. **Day11_Routing_Fundamentals_Part1.md**: 99/100 điểm
@@ -24,7 +24,7 @@
 9. **Day30_First_Hop_Redundancy_Protocols.md**: 98/100 điểm
 10. **Day31_TCP_and_UDP.md**: 98/100 điểm
 
-## ⚠️ Top 10 file cần cải thiện
+## Top 10 file cần cải thiện
 
 1. **Day20_DTP_VTP.md**: 75/100 điểm
 2. **Day16_Subnetting_VLSM_Part3.md**: 81/100 điểm
@@ -37,7 +37,7 @@
 9. **Day12_Static_Routing_Part2.md**: 89/100 điểm
 10. **Day17_VLAN_Part1.md**: 91/100 điểm
 
-## 📋 Chi tiết từng file
+## Chi tiết từng file
 
 ### Day10_The_IPv4_Header.md
 
@@ -47,7 +47,7 @@
 **Tổng vấn đề**: 1 (0 critical, 1 warning)
 
 **Content**:
-- ⚠️ 4 câu quá dài (>200 ký tự)
+- **Warning:** 4 câu quá dài (>200 ký tự)
 
 ### Day11_Routing_Fundamentals_Part1.md
 
@@ -57,7 +57,7 @@
 **Tổng vấn đề**: 1 (0 critical, 1 warning)
 
 **Content**:
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 ### Day13_Life_of_a_Packet.md
 
@@ -67,7 +67,7 @@
 **Tổng vấn đề**: 1 (0 critical, 1 warning)
 
 **Content**:
-- ⚠️ 3 câu quá dài (>200 ký tự)
+- **Warning:** 3 câu quá dài (>200 ký tự)
 
 ### Day21_Spanning_Tree_Protocol_Part1.md
 
@@ -77,8 +77,8 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Content**:
-- ⚠️ 9 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 9 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 ### Day26_RIP_and_EIGRP.md
 
@@ -88,8 +88,8 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Content**:
-- ⚠️ 9 câu quá dài (>200 ký tự)
-- ⚠️ 2 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 9 câu quá dài (>200 ký tự)
+- **Warning:** 2 đoạn văn quá dài (>1000 ký tự)
 
 ### Day27_OSPF_Part1.md
 
@@ -99,8 +99,8 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Content**:
-- ⚠️ 10 câu quá dài (>200 ký tự)
-- ⚠️ 2 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 10 câu quá dài (>200 ký tự)
+- **Warning:** 2 đoạn văn quá dài (>1000 ký tự)
 
 ### Day28_OSPF_Part2.md
 
@@ -110,8 +110,8 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Content**:
-- ⚠️ 16 câu quá dài (>200 ký tự)
-- ⚠️ 2 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 16 câu quá dài (>200 ký tự)
+- **Warning:** 2 đoạn văn quá dài (>1000 ký tự)
 
 ### Day29_OSPF_Part3.md
 
@@ -121,10 +121,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day30_First_Hop_Redundancy_Protocols.md
 
@@ -134,10 +134,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (6 từ)
+- **Warning:** Nội dung quá ngắn (6 từ)
 
 ### Day31_TCP_and_UDP.md
 
@@ -147,10 +147,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day32_IPv6_Part1.md
 
@@ -160,10 +160,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day34_IPv6_Part3.md
 
@@ -173,10 +173,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day35_Standard_Access_Control_Lists.md
 
@@ -186,10 +186,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (6 từ)
+- **Warning:** Nội dung quá ngắn (6 từ)
 
 ### Day36_Extended_Access_Control_Lists.md
 
@@ -199,10 +199,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (6 từ)
+- **Warning:** Nội dung quá ngắn (6 từ)
 
 ### Day37_CDP_and_LLDP.md
 
@@ -212,10 +212,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day38_NTP.md
 
@@ -225,10 +225,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (3 từ)
+- **Warning:** Nội dung quá ngắn (3 từ)
 
 ### Day39_DNS.md
 
@@ -238,10 +238,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (3 từ)
+- **Warning:** Nội dung quá ngắn (3 từ)
 
 ### Day40_DHCP.md
 
@@ -251,10 +251,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (3 từ)
+- **Warning:** Nội dung quá ngắn (3 từ)
 
 ### Day41_SNMP.md
 
@@ -264,10 +264,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (3 từ)
+- **Warning:** Nội dung quá ngắn (3 từ)
 
 ### Day42_SYSLOG.md
 
@@ -277,10 +277,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (3 từ)
+- **Warning:** Nội dung quá ngắn (3 từ)
 
 ### Day43_SSH.md
 
@@ -290,10 +290,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (3 từ)
+- **Warning:** Nội dung quá ngắn (3 từ)
 
 ### Day44_FTP_and_TFTP.md
 
@@ -303,10 +303,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day46_NAT_Dynamic_Part2.md
 
@@ -316,10 +316,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day47_QoS_VoiceLan.md
 
@@ -329,10 +329,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day48_QoS_Quality_of_Service.md
 
@@ -342,10 +342,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (6 từ)
+- **Warning:** Nội dung quá ngắn (6 từ)
 
 ### Day49_Security_Fundamentals.md
 
@@ -355,10 +355,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day50_Port_Security.md
 
@@ -368,10 +368,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day52_Dynamic_Arp_Inspection.md
 
@@ -381,10 +381,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day53_LAN_Architectures.md
 
@@ -394,10 +394,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day54_WAN_Architectures.md
 
@@ -407,10 +407,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day55_Virtualizations_and_Cloud_Part1.md
 
@@ -420,10 +420,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (6 từ)
+- **Warning:** Nội dung quá ngắn (6 từ)
 
 ### Day59_Wireless_Architectures.md
 
@@ -433,10 +433,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day60_Wireless_Security.md
 
@@ -446,10 +446,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day61_Wireless_Configuration.md
 
@@ -459,10 +459,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day62_Introduction_to_Network_Automation.md
 
@@ -472,10 +472,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (6 từ)
+- **Warning:** Nội dung quá ngắn (6 từ)
 
 ### Day63_JSON_XML_YAML.md
 
@@ -485,10 +485,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day64_REST_APIs.md
 
@@ -498,10 +498,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (4 từ)
+- **Warning:** Nội dung quá ngắn (4 từ)
 
 ### Day65_Software_Defined_Networking.md
 
@@ -511,10 +511,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day66_Ansible_Puppet_Chef.md
 
@@ -524,10 +524,10 @@
 **Tổng vấn đề**: 2 (0 critical, 2 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ Nội dung quá ngắn (5 từ)
+- **Warning:** Nội dung quá ngắn (5 từ)
 
 ### Day04_Intro_to_CLI.md
 
@@ -537,10 +537,10 @@
 **Tổng vấn đề**: 2 (1 critical, 1 warning)
 
 **Content**:
-- ⚠️ 8 câu quá dài (>200 ký tự)
+- **Warning:** 8 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 161: Code block không đóng
+- Dòng 161: Code block không đóng
 
 ### Day22_Spanning_Tree_Protocol_Part2.md
 
@@ -550,10 +550,10 @@
 **Tổng vấn đề**: 2 (1 critical, 1 warning)
 
 **Content**:
-- ⚠️ 17 câu quá dài (>200 ký tự)
+- **Warning:** 17 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 194: Code block không đóng
+- Dòng 194: Code block không đóng
 
 ### Day45_NAT_Static_Part1.md
 
@@ -563,11 +563,11 @@
 **Tổng vấn đề**: 3 (0 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 3 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 3 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 ### Day56_Virtualization_Containers.md
 
@@ -577,11 +577,11 @@
 **Tổng vấn đề**: 3 (0 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 7 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 7 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 ### Day57_Virtualization_VRF_Part3.md
 
@@ -591,11 +591,11 @@
 **Tổng vấn đề**: 3 (0 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 2 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 2 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 ### Day15_Subnetting_Part2.md
 
@@ -605,8 +605,8 @@
 **Tổng vấn đề**: 2 (2 critical, 0 warning)
 
 **Markdown**:
-- ❌ Dòng 9: Bold text không đóng đúng
-- ❌ Dòng 35: Bold text không đóng đúng
+- Dòng 9: Bold text không đóng đúng
+- Dòng 35: Bold text không đóng đúng
 
 ### Day25_DynamicRouting.md
 
@@ -616,11 +616,11 @@
 **Tổng vấn đề**: 3 (1 critical, 2 warning)
 
 **Content**:
-- ⚠️ 8 câu quá dài (>200 ký tự)
-- ⚠️ 4 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 8 câu quá dài (>200 ký tự)
+- **Warning:** 4 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 59: Link format có thể sai
+- Dòng 59: Link format có thể sai
 
 ### Day01_Network_Devices.md
 
@@ -630,14 +630,14 @@
 **Tổng vấn đề**: 4 (1 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 2 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 2 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 3: Bold text không đóng đúng
+- Dòng 3: Bold text không đóng đúng
 
 ### Day05_Ethernet_LAN_Switching_Part1.md
 
@@ -647,14 +647,14 @@
 **Tổng vấn đề**: 4 (1 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 4 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 4 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 12: Italic text không đóng đúng
+- Dòng 12: Italic text không đóng đúng
 
 ### Day06_Ethernet_LAN_Switching_Part2.md
 
@@ -664,14 +664,14 @@
 **Tổng vấn đề**: 4 (1 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 4 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 4 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 9: Link format có thể sai
+- Dòng 9: Link format có thể sai
 
 ### Day18_VLAN_Part2.md
 
@@ -681,11 +681,11 @@
 **Tổng vấn đề**: 3 (2 critical, 1 warning)
 
 **Content**:
-- ⚠️ 5 câu quá dài (>200 ký tự)
+- **Warning:** 5 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 19: Bold text không đóng đúng
-- ❌ Dòng 155: Code block không đóng
+- Dòng 19: Bold text không đóng đúng
+- Dòng 155: Code block không đóng
 
 ### Day33_IPv6_Part2.md
 
@@ -695,14 +695,14 @@
 **Tổng vấn đề**: 4 (1 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 14 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 14 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Tables**:
-- ❌ Dòng 3: Bảng cần ít nhất 2 dòng
+- Dòng 3: Bảng cần ít nhất 2 dòng
 
 ### Day03_OSI_Model_TCPSuite.md
 
@@ -712,12 +712,12 @@
 **Tổng vấn đề**: 4 (2 critical, 2 warning)
 
 **Content**:
-- ⚠️ 8 câu quá dài (>200 ký tự)
-- ⚠️ 2 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 8 câu quá dài (>200 ký tự)
+- **Warning:** 2 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 3: Bold text không đóng đúng
-- ❌ Dòng 103: Code block không đóng
+- Dòng 3: Bold text không đóng đúng
+- Dòng 103: Code block không đóng
 
 ### Day51_DHCP_Snooping.md
 
@@ -727,15 +727,15 @@
 **Tổng vấn đề**: 5 (2 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 9 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 9 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 3: Bold text không đóng đúng
-- ❌ Dòng 3: Italic text không đóng đúng
+- Dòng 3: Bold text không đóng đúng
+- Dòng 3: Italic text không đóng đúng
 
 ### Day58_Wireless_Fundamentals.md
 
@@ -745,15 +745,15 @@
 **Tổng vấn đề**: 5 (2 critical, 3 warning)
 
 **Structure**:
-- ⚠️ Ít sections (nên có ít nhất 2 sections)
+- **Warning:** Ít sections (nên có ít nhất 2 sections)
 
 **Content**:
-- ⚠️ 19 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 19 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 3: Bold text không đóng đúng
-- ❌ Dòng 3: Italic text không đóng đúng
+- Dòng 3: Bold text không đóng đúng
+- Dòng 3: Italic text không đóng đúng
 
 ### Day09_Switch_Interfaces.md
 
@@ -763,13 +763,13 @@
 **Tổng vấn đề**: 5 (3 critical, 2 warning)
 
 **Content**:
-- ⚠️ 4 câu quá dài (>200 ký tự)
-- ⚠️ 1 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 4 câu quá dài (>200 ký tự)
+- **Warning:** 1 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 43: Bold text không đóng đúng
-- ❌ Dòng 46: Bold text không đóng đúng
-- ❌ Dòng 64: Code block không đóng
+- Dòng 43: Bold text không đóng đúng
+- Dòng 46: Bold text không đóng đúng
+- Dòng 64: Code block không đóng
 
 ### Day17_VLAN_Part1.md
 
@@ -779,13 +779,13 @@
 **Tổng vấn đề**: 5 (4 critical, 1 warning)
 
 **Content**:
-- ⚠️ 3 câu quá dài (>200 ký tự)
+- **Warning:** 3 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 3: Bold text không đóng đúng
-- ❌ Dòng 12: Bold text không đóng đúng
-- ❌ Dòng 15: Bold text không đóng đúng
-- ❌ Dòng 93: Code block không đóng
+- Dòng 3: Bold text không đóng đúng
+- Dòng 12: Bold text không đóng đúng
+- Dòng 15: Bold text không đóng đúng
+- Dòng 93: Code block không đóng
 
 ### Day24_Etherchannel.md
 
@@ -795,15 +795,15 @@
 **Tổng vấn đề**: 5 (4 critical, 1 warning)
 
 **Content**:
-- ⚠️ 11 câu quá dài (>200 ký tự)
+- **Warning:** 11 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 3: Bold text không đóng đúng
-- ❌ Dòng 31: Bold text không đóng đúng
-- ❌ Dòng 226: Code block không đóng
+- Dòng 3: Bold text không đóng đúng
+- Dòng 31: Bold text không đóng đúng
+- Dòng 226: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 215: Bảng cần ít nhất 2 dòng
+- Dòng 215: Bảng cần ít nhất 2 dòng
 
 ### Day08_IPv4_Addressing_Part2.md
 
@@ -813,16 +813,16 @@
 **Tổng vấn đề**: 6 (5 critical, 1 warning)
 
 **Content**:
-- ⚠️ 3 câu quá dài (>200 ký tự)
+- **Warning:** 3 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 9: Bold text không đóng đúng
-- ❌ Dòng 14: Bold text không đóng đúng
-- ❌ Dòng 110: Code block không đóng
+- Dòng 9: Bold text không đóng đúng
+- Dòng 14: Bold text không đóng đúng
+- Dòng 110: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 112: Separator không khớp với header
-- ❌ Dòng 113: Số cột không khớp (2 vs 3)
+- Dòng 112: Separator không khớp với header
+- Dòng 113: Số cột không khớp (2 vs 3)
 
 ### Day12_Static_Routing_Part2.md
 
@@ -832,14 +832,14 @@
 **Tổng vấn đề**: 6 (5 critical, 1 warning)
 
 **Content**:
-- ⚠️ 1 câu quá dài (>200 ký tự)
+- **Warning:** 1 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 8: Bold text không đóng đúng
-- ❌ Dòng 20: Link format có thể sai
-- ❌ Dòng 33: Link format có thể sai
-- ❌ Dòng 44: Link format có thể sai
-- ❌ Dòng 57: Code block không đóng
+- Dòng 8: Bold text không đóng đúng
+- Dòng 20: Link format có thể sai
+- Dòng 33: Link format có thể sai
+- Dòng 44: Link format có thể sai
+- Dòng 57: Code block không đóng
 
 ### Day02_Interfaces_and_Cables.md
 
@@ -849,15 +849,15 @@
 **Tổng vấn đề**: 7 (5 critical, 2 warning)
 
 **Content**:
-- ⚠️ 7 câu quá dài (>200 ký tự)
-- ⚠️ 2 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 7 câu quá dài (>200 ký tự)
+- **Warning:** 2 đoạn văn quá dài (>1000 ký tự)
 
 **Tables**:
-- ❌ Dòng 22: Separator không khớp với header
-- ❌ Dòng 23: Số cột không khớp (5 vs 6)
-- ❌ Dòng 24: Số cột không khớp (5 vs 6)
-- ❌ Dòng 25: Số cột không khớp (5 vs 6)
-- ❌ Dòng 26: Số cột không khớp (5 vs 6)
+- Dòng 22: Separator không khớp với header
+- Dòng 23: Số cột không khớp (5 vs 6)
+- Dòng 24: Số cột không khớp (5 vs 6)
+- Dòng 25: Số cột không khớp (5 vs 6)
+- Dòng 26: Số cột không khớp (5 vs 6)
 
 ### Day19_VLAN_Part3.md
 
@@ -867,17 +867,17 @@
 **Tổng vấn đề**: 7 (6 critical, 1 warning)
 
 **Content**:
-- ⚠️ 5 câu quá dài (>200 ký tự)
+- **Warning:** 5 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 96: Code block không đóng
+- Dòng 96: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 98: Separator không khớp với header
-- ❌ Dòng 99: Số cột không khớp (3 vs 4)
-- ❌ Dòng 100: Số cột không khớp (3 vs 4)
-- ❌ Dòng 101: Số cột không khớp (3 vs 4)
-- ❌ Dòng 102: Số cột không khớp (3 vs 4)
+- Dòng 98: Separator không khớp với header
+- Dòng 99: Số cột không khớp (3 vs 4)
+- Dòng 100: Số cột không khớp (3 vs 4)
+- Dòng 101: Số cột không khớp (3 vs 4)
+- Dòng 102: Số cột không khớp (3 vs 4)
 
 ### Day14_Subnetting_Part1.md
 
@@ -887,18 +887,18 @@
 **Tổng vấn đề**: 8 (7 critical, 1 warning)
 
 **Content**:
-- ⚠️ 2 câu quá dài (>200 ký tự)
+- **Warning:** 2 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 39: Bold text không đóng đúng
-- ❌ Dòng 135: Code block không đóng
+- Dòng 39: Bold text không đóng đúng
+- Dòng 135: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 10: Số cột không khớp (3 vs 2)
-- ❌ Dòng 29: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 33: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 41: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 45: Bảng cần ít nhất 2 dòng
+- Dòng 10: Số cột không khớp (3 vs 2)
+- Dòng 29: Bảng cần ít nhất 2 dòng
+- Dòng 33: Bảng cần ít nhất 2 dòng
+- Dòng 41: Bảng cần ít nhất 2 dòng
+- Dòng 45: Bảng cần ít nhất 2 dòng
 
 ### Day23_Rapid_Spanning_Tree_Protocol.md
 
@@ -908,17 +908,17 @@
 **Tổng vấn đề**: 8 (7 critical, 1 warning)
 
 **Content**:
-- ⚠️ 14 câu quá dài (>200 ký tự)
+- **Warning:** 14 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 196: Code block không đóng
+- Dòng 196: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 41: Separator không khớp với header
-- ❌ Dòng 42: Số cột không khớp (3 vs 4)
-- ❌ Dòng 43: Số cột không khớp (3 vs 4)
-- ❌ Dòng 44: Số cột không khớp (3 vs 4)
-- ❌ Dòng 45: Số cột không khớp (3 vs 4)
+- Dòng 41: Separator không khớp với header
+- Dòng 42: Số cột không khớp (3 vs 4)
+- Dòng 43: Số cột không khớp (3 vs 4)
+- Dòng 44: Số cột không khớp (3 vs 4)
+- Dòng 45: Số cột không khớp (3 vs 4)
 - ... và 1 vấn đề khác
 
 ### Day07_IPv4_Addressing_Part1.md
@@ -929,18 +929,18 @@
 **Tổng vấn đề**: 9 (7 critical, 2 warning)
 
 **Content**:
-- ⚠️ 5 câu quá dài (>200 ký tự)
-- ⚠️ 2 đoạn văn quá dài (>1000 ký tự)
+- **Warning:** 5 câu quá dài (>200 ký tự)
+- **Warning:** 2 đoạn văn quá dài (>1000 ký tự)
 
 **Markdown**:
-- ❌ Dòng 100: Code block không đóng
+- Dòng 100: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 138: Separator không khớp với header
-- ❌ Dòng 139: Số cột không khớp (3 vs 4)
-- ❌ Dòng 140: Số cột không khớp (3 vs 4)
-- ❌ Dòng 141: Số cột không khớp (3 vs 4)
-- ❌ Dòng 142: Số cột không khớp (3 vs 4)
+- Dòng 138: Separator không khớp với header
+- Dòng 139: Số cột không khớp (3 vs 4)
+- Dòng 140: Số cột không khớp (3 vs 4)
+- Dòng 141: Số cột không khớp (3 vs 4)
+- Dòng 142: Số cột không khớp (3 vs 4)
 - ... và 1 vấn đề khác
 
 ### Day16_Subnetting_VLSM_Part3.md
@@ -951,17 +951,17 @@
 **Tổng vấn đề**: 10 (9 critical, 1 warning)
 
 **Content**:
-- ⚠️ 1 câu quá dài (>200 ký tự)
+- **Warning:** 1 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 123: Code block không đóng
+- Dòng 123: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 10: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 15: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 45: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 56: Bảng cần ít nhất 2 dòng
-- ❌ Dòng 72: Bảng cần ít nhất 2 dòng
+- Dòng 10: Bảng cần ít nhất 2 dòng
+- Dòng 15: Bảng cần ít nhất 2 dòng
+- Dòng 45: Bảng cần ít nhất 2 dòng
+- Dòng 56: Bảng cần ít nhất 2 dòng
+- Dòng 72: Bảng cần ít nhất 2 dòng
 - ... và 3 vấn đề khác
 
 ### Day20_DTP_VTP.md
@@ -972,16 +972,16 @@
 **Tổng vấn đề**: 13 (12 critical, 1 warning)
 
 **Content**:
-- ⚠️ 12 câu quá dài (>200 ký tự)
+- **Warning:** 12 câu quá dài (>200 ký tự)
 
 **Markdown**:
-- ❌ Dòng 188: Code block không đóng
+- Dòng 188: Code block không đóng
 
 **Tables**:
-- ❌ Dòng 30: Separator không khớp với header
-- ❌ Dòng 31: Số cột không khớp (3 vs 4)
-- ❌ Dòng 32: Số cột không khớp (3 vs 4)
-- ❌ Dòng 33: Số cột không khớp (3 vs 4)
-- ❌ Dòng 34: Số cột không khớp (3 vs 4)
+- Dòng 30: Separator không khớp với header
+- Dòng 31: Số cột không khớp (3 vs 4)
+- Dòng 32: Số cột không khớp (3 vs 4)
+- Dòng 33: Số cột không khớp (3 vs 4)
+- Dòng 34: Số cột không khớp (3 vs 4)
 - ... và 6 vấn đề khác
 

@@ -99,7 +99,7 @@ LƯU Ý các số Metric lớn. Đây là NHƯỢC ĐIỂM của EIGRP - ngay c�
 
 - Theo mặc định, EIGRP sử dụng BANDWIDTH và DELAY để tính toán Metric
 - Các giá trị "K" mặc định là: - K1 = 1, K2 = 0. K3 = 1, K4 = 0, K5 = 0
-💡 **Tính toán đơn giản**: Metric = BANDWIDTH (Liên kết Chậm nhất) + DELAY (của TẤT CẢ CÁC LIÊN KẾT)
+**Tính toán đơn giản**: Metric = BANDWIDTH (Liên kết Chậm nhất) + DELAY (của TẤT CẢ CÁC LIÊN KẾT)
 - --
 ## 26.10 THUẬT NGỮ EIGRP
 
@@ -114,4 +114,4 @@ LƯU Ý các số Metric lớn. Đây là NHƯỢC ĐIỂM của EIGRP - ngay c�
 "maximum-paths 4" = giá trị Mặc định
 Variance 1 = chỉ cân bằng tải ECMP (Equal-Cost MultIPle Path) sẽ được thực hiện! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/824dac1d-38dc-4e7e-bb48-b382918230ff)
 Variance 2 = các tuyến đường ***feasible successor*** với FD lên đến 2x FD của tuyến đường ***successor*** có thể dùng để cân bằng tải
-💡 EIGRP sẽ chỉ thực hiện CÂN BẰNG TẢI CHI PHÍ KHÔNG BẰNG NHAU trên các TUYẾN ĐƯỜNG ***feasible successor***. Nếu một tuyến đường không đáp ứng ***điều kiện khả thi***, nó sẽ KHÔNG BAO GIỜ được chọn cho cân bằng tải, bất kể **variance**
+EIGRP sẽ chỉ thực hiện CÂN BẰNG TẢI CHI PHÍ KHÔNG BẰNG NHAU trên các TUYẾN ĐƯỜNG ***feasible successor***. Nếu một tuyến đường không đáp ứng ***điều kiện khả thi***, nó sẽ KHÔNG BAO GIỜ được chọn cho cân bằng tải, bất kể **variance**

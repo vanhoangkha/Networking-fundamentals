@@ -14,7 +14,7 @@
 - Do đó FastEthernet (100 mbps), Gigabit Ethernet (1000 mbps). 10 Gig Ethernet, v. v. đều BẰNG NHAU và tất cả đều có CHI PHÍ là 1
 **CHI PHÍ FastEthernet**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/453258a2-e724-4bf5-b07c-6c533dcef46c)
 **CHI PHÍ Gigabit Ethernet**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/17adfd0e-8944-4016-93bd-98b82ceb8a66)
-Bạn có thể (và NÊN) thay đổi BĂNG THÔNG THAM CHIẾU bằng lệnh này: 💡 `R1(config-router)# auto-cost reference-bandwidth megabits-per-second`
+Bạn có thể (và NÊN) thay đổi BĂNG THÔNG THAM CHIẾU bằng lệnh này: `R1(config-router)# auto-cost reference-bandwidth megabits-per-second`
 Lệnh được nhập bằng "megabits per second" (Mặc định là "100")
 Ví dụ: sử dụng giá trị "100000"
 - 100000 / 100 = CHI PHÍ 1000 cho FastEthernet
@@ -26,10 +26,10 @@ Thay đổi BĂNG THÔNG THAM CHIẾU cần được thực hiện trên TẤT C
 
 CHI PHÍ OSPF đến một ĐÍCH là TỔNG CHI PHÍ của các 'GIAO DIỆN outgoing/exit'
 CÁC GIAO DIỆN LOOPBACK có CHI PHÍ là 1! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ef8de0f8-c22d-4259-bf4c-6fc9894bae29)
-Để THAY ĐỔI CHI PHÍ OSPF của một Giao diện, bạn sử dụng lệnh: 💡 `R1(config-if)# IP ospf cost <cost>`
+Để THAY ĐỔI CHI PHÍ OSPF của một Giao diện, bạn sử dụng lệnh: `R1(config-if)# IP ospf cost <cost>`
 CHI PHÍ THỦ CÔNG có ưu tiên hơn CHI PHÍ TÍNH TOÁN TỰ ĐỘNG
 Một tùy chọn khác để thay đổi CHI PHÍ OSPF của một Giao diện là thay đổi BĂNG THÔNG của Giao diện bằng lệnh **"bandwidth"**
-CÔNG THỨC TÍNH TOÁN CHI PHÍ OSPF là: 💡 **băng thông tham chiếu / băng thông giao diện**
+CÔNG THỨC TÍNH TOÁN CHI PHÍ OSPF là: **băng thông tham chiếu / băng thông giao diện**
 - Mặc dù BĂNG THÔNG khớp với TỐC ĐỘ Giao diện (theo Mặc định). việc thay đổi BĂNG THÔNG Giao diện **không thực sự thay đổi tốc độ mà Giao diện hoạt động**
 - BĂNG THÔNG chỉ là GIÁ TRỊ dùng để tính toán CHI PHÍ OSPF, Metric EIGRP, v. v. - Để THAY ĐỔI TỐC ĐỘ mà Giao diện hoạt động, sử dụng lệnh **"speed"**
 - Vì GIÁ TRỊ BĂNG THÔNG được sử dụng trong các tính toán khác. KHÔNG được khuyến nghị thay đổi GIÁ TRỊ này để thay đổi CHI PHÍ OSPF của Giao diện
@@ -37,10 +37,10 @@ CÔNG THỨC TÍNH TOÁN CHI PHÍ OSPF là: 💡 **băng thông tham chiếu / b
 - --
 ## 28.3 TÓM TẮT: BA CÁCH ĐỂ THAY ĐỔI CHI PHÍ OSPF: 1) Thay đổi ***băng thông tham chiếu***
 
-💡 `R1(config-router)# auto-cost reference-bandwidth megabits-per-second`
-2) Cấu hình Thủ công: 💡 `R1(config-if)# IP ospf cost <cost>`
+`R1(config-router)# auto-cost reference-bandwidth megabits-per-second`
+2) Cấu hình Thủ công: `R1(config-if)# IP ospf cost <cost>`
 3) Thay đổi ***băng thông giao diện***
-💡 `R1(config-if)# bandwidth kilobits-per-second`! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/aba02fbc-174c-41a1-a8e3-0ffdda3a6cbd)
+`R1(config-if)# bandwidth kilobits-per-second`! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/aba02fbc-174c-41a1-a8e3-0ffdda3a6cbd)
 - --
 ## 28.4 TRỞ THÀNH LÁNG GIỀNG OSPF
 
@@ -114,10 +114,10 @@ CÔNG THỨC TÍNH TOÁN CHI PHÍ OSPF là: 💡 **băng thông tham chiếu / b
 ## 28.14 CẤU HÌNH OSPF NÂNG CAO
 
 **Kích hoạt OSPF TRỰC TIẾP trên một Giao diện bằng lệnh này:**
-💡 `R1(config-if)# IP ospf process-id area area`! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ad7aafd6-9cd8-4259-bd32-aff7b5893b46)
+`R1(config-if)# IP ospf process-id area area`! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ad7aafd6-9cd8-4259-bd32-aff7b5893b46)
 **Cấu hình TẤT CẢ CÁC GIAO DIỆN làm OSPF Passive Interfaces**
-💡 `R1(config-router)# passive-interface default`! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/e953696d-283f-4676-8df2-9aff0418d78d)
-Sau đó có thể LOẠI BỎ các GIAO DIỆN cụ thể khỏi việc là passive bằng cách sử dụng: 💡 `R1(config-router)# no passive-interface interface-id`
+`R1(config-router)# passive-interface default`! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/e953696d-283f-4676-8df2-9aff0418d78d)
+Sau đó có thể LOẠI BỎ các GIAO DIỆN cụ thể khỏi việc là passive bằng cách sử dụng: `R1(config-router)# no passive-interface interface-id`
 Kích hoạt OSPF TRỰC TIẾP trên CÁC GIAO DIỆN sẽ hiển thị đầu ra khác trong "show IP protocols"! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/915e31ee-4fee-455b-a947-229e0af4b182)
 Chúng sẽ xuất hiện dưới "Routing on Interfaces Configured Explicitly (Area #): " (như trên)
 **Hiển thị OSPF LSDB của một Thiết bị**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/75c941ca-b6bd-45f0-9a85-c7e5baff4654)

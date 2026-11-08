@@ -67,7 +67,7 @@ switch(config)# port-channel load-balance src-dst-IP
 Có **BA phương pháp** cấu hình EtherChannel trên Cisco switch: ## 24. 18 PAgP (Port Aggregation Protocol)
 - **Giao thức độc quyền của Cisco**
 - **Thương lượng động** việc tạo/duy trì EtherChannel (như DTP làm cho trunk)
-## 24.18 LACP (Link Aggregation Control Protocol) 💡
+## 24.18 LACP (Link Aggregation Control Protocol)
 
 - **Giao thức tiêu chuẩn công nghiệp** (IEEE 802. 3ad)
 - **Thương lượng động** việc tạo/duy trì EtherChannel (như DTP làm cho trunk)
@@ -81,32 +81,32 @@ Có **BA phương pháp** cấu hình EtherChannel trên Cisco switch: ## 24. 18
 - --
 ## 24.21 CẤU HÌNH PAgP! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/d0c734e2-79ad-43ad-a50b-c17ced608021)
 
-💡 **Lưu ý rằng "auto" và "desirable" là các chế độ DUY NHẤT có sẵn cho PAgP**
+**Lưu ý rằng "auto" và "desirable" là các chế độ DUY NHẤT có sẵn cho PAgP**
 ## 24.22 Bảng thương lượng PAgP: ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/9eabb76a-1846-48d3-abb1-bd6898a432e7)
 
 | PAgP Mode 1 | PAgP Mode 2 | Kết quả |
 | ------- | ------- | ------- |
-| Auto | Auto | ❌ Không tạo EtherChannel |
-| Auto | Desirable | ✅ Tạo EtherChannel |
-| Desirable | Desirable | ✅ Tạo EtherChannel |
+| Auto | Auto | Không tạo EtherChannel |
+| Auto | Desirable | Tạo EtherChannel |
+| Desirable | Desirable | Tạo EtherChannel |
 ## 24.23 Cấu hình PAgP: ```
 
 switch(config-if-range)# channel-group 1 mode desirable
 Creating a Port-channel interface Port-channel1
 ```! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/bc0c1190-9e39-4ea2-923c-b29e03e9d40a)
 **Số "channel-group" phải KHỚP cho các INTERFACE thành viên trên cùng switch. Nó KHÔNG phải KHỚP số "channel-group" trên switch KHÁC! **
-💡 **(channel-group 1 trên AWS1 có thể tạo EtherChannel với channel-group 2 trên DSW1)**
+**(channel-group 1 trên AWS1 có thể tạo EtherChannel với channel-group 2 trên DSW1)**
 - --
 ## 24.24 CẤU HÌNH LACP! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/ba4adcf6-dec5-456f-b8d7-ab4e6b722cbf)
 
-💡 **Lưu ý rằng "active" và "passive" là các chế độ DUY NHẤT có sẵn cho LACP**
+**Lưu ý rằng "active" và "passive" là các chế độ DUY NHẤT có sẵn cho LACP**
 ## 24.25 Bảng thương lượng LACP: ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/0a314613-d398-49f1-a4d3-1b50fb96ab7d)
 
 | LACP Mode 1 | LACP Mode 2 | Kết quả |
 | ------- | ------- | ------- |
-| Passive | Passive | ❌ Không tạo EtherChannel |
-| Passive | Active | ✅ Tạo EtherChannel |
-| Active | Active | ✅ Tạo EtherChannel |
+| Passive | Passive | Không tạo EtherChannel |
+| Passive | Active | Tạo EtherChannel |
+| Active | Active | Tạo EtherChannel |
 ## 24.26 Cấu hình LACP: ```
 
 switch(config-if-range)# channel-group 1 mode active
@@ -115,7 +115,7 @@ switch(config-if-range)# channel-group 1 mode active
 - --
 ## 24.27 CẤU HÌNH STATIC ETHERCHANNEL! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/92db26e7-21ae-40c6-89ee-abe0197ed8ad)
 
-💡 **Lưu ý rằng "on" là chế độ DUY NHẤT có sẵn cho STATIC EtherChannel**
+**Lưu ý rằng "on" là chế độ DUY NHẤT có sẵn cho STATIC EtherChannel**
 ## 24.28 Quy tắc Static EtherChannel: - **ON mode chỉ hoạt động với ON Mode**
 
 - **ON + desirable = KHÔNG HOẠT ĐỘNG**
@@ -145,7 +145,7 @@ switch(config-if)# switchport trunk allowed VLAN 1, 10. 20, 30
 ```
 ## 24.35 Kiểm tra cấu hình: ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/6adda3dd-6408-445f-bb3f-61847b3920b6)
 
-💡 **LưU Ý: Các INTERFACE VẬT LÝ (g0/0-g0/3) được tự động cấu hình bởi cấu hình Port-channel1! **
+**LưU Ý: Các INTERFACE VẬT LÝ (g0/0-g0/3) được tự động cấu hình bởi cấu hình Port-channel1! **
 - --
 ## 24.36 LƯU Ý QUAN TRỌNG VỀ CẤU HÌNH ETHERCHANNEL
 
@@ -176,7 +176,7 @@ switch# show etherchannel port-channel
 ```
 switch# show spanning-tree
 ```! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/df0b9cc8-0448-4bbd-aefa-62fadf2b6089)
-💡 **"show spanning-tree" sẽ hiển thị Port Interface EtherChannel duy nhất**
+**"show spanning-tree" sẽ hiển thị Port Interface EtherChannel duy nhất**
 - --
 ## 24.42 LAYER 3 ETHERCHANNEL! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/c553ad64-1d8e-4a2a-a741-3102c89dc030)
 

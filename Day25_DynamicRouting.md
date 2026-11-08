@@ -4,9 +4,9 @@
 
 - LAYER 3
 - Bao gồm việc cấu hình một Giao thức Định tuyến ĐỘNG trên router và để router tự động tìm kiếm các tuyến đường tốt nhất đến các MẠNG ĐÍCH. - Không cố định (sẽ thích ứng với các thay đổi trong mạng LAN)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/deb9abf6-6e21-4c94-a407-bfc501a1d739)
-💡 **Tuyến đường Mạng**: Một tuyến đường đến một Mạng hoặc Mạng con (Độ dài Mask < /32)
+**Tuyến đường Mạng**: Một tuyến đường đến một Mạng hoặc Mạng con (Độ dài Mask < /32)
 Ví dụ:**10. 0. 12. 0/30** và **10. 0. 13. 0/30** (ở trên) là các TUYẾN ĐƯỜNG MẠNG
-💡 **Tuyến đường HOST**: Một tuyến đường đến một HOST cụ thể (Mask /32)
+**Tuyến đường HOST**: Một tuyến đường đến một HOST cụ thể (Mask /32)
 Ví dụ:**10. 0. 12. 1/32** và **10. 0. 13. 1/32** (ở trên) là các TUYẾN ĐƯỜNG HOST
 Hai TUYẾN ĐƯỜNG này được TỰ ĐỘNG thêm vào các GIAO DIỆN G0/0 và G1/0 của R1
 - --
@@ -35,7 +35,7 @@ CÁC GIAO THỨC ĐỊNH TUYẾN ĐỘNG có thể chia thành HAI danh mục ch
 **IGP** - Được sử dụng để CHIA SẺ TUYẾN ĐƯỜNG trong một *hệ thống tự trị* (AS) duy nhất. là tổ chức duy nhất (ví dụ: một công ty)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/06af6c77-3a03-44fa-8c55-9382347d3f5e)
 **EGP** - Được sử dụng để CHIA SẺ TUYẾN ĐƯỜNG *giữa* các *hệ thống tự trị (AS)* khác nhau! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/37680a4b-caab-4e1d-ac64-00a799bd965f)
 Các thuật toán được sử dụng cho IGP và EGP và các Giao thức cho từng loại! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/36729569-0e56-4eb2-91ee-e7cd25a8c234)
-💡 BẠN PHẢI GHI NHỚ THUẬT TOÁN NÀO ĐƯỢC SỬ DỤNG CHO TỪNG GIAO THỨC CHO CCNA! - --
+BẠN PHẢI GHI NHỚ THUẬT TOÁN NÀO ĐƯỢC SỬ DỤNG CHO TỪNG GIAO THỨC CHO CCNA! - --
 ## 25.5 CÁC GIAO THỨC ĐỊNH TUYẾN DISTANCE VECTOR
 
 - Được gọi là DISTANCE VECTOR vì các ROUTERS chỉ học 'khoảng cách' (Metric) và 'vector' (HƯỚNG. router NEXT-HOP) của mỗi tuyến đường
@@ -54,10 +54,10 @@ MỖI GIAO THỨC ĐỊNH TUYẾN sử dụng một Metric khác nhau để xác
 Ở trên chọn ĐƯỜNG ĐỎ vì "chi phí". sử dụng R3 F2/0 và R4 F2/0 (FastEthernet) CAO HƠN so với R2 G1/0 và R4 G0/0 (GigabyteEthernet)
 Nếu CẢ HAI kết nối đều là GigabyteEthernet thì sao? (tức là: cùng giá trị Metric)! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/3f8437cc-5b38-4f1e-b185-c5e9fce6c5f1)
 CẢ HAI TUYẾN ĐƯỜNG được thêm vào BẢNG ĐỊNH TUYẾN
-Vậy. . . 💡 Nếu một router học được HAI (hoặc nhiều hơn) TUYẾN ĐƯỜNG qua cùng một GIAO THỨC ĐỊNH TUYẾN đến cùng một ĐÍCH (cùng Địa chỉ Mạng. cùng mask Mạng con) với cùng Metric, cả hai sẽ được thêm vào bảng định tuyến. Traffic sẽ được CÂN BẰNG TẢI trên cả hai TUYẾN ĐƯỜNG! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/79662f99-a847-457b-8080-76f77c25c5e6)
+Vậy. . . Nếu một router học được HAI (hoặc nhiều hơn) TUYẾN ĐƯỜNG qua cùng một GIAO THỨC ĐỊNH TUYẾN đến cùng một ĐÍCH (cùng Địa chỉ Mạng. cùng mask Mạng con) với cùng Metric, cả hai sẽ được thêm vào bảng định tuyến. Traffic sẽ được CÂN BẰNG TẢI trên cả hai TUYẾN ĐƯỜNG! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/79662f99-a847-457b-8080-76f77c25c5e6)
 "O" = Giao thức OSPF (bên cạnh TUYẾN ĐƯỜNG)
 [110/3]: - phần "3" là Metric. - phần "110" là Khoảng cách Quản trị (sẽ đề cập sau)
-💡 Vì CẢ HAI TUYẾN ĐƯỜNG có cùng Metric. điều này được gọi là ECMP (EQUAL COST MULTI-PATH)
+Vì CẢ HAI TUYẾN ĐƯỜNG có cùng Metric. điều này được gọi là ECMP (EQUAL COST MULTI-PATH)
 Bạn có thể có ECMP với CÁC TUYẾN ĐƯỜNG TĨNH, cũng như vậy (nhưng chúng không sử dụng Metric)
 - --
 ## 25.7 TÓM TẮT CÁC METRICS KHÁC NHAU! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/7b8390aa-46d4-49d3-83a4-03ba095bf927)
@@ -77,7 +77,7 @@ Sử dụng OSPF, chỉ tuyến đường từ R1 > R2 > R4 sẽ được thêm 
 ## 25.9 CÁC SỐ KHOẢNG CÁCH QUẢN TRỊ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/0f5ea405-d321-41bc-b2c0-2185874d07db)
 
 (SỬ DỤNG FLASHCARDS ĐỂ GHI NHỚ NHỮNG SỐ NÀY)
-💡 NẾU Khoảng cách Quản trị là 255. router không tin tưởng NGUỒN của tuyến đường đó và không cài đặt tuyến đường vào BẢNG ĐỊNH TUYẾN! ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/33dbbe2b-7471-4c17-ae27-4d363d115a4c)
+NẾU Khoảng cách Quản trị là 255. router không tin tưởng NGUỒN của tuyến đường đó và không cài đặt tuyến đường vào BẢNG ĐỊNH TUYẾN! ! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/33dbbe2b-7471-4c17-ae27-4d363d115a4c)
 Metric dùng để SO SÁNH CÁC TUYẾN ĐƯỜNG được học từ CÙNG MỘT GIAO THỨC ĐỊNH TUYẾN
 Tuy nhiên, trước khi so sánh METRICS. AD dùng để chọn TUYẾN ĐƯỜNG TỐT NHẤT
 Do đó, TUYẾN ĐƯỜNG TỐT NHẤT là: "next hop 192. 168. 3. 1. được học qua OSPF (AD thấp hơn RIP), Metric 10"

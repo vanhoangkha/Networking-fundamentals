@@ -39,7 +39,7 @@ Mỗi khi một Khung đến trên SWITCHPORT, switch sử dụng trường **SO
 - **STP ngăn chặn VÒNG LẶP TẦNG 2** bằng cách đặt các PORT dự phòng trong trạng thái **BLOCKING**. về cơ bản vô hiệu hóa Interface
 - Những **INTERFACE này hoạt động như bản sao lưu** có thể vào trạng thái **FORWARDING** nếu Interface đang hoạt động (=hiện đang forwarding) bị lỗi
 - **INTERFACE trong trạng thái BLOCKING** chỉ gửi hoặc nhận thông điệp STP (gọi là **BPDU = Bridge Protocol Data Units**)
-💡 **Spanning Tree Protocol vẫn sử dụng thuật ngữ "Bridge". Tuy nhiên, khi sử dụng thuật ngữ "Bridge", chúng ta thực sự có nghĩa là "switch". BRIDGE không được sử dụng trong mạng hiện đại. **! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/f253770d-22fa-4e3f-91b0-8f2b4c2f1a61)
+**Spanning Tree Protocol vẫn sử dụng thuật ngữ "Bridge". Tuy nhiên, khi sử dụng thuật ngữ "Bridge", chúng ta thực sự có nghĩa là "switch". BRIDGE không được sử dụng trong mạng hiện đại. **! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/f253770d-22fa-4e3f-91b0-8f2b4c2f1a61)
 **Interface MÀU CAM bị "BLOCKED" gây ra sự gián đoạn trong vòng lặp**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/45125471-da23-4753-b5b1-16c23a2bfeff)
 **Nếu có thay đổi trong kết nối, lưu lượng sẽ điều chỉnh Cấu trúc mạng. **
 - --
@@ -93,7 +93,7 @@ Mỗi khi một Khung đến trên SWITCHPORT, switch sử dụng trường **SO
 - --
 ## 21.21 BẢNG STP COST
 
-💡 **Chỉ có INTERFACE RA NGOÀI hướng về Root Bridge mới có STP COST; không phải INTERFACE NHẬN VÀO. Cộng tất cả chi phí Port RA NGOÀI cho đến khi bạn đến Root Bridge**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/0ee95883-aed8-42a3-ba82-11209ef8cd40)
+**Chỉ có INTERFACE RA NGOÀI hướng về Root Bridge mới có STP COST; không phải INTERFACE NHẬN VÀO. Cộng tất cả chi phí Port RA NGOÀI cho đến khi bạn đến Root Bridge**! [image](HTTPS: //github. com/psaumur/CCNA/assets/106411237/0ee95883-aed8-42a3-ba82-11209ef8cd40)
 | Tốc độ Link | STP Cost |
 | ------- | ------- |
 | 10 Mbps | 100 |
