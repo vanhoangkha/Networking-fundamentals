@@ -63,11 +63,11 @@ def fix_day15_issues():
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
         
-        print("✅ Đã sửa Day15_Subnetting_Part2.md")
+        print("Đã sửa Day15_Subnetting_Part2.md")
         return True
         
     except Exception as e:
-        print(f"❌ Lỗi khi sửa Day15: {e}")
+        print(f"Lỗi khi sửa Day15: {e}")
         return False
 
 def fix_day20_issues():
@@ -87,11 +87,11 @@ def fix_day20_issues():
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
         
-        print("✅ Đã sửa Day20_DTP_VTP.md")
+        print("Đã sửa Day20_DTP_VTP.md")
         return True
         
     except Exception as e:
-        print(f"❌ Lỗi khi sửa Day20: {e}")
+        print(f"Lỗi khi sửa Day20: {e}")
         return False
 
 def fix_common_issues():
@@ -125,12 +125,12 @@ def fix_common_issues():
                 fixed_count += 1
                 
         except Exception as e:
-            print(f"❌ Lỗi khi sửa {os.path.basename(file_path)}: {e}")
+            print(f"Lỗi khi sửa {os.path.basename(file_path)}: {e}")
     
-    print(f"✅ Đã sửa {fixed_count} file với các lỗi phổ biến")
+    print(f"Đã sửa {fixed_count} file với các lỗi phổ biến")
 
 def main():
-    print("🔧 SỬA CÁC VẤN ĐỀ CỤ THỂ")
+    print("SỬA CÁC VẤN ĐỀ CỤ THỂ")
     print("=" * 30)
     
     # Sửa file có vấn đề nghiêm trọng
@@ -140,7 +140,7 @@ def main():
     # Sửa các lỗi phổ biến
     fix_common_issues()
     
-    print("\n🎉 Hoàn thành sửa lỗi!")
+    print("\nHoàn thành sửa lỗi!")
 
 if __name__ == "__main__":
     main()
